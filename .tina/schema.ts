@@ -59,44 +59,94 @@ const CallToActionBlock: TinaTemplate = {
 };
 
 const QuoteBlock: TinaTemplate = {
-  name: 'quote',
-  label: 'Quote',
+  name: "quote",
+  label: "Quote",
+  fields: [
+    {
+      name: "quote",
+      label: "Quote",
+      type: "string",
+    },
+    {
+      name: "author",
+      label: "author",
+      type: "string",
+    },
+  ],
+};
+
+const GalleryBlock: TinaTemplate = {
+  name: "gallery",
+  label: "Gallery",
+  fields: [
+    {
+      name: "gallery",
+      label: "Images",
+      list: true,
+      type: "object",
+      fields: [
+        {
+          name: "image",
+          label: "Single Image",
+          type: "image",
+        },
+        {
+          name: "alt",
+          label: "Alternative Descirption",
+          type: "string",
+        },
+      ],
+    },
+  ],
+};
+
+const FactBlock: TinaTemplate = {
+  name: "fact",
+  label: "Facts",
+  fields: [
+    {
+      name: "fact",
+      label: "Facts",
+      list: true,
+      type: "object",
+      fields: [
+        {
+          name: "headline",
+          label: "Headline",
+          type: "string",
+        },
+        {
+          name: "subheadline",
+          label: "Subheadline",
+          type: "string",
+        },
+      ],
+    },
+  ],
+};
+
+const LogoBlock: TinaTemplate = {
+  name: 'logos',
+  label: 'Logos',
   fields:[
     {
-      name: 'quote',
-      label: 'Quote',
+      name: 'headline',
+      label: 'Headline',
       type: 'string',
     },
     {
-      name: 'author',
-      label: 'author',
-      type: 'string',
-    }
-  ]
-}
-
-const GalleryBlock: TinaTemplate = {
-  name: 'gallery',
-  label: 'Gallery',
-  fields: [
-    {
-      name: 'gallery',
-      label: 'Images',
+      name: "logos",
+      label: "Logos",
       list: true,
-      type: 'object',
-      fields:[
+      type: "object",
+      fields: [
         {
-          name: 'image',
-          label: 'Single Image',
-          type: 'image',
+          name: "logo",
+          label: "Single Logo",
+          type: "image",
         },
-        {
-          name: 'alt',
-          label: 'Alternative Descirption',
-          type: 'string',
-        }
-      ]
-    }
+      ],
+    },
   ]
 }
 
@@ -104,7 +154,14 @@ const GalleryBlock: TinaTemplate = {
 
 // Variables
 
-const blocks = [HeroBlock, CallToActionBlock, QuoteBlock, GalleryBlock];
+const blocks = [
+  HeroBlock,
+  CallToActionBlock,
+  QuoteBlock,
+  GalleryBlock,
+  FactBlock,
+  LogoBlock,
+];
 const category = [
   "Geo Tech",
   "Data Sience",

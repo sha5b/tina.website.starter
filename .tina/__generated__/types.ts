@@ -218,7 +218,29 @@ export type PageBlocksGallery = {
   gallery?: Maybe<Array<Maybe<PageBlocksGalleryGallery>>>;
 };
 
-export type PageBlocks = PageBlocksHero | PageBlocksCta | PageBlocksQuote | PageBlocksGallery;
+export type PageBlocksFactFact = {
+  __typename?: 'PageBlocksFactFact';
+  headline?: Maybe<Scalars['String']>;
+  subheadline?: Maybe<Scalars['String']>;
+};
+
+export type PageBlocksFact = {
+  __typename?: 'PageBlocksFact';
+  fact?: Maybe<Array<Maybe<PageBlocksFactFact>>>;
+};
+
+export type PageBlocksLogosLogos = {
+  __typename?: 'PageBlocksLogosLogos';
+  logo?: Maybe<Scalars['String']>;
+};
+
+export type PageBlocksLogos = {
+  __typename?: 'PageBlocksLogos';
+  headline?: Maybe<Scalars['String']>;
+  logos?: Maybe<Array<Maybe<PageBlocksLogosLogos>>>;
+};
+
+export type PageBlocks = PageBlocksHero | PageBlocksCta | PageBlocksQuote | PageBlocksGallery | PageBlocksFact | PageBlocksLogos;
 
 export type Page = Node & Document & {
   __typename?: 'Page';
@@ -401,11 +423,31 @@ export type PageBlocksGalleryMutation = {
   gallery?: InputMaybe<Array<InputMaybe<PageBlocksGalleryGalleryMutation>>>;
 };
 
+export type PageBlocksFactFactMutation = {
+  headline?: InputMaybe<Scalars['String']>;
+  subheadline?: InputMaybe<Scalars['String']>;
+};
+
+export type PageBlocksFactMutation = {
+  fact?: InputMaybe<Array<InputMaybe<PageBlocksFactFactMutation>>>;
+};
+
+export type PageBlocksLogosLogosMutation = {
+  logo?: InputMaybe<Scalars['String']>;
+};
+
+export type PageBlocksLogosMutation = {
+  headline?: InputMaybe<Scalars['String']>;
+  logos?: InputMaybe<Array<InputMaybe<PageBlocksLogosLogosMutation>>>;
+};
+
 export type PageBlocksMutation = {
   hero?: InputMaybe<PageBlocksHeroMutation>;
   cta?: InputMaybe<PageBlocksCtaMutation>;
   quote?: InputMaybe<PageBlocksQuoteMutation>;
   gallery?: InputMaybe<PageBlocksGalleryMutation>;
+  fact?: InputMaybe<PageBlocksFactMutation>;
+  logos?: InputMaybe<PageBlocksLogosMutation>;
 };
 
 export type PageMutation = {
@@ -424,7 +466,7 @@ export type MapMutation = {
   date?: InputMaybe<Scalars['String']>;
 };
 
-export type PagePartsFragment = { __typename?: 'Page', blocks?: Array<{ __typename: 'PageBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null } | { __typename: 'PageBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PageBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PageBlocksQuote', quote?: string | null, author?: string | null } | { __typename: 'PageBlocksGallery', gallery?: Array<{ __typename: 'PageBlocksGalleryGallery', image?: string | null, alt?: string | null } | null> | null } | null> | null };
+export type PagePartsFragment = { __typename?: 'Page', blocks?: Array<{ __typename: 'PageBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null } | { __typename: 'PageBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PageBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PageBlocksQuote', quote?: string | null, author?: string | null } | { __typename: 'PageBlocksGallery', gallery?: Array<{ __typename: 'PageBlocksGalleryGallery', image?: string | null, alt?: string | null } | null> | null } | { __typename: 'PageBlocksFact', fact?: Array<{ __typename: 'PageBlocksFactFact', headline?: string | null, subheadline?: string | null } | null> | null } | { __typename: 'PageBlocksLogos', headline?: string | null, logos?: Array<{ __typename: 'PageBlocksLogosLogos', logo?: string | null } | null> | null } | null> | null };
 
 export type PostPartsFragment = { __typename?: 'Post', title?: string | null, category?: Array<string | null> | null, date?: string | null, description?: string | null, ogimage?: string | null };
 
@@ -435,7 +477,7 @@ export type PageQueryVariables = Exact<{
 }>;
 
 
-export type PageQuery = { __typename?: 'Query', page: { __typename?: 'Page', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PageBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null } | { __typename: 'PageBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PageBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PageBlocksQuote', quote?: string | null, author?: string | null } | { __typename: 'PageBlocksGallery', gallery?: Array<{ __typename: 'PageBlocksGalleryGallery', image?: string | null, alt?: string | null } | null> | null } | null> | null } };
+export type PageQuery = { __typename?: 'Query', page: { __typename?: 'Page', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PageBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null } | { __typename: 'PageBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PageBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PageBlocksQuote', quote?: string | null, author?: string | null } | { __typename: 'PageBlocksGallery', gallery?: Array<{ __typename: 'PageBlocksGalleryGallery', image?: string | null, alt?: string | null } | null> | null } | { __typename: 'PageBlocksFact', fact?: Array<{ __typename: 'PageBlocksFactFact', headline?: string | null, subheadline?: string | null } | null> | null } | { __typename: 'PageBlocksLogos', headline?: string | null, logos?: Array<{ __typename: 'PageBlocksLogosLogos', logo?: string | null } | null> | null } | null> | null } };
 
 export type PageConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -446,7 +488,7 @@ export type PageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type PageConnectionQuery = { __typename?: 'Query', pageConnection: { __typename?: 'PageConnection', totalCount: number, edges?: Array<{ __typename?: 'PageConnectionEdges', node?: { __typename?: 'Page', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PageBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null } | { __typename: 'PageBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PageBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PageBlocksQuote', quote?: string | null, author?: string | null } | { __typename: 'PageBlocksGallery', gallery?: Array<{ __typename: 'PageBlocksGalleryGallery', image?: string | null, alt?: string | null } | null> | null } | null> | null } | null } | null> | null } };
+export type PageConnectionQuery = { __typename?: 'Query', pageConnection: { __typename?: 'PageConnection', totalCount: number, edges?: Array<{ __typename?: 'PageConnectionEdges', node?: { __typename?: 'Page', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PageBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null } | { __typename: 'PageBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PageBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PageBlocksQuote', quote?: string | null, author?: string | null } | { __typename: 'PageBlocksGallery', gallery?: Array<{ __typename: 'PageBlocksGalleryGallery', image?: string | null, alt?: string | null } | null> | null } | { __typename: 'PageBlocksFact', fact?: Array<{ __typename: 'PageBlocksFactFact', headline?: string | null, subheadline?: string | null } | null> | null } | { __typename: 'PageBlocksLogos', headline?: string | null, logos?: Array<{ __typename: 'PageBlocksLogosLogos', logo?: string | null } | null> | null } | null> | null } | null } | null> | null } };
 
 export type PostQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -511,6 +553,20 @@ export const PagePartsFragmentDoc = gql`
         __typename
         image
         alt
+      }
+    }
+    ... on PageBlocksFact {
+      fact {
+        __typename
+        headline
+        subheadline
+      }
+    }
+    ... on PageBlocksLogos {
+      headline
+      logos {
+        __typename
+        logo
       }
     }
   }

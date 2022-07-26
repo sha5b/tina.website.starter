@@ -1,12 +1,16 @@
+// Node Import
 import { staticRequest } from "tinacms";
 import { Layout } from "../components/Layout";
 import { useTina } from "tinacms/dist/edit-state";
+// End
 
 // Block Import
 import { HeroBlock } from "../components/blocks/HeroBlock";
 import { CallToActionBlock } from "../components/blocks/CallToActionBlock";
 import { QuoteBlock } from "../components/blocks/QuoteBlock";
-import { GalleryBlock } from '../components/blocks/GalleryBlock'
+import { GalleryBlock } from "../components/blocks/GalleryBlock";
+import { FactBlock } from "../components/blocks/FactBlock";
+import { LogoBlock } from "../components/blocks/LogoBLock";
 // End
 
 const query = `{
@@ -37,6 +41,20 @@ const query = `{
         gallery {
           image
           alt
+        }
+      }
+      ... on PageBlocksFact {
+        __typename
+        fact {
+          headline
+          subheadline
+        }
+      }
+      ... on PageBlocksLogos {
+        __typename
+        headline
+        logos {
+          logo
         }
       }
     }
@@ -85,9 +103,25 @@ export default function Home(props) {
                   <>
                     {console.log("Gallery")}
                     {console.log(block)}
-                    <GalleryBlock block={block}/>
+                    <GalleryBlock block={block} />
                   </>
                 );
+              case "PageBlocksFact":
+                return (
+                  <>
+                    {console.log("Fact")}
+                    {console.log(block)}
+                    <FactBlock block={block}/>
+                  </>
+                );
+              case 'PageBlocksLogos':
+                return(
+                  <>
+                  {console.log('Logos')}
+                  {console.log(block)}
+                  <LogoBlock block={block}/>
+                  </>
+                )
             }
           })
         : null}

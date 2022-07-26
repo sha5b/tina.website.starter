@@ -1,16 +1,18 @@
 export const FactBlock = ({ block, i }) => {
   return (
     <div key={block.id + i}>
-      {block.fact
-        ? block.fact?.map((item, i) => {
-            return (
-              <>
-                <h1>{item.headline}</h1>
-                <h2>{item.subheadline}</h2>
-              </>
-            );
-          })
-        : null}
+      {block.fact?.map((item) => {
+        return(
+          <>
+          {item && (
+            <>
+            <div>{item.headline}</div>
+            <div>{item.subheadline}</div>
+            </>
+          )}
+          </>
+        )
+      })}
     </div>
   );
 };

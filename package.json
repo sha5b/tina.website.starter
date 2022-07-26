@@ -1,5 +1,5 @@
 {
-  "name": "starter-basic",
+  "name": "telesis.at",
   "private": true,
   "scripts": {
     "dev": "tinacms server:start -c \"next dev\"",
@@ -22,5 +22,11 @@
   },
   "resolutions": {
     "@headlessui/react": "1.4.1"
-  }
+  },
+  "version": "0.1.0",
+  "description": "telesis website ",
+  "main": "index.js",
+  "repository": "https://github.com/sha5b/telesis.website.starter.git",
+  "author": "sha5b <ned.tabulov@gmail.com>",
+  "license": "MIT"
 }

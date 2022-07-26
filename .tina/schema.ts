@@ -1,5 +1,40 @@
-import { defineConfig, defineSchema } from "tinacms";
+import { defineConfig, defineSchema, TinaTemplate } from "tinacms";
 
+// Block Section
+
+const heroBlock: TinaTemplate = {
+  name: "hero",
+  label: "Hero",
+  fields: [
+    {
+      name: "title",
+      label: "Title",
+      type: "string",
+    },
+    {
+      name: "subtitle",
+      label: "Subtitle",
+      type: "string",
+    },
+    
+  ],
+};
+
+// Block Section End
+
+// Variables
+
+const blocks = [heroBlock];
+const category = [
+  "Geo Tech",
+  "Data Sience",
+  "Knowledge Management",
+  "Ecosystem Service",
+  "Integral Technical Planning",
+  "Sustainable Cities & Living Spaces",
+];
+
+// End
 const schema = defineSchema({
   config: {
     media: {
@@ -11,23 +46,25 @@ const schema = defineSchema({
   },
   collections: [
     {
-      label: "Page Content",
+      label: "Pages",
       name: "page",
       path: "content/page",
       format: "mdx",
       fields: [
         {
-          name: "body",
-          label: "Main Content",
-          type: "rich-text",
-          isBody: true,
+          name: "blocks",
+          label: "Page Block Section",
+          type: "object",
+          list: true,
+          templates: blocks,
         },
       ],
     },
     {
-      label: "Blog Posts",
+      label: "Posts",
       name: "post",
       path: "content/post",
+      format: "mdx",
       fields: [
         {
           type: "string",
@@ -35,13 +72,29 @@ const schema = defineSchema({
           name: "title",
         },
         {
+          name: 'category',
+          label: 'Category',
+          type: 'string',
+          list: true,
+          options: category,
+        },
+        {
+          name: 'date',
+          label: 'Published Date',
+          type: 'datetime',
+        },
+        {
           type: "string",
-          label: "Blog Post Body",
-          name: "body",
-          isBody: true,
+          label: "Description",
+          name: "description",
           ui: {
             component: "textarea",
           },
+        },
+        {
+          name: 'ogimage',
+          label: 'og:image',
+          type: 'image'
         },
       ],
     },

@@ -79,8 +79,15 @@ type Collection {
 
 union DocumentNode = Page | Post
 
+type PageBlocksHero {
+  title: String
+  subtitle: String
+}
+
+union PageBlocks = PageBlocksHero
+
 type Page implements Node & Document {
-  body: JSON
+  blocks: [PageBlocks]
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -99,7 +106,10 @@ type PageConnection implements Connection {
 
 type Post implements Node & Document {
   title: String
-  body: String
+  category: [String]
+  date: String
+  description: String
+  ogimage: String
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -132,13 +142,25 @@ input DocumentMutation {
   post: PostMutation
 }
 
+input PageBlocksHeroMutation {
+  title: String
+  subtitle: String
+}
+
+input PageBlocksMutation {
+  hero: PageBlocksHeroMutation
+}
+
 input PageMutation {
-  body: JSON
+  blocks: [PageBlocksMutation]
 }
 
 input PostMutation {
   title: String
-  body: String
+  category: [String]
+  date: String
+  description: String
+  ogimage: String
 }
 
 schema {

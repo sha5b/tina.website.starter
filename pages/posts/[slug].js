@@ -5,7 +5,6 @@ import { useTina } from "tinacms/dist/edit-state";
 const query = `query getPost($relativePath: String!) {
   post(relativePath: $relativePath) {
     title
-    body
   }
 }
 `;
@@ -60,7 +59,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (ctx) => {
   const variables = {
-    relativePath: ctx.params.slug + ".md",
+    relativePath: ctx.params.slug + ".mdx",
   };
   let data = {};
   try {

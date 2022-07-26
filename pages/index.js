@@ -1,11 +1,15 @@
 import { staticRequest } from "tinacms";
-import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { Layout } from "../components/Layout";
 import { useTina } from "tinacms/dist/edit-state";
 
 const query = `{
   page(relativePath: "home.mdx"){
-    body
+    blocks {
+      ... on PageBlocksHero {
+        __typename
+        title
+      }
+    }
   }
 }`;
 
@@ -17,10 +21,21 @@ export default function Home(props) {
     data: props.data,
   });
 
-  const content = data.page.body;
   return (
     <Layout>
-      <TinaMarkdown content={content} />
+      {data.page
+        ? data.page.blocks?.map((block, i) => {
+            switch (block.__typename) {
+              case "PageBlocksHero":
+                return <>
+                {console.log(block)}
+                <div key={block.id + i}>
+                  {block.title}
+                </div>
+                </>;
+            }
+          })
+        : null}
     </Layout>
   );
 }

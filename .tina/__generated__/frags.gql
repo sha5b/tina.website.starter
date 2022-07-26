@@ -1,8 +1,17 @@
 fragment PageParts on Page {
-  body
+  blocks {
+    __typename
+    ... on PageBlocksHero {
+      title
+      subtitle
+    }
+  }
 }
 
 fragment PostParts on Post {
   title
-  body
+  category
+  date
+  description
+  ogimage
 }

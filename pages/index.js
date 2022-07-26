@@ -87,7 +87,7 @@ export default function Home(props) {
                   <>
                     {console.log("Call to Action")}
                     {console.log(block)}
-                    <CallToActionBlock block={block} />
+                    <CallToActionBlock i={i} block={block} />
                   </>
                 );
               case "PageBlocksQuote":
@@ -95,7 +95,7 @@ export default function Home(props) {
                   <>
                     {console.log("Quote")}
                     {console.log(block)}
-                    <QuoteBlock block={block} />
+                    <QuoteBlock i={i} block={block} />
                   </>
                 );
               case "PageBlocksGallery":
@@ -103,7 +103,7 @@ export default function Home(props) {
                   <>
                     {console.log("Gallery")}
                     {console.log(block)}
-                    <GalleryBlock block={block} />
+                    <GalleryBlock i={i} block={block} />
                   </>
                 );
               case "PageBlocksFact":
@@ -111,7 +111,7 @@ export default function Home(props) {
                   <>
                     {console.log("Fact")}
                     {console.log(block)}
-                    <FactBlock block={block}/>
+                    <FactBlock i={i} block={block}/>
                   </>
                 );
               case 'PageBlocksLogos':
@@ -119,7 +119,7 @@ export default function Home(props) {
                   <>
                   {console.log('Logos')}
                   {console.log(block)}
-                  <LogoBlock block={block}/>
+                  <LogoBlock i={i} block={block}/>
                   </>
                 )
             }

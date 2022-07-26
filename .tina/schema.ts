@@ -2,7 +2,7 @@ import { defineConfig, defineSchema, TinaTemplate } from "tinacms";
 
 // Block Section
 
-const heroBlock: TinaTemplate = {
+const HeroBlock: TinaTemplate = {
   name: "hero",
   label: "Hero",
   fields: [
@@ -16,15 +16,95 @@ const heroBlock: TinaTemplate = {
       label: "Subtitle",
       type: "string",
     },
-    
+    {
+      name: "image",
+      label: "Image",
+      type: "image",
+    },
   ],
 };
+
+const CallToActionBlock: TinaTemplate = {
+  name: "cta",
+  label: "Call to Action",
+  fields: [
+    {
+      name: "title",
+      label: "Title",
+      type: "string",
+    },
+    {
+      name: "subtitle",
+      label: "Subtitle",
+      type: "string",
+    },
+    {
+      name: "button",
+      label: "Button",
+      type: "object",
+      fields: [
+        {
+          name: "label",
+          label: "Label",
+          type: "string",
+        },
+        {
+          name: "href",
+          label: "Href",
+          type: "string",
+        },
+      ],
+    },
+  ],
+};
+
+const QuoteBlock: TinaTemplate = {
+  name: 'quote',
+  label: 'Quote',
+  fields:[
+    {
+      name: 'quote',
+      label: 'Quote',
+      type: 'string',
+    },
+    {
+      name: 'author',
+      label: 'author',
+      type: 'string',
+    }
+  ]
+}
+
+const GalleryBlock: TinaTemplate = {
+  name: 'gallery',
+  label: 'Gallery',
+  fields: [
+    {
+      name: 'gallery',
+      label: 'Images',
+      list: true,
+      type: 'object',
+      fields:[
+        {
+          name: 'image',
+          label: 'Single Image',
+          type: 'image',
+        },
+        {
+          name: 'alt',
+          label: 'Alternative Descirption',
+          type: 'string',
+        }
+      ]
+    }
+  ]
+}
 
 // Block Section End
 
 // Variables
 
-const blocks = [heroBlock];
+const blocks = [HeroBlock, CallToActionBlock, QuoteBlock, GalleryBlock];
 const category = [
   "Geo Tech",
   "Data Sience",
@@ -72,16 +152,16 @@ const schema = defineSchema({
           name: "title",
         },
         {
-          name: 'category',
-          label: 'Category',
-          type: 'string',
+          name: "category",
+          label: "Category",
+          type: "string",
           list: true,
           options: category,
         },
         {
-          name: 'date',
-          label: 'Published Date',
-          type: 'datetime',
+          name: "date",
+          label: "Published Date",
+          type: "datetime",
         },
         {
           type: "string",
@@ -92,9 +172,22 @@ const schema = defineSchema({
           },
         },
         {
-          name: 'ogimage',
-          label: 'og:image',
-          type: 'image'
+          name: "ogimage",
+          label: "og:image",
+          type: "image",
+        },
+      ],
+    },
+    {
+      label: "Maps",
+      name: "map",
+      path: "content/map",
+      format: "mdx",
+      fields: [
+        {
+          name: "date",
+          label: "Published Date",
+          type: "datetime",
         },
       ],
     },

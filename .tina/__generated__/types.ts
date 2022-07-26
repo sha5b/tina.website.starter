@@ -77,6 +77,8 @@ export type Query = {
   pageConnection: PageConnection;
   post: Post;
   postConnection: PostConnection;
+  map: Map;
+  mapConnection: MapConnection;
 };
 
 
@@ -128,6 +130,20 @@ export type QueryPostConnectionArgs = {
   sort?: InputMaybe<Scalars['String']>;
 };
 
+
+export type QueryMapArgs = {
+  relativePath?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryMapConnectionArgs = {
+  before?: InputMaybe<Scalars['String']>;
+  after?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Float']>;
+  last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
+};
+
 export type DocumentConnectionEdges = {
   __typename?: 'DocumentConnectionEdges';
   cursor: Scalars['String'];
@@ -163,15 +179,46 @@ export type CollectionDocumentsArgs = {
   sort?: InputMaybe<Scalars['String']>;
 };
 
-export type DocumentNode = Page | Post;
+export type DocumentNode = Page | Post | Map;
 
 export type PageBlocksHero = {
   __typename?: 'PageBlocksHero';
   title?: Maybe<Scalars['String']>;
   subtitle?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
 };
 
-export type PageBlocks = PageBlocksHero;
+export type PageBlocksCtaButton = {
+  __typename?: 'PageBlocksCtaButton';
+  label?: Maybe<Scalars['String']>;
+  href?: Maybe<Scalars['String']>;
+};
+
+export type PageBlocksCta = {
+  __typename?: 'PageBlocksCta';
+  title?: Maybe<Scalars['String']>;
+  subtitle?: Maybe<Scalars['String']>;
+  button?: Maybe<PageBlocksCtaButton>;
+};
+
+export type PageBlocksQuote = {
+  __typename?: 'PageBlocksQuote';
+  quote?: Maybe<Scalars['String']>;
+  author?: Maybe<Scalars['String']>;
+};
+
+export type PageBlocksGalleryGallery = {
+  __typename?: 'PageBlocksGalleryGallery';
+  image?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
+export type PageBlocksGallery = {
+  __typename?: 'PageBlocksGallery';
+  gallery?: Maybe<Array<Maybe<PageBlocksGalleryGallery>>>;
+};
+
+export type PageBlocks = PageBlocksHero | PageBlocksCta | PageBlocksQuote | PageBlocksGallery;
 
 export type Page = Node & Document & {
   __typename?: 'Page';
@@ -219,6 +266,27 @@ export type PostConnection = Connection & {
   edges?: Maybe<Array<Maybe<PostConnectionEdges>>>;
 };
 
+export type Map = Node & Document & {
+  __typename?: 'Map';
+  date?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON'];
+};
+
+export type MapConnectionEdges = {
+  __typename?: 'MapConnectionEdges';
+  cursor: Scalars['String'];
+  node?: Maybe<Map>;
+};
+
+export type MapConnection = Connection & {
+  __typename?: 'MapConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float'];
+  edges?: Maybe<Array<Maybe<MapConnectionEdges>>>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
@@ -229,6 +297,8 @@ export type Mutation = {
   createPage: Page;
   updatePost: Post;
   createPost: Post;
+  updateMap: Map;
+  createMap: Map;
 };
 
 
@@ -282,18 +352,60 @@ export type MutationCreatePostArgs = {
   params: PostMutation;
 };
 
+
+export type MutationUpdateMapArgs = {
+  relativePath: Scalars['String'];
+  params: MapMutation;
+};
+
+
+export type MutationCreateMapArgs = {
+  relativePath: Scalars['String'];
+  params: MapMutation;
+};
+
 export type DocumentMutation = {
   page?: InputMaybe<PageMutation>;
   post?: InputMaybe<PostMutation>;
+  map?: InputMaybe<MapMutation>;
 };
 
 export type PageBlocksHeroMutation = {
   title?: InputMaybe<Scalars['String']>;
   subtitle?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['String']>;
+};
+
+export type PageBlocksCtaButtonMutation = {
+  label?: InputMaybe<Scalars['String']>;
+  href?: InputMaybe<Scalars['String']>;
+};
+
+export type PageBlocksCtaMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  subtitle?: InputMaybe<Scalars['String']>;
+  button?: InputMaybe<PageBlocksCtaButtonMutation>;
+};
+
+export type PageBlocksQuoteMutation = {
+  quote?: InputMaybe<Scalars['String']>;
+  author?: InputMaybe<Scalars['String']>;
+};
+
+export type PageBlocksGalleryGalleryMutation = {
+  image?: InputMaybe<Scalars['String']>;
+  alt?: InputMaybe<Scalars['String']>;
+};
+
+export type PageBlocksGalleryMutation = {
+  gallery?: InputMaybe<Array<InputMaybe<PageBlocksGalleryGalleryMutation>>>;
 };
 
 export type PageBlocksMutation = {
   hero?: InputMaybe<PageBlocksHeroMutation>;
+  cta?: InputMaybe<PageBlocksCtaMutation>;
+  quote?: InputMaybe<PageBlocksQuoteMutation>;
+  gallery?: InputMaybe<PageBlocksGalleryMutation>;
 };
 
 export type PageMutation = {
@@ -308,16 +420,22 @@ export type PostMutation = {
   ogimage?: InputMaybe<Scalars['String']>;
 };
 
-export type PagePartsFragment = { __typename?: 'Page', blocks?: Array<{ __typename: 'PageBlocksHero', title?: string | null, subtitle?: string | null } | null> | null };
+export type MapMutation = {
+  date?: InputMaybe<Scalars['String']>;
+};
+
+export type PagePartsFragment = { __typename?: 'Page', blocks?: Array<{ __typename: 'PageBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null } | { __typename: 'PageBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PageBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PageBlocksQuote', quote?: string | null, author?: string | null } | { __typename: 'PageBlocksGallery', gallery?: Array<{ __typename: 'PageBlocksGalleryGallery', image?: string | null, alt?: string | null } | null> | null } | null> | null };
 
 export type PostPartsFragment = { __typename?: 'Post', title?: string | null, category?: Array<string | null> | null, date?: string | null, description?: string | null, ogimage?: string | null };
+
+export type MapPartsFragment = { __typename?: 'Map', date?: string | null };
 
 export type PageQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type PageQuery = { __typename?: 'Query', page: { __typename?: 'Page', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PageBlocksHero', title?: string | null, subtitle?: string | null } | null> | null } };
+export type PageQuery = { __typename?: 'Query', page: { __typename?: 'Page', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PageBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null } | { __typename: 'PageBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PageBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PageBlocksQuote', quote?: string | null, author?: string | null } | { __typename: 'PageBlocksGallery', gallery?: Array<{ __typename: 'PageBlocksGalleryGallery', image?: string | null, alt?: string | null } | null> | null } | null> | null } };
 
 export type PageConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -328,7 +446,7 @@ export type PageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type PageConnectionQuery = { __typename?: 'Query', pageConnection: { __typename?: 'PageConnection', totalCount: number, edges?: Array<{ __typename?: 'PageConnectionEdges', node?: { __typename?: 'Page', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PageBlocksHero', title?: string | null, subtitle?: string | null } | null> | null } | null } | null> | null } };
+export type PageConnectionQuery = { __typename?: 'Query', pageConnection: { __typename?: 'PageConnection', totalCount: number, edges?: Array<{ __typename?: 'PageConnectionEdges', node?: { __typename?: 'Page', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PageBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null } | { __typename: 'PageBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PageBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PageBlocksQuote', quote?: string | null, author?: string | null } | { __typename: 'PageBlocksGallery', gallery?: Array<{ __typename: 'PageBlocksGalleryGallery', image?: string | null, alt?: string | null } | null> | null } | null> | null } | null } | null> | null } };
 
 export type PostQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -348,6 +466,24 @@ export type PostConnectionQueryVariables = Exact<{
 
 export type PostConnectionQuery = { __typename?: 'Query', postConnection: { __typename?: 'PostConnection', totalCount: number, edges?: Array<{ __typename?: 'PostConnectionEdges', node?: { __typename?: 'Post', id: string, title?: string | null, category?: Array<string | null> | null, date?: string | null, description?: string | null, ogimage?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
+export type MapQueryVariables = Exact<{
+  relativePath: Scalars['String'];
+}>;
+
+
+export type MapQuery = { __typename?: 'Query', map: { __typename?: 'Map', id: string, date?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type MapConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']>;
+  after?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Float']>;
+  last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type MapConnectionQuery = { __typename?: 'Query', mapConnection: { __typename?: 'MapConnection', totalCount: number, edges?: Array<{ __typename?: 'MapConnectionEdges', node?: { __typename?: 'Map', id: string, date?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+
 export const PagePartsFragmentDoc = gql`
     fragment PageParts on Page {
   blocks {
@@ -355,6 +491,27 @@ export const PagePartsFragmentDoc = gql`
     ... on PageBlocksHero {
       title
       subtitle
+      image
+    }
+    ... on PageBlocksCta {
+      title
+      subtitle
+      button {
+        __typename
+        label
+        href
+      }
+    }
+    ... on PageBlocksQuote {
+      quote
+      author
+    }
+    ... on PageBlocksGallery {
+      gallery {
+        __typename
+        image
+        alt
+      }
     }
   }
 }
@@ -366,6 +523,11 @@ export const PostPartsFragmentDoc = gql`
   date
   description
   ogimage
+}
+    `;
+export const MapPartsFragmentDoc = gql`
+    fragment MapParts on Map {
+  date
 }
     `;
 export const PageDocument = gql`
@@ -462,6 +624,53 @@ export const PostConnectionDocument = gql`
   }
 }
     ${PostPartsFragmentDoc}`;
+export const MapDocument = gql`
+    query map($relativePath: String!) {
+  map(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...MapParts
+  }
+}
+    ${MapPartsFragmentDoc}`;
+export const MapConnectionDocument = gql`
+    query mapConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String) {
+  mapConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+  ) {
+    totalCount
+    edges {
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...MapParts
+      }
+    }
+  }
+}
+    ${MapPartsFragmentDoc}`;
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
@@ -476,6 +685,12 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     postConnection(variables?: PostConnectionQueryVariables, options?: C): Promise<{data: PostConnectionQuery, variables: PostConnectionQueryVariables, query: string}> {
         return requester<{data: PostConnectionQuery, variables: PostConnectionQueryVariables, query: string}, PostConnectionQueryVariables>(PostConnectionDocument, variables, options);
+      },
+    map(variables: MapQueryVariables, options?: C): Promise<{data: MapQuery, variables: MapQueryVariables, query: string}> {
+        return requester<{data: MapQuery, variables: MapQueryVariables, query: string}, MapQueryVariables>(MapDocument, variables, options);
+      },
+    mapConnection(variables?: MapConnectionQueryVariables, options?: C): Promise<{data: MapConnectionQuery, variables: MapConnectionQueryVariables, query: string}> {
+        return requester<{data: MapConnectionQuery, variables: MapConnectionQueryVariables, query: string}, MapConnectionQueryVariables>(MapConnectionDocument, variables, options);
       }
     };
   }

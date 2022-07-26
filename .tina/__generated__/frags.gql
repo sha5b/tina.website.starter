@@ -4,6 +4,27 @@ fragment PageParts on Page {
     ... on PageBlocksHero {
       title
       subtitle
+      image
+    }
+    ... on PageBlocksCta {
+      title
+      subtitle
+      button {
+        __typename
+        label
+        href
+      }
+    }
+    ... on PageBlocksQuote {
+      quote
+      author
+    }
+    ... on PageBlocksGallery {
+      gallery {
+        __typename
+        image
+        alt
+      }
     }
   }
 }
@@ -14,4 +35,8 @@ fragment PostParts on Post {
   date
   description
   ogimage
+}
+
+fragment MapParts on Map {
+  date
 }

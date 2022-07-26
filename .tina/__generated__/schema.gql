@@ -52,6 +52,8 @@ type Query {
   pageConnection(before: String, after: String, first: Float, last: Float, sort: String): PageConnection!
   post(relativePath: String): Post!
   postConnection(before: String, after: String, first: Float, last: Float, sort: String): PostConnection!
+  map(relativePath: String): Map!
+  mapConnection(before: String, after: String, first: Float, last: Float, sort: String): MapConnection!
 }
 
 type DocumentConnectionEdges {
@@ -77,14 +79,40 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String): DocumentConnection!
 }
 
-union DocumentNode = Page | Post
+union DocumentNode = Page | Post | Map
 
 type PageBlocksHero {
   title: String
   subtitle: String
+  image: String
 }
 
-union PageBlocks = PageBlocksHero
+type PageBlocksCtaButton {
+  label: String
+  href: String
+}
+
+type PageBlocksCta {
+  title: String
+  subtitle: String
+  button: PageBlocksCtaButton
+}
+
+type PageBlocksQuote {
+  quote: String
+  author: String
+}
+
+type PageBlocksGalleryGallery {
+  image: String
+  alt: String
+}
+
+type PageBlocksGallery {
+  gallery: [PageBlocksGalleryGallery]
+}
+
+union PageBlocks = PageBlocksHero | PageBlocksCta | PageBlocksQuote | PageBlocksGallery
 
 type Page implements Node & Document {
   blocks: [PageBlocks]
@@ -126,6 +154,24 @@ type PostConnection implements Connection {
   edges: [PostConnectionEdges]
 }
 
+type Map implements Node & Document {
+  date: String
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+type MapConnectionEdges {
+  cursor: String!
+  node: Map
+}
+
+type MapConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [MapConnectionEdges]
+}
+
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
@@ -135,20 +181,52 @@ type Mutation {
   createPage(relativePath: String!, params: PageMutation!): Page!
   updatePost(relativePath: String!, params: PostMutation!): Post!
   createPost(relativePath: String!, params: PostMutation!): Post!
+  updateMap(relativePath: String!, params: MapMutation!): Map!
+  createMap(relativePath: String!, params: MapMutation!): Map!
 }
 
 input DocumentMutation {
   page: PageMutation
   post: PostMutation
+  map: MapMutation
 }
 
 input PageBlocksHeroMutation {
   title: String
   subtitle: String
+  image: String
+}
+
+input PageBlocksCtaButtonMutation {
+  label: String
+  href: String
+}
+
+input PageBlocksCtaMutation {
+  title: String
+  subtitle: String
+  button: PageBlocksCtaButtonMutation
+}
+
+input PageBlocksQuoteMutation {
+  quote: String
+  author: String
+}
+
+input PageBlocksGalleryGalleryMutation {
+  image: String
+  alt: String
+}
+
+input PageBlocksGalleryMutation {
+  gallery: [PageBlocksGalleryGalleryMutation]
 }
 
 input PageBlocksMutation {
   hero: PageBlocksHeroMutation
+  cta: PageBlocksCtaMutation
+  quote: PageBlocksQuoteMutation
+  gallery: PageBlocksGalleryMutation
 }
 
 input PageMutation {
@@ -161,6 +239,10 @@ input PostMutation {
   date: String
   description: String
   ogimage: String
+}
+
+input MapMutation {
+  date: String
 }
 
 schema {

@@ -1,0 +1,56 @@
+fragment PageParts on Page {
+  blocks {
+    __typename
+    ... on PageBlocksHero {
+      title
+      subtitle
+      image
+    }
+    ... on PageBlocksCta {
+      title
+      subtitle
+      button {
+        __typename
+        label
+        href
+      }
+    }
+    ... on PageBlocksQuote {
+      quote
+      author
+    }
+    ... on PageBlocksGallery {
+      gallery {
+        __typename
+        image
+        alt
+      }
+    }
+    ... on PageBlocksFact {
+      fact {
+        __typename
+        headline
+        subheadline
+      }
+    }
+    ... on PageBlocksLogos {
+      headline
+      logos {
+        __typename
+        logo
+      }
+    }
+  }
+}
+
+fragment PostParts on Post {
+  title
+  category
+  date
+  description
+  ogimage
+}
+
+fragment MapParts on Map {
+  date
+}

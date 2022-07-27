@@ -1,7 +1,6 @@
 // Node Import
 import { staticRequest } from "tinacms";
 import { useTina } from "tinacms/dist/edit-state";
-import { SimpleGrid, Box } from "@chakra-ui/react";
 // End
 
 // Block Import

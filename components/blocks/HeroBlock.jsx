@@ -1,8 +1,9 @@
 import Image from "next/image";
+import { Box } from "@chakra-ui/react";
 
 export const HeroBlock = ({ block, id, i }) => {
   return (
-    <div key={id + i}>
+    <Box key={id + i}>
       <div>{block.title}</div>
       <div>{block.subtitle}</div>
       {block.image && (
@@ -16,6 +17,6 @@ export const HeroBlock = ({ block, id, i }) => {
           alt={block.title}
         />
       )}
-    </div>
+    </Box>
   );
 };

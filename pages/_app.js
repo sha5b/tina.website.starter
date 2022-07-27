@@ -1,10 +1,14 @@
+import { ChakraProvider } from "@chakra-ui/react";
 import TinaProvider from "../.tina/components/TinaDynamicProvider";
+import { Theme } from "../components/Theme";
 
 const App = ({ Component, pageProps }) => {
   return (
-    <TinaProvider>
-      <Component {...pageProps} />
-    </TinaProvider>
+    <ChakraProvider theme={Theme}>
+      <TinaProvider>
+        <Component {...pageProps} />
+      </TinaProvider>
+    </ChakraProvider>
   );
 };
 

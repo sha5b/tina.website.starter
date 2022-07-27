@@ -38,6 +38,7 @@ fragment PageParts on Page {
       logos {
         __typename
         logo
+        alt
       }
     }
     ... on PageBlocksFeatured {

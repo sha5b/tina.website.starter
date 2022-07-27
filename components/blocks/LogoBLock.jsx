@@ -4,7 +4,7 @@ export const LogoBlock = ({ block, id , i }) => {
   return (
     <div key={id + i}>
       <div>{block.headline}</div>
-      {block.logos.map((item) => {
+      {block.logos?.map((item) => {
         return (
           <>
             {item.logo && (

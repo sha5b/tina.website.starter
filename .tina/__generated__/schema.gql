@@ -123,6 +123,7 @@ type PageBlocksFact {
 
 type PageBlocksLogosLogos {
   logo: String
+  alt: String
 }
 
 type PageBlocksLogos {
@@ -255,6 +256,7 @@ input PageBlocksFactMutation {
 
 input PageBlocksLogosLogosMutation {
   logo: String
+  alt: String
 }
 
 input PageBlocksLogosMutation {

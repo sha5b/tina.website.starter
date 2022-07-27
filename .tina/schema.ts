@@ -96,6 +96,13 @@ const GalleryBlock: TinaTemplate = {
       label: "Images",
       list: true,
       type: "object",
+      ui: {
+        itemProps: (item) => {
+          return (
+            {label: item?.alt}
+          )
+        }
+      },
       fields: [
         {
           name: "image",
@@ -121,6 +128,13 @@ const FactBlock: TinaTemplate = {
       label: "Facts",
       list: true,
       type: "object",
+      ui: {
+        itemProps: (item) => {
+          return (
+            {label: item?.headline}
+          )
+        }
+      },
       fields: [
         {
           name: "headline",
@@ -151,11 +165,23 @@ const LogoBlock: TinaTemplate = {
       label: "Logos",
       list: true,
       type: "object",
+      ui: {
+        itemProps: (item) => {
+          return (
+            {label: item?.alt}
+          )
+        }
+      },
       fields: [
         {
           name: "logo",
           label: "Single Logo",
           type: "image",
+        },
+        {
+          name: "alt",
+          label: "Alternative Description",
+          type: "string",
         },
       ],
     },

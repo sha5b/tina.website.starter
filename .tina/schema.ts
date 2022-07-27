@@ -177,7 +177,6 @@ const FeaturedPostBlock: TinaTemplate = {
 }
 // Block Section End
 
-// Variables
 
 const blocks = [
   HeroBlock,
@@ -186,9 +185,10 @@ const blocks = [
   GalleryBlock,
   FactBlock,
   LogoBlock,
+  FeaturedPostBlock,
 ];
 
-// End
+
 const schema = defineSchema({
   config: {
     media: {
@@ -288,6 +288,12 @@ export const tinaConfig = defineConfig({
         if (["page"].includes(collection.name)) {
           if (document._sys.filename === "home") {
             return "/";
+          }
+          if (document._sys.filename === "contact") {
+            return "/contact/";
+          }
+          if (document._sys.filename === "aboutus") {
+            return "/aboutus/";
           }
         }
 

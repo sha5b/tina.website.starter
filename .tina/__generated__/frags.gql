@@ -40,6 +40,9 @@ fragment PageParts on Page {
         logo
       }
     }
+    ... on PageBlocksFeatured {
+      category
+    }
   }
 }
 

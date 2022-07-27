@@ -62,6 +62,10 @@ const query = `{
           logo
         }
       }
+      ... on PageBlocksFeatured {
+        __typename
+        category
+      }
     }
   }
   postConnection {
@@ -87,6 +91,7 @@ export default function Home(props) {
 
   // Variables
   const id = data.page.id
+  const posts = data.postConnection.edges
   // End
   return (
     <Layout>
@@ -139,6 +144,14 @@ export default function Home(props) {
                   {console.log('Logos')}
                   {console.log(block)}
                   <LogoBlock id={id} i={i} block={block}/>
+                  </>
+                )
+              case 'PageBlocksFeatured':
+                return(
+                  <>
+                  {console.log('Featured')}
+                  {console.log(block)}
+                  <FeaturedPostBlock id={id} i={i} block={block} posts={posts}/>
                   </>
                 )
             }

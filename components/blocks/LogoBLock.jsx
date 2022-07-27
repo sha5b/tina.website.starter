@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-export const LogoBlock = ({ block, i }) => {
+export const LogoBlock = ({ block, id , i }) => {
   return (
-    <div key={block.id + i}>
+    <div key={id + i}>
       <div>{block.headline}</div>
       {block.logos.map((item) => {
         return (

@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-export const CallToActionBlock = ({ block, i }) => {
+export const CallToActionBlock = ({ block, id , i }) => {
   return (
-    <div key={block.id + i}>
+    <div key={id + i}>
       <div>{block.title}</div>
       <div>{block.subtitle}</div>
       <Link href={block.button.href}>

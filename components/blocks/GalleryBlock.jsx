@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-export const GalleryBlock = ({ block, i }) => {
+export const GalleryBlock = ({ block, id , i }) => {
   return (
-    <div key={block.id + i}>
+    <div key={id + i}>
       {block.gallery?.map((item) => {
         return (
           <>

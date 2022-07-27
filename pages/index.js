@@ -1,6 +1,5 @@
 // Node Import
 import { staticRequest } from "tinacms";
-import { Layout } from "../components/Layout";
 import { useTina } from "tinacms/dist/edit-state";
 // End
 
@@ -11,10 +10,16 @@ import { QuoteBlock } from "../components/blocks/QuoteBlock";
 import { GalleryBlock } from "../components/blocks/GalleryBlock";
 import { FactBlock } from "../components/blocks/FactBlock";
 import { LogoBlock } from "../components/blocks/LogoBLock";
+import { FeaturedPostBlock } from "../components/blocks/FeaturedPostBlock";
+// End
+
+// Component Import
+import { Layout } from "../components/Layout";
 // End
 
 const query = `{
   page(relativePath: "home.mdx"){
+    id
     blocks {
       ... on PageBlocksHero {
         __typename
@@ -59,6 +64,17 @@ const query = `{
       }
     }
   }
+  postConnection {
+    edges {
+      node {
+        title
+        category
+        date
+        description
+        image
+      }
+    }
+  }
 }`;
 
 export default function Home(props) {
@@ -69,6 +85,9 @@ export default function Home(props) {
     data: props.data,
   });
 
+  // Variables
+  const id = data.page.id
+  // End
   return (
     <Layout>
       {data.page
@@ -79,7 +98,7 @@ export default function Home(props) {
                   <>
                     {console.log("Heroblock")}
                     {console.log(block)}
-                    <HeroBlock i={i} block={block} />
+                    <HeroBlock id={id} i={i} block={block} />
                   </>
                 );
               case "PageBlocksCta":
@@ -87,7 +106,7 @@ export default function Home(props) {
                   <>
                     {console.log("Call to Action")}
                     {console.log(block)}
-                    <CallToActionBlock i={i} block={block} />
+                    <CallToActionBlock id={id} i={i} block={block} />
                   </>
                 );
               case "PageBlocksQuote":
@@ -95,7 +114,7 @@ export default function Home(props) {
                   <>
                     {console.log("Quote")}
                     {console.log(block)}
-                    <QuoteBlock i={i} block={block} />
+                    <QuoteBlock id={id} i={i} block={block} />
                   </>
                 );
               case "PageBlocksGallery":
@@ -103,7 +122,7 @@ export default function Home(props) {
                   <>
                     {console.log("Gallery")}
                     {console.log(block)}
-                    <GalleryBlock i={i} block={block} />
+                    <GalleryBlock id={id} i={i} block={block} />
                   </>
                 );
               case "PageBlocksFact":
@@ -111,7 +130,7 @@ export default function Home(props) {
                   <>
                     {console.log("Fact")}
                     {console.log(block)}
-                    <FactBlock i={i} block={block}/>
+                    <FactBlock id={id} i={i} block={block}/>
                   </>
                 );
               case 'PageBlocksLogos':
@@ -119,7 +138,7 @@ export default function Home(props) {
                   <>
                   {console.log('Logos')}
                   {console.log(block)}
-                  <LogoBlock i={i} block={block}/>
+                  <LogoBlock id={id} i={i} block={block}/>
                   </>
                 )
             }

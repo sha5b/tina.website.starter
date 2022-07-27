@@ -269,7 +269,7 @@ export type Post = Node & Document & {
   category?: Maybe<Array<Maybe<Scalars['String']>>>;
   date?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
-  ogimage?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   _sys: SystemInfo;
   _values: Scalars['JSON'];
@@ -459,7 +459,7 @@ export type PostMutation = {
   category?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   date?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
-  ogimage?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['String']>;
 };
 
 export type MapMutation = {
@@ -468,7 +468,7 @@ export type MapMutation = {
 
 export type PagePartsFragment = { __typename?: 'Page', blocks?: Array<{ __typename: 'PageBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null } | { __typename: 'PageBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PageBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PageBlocksQuote', quote?: string | null, author?: string | null } | { __typename: 'PageBlocksGallery', gallery?: Array<{ __typename: 'PageBlocksGalleryGallery', image?: string | null, alt?: string | null } | null> | null } | { __typename: 'PageBlocksFact', fact?: Array<{ __typename: 'PageBlocksFactFact', headline?: string | null, subheadline?: string | null } | null> | null } | { __typename: 'PageBlocksLogos', headline?: string | null, logos?: Array<{ __typename: 'PageBlocksLogosLogos', logo?: string | null } | null> | null } | null> | null };
 
-export type PostPartsFragment = { __typename?: 'Post', title?: string | null, category?: Array<string | null> | null, date?: string | null, description?: string | null, ogimage?: string | null };
+export type PostPartsFragment = { __typename?: 'Post', title?: string | null, category?: Array<string | null> | null, date?: string | null, description?: string | null, image?: string | null };
 
 export type MapPartsFragment = { __typename?: 'Map', date?: string | null };
 
@@ -495,7 +495,7 @@ export type PostQueryVariables = Exact<{
 }>;
 
 
-export type PostQuery = { __typename?: 'Query', post: { __typename?: 'Post', id: string, title?: string | null, category?: Array<string | null> | null, date?: string | null, description?: string | null, ogimage?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type PostQuery = { __typename?: 'Query', post: { __typename?: 'Post', id: string, title?: string | null, category?: Array<string | null> | null, date?: string | null, description?: string | null, image?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type PostConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -506,7 +506,7 @@ export type PostConnectionQueryVariables = Exact<{
 }>;
 
 
-export type PostConnectionQuery = { __typename?: 'Query', postConnection: { __typename?: 'PostConnection', totalCount: number, edges?: Array<{ __typename?: 'PostConnectionEdges', node?: { __typename?: 'Post', id: string, title?: string | null, category?: Array<string | null> | null, date?: string | null, description?: string | null, ogimage?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type PostConnectionQuery = { __typename?: 'Query', postConnection: { __typename?: 'PostConnection', totalCount: number, edges?: Array<{ __typename?: 'PostConnectionEdges', node?: { __typename?: 'Post', id: string, title?: string | null, category?: Array<string | null> | null, date?: string | null, description?: string | null, image?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type MapQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -578,7 +578,7 @@ export const PostPartsFragmentDoc = gql`
   category
   date
   description
-  ogimage
+  image
 }
     `;
 export const MapPartsFragmentDoc = gql`

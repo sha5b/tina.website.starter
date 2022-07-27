@@ -1,6 +1,6 @@
-export const FactBlock = ({ block, i }) => {
+export const FactBlock = ({ block, id , i }) => {
   return (
-    <div key={block.id + i}>
+    <div key={id + i}>
       {block.fact?.map((item) => {
         return(
           <>

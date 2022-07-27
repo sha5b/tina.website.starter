@@ -48,7 +48,7 @@ fragment PostParts on Post {
   category
   date
   description
-  ogimage
+  image
 }
 
 fragment MapParts on Map {

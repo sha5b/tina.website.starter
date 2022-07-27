@@ -155,7 +155,7 @@ type Post implements Node & Document {
   category: [String]
   date: String
   description: String
-  ogimage: String
+  image: String
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -276,7 +276,7 @@ input PostMutation {
   category: [String]
   date: String
   description: String
-  ogimage: String
+  image: String
 }
 
 input MapMutation {

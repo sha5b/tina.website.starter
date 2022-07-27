@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-export const HeroBlock = ({ block, i }) => {
+export const HeroBlock = ({ block, id, i }) => {
   return (
-    <div key={block.id + i}>
+    <div key={id + i}>
       <div>{block.title}</div>
       <div>{block.subtitle}</div>
       {block.image && (

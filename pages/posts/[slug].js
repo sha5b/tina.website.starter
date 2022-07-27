@@ -5,6 +5,10 @@ import { useTina } from "tinacms/dist/edit-state";
 const query = `query getPost($relativePath: String!) {
   post(relativePath: $relativePath) {
     title
+    category
+    date
+    description
+    image
   }
 }
 `;

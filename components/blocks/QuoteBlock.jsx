@@ -1,6 +1,6 @@
-export const QuoteBlock = ({ block, i }) => {
+export const QuoteBlock = ({ block, id , i }) => {
   return (
-    <div key={block.id + i}>
+    <div key={id + i}>
         <div>
             {block.quote}
         </div>

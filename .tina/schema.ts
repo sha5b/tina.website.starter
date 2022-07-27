@@ -1,5 +1,17 @@
 import { defineConfig, defineSchema, TinaTemplate } from "tinacms";
 
+
+// Variables 
+const category = [
+  "Geo Tech",
+  "Data Sience",
+  "Knowledge Management",
+  "Ecosystem Service",
+  "Integral Technical Planning",
+  "Sustainable Cities & Living Spaces",
+];
+// End
+
 // Block Section
 
 const HeroBlock: TinaTemplate = {
@@ -150,6 +162,19 @@ const LogoBlock: TinaTemplate = {
   ]
 }
 
+const FeaturedPostBlock: TinaTemplate = {
+  label: "Featured Posts",
+  name: "featured",
+  fields: [
+    {
+      name: "category",
+      label: "Category",
+      type: "string",
+      list: true,
+      options: category,
+    },
+  ],
+}
 // Block Section End
 
 // Variables
@@ -161,14 +186,6 @@ const blocks = [
   GalleryBlock,
   FactBlock,
   LogoBlock,
-];
-const category = [
-  "Geo Tech",
-  "Data Sience",
-  "Knowledge Management",
-  "Ecosystem Service",
-  "Integral Technical Planning",
-  "Sustainable Cities & Living Spaces",
 ];
 
 // End
@@ -197,6 +214,7 @@ const schema = defineSchema({
         },
       ],
     },
+    // End of Pages
     {
       label: "Posts",
       name: "post",
@@ -229,12 +247,13 @@ const schema = defineSchema({
           },
         },
         {
-          name: "ogimage",
+          name: "image",
           label: "og:image",
           type: "image",
         },
       ],
     },
+    // End of Posts
     {
       label: "Maps",
       name: "map",
@@ -248,6 +267,7 @@ const schema = defineSchema({
         },
       ],
     },
+    // End of Maps
   ],
 });
 
@@ -273,6 +293,10 @@ export const tinaConfig = defineConfig({
 
         if (["post"].includes(collection.name)) {
           return `/posts/${document._sys.filename}`;
+        }
+
+        if (['map'].includes(collection.name)) {
+          return `/maps/${document._sys.filename}`
         }
 
         return undefined;

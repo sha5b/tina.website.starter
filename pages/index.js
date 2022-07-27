@@ -1,6 +1,7 @@
 // Node Import
 import { staticRequest } from "tinacms";
 import { useTina } from "tinacms/dist/edit-state";
+import { SimpleGrid, Box } from "@chakra-ui/react";
 // End
 
 // Block Import
@@ -90,73 +91,78 @@ export default function Home(props) {
   });
 
   // Variables
-  const id = data.page.id
-  const posts = data.postConnection.edges
+  const id = data.page.id;
+  const posts = data.postConnection.edges;
   // End
   return (
     <Layout>
-      {data.page
-        ? data.page.blocks?.map((block, i) => {
-            switch (block.__typename) {
-              case "PageBlocksHero":
-                return (
-                  <>
-                    {console.log("Heroblock")}
-                    {console.log(block)}
-                    <HeroBlock id={id} i={i} block={block} />
-                  </>
-                );
-              case "PageBlocksCta":
-                return (
-                  <>
-                    {console.log("Call to Action")}
-                    {console.log(block)}
-                    <CallToActionBlock id={id} i={i} block={block} />
-                  </>
-                );
-              case "PageBlocksQuote":
-                return (
-                  <>
-                    {console.log("Quote")}
-                    {console.log(block)}
-                    <QuoteBlock id={id} i={i} block={block} />
-                  </>
-                );
-              case "PageBlocksGallery":
-                return (
-                  <>
-                    {console.log("Gallery")}
-                    {console.log(block)}
-                    <GalleryBlock id={id} i={i} block={block} />
-                  </>
-                );
-              case "PageBlocksFact":
-                return (
-                  <>
-                    {console.log("Fact")}
-                    {console.log(block)}
-                    <FactBlock id={id} i={i} block={block}/>
-                  </>
-                );
-              case 'PageBlocksLogos':
-                return(
-                  <>
-                  {console.log('Logos')}
-                  {console.log(block)}
-                  <LogoBlock id={id} i={i} block={block}/>
-                  </>
-                )
-              case 'PageBlocksFeatured':
-                return(
-                  <>
-                  {console.log('Featured')}
-                  {console.log(block)}
-                  <FeaturedPostBlock id={id} i={i} block={block} posts={posts}/>
-                  </>
-                )
-            }
-          })
-        : null}
+        {data.page
+          ? data.page.blocks?.map((block, i) => {
+              switch (block.__typename) {
+                case "PageBlocksHero":
+                  return (
+                    <>
+                      {console.log("Heroblock")}
+                      {console.table(block)}
+                      <HeroBlock id={id} i={i} block={block} />
+                    </>
+                  );
+                case "PageBlocksCta":
+                  return (
+                    <>
+                      {console.log("Call to Action")}
+                      {console.table(block)}
+                      <CallToActionBlock id={id} i={i} block={block} />
+                    </>
+                  );
+                case "PageBlocksQuote":
+                  return (
+                    <>
+                      {console.log("Quote")}
+                      {console.table(block)}
+                      <QuoteBlock id={id} i={i} block={block} />
+                    </>
+                  );
+                case "PageBlocksGallery":
+                  return (
+                    <>
+                      {console.log("Gallery")}
+                      {console.table(block)}
+                      <GalleryBlock id={id} i={i} block={block} />
+                    </>
+                  );
+                case "PageBlocksFact":
+                  return (
+                    <>
+                      {console.log("Fact")}
+                      {console.table(block)}
+                      <FactBlock id={id} i={i} block={block} />
+                    </>
+                  );
+                case "PageBlocksLogos":
+                  return (
+                    <>
+                      {console.log("Logos")}
+                      {console.table(block)}
+                      <LogoBlock id={id} i={i} block={block} />
+                    </>
+                  );
+                case "PageBlocksFeatured":
+                  return (
+                    <>
+                      {console.log("Featured")}
+                      {console.table(block)}
+                      <FeaturedPostBlock
+                        id={id}
+                        i={i}
+                        block={block}
+                        posts={posts}
+                      />
+                    </>
+                  );
+              }
+            })
+          : null}
     </Layout>
   );
 }

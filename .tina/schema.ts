@@ -1,7 +1,6 @@
 import { defineConfig, defineSchema, TinaTemplate } from "tinacms";
 
-
-// Variables 
+// Variables
 const category = [
   "Geo Tech",
   "Data Sience",
@@ -98,10 +97,8 @@ const GalleryBlock: TinaTemplate = {
       type: "object",
       ui: {
         itemProps: (item) => {
-          return (
-            {label: item?.alt}
-          )
-        }
+          return { label: item?.alt };
+        },
       },
       fields: [
         {
@@ -130,10 +127,8 @@ const FactBlock: TinaTemplate = {
       type: "object",
       ui: {
         itemProps: (item) => {
-          return (
-            {label: item?.headline}
-          )
-        }
+          return { label: item?.headline };
+        },
       },
       fields: [
         {
@@ -152,13 +147,13 @@ const FactBlock: TinaTemplate = {
 };
 
 const LogoBlock: TinaTemplate = {
-  name: 'logos',
-  label: 'Logos',
-  fields:[
+  name: "logos",
+  label: "Logos",
+  fields: [
     {
-      name: 'headline',
-      label: 'Headline',
-      type: 'string',
+      name: "headline",
+      label: "Headline",
+      type: "string",
     },
     {
       name: "logos",
@@ -167,10 +162,8 @@ const LogoBlock: TinaTemplate = {
       type: "object",
       ui: {
         itemProps: (item) => {
-          return (
-            {label: item?.alt}
-          )
-        }
+          return { label: item?.alt };
+        },
       },
       fields: [
         {
@@ -185,8 +178,8 @@ const LogoBlock: TinaTemplate = {
         },
       ],
     },
-  ]
-}
+  ],
+};
 
 const FeaturedPostBlock: TinaTemplate = {
   label: "Featured Posts",
@@ -200,9 +193,8 @@ const FeaturedPostBlock: TinaTemplate = {
       options: category,
     },
   ],
-}
+};
 // Block Section End
-
 
 const blocks = [
   HeroBlock,
@@ -213,7 +205,6 @@ const blocks = [
   LogoBlock,
   FeaturedPostBlock,
 ];
-
 
 const schema = defineSchema({
   config: {
@@ -315,20 +306,14 @@ export const tinaConfig = defineConfig({
           if (document._sys.filename === "home") {
             return "/";
           }
-          if (document._sys.filename === "contact") {
-            return "/contact/";
-          }
-          if (document._sys.filename === "aboutus") {
-            return "/aboutus/";
-          }
         }
 
         if (["post"].includes(collection.name)) {
           return `/posts/${document._sys.filename}`;
         }
 
-        if (['map'].includes(collection.name)) {
-          return `/maps/${document._sys.filename}`
+        if (["map"].includes(collection.name)) {
+          return `/maps/${document._sys.filename}`;
         }
 
         return undefined;

@@ -1,3 +1,4 @@
+import { type } from "os";
 import { defineConfig, defineSchema, TinaTemplate } from "tinacms";
 
 // Variables
@@ -26,11 +27,26 @@ const HeroBlock: TinaTemplate = {
       name: "subtitle",
       label: "Subtitle",
       type: "string",
+      ui: {
+        component: 'textarea'
+      }
     },
     {
       name: "image",
       label: "Image",
       type: "image",
+    },
+    {
+      name: 'imagewidth',
+      label: 'Image Width',
+      type: 'number',
+      ui: { defaultValue: 720 }
+    },
+    {
+      name: 'imageheight',
+      label: 'Image Height',
+      type: 'number',
+      ui: { defaultValue: 520 }
     },
   ],
 };
@@ -77,6 +93,9 @@ const QuoteBlock: TinaTemplate = {
       name: "quote",
       label: "Quote",
       type: "string",
+      ui:{
+        component: 'textarea'
+      }
     },
     {
       name: "author",

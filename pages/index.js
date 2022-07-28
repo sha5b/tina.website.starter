@@ -26,6 +26,8 @@ const query = `{
         title
         subtitle
         image
+        imagewidth
+        imageheight
       }
       ... on PageBlocksCta {
         __typename
@@ -101,56 +103,42 @@ export default function Home(props) {
                 case "PageBlocksHero":
                   return (
                     <>
-                      {console.log("Heroblock")}
-                      {console.table(block)}
                       <HeroBlock id={id} i={i} block={block} />
                     </>
                   );
                 case "PageBlocksCta":
                   return (
                     <>
-                      {console.log("Call to Action")}
-                      {console.table(block)}
                       <CallToActionBlock id={id} i={i} block={block} />
                     </>
                   );
                 case "PageBlocksQuote":
                   return (
                     <>
-                      {console.log("Quote")}
-                      {console.table(block)}
                       <QuoteBlock id={id} i={i} block={block} />
                     </>
                   );
                 case "PageBlocksGallery":
                   return (
                     <>
-                      {console.log("Gallery")}
-                      {console.table(block)}
                       <GalleryBlock id={id} i={i} block={block} />
                     </>
                   );
                 case "PageBlocksFact":
                   return (
                     <>
-                      {console.log("Fact")}
-                      {console.table(block)}
                       <FactBlock id={id} i={i} block={block} />
                     </>
                   );
                 case "PageBlocksLogos":
                   return (
                     <>
-                      {console.log("Logos")}
-                      {console.table(block)}
                       <LogoBlock id={id} i={i} block={block} />
                     </>
                   );
                 case "PageBlocksFeatured":
                   return (
                     <>
-                      {console.log("Featured")}
-                      {console.table(block)}
                       <FeaturedPostBlock
                         id={id}
                         i={i}

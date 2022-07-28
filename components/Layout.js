@@ -4,7 +4,7 @@ import { Box, Flex, Container } from "@chakra-ui/react";
 
 export const Layout = (props) => {
   return (
-    <Box p={"5rem"} bg={"whitecuba.100"}>
+    <Box p={"5rem"}>
       <Head>
         <title>Telesis</title>
         <meta

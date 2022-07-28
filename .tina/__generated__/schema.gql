@@ -85,6 +85,8 @@ type PageBlocksHero {
   title: String
   subtitle: String
   image: String
+  imagewidth: Float
+  imageheight: Float
 }
 
 type PageBlocksCtaButton {
@@ -218,6 +220,8 @@ input PageBlocksHeroMutation {
   title: String
   subtitle: String
   image: String
+  imagewidth: Float
+  imageheight: Float
 }
 
 input PageBlocksCtaButtonMutation {

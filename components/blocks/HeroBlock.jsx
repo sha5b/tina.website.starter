@@ -1,5 +1,7 @@
 import Image from "next/image";
-import { chakra, Box, Container, Flex, Heading, Text } from "@chakra-ui/react";
+import Link from "next/link";
+import { useEffect } from "react";
+import { chakra, Box, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
 
 const Img = chakra(Image, {
   shouldForwardProp: (prop) =>
@@ -8,29 +10,59 @@ const Img = chakra(Image, {
 
 export const HeroBlock = ({ block, id, i }) => {
   return (
-    <Container maxW={'container.xl'} pt={"1rem"} justify="space-between" key={id + i}>
-      <Flex flexDir={'row'} alignContent={'space-evenly'} w={'100%'}>
-        <Box pt={"5rem"}>
-          <Heading fontSize={"8xl"}>{block.title}</Heading>
-          <Text fontSize={"5xl"}>{block.subtitle}</Text>
-        </Box>
-        {block.image && (
-          <Box bg={"orangebiz.100"}>
-            <Box p={"1.5rem"}>
-              <Img
-                width="560"
-                height="560"
-                quality="100"
-                pos="relative"
-                objectFit="cover"
-                rounded={"1rem"}
-                src={block.image}
-                alt={block.title}
-              />
-            </Box>
+    <Box pt={"2rem"}>
+      <Grid
+        templateColumns={"1fr 1fr 1fr 1fr"}
+        templateRows={"0.2fr 1fr 0.2fr"}
+      >
+        <GridItem rowSpan={2} colSpan={2}>
+          <Box pt={"5rem"}>
+            <Heading fontSize={"6xl"}>{block.title}</Heading>
+            <Text fontSize={"3xl"}>{block.subtitle}</Text>
           </Box>
+        </GridItem>
+        {block.image && (
+          <GridItem rowSpan={3} colSpan={2}>
+            <Link href="posts/">
+              <Box bg={"orangebiz.100"} p="1.5rem">
+                <Box>
+                  <Img
+                    width={block.imagewidth}
+                    height={block.imageheight}
+                    quality="100"
+                    objectFit="cover"
+                    rounded={"1.5rem"}
+                    src={block.image}
+                    alt={block.title}
+                  />
+                </Box>
+              </Box>
+            </Link>
+          </GridItem>
         )}
-      </Flex>
-    </Container>
+      </Grid>
+    </Box>
   );
 };
+
+// Problems to solve: I have fatal error when i leave the width and height values to 0 in the tina cms form. i nee to solve this
+
+/*
+
+  Fatal crash when Field is deleted - this is a part solution
+  i dont understand how to use this to my case
+  need more research
+
+  const [height, setCount] = useState(0);
+
+  useEffect(() =>{
+
+    if (!block.imageheight) {
+      (block.imageheight = 100);
+    }
+    if (!block.imagewidth) {
+      (block.imagewidth = 100);
+    }
+  })
+
+*/

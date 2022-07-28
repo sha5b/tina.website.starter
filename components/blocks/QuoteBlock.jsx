@@ -1,12 +1,15 @@
-export const QuoteBlock = ({ block, id , i }) => {
+import { Box, Heading, Text } from "@chakra-ui/react";
+
+export const QuoteBlock = ({ block, id, i }) => {
   return (
-    <div key={id + i}>
-        <div>
-            {block.quote}
-        </div>
-        <div>
-            {block.author}
-        </div>
-    </div>
+    <Box key={id + i}>
+      <Heading fontSize="5xl">
+        {block.quote}
+      </Heading>
+      {block.author && 
+      <Text fontSize="3xl">
+        - "{block.author}"
+      </Text>}
+    </Box>
   );
 };

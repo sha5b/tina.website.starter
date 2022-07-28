@@ -1301,6 +1301,21 @@
     "@floating-ui/dom" "^0.1.8"
     use-isomorphic-layout-effect "^1.1.1"
 
+"@fontsource/dejavu-mono@^4.5.4":
+  version "4.5.4"
+  resolved "https://registry.yarnpkg.com/@fontsource/dejavu-mono/-/dejavu-mono-4.5.4.tgz#c0b969faf46c52dbed2db6a16da25ea2542e5d25"
+  integrity sha512-uWkCZnQKgIqZD24VEXH3jbvtSRF4RaHmtUHlWnHis+S8EZsC6QiJVS+vE3gnMF7thK1wEhj9dKNn90yiTjcdVQ==
+
+"@fontsource/literata@^4.5.9":
+  version "4.5.9"
+  resolved "https://registry.yarnpkg.com/@fontsource/literata/-/literata-4.5.9.tgz#3a1f32448f2cbb445148a9fb9db5d50b82e9b337"
+  integrity sha512-M6dm4FE6Rx2OwbhaOk4xxe/bkFeyZmKKknV1WNvI4L9Tg4aM+KTNWtngCaoixIZzs1q6nDKLGijHK66t9gHMmg==
+
+"@fontsource/space-grotesk@^4.5.8":
+  version "4.5.8"
+  resolved "https://registry.yarnpkg.com/@fontsource/space-grotesk/-/space-grotesk-4.5.8.tgz#4f3c6a80bbd556e73338eadf2f19f214657580b5"
+  integrity sha512-2+eifFW1dlCGo/zq4xNFNEMrQEfX6rdC39S5t+jSrpRhBnocgr1m8QNBnaM6gok9c+78bUurJ3BjDgC/+WpIAQ==
+
 "@formatjs/ecma402-abstract@1.11.4":
   version "1.11.4"
   resolved "https://registry.yarnpkg.com/@formatjs/ecma402-abstract/-/ecma402-abstract-1.11.4.tgz#b962dfc4ae84361f9f08fbce411b4e4340930eda"

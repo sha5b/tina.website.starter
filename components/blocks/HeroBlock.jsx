@@ -1,15 +1,21 @@
 import Image from "next/image";
-import { Box } from "@chakra-ui/react";
+import { chakra, Box, Heading, Text} from "@chakra-ui/react";
+
+const Img = chakra(Image, {
+  shouldForwardProp: (prop) =>
+    ["width", "height", "src", "alt", "layout"].includes(prop),
+});
 
 export const HeroBlock = ({ block, id, i }) => {
   return (
     <Box key={id + i}>
-      <div>{block.title}</div>
-      <div>{block.subtitle}</div>
+      <Heading>{block.title}</Heading>
+      <Text>{block.subtitle}</Text>
       {block.image && (
-        <Image
-          width="500"
-          height="100%"
+        <Img
+          zIndex={-1}
+          width='1920'
+          height='720'
           quality="100"
           pos="relative"
           objectFit="cover"

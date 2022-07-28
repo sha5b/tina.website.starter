@@ -5,8 +5,6 @@ fragment PageParts on Page {
       title
       subtitle
       image
-      imagewidth
-      imageheight
     }
     ... on PageBlocksCta {
       title

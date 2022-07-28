@@ -26,8 +26,6 @@ const query = `{
         title
         subtitle
         image
-        imagewidth
-        imageheight
       }
       ... on PageBlocksCta {
         __typename

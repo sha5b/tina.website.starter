@@ -36,18 +36,6 @@ const HeroBlock: TinaTemplate = {
       label: "Image",
       type: "image",
     },
-    {
-      name: 'imagewidth',
-      label: 'Image Width',
-      type: 'number',
-      ui: { defaultValue: 720 }
-    },
-    {
-      name: 'imageheight',
-      label: 'Image Height',
-      type: 'number',
-      ui: { defaultValue: 520 }
-    },
   ],
 };
 

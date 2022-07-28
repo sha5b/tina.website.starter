@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Head from "next/head";
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, Container } from "@chakra-ui/react";
 
 export const Layout = (props) => {
   return (
-    <div style={{ padding: "5rem" }}>
+    <Box p={"5rem"} bg={"whitecuba.100"}>
       <Head>
         <title>Telesis</title>
         <meta
@@ -13,15 +13,30 @@ export const Layout = (props) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Flex gap={6}>
+      <Flex p={"1rem"} justify="space-between" bg={"blacksuite.100"}>
         <Link href="/">
-          <Box as='a' fontSize={'xl'}>Home</Box>
+          <Box as="a" fontSize={"xl"} color={"whitecuba.100"}>
+            Home
+          </Box>
         </Link>
         <Link href="/posts">
-          <Box as='a' fontSize={'xl'}>Posts</Box>
+          <Box as="a" fontSize={"xl"} color={"whitecuba.100"}>
+            Posts
+          </Box>
         </Link>
       </Flex>
       <main>{props.children}</main>
-    </div>
+    </Box>
   );
 };
+
+/* 
+  <Flex p={'1rem'} justify='space-between' bg={'blacksuite.100'}>
+    <Link href="/">
+      <Box as='a' fontSize={'xl'} color={'whitecuba.100'}>Home</Box>
+    </Link>
+    <Link href="/posts">
+      <Box as='a' fontSize={'xl'} color={'whitecuba.100'}>Posts</Box>
+    </Link>
+  </Flex>
+*/

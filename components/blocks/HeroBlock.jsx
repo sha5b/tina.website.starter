@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { chakra, Box, Heading, Text} from "@chakra-ui/react";
+import { chakra, Box, Flex, Heading, Text } from "@chakra-ui/react";
 
 const Img = chakra(Image, {
   shouldForwardProp: (prop) =>
@@ -8,21 +8,27 @@ const Img = chakra(Image, {
 
 export const HeroBlock = ({ block, id, i }) => {
   return (
-    <Box key={id + i}>
-      <Heading>{block.title}</Heading>
-      <Text>{block.subtitle}</Text>
+    <Flex key={id + i}>
+      <Box>
+        <Heading fontSize={'8xl'}>{block.title}</Heading>
+        <Text fontSize={'5xl'}>{block.subtitle}</Text>
+      </Box>
       {block.image && (
-        <Img
-          zIndex={-1}
-          width='1920'
-          height='720'
-          quality="100"
-          pos="relative"
-          objectFit="cover"
-          src={block.image}
-          alt={block.title}
-        />
+        <Box bg={"orangebiz.100"}>
+          <Box p={'1.5rem'}>
+            <Img
+              width="560"
+              height="560"
+              quality="100"
+              pos='relative'
+              objectFit="cover"
+              rounded={'1rem'}
+              src={block.image}
+              alt={block.title}
+            />
+          </Box>
+        </Box>
       )}
-    </Box>
+    </Flex>
   );
 };

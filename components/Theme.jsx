@@ -27,9 +27,14 @@ export const Theme = extendTheme({
       100: '#45DEA0'
     },
   },
+});
+
+/*
+
   fonts: {
     body: "Liberata, serif",
     heading: "Space Grotesk, sans-serif",
     mono: "DejaVu Mono, monospace",
   },
-});
+
+*/

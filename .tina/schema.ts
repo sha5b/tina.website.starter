@@ -67,6 +67,9 @@ const CallToActionBlock: TinaTemplate = {
           name: "href",
           label: "Href",
           type: "string",
+          ui:{
+            defaultValue: '/'
+          }
         },
       ],
     },

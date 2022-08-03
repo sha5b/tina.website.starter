@@ -20,7 +20,6 @@ export const CallToActionBlock = ({ block, id, i }) => {
       gap={"3rem"}
       align={"center"}
       bg={"blacksuite.100"}
-      rounded={"1.5rem"}
     >
       <Box>
         <Heading textAlign={"center"} color={"whitecuba.100"} fontSize={"5xl"}>

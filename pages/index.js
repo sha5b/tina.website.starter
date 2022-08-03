@@ -56,6 +56,8 @@ query FetchQuery{
         __typename
         quote
         author
+        colstart
+        colend
       }
       ... on PageBlocksGallery {
         __typename

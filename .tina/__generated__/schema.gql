@@ -141,6 +141,8 @@ type PageBlocksCta {
 type PageBlocksQuote {
   quote: String
   author: String
+  colstart: Float
+  colend: Float
 }
 
 type PageBlocksGalleryGallery {
@@ -317,6 +319,8 @@ input PageBlocksCtaMutation {
 input PageBlocksQuoteMutation {
   quote: String
   author: String
+  colstart: Float
+  colend: Float
 }
 
 input PageBlocksGalleryGalleryMutation {

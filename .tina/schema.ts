@@ -222,6 +222,16 @@ const QuoteBlock: TinaTemplate = {
       label: "author",
       type: "string",
     },
+    {
+      name: 'colstart',
+      label: 'Start X',
+      type: 'number'
+    },
+    {
+      name: 'colend',
+      label: 'End X',
+      type: 'number'
+    },
   ],
 };
 

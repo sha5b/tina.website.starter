@@ -2,17 +2,25 @@ import { Box, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
 
 export const QuoteBlock = ({ block, id, i }) => {
   return (
-    <Box pt={"2rem"} key={id + i}>
-      <Grid
-        templateColumns={"1fr 1fr 1fr 1fr"}
-        templateRows={"0.2fr 1fr 0.2fr"}
-        gap={5}
-      >
-        <GridItem rowSpan={2} colSpan={4}>
-          <Heading fontSize="5xl">{block.quote}</Heading>
-          {block.author && <Text fontSize="3xl">- "{block.author}"</Text>}
-        </GridItem>
-      </Grid>
-    </Box>
+    <Grid
+      bg={"blacksuite.100"}
+      p={"2rem"}
+      mt={"3rem"}
+      templateColumns={"1fr 1fr 1fr 1fr"}
+      autoRows={"auto"}
+      autoColumns={"auto"}
+      gap={5}
+    >
+      <GridItem colStart={block?.colstart} colEnd={block?.colend}>
+        <Heading textAlign={"justify"} color={"whitecuba.100"} fontSize="4xl">
+          {block.quote}
+        </Heading>
+        {block.author && (
+          <Text pt={"1.5rem"} color={"whitecuba.100"} fontSize="3xl">
+            - "{block.author}"
+          </Text>
+        )}
+      </GridItem>
+    </Grid>
   );
 };

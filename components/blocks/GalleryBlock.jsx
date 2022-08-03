@@ -20,7 +20,6 @@ export const GalleryBlock = ({ block, id, i }) => {
       autoColumns={"auto"}
     >
       {block.gallery?.map((item, i) => {
-        {console.log(item.height)}
         return (
           <GridItem colStart={item?.colstart} colEnd={item?.colend} zIndex={-i}>
             {item.image && (

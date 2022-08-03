@@ -13,17 +13,19 @@ export const HeroBlock = ({ block, id, i }) => {
     <Box pt={"2rem"} key={id + i}>
       <Grid
         templateColumns={"repeat(6, 1fr)"}
-        templateRows={"repeat(4, 25%)"}
+        templateRows={"repeat(6, 1fr)"}
         gap={5}
       >
         <GridItem
+          zIndex={1}
           colStart={block.position?.text.colstart}
           colEnd={block.position?.text.colend}
           rowStart={block.position?.text.rowstart}
           rowEnd={block.position?.text.rowend}
+          pos="relative"
         >
-          <Box pos="relative">
-            <Heading fontSize={"6xl"}>{block.title}</Heading>
+          <Box p={"1.5rem"}>
+            <Heading fontSize={"5xl"}>{block.title}</Heading>
             <Text fontSize={"3xl"}>{block.subtitle}</Text>
           </Box>
         </GridItem>
@@ -33,21 +35,18 @@ export const HeroBlock = ({ block, id, i }) => {
             colEnd={block.position?.image?.colend ?? 1}
             rowStart={block.position?.image?.rowstart ?? 1}
             rowEnd={block.position?.image?.rowend ?? 1}
+            pos="relative"
           >
-            <Box p={"1.5rem"} bg={"orangebiz.100"} boxShadow={"md"}>
-              <Box display={"block"}>
-                <Img
-                  quality="100"
-                  width={"100%"}
-                  height={"100%"}
-                  layout="responsive"
-                  objectFit="cover"
-                  rounded={"1.5rem"}
-                  src={block.image}
-                  alt={block.title}
-                />
-              </Box>
-            </Box>
+              <Img
+                border={'orange'}
+                zIndex={0}
+                quality="100"
+                layout={"fill"}
+                objectFit="cover"
+                rounded={"1.5rem"}
+                src={block.image}
+                alt={block.title}
+              />
           </GridItem>
         )}
       </Grid>

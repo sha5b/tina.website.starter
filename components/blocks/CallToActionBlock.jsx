@@ -1,18 +1,20 @@
 import Link from "next/link";
-import { Box, Heading, Text, Button } from "@chakra-ui/react";
+import { Grid, GridItem, Box,Flex, Heading, Text, Button } from "@chakra-ui/react";
 
 export const CallToActionBlock = ({ block, id, i }) => {
   return (
-    <div key={id + i}>
-      <div>{block.title}</div>
-      <div>{block.subtitle}</div>
+    <Grid>
+      <GridItem>
+      <Heading fontSize={"5xl"}>{block.title}</Heading>
+      <Text fontSize={"2xl"}>{block.subtitle}</Text>
       {block.button && (
-        <>
-          <Link href={block.button.href ?? '/'}>
-            <Button fontSize={'lg'} p={'2rem'}>{block.button.label}</Button>
-          </Link>
-        </>
+        <Link href={block.button.href ?? "/"}>
+          <Button fontSize={"lg"} p={"2rem"}>
+            {block.button.label}
+          </Button>
+        </Link>
       )}
-    </div>
+      </GridItem>
+    </Grid>
   );
 };

@@ -17,6 +17,11 @@ const category = [
 const HeroBlock: TinaTemplate = {
   name: "hero",
   label: "Hero",
+  ui: {
+    itemProps: (item) => {
+      return { label: 'Hero // ' + item?.title };
+    }
+  },
   fields: [
     {
       name: "title",
@@ -130,6 +135,67 @@ const CallToActionBlock: TinaTemplate = {
           type: "string",
         },
       ],
+    },
+    {
+      name: "position",
+      label: "Positions",
+      type: "object",
+      fields:[
+        {
+          name:'text',
+          label:'Textposition',
+          type: 'object',
+          fields:[
+            {
+              name: "colstart",
+              label: "Start X",
+              type: "number",
+            },
+            {
+              name: "colend",
+              label: "End X",
+              type: "number",
+            },
+            {
+              name: "rowstart",
+              label: "Start Y",
+              type: "number",
+            },
+            {
+              name: "rowend",
+              label: "End Y",
+              type: "number",
+            },
+          ]
+        },
+        {
+          name:'button',
+          label:'Buttonposition',
+          type: 'object',
+          fields:[
+            {
+              name: "colstart",
+              label: "Start X",
+              type: "number",
+            },
+            {
+              name: "colend",
+              label: "End X",
+              type: "number",
+            },
+            {
+              name: "rowstart",
+              label: "Start Y",
+              type: "number",
+            },
+            {
+              name: "rowend",
+              label: "End Y",
+              type: "number",
+            },
+          ]
+        },
+      ]
     },
   ],
 };

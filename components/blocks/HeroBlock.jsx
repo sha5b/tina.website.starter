@@ -12,8 +12,8 @@ export const HeroBlock = ({ block, id, i }) => {
   return (
     <Box pt={"2rem"} key={id + i}>
       <Grid
-        templateColumns={"1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr "}
-        templateRows={"33% 33%  33% "}
+        templateColumns={"repeat(6, 1fr)"}
+        templateRows={"repeat(4, 25%)"}
         gap={5}
       >
         <GridItem
@@ -21,7 +21,6 @@ export const HeroBlock = ({ block, id, i }) => {
           colEnd={block.position?.text.colend}
           rowStart={block.position?.text.rowstart}
           rowEnd={block.position?.text.rowend}
-          order={block.position?.text.order}
         >
           <Box pos="relative">
             <Heading fontSize={"6xl"}>{block.title}</Heading>
@@ -34,7 +33,6 @@ export const HeroBlock = ({ block, id, i }) => {
             colEnd={block.position?.image?.colend ?? 1}
             rowStart={block.position?.image?.rowstart ?? 1}
             rowEnd={block.position?.image?.rowend ?? 1}
-            order={block.position?.image?.order ?? 1}
           >
             <Box p={"1.5rem"} bg={"orangebiz.100"} boxShadow={"md"}>
               <Box display={"block"}>

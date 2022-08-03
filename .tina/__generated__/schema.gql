@@ -86,7 +86,6 @@ type PageBlocksHeroPositionText {
   colend: Float
   rowstart: Float
   rowend: Float
-  order: String
 }
 
 type PageBlocksHeroPositionImage {
@@ -94,7 +93,6 @@ type PageBlocksHeroPositionImage {
   colend: Float
   rowstart: Float
   rowend: Float
-  order: Float
 }
 
 type PageBlocksHeroPosition {
@@ -241,7 +239,6 @@ input PageBlocksHeroPositionTextMutation {
   colend: Float
   rowstart: Float
   rowend: Float
-  order: String
 }
 
 input PageBlocksHeroPositionImageMutation {
@@ -249,7 +246,6 @@ input PageBlocksHeroPositionImageMutation {
   colend: Float
   rowstart: Float
   rowend: Float
-  order: Float
 }
 
 input PageBlocksHeroPositionMutation {

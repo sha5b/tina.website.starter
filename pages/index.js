@@ -34,14 +34,12 @@ query FetchQuery{
             colend
             rowstart
             rowend
-            order
           }
           text {
             colstart
             colend
             rowstart
             rowend
-            order
           }
         }
       }

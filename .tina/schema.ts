@@ -66,11 +66,6 @@ const HeroBlock: TinaTemplate = {
               label: "End Y",
               type: "number",
             },
-            {
-              name: "order",
-              label: "Order",
-              type: "string",
-            },
           ]
         },
         {
@@ -96,11 +91,6 @@ const HeroBlock: TinaTemplate = {
             {
               name: "rowend",
               label: "End Y",
-              type: "number",
-            },
-            {
-              name: "order",
-              label: "Order",
               type: "number",
             },
           ]

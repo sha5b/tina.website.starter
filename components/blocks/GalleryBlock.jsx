@@ -22,8 +22,7 @@ export const GalleryBlock = ({ block, id, i }) => {
       {block.gallery?.map((item, i) => {
         return (
           <GridItem colStart={item?.colstart} colEnd={item?.colend} zIndex={-i}>
-            {item.image && (
-              
+            {item.image && (   
               <Box p={"1.5rem"} bg={"orangebiz.100"} display={'block'}>
                 <Img
                   rounded={"1.5rem"}

@@ -304,7 +304,25 @@ const FactBlock: TinaTemplate = {
           name: "subheadline",
           label: "Subheadline",
           type: "string",
+          ui: {
+            component: 'textarea'
+          }
         },
+        {
+          name: "colstart",
+          label: "Start X",
+          type: "number",
+        },
+        {
+          name: "colend",
+          label: "End X",
+          type: "number",
+        },
+        {
+          name: "height",
+          label: "Height",
+          type: "number",
+        }
       ],
     },
   ],
@@ -338,6 +356,11 @@ const LogoBlock: TinaTemplate = {
         {
           name: "alt",
           label: "Alternative Description",
+          type: "string",
+        },
+        {
+          name: "href",
+          label: "HREF",
           type: "string",
         },
       ],

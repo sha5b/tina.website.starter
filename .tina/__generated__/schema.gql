@@ -160,6 +160,9 @@ type PageBlocksGallery {
 type PageBlocksFactFact {
   headline: String
   subheadline: String
+  colstart: Float
+  colend: Float
+  height: Float
 }
 
 type PageBlocksFact {
@@ -169,6 +172,7 @@ type PageBlocksFact {
 type PageBlocksLogosLogos {
   logo: String
   alt: String
+  href: String
 }
 
 type PageBlocksLogos {
@@ -338,6 +342,9 @@ input PageBlocksGalleryMutation {
 input PageBlocksFactFactMutation {
   headline: String
   subheadline: String
+  colstart: Float
+  colend: Float
+  height: Float
 }
 
 input PageBlocksFactMutation {
@@ -347,6 +354,7 @@ input PageBlocksFactMutation {
 input PageBlocksLogosLogosMutation {
   logo: String
   alt: String
+  href: String
 }
 
 input PageBlocksLogosMutation {

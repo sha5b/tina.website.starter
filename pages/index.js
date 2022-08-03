@@ -74,6 +74,9 @@ query FetchQuery{
         fact {
           headline
           subheadline
+          colstart
+          colend
+          height
         }
       }
       ... on PageBlocksLogos {
@@ -81,6 +84,8 @@ query FetchQuery{
         headline
         logos {
           logo
+          alt
+          href
         }
       }
       ... on PageBlocksFeatured {

@@ -31,7 +31,7 @@ export const CallToActionBlock = ({ block, id, i }) => {
       </Box>
       {block.button && (
         <Box>
-          <Link href={block.button.href ?? "/"}>
+          <Link href={block.button.href ?? " "}>
             <Button fontSize={"lg"} p={"2rem"} textAlign={"center"}>
               {block.button.label}
             </Button>

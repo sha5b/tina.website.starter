@@ -50,7 +50,7 @@ query FetchQuery{
         button {
           label
           href
-        } 
+        }
       }
       ... on PageBlocksQuote {
         __typename
@@ -62,6 +62,9 @@ query FetchQuery{
         gallery {
           image
           alt
+          colstart
+          colend
+          height
         }
       }
       ... on PageBlocksFact {

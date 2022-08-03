@@ -108,6 +108,11 @@ const HeroBlock: TinaTemplate = {
 const CallToActionBlock: TinaTemplate = {
   name: "cta",
   label: "Call to Action",
+  ui: {
+    itemProps: (item) => {
+      return { label: 'CTA // ' + item?.title };
+    }
+  },
   fields: [
     {
       name: "title",
@@ -245,6 +250,21 @@ const GalleryBlock: TinaTemplate = {
           label: "Alternative Descirption",
           type: "string",
         },
+        {
+          name: "colstart",
+          label: "Start X",
+          type: "number",
+        },
+        {
+          name: "colend",
+          label: "End X",
+          type: "number",
+        },
+        {
+          name: "height",
+          label: "Height",
+          type: "number",
+        }
       ],
     },
   ],

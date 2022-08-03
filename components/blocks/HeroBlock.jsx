@@ -17,12 +17,12 @@ export const HeroBlock = ({ block, id, i }) => {
         gap={5}
       >
         <GridItem
+        bg={'rgba(231, 232, 233, 0.25)'}
           zIndex={1}
           colStart={block.position?.text.colstart}
           colEnd={block.position?.text.colend}
           rowStart={block.position?.text.rowstart}
           rowEnd={block.position?.text.rowend}
-          pos="relative"
         >
           <Box p={"1.5rem"}>
             <Heading fontSize={"5xl"}>{block.title}</Heading>
@@ -38,7 +38,6 @@ export const HeroBlock = ({ block, id, i }) => {
             pos="relative"
           >
               <Img
-                border={'orange'}
                 zIndex={0}
                 quality="100"
                 layout={"fill"}

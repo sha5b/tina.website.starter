@@ -1,0 +1,97 @@
+fragment PageParts on Page {
+  blocks {
+    __typename
+    ... on PageBlocksHero {
+      title
+      subtitle
+      image
+      position {
+        __typename
+        text {
+          __typename
+          colstart
+          colend
+          rowstart
+          rowend
+        }
+        image {
+          __typename
+          colstart
+          colend
+          rowstart
+          rowend
+        }
+      }
+    }
+    ... on PageBlocksCta {
+      title
+      subtitle
+      button {
+        __typename
+        label
+        href
+      }
+      position {
+        __typename
+        text {
+          __typename
+          colstart
+          colend
+          rowstart
+          rowend
+        }
+        button {
+          __typename
+          colstart
+          colend
+          rowstart
+          rowend
+        }
+      }
+    }
+    ... on PageBlocksQuote {
+      quote
+      author
+    }
+    ... on PageBlocksGallery {
+      gallery {
+        __typename
+        image
+        alt
+        colstart
+        colend
+        height
+      }
+    }
+    ... on PageBlocksFact {
+      fact {
+        __typename
+        headline
+        subheadline
+      }
+    }
+    ... on PageBlocksLogos {
+      headline
+      logos {
+        __typename
+        logo
+        alt
+      }
+    }
+    ... on PageBlocksFeatured {
+      category
+    }
+  }
+}
+
+fragment PostParts on Post {
+  title
+  category
+  date
+  description
+  image
+}
+
+fragment MapParts on Map {
+  date
+}

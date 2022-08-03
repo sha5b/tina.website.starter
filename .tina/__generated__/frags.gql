@@ -5,6 +5,25 @@ fragment PageParts on Page {
       title
       subtitle
       image
+      position {
+        __typename
+        text {
+          __typename
+          colstart
+          colend
+          rowstart
+          rowend
+          order
+        }
+        image {
+          __typename
+          colstart
+          colend
+          rowstart
+          rowend
+          order
+        }
+      }
     }
     ... on PageBlocksCta {
       title

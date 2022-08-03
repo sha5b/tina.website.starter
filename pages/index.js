@@ -1,6 +1,7 @@
 // Node Import
-import { staticRequest } from "tinacms";
+import { gql, staticRequest } from "tinacms";
 import { useTina } from "tinacms/dist/edit-state";
+import React from 'react'
 // End
 
 // Block Import
@@ -17,8 +18,9 @@ import { FeaturedPostBlock } from "../components/blocks/FeaturedPostBlock";
 import { Layout } from "../components/Layout";
 // End
 
-const query = `{
-  page(relativePath: "home.mdx"){
+const query = gql`#graphql
+query FetchQuery{
+  page (relativePath: "home.mdx"){
     id
     blocks {
       ... on PageBlocksHero {
@@ -26,6 +28,22 @@ const query = `{
         title
         subtitle
         image
+        position {
+          image {
+            colstart
+            colend
+            rowstart
+            rowend
+            order
+          }
+          text {
+            colstart
+            colend
+            rowstart
+            rowend
+            order
+          }
+        }
       }
       ... on PageBlocksCta {
         __typename
@@ -34,7 +52,7 @@ const query = `{
         button {
           label
           href
-        }
+        } 
       }
       ... on PageBlocksQuote {
         __typename
@@ -81,6 +99,7 @@ const query = `{
   }
 }`;
 
+
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
   const { data } = useTina({
@@ -88,6 +107,7 @@ export default function Home(props) {
     variables: {},
     data: props.data,
   });
+  
 
   // Variables
   const id = data.page.id;
@@ -95,59 +115,60 @@ export default function Home(props) {
   // End
   return (
     <Layout>
-        {data.page
-          ? data.page.blocks?.map((block, i) => {
-              switch (block.__typename) {
-                case "PageBlocksHero":
-                  return (
-                    <>
-                      <HeroBlock id={id} i={i} block={block} />
-                    </>
-                  );
-                case "PageBlocksCta":
-                  return (
-                    <>
-                      <CallToActionBlock id={id} i={i} block={block} />
-                    </>
-                  );
-                case "PageBlocksQuote":
-                  return (
-                    <>
-                      <QuoteBlock id={id} i={i} block={block} />
-                    </>
-                  );
-                case "PageBlocksGallery":
-                  return (
-                    <>
-                      <GalleryBlock id={id} i={i} block={block} />
-                    </>
-                  );
-                case "PageBlocksFact":
-                  return (
-                    <>
-                      <FactBlock id={id} i={i} block={block} />
-                    </>
-                  );
-                case "PageBlocksLogos":
-                  return (
-                    <>
-                      <LogoBlock id={id} i={i} block={block} />
-                    </>
-                  );
-                case "PageBlocksFeatured":
-                  return (
-                    <>
-                      <FeaturedPostBlock
-                        id={id}
-                        i={i}
-                        block={block}
-                        posts={posts}
-                      />
-                    </>
-                  );
-              }
-            })
-          : null}
+      {console.table(data)}
+      {data.page
+        ? data.page.blocks?.map((block, i) => {
+            switch (block.__typename) {
+              case "PageBlocksHero":
+                return (
+                  <>
+                    <HeroBlock id={id} i={i} block={block} />
+                  </>
+                );
+              case "PageBlocksCta":
+                return (
+                  <>
+                    <CallToActionBlock id={id} i={i} block={block} />
+                  </>
+                );
+              case "PageBlocksQuote":
+                return (
+                  <>
+                    <QuoteBlock id={id} i={i} block={block} />
+                  </>
+                );
+              case "PageBlocksGallery":
+                return (
+                  <>
+                    <GalleryBlock id={id} i={i} block={block} />
+                  </>
+                );
+              case "PageBlocksFact":
+                return (
+                  <>
+                    <FactBlock id={id} i={i} block={block} />
+                  </>
+                );
+              case "PageBlocksLogos":
+                return (
+                  <>
+                    <LogoBlock id={id} i={i} block={block} />
+                  </>
+                );
+              case "PageBlocksFeatured":
+                return (
+                  <>
+                    <FeaturedPostBlock
+                      id={id}
+                      i={i}
+                      block={block}
+                      posts={posts}
+                    />
+                  </>
+                );
+            }
+          })
+        : null}
     </Layout>
   );
 }
@@ -171,3 +192,5 @@ export const getStaticProps = async () => {
     },
   };
 };
+
+//{fs.writeFileSync('../content/database/Layouts.json', JSON.stringify(users, null, 4))}

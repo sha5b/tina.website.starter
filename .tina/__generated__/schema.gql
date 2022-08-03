@@ -81,10 +81,32 @@ type Collection {
 
 union DocumentNode = Page | Post | Map
 
+type PageBlocksHeroPositionText {
+  colstart: Float
+  colend: Float
+  rowstart: Float
+  rowend: Float
+  order: String
+}
+
+type PageBlocksHeroPositionImage {
+  colstart: Float
+  colend: Float
+  rowstart: Float
+  rowend: Float
+  order: Float
+}
+
+type PageBlocksHeroPosition {
+  text: PageBlocksHeroPositionText
+  image: PageBlocksHeroPositionImage
+}
+
 type PageBlocksHero {
   title: String
   subtitle: String
   image: String
+  position: PageBlocksHeroPosition
 }
 
 type PageBlocksCtaButton {
@@ -214,10 +236,32 @@ input DocumentMutation {
   map: MapMutation
 }
 
+input PageBlocksHeroPositionTextMutation {
+  colstart: Float
+  colend: Float
+  rowstart: Float
+  rowend: Float
+  order: String
+}
+
+input PageBlocksHeroPositionImageMutation {
+  colstart: Float
+  colend: Float
+  rowstart: Float
+  rowend: Float
+  order: Float
+}
+
+input PageBlocksHeroPositionMutation {
+  text: PageBlocksHeroPositionTextMutation
+  image: PageBlocksHeroPositionImageMutation
+}
+
 input PageBlocksHeroMutation {
   title: String
   subtitle: String
   image: String
+  position: PageBlocksHeroPositionMutation
 }
 
 input PageBlocksCtaButtonMutation {

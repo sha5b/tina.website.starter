@@ -36,6 +36,77 @@ const HeroBlock: TinaTemplate = {
       label: "Image",
       type: "image",
     },
+    {
+      name: "position",
+      label: "Positions",
+      type: "object",
+      fields:[
+        {
+          name:'text',
+          label:'Textposition',
+          type: 'object',
+          fields:[
+            {
+              name: "colstart",
+              label: "Start X",
+              type: "number",
+            },
+            {
+              name: "colend",
+              label: "End X",
+              type: "number",
+            },
+            {
+              name: "rowstart",
+              label: "Start Y",
+              type: "number",
+            },
+            {
+              name: "rowend",
+              label: "End Y",
+              type: "number",
+            },
+            {
+              name: "order",
+              label: "Order",
+              type: "string",
+            },
+          ]
+        },
+        {
+          name:'image',
+          label:'Imageposition',
+          type: 'object',
+          fields:[
+            {
+              name: "colstart",
+              label: "Start X",
+              type: "number",
+            },
+            {
+              name: "colend",
+              label: "End X",
+              type: "number",
+            },
+            {
+              name: "rowstart",
+              label: "Start Y",
+              type: "number",
+            },
+            {
+              name: "rowend",
+              label: "End Y",
+              type: "number",
+            },
+            {
+              name: "order",
+              label: "Order",
+              type: "number",
+            },
+          ]
+        },
+      ]
+    },
   ],
 };
 
@@ -67,9 +138,6 @@ const CallToActionBlock: TinaTemplate = {
           name: "href",
           label: "Href",
           type: "string",
-          ui:{
-            defaultValue: '/'
-          }
         },
       ],
     },

@@ -181,7 +181,8 @@ type PageBlocksLogos {
 }
 
 type PageBlocksFeatured {
-  category: [String]
+  category: String
+  size: Float
 }
 
 union PageBlocks = PageBlocksHero | PageBlocksCta | PageBlocksQuote | PageBlocksGallery | PageBlocksFact | PageBlocksLogos | PageBlocksFeatured
@@ -206,7 +207,7 @@ type PageConnection implements Connection {
 
 type Post implements Node & Document {
   title: String
-  category: [String]
+  category: String
   date: String
   description: String
   image: String
@@ -363,7 +364,8 @@ input PageBlocksLogosMutation {
 }
 
 input PageBlocksFeaturedMutation {
-  category: [String]
+  category: String
+  size: Float
 }
 
 input PageBlocksMutation {
@@ -382,7 +384,7 @@ input PageMutation {
 
 input PostMutation {
   title: String
-  category: [String]
+  category: String
   date: String
   description: String
   image: String

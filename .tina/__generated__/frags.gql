@@ -86,6 +86,7 @@ fragment PageParts on Page {
     }
     ... on PageBlocksFeatured {
       category
+      size
     }
   }
 }

@@ -376,8 +376,12 @@ const FeaturedPostBlock: TinaTemplate = {
       name: "category",
       label: "Category",
       type: "string",
-      list: true,
       options: category,
+    },
+    {
+      name: "size",
+      label: "Gridsize",
+      type: "number",
     },
   ],
 };
@@ -434,7 +438,6 @@ const schema = defineSchema({
           name: "category",
           label: "Category",
           type: "string",
-          list: true,
           options: category,
         },
         {

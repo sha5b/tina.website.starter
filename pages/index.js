@@ -91,12 +91,16 @@ query FetchQuery{
       ... on PageBlocksFeatured {
         __typename
         category
+        size
       }
     }
   }
   postConnection {
     edges {
       node {
+        _sys{
+          filename
+        }
         title
         category
         date

@@ -20,10 +20,10 @@ export const HeroBlock = ({ block, id, i }) => {
         <GridItem
         bg={'rgba(231, 232, 233, 0.25)'}
           zIndex={1}
-          colStart={block.position?.text.colstart}
-          colSpan={block.position?.text.colend}
-          rowStart={block.position?.text.rowstart}
-          rowSpan={block.position?.text.rowend}
+          colStart={block.position?.text.x}
+          colSpan={block.position?.text.width}
+          rowStart={block.position?.text.y}
+          rowSpan={block.position?.text.height}
           pos={'relative'}
         >
           <Box p={"1.5rem"}>
@@ -33,10 +33,10 @@ export const HeroBlock = ({ block, id, i }) => {
         </GridItem>
         {block.image && (
           <GridItem
-            colStart={block.position?.image?.colstart ?? 1}
-            colSpan={block.position?.image?.colend ?? 1}
-            rowStart={block.position?.image?.rowstart ?? 1}
-            rowSpan={block.position?.image?.rowend ?? 1}
+            colStart={block.position?.image?.x ?? 1}
+            colSpan={block.position?.image?.width?? 1}
+            rowStart={block.position?.image?.y ?? 1}
+            rowSpan={block.position?.image?.height ?? 1}
             pos="relative"
           >
               <Img

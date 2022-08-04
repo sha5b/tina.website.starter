@@ -30,16 +30,16 @@ query FetchQuery{
         image
         position {
           image {
-            colstart
-            colend
-            rowstart
-            rowend
+            x
+            y
+            width
+            height
           }
           text {
-            colstart
-            colend
-            rowstart
-            rowend
+            x
+            y
+            width
+            height
           }
         }
       }
@@ -56,16 +56,16 @@ query FetchQuery{
         __typename
         quote
         author
-        colstart
-        colend
+        x
+        width
       }
       ... on PageBlocksGallery {
         __typename
         gallery {
           image
           alt
-          colstart
-          colend
+          x
+          width
           height
         }
       }
@@ -74,9 +74,8 @@ query FetchQuery{
         fact {
           headline
           subheadline
-          colstart
-          colend
-          height
+          x
+          width
         }
       }
       ... on PageBlocksLogos {

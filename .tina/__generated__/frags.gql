@@ -9,17 +9,17 @@ fragment PageParts on Page {
         __typename
         text {
           __typename
-          colstart
-          colend
-          rowstart
-          rowend
+          x
+          width
+          y
+          height
         }
         image {
           __typename
-          colstart
-          colend
-          rowstart
-          rowend
+          x
+          width
+          y
+          height
         }
       }
     }
@@ -31,37 +31,20 @@ fragment PageParts on Page {
         label
         href
       }
-      position {
-        __typename
-        text {
-          __typename
-          colstart
-          colend
-          rowstart
-          rowend
-        }
-        button {
-          __typename
-          colstart
-          colend
-          rowstart
-          rowend
-        }
-      }
     }
     ... on PageBlocksQuote {
       quote
       author
-      colstart
-      colend
+      x
+      width
     }
     ... on PageBlocksGallery {
       gallery {
         __typename
         image
         alt
-        colstart
-        colend
+        x
+        width
         height
       }
     }
@@ -70,9 +53,8 @@ fragment PageParts on Page {
         __typename
         headline
         subheadline
-        colstart
-        colend
-        height
+        x
+        width
       }
     }
     ... on PageBlocksLogos {

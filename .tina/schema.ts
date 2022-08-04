@@ -52,23 +52,23 @@ const HeroBlock: TinaTemplate = {
           type: 'object',
           fields:[
             {
-              name: "colstart",
-              label: "Start X",
+              name: "x",
+              label: "X Position",
               type: "number",
             },
             {
-              name: "colend",
-              label: "End X",
+              name: "width",
+              label: "Width",
               type: "number",
             },
             {
-              name: "rowstart",
-              label: "Start Y",
+              name: "y",
+              label: "Y Position",
               type: "number",
             },
             {
-              name: "rowend",
-              label: "End Y",
+              name: "height",
+              label: "Height",
               type: "number",
             },
           ]
@@ -79,23 +79,23 @@ const HeroBlock: TinaTemplate = {
           type: 'object',
           fields:[
             {
-              name: "colstart",
+              name: "x",
               label: "Start X",
               type: "number",
             },
             {
-              name: "colend",
-              label: "End X",
+              name: "width",
+              label: "Width",
               type: "number",
             },
             {
-              name: "rowstart",
-              label: "Start Y",
+              name: "y",
+              label: "Y",
               type: "number",
             },
             {
-              name: "rowend",
-              label: "End Y",
+              name: "height",
+              label: "Height",
               type: "number",
             },
           ]
@@ -141,67 +141,6 @@ const CallToActionBlock: TinaTemplate = {
         },
       ],
     },
-    {
-      name: "position",
-      label: "Positions",
-      type: "object",
-      fields:[
-        {
-          name:'text',
-          label:'Textposition',
-          type: 'object',
-          fields:[
-            {
-              name: "colstart",
-              label: "Start X",
-              type: "number",
-            },
-            {
-              name: "colend",
-              label: "End X",
-              type: "number",
-            },
-            {
-              name: "rowstart",
-              label: "Start Y",
-              type: "number",
-            },
-            {
-              name: "rowend",
-              label: "End Y",
-              type: "number",
-            },
-          ]
-        },
-        {
-          name:'button',
-          label:'Buttonposition',
-          type: 'object',
-          fields:[
-            {
-              name: "colstart",
-              label: "Start X",
-              type: "number",
-            },
-            {
-              name: "colend",
-              label: "End X",
-              type: "number",
-            },
-            {
-              name: "rowstart",
-              label: "Start Y",
-              type: "number",
-            },
-            {
-              name: "rowend",
-              label: "End Y",
-              type: "number",
-            },
-          ]
-        },
-      ]
-    },
   ],
 };
 
@@ -223,13 +162,13 @@ const QuoteBlock: TinaTemplate = {
       type: "string",
     },
     {
-      name: 'colstart',
-      label: 'Start X',
+      name: 'x',
+      label: 'X Position',
       type: 'number'
     },
     {
-      name: 'colend',
-      label: 'End X',
+      name: 'width',
+      label: 'Width',
       type: 'number'
     },
   ],
@@ -261,13 +200,13 @@ const GalleryBlock: TinaTemplate = {
           type: "string",
         },
         {
-          name: "colstart",
-          label: "Start X",
+          name: "x",
+          label: "X Position",
           type: "number",
         },
         {
-          name: "colend",
-          label: "End X",
+          name: "width",
+          label: "Width",
           type: "number",
         },
         {
@@ -309,20 +248,15 @@ const FactBlock: TinaTemplate = {
           }
         },
         {
-          name: "colstart",
-          label: "Start X",
+          name: "x",
+          label: "X Position",
           type: "number",
         },
         {
-          name: "colend",
-          label: "End X",
+          name: "width",
+          label: "Width",
           type: "number",
         },
-        {
-          name: "height",
-          label: "Height",
-          type: "number",
-        }
       ],
     },
   ],

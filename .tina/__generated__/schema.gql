@@ -82,17 +82,17 @@ type Collection {
 union DocumentNode = Page | Post | Map
 
 type PageBlocksHeroPositionText {
-  colstart: Float
-  colend: Float
-  rowstart: Float
-  rowend: Float
+  x: Float
+  width: Float
+  y: Float
+  height: Float
 }
 
 type PageBlocksHeroPositionImage {
-  colstart: Float
-  colend: Float
-  rowstart: Float
-  rowend: Float
+  x: Float
+  width: Float
+  y: Float
+  height: Float
 }
 
 type PageBlocksHeroPosition {
@@ -112,44 +112,24 @@ type PageBlocksCtaButton {
   href: String
 }
 
-type PageBlocksCtaPositionText {
-  colstart: Float
-  colend: Float
-  rowstart: Float
-  rowend: Float
-}
-
-type PageBlocksCtaPositionButton {
-  colstart: Float
-  colend: Float
-  rowstart: Float
-  rowend: Float
-}
-
-type PageBlocksCtaPosition {
-  text: PageBlocksCtaPositionText
-  button: PageBlocksCtaPositionButton
-}
-
 type PageBlocksCta {
   title: String
   subtitle: String
   button: PageBlocksCtaButton
-  position: PageBlocksCtaPosition
 }
 
 type PageBlocksQuote {
   quote: String
   author: String
-  colstart: Float
-  colend: Float
+  x: Float
+  width: Float
 }
 
 type PageBlocksGalleryGallery {
   image: String
   alt: String
-  colstart: Float
-  colend: Float
+  x: Float
+  width: Float
   height: Float
 }
 
@@ -160,9 +140,8 @@ type PageBlocksGallery {
 type PageBlocksFactFact {
   headline: String
   subheadline: String
-  colstart: Float
-  colend: Float
-  height: Float
+  x: Float
+  width: Float
 }
 
 type PageBlocksFact {
@@ -265,17 +244,17 @@ input DocumentMutation {
 }
 
 input PageBlocksHeroPositionTextMutation {
-  colstart: Float
-  colend: Float
-  rowstart: Float
-  rowend: Float
+  x: Float
+  width: Float
+  y: Float
+  height: Float
 }
 
 input PageBlocksHeroPositionImageMutation {
-  colstart: Float
-  colend: Float
-  rowstart: Float
-  rowend: Float
+  x: Float
+  width: Float
+  y: Float
+  height: Float
 }
 
 input PageBlocksHeroPositionMutation {
@@ -295,44 +274,24 @@ input PageBlocksCtaButtonMutation {
   href: String
 }
 
-input PageBlocksCtaPositionTextMutation {
-  colstart: Float
-  colend: Float
-  rowstart: Float
-  rowend: Float
-}
-
-input PageBlocksCtaPositionButtonMutation {
-  colstart: Float
-  colend: Float
-  rowstart: Float
-  rowend: Float
-}
-
-input PageBlocksCtaPositionMutation {
-  text: PageBlocksCtaPositionTextMutation
-  button: PageBlocksCtaPositionButtonMutation
-}
-
 input PageBlocksCtaMutation {
   title: String
   subtitle: String
   button: PageBlocksCtaButtonMutation
-  position: PageBlocksCtaPositionMutation
 }
 
 input PageBlocksQuoteMutation {
   quote: String
   author: String
-  colstart: Float
-  colend: Float
+  x: Float
+  width: Float
 }
 
 input PageBlocksGalleryGalleryMutation {
   image: String
   alt: String
-  colstart: Float
-  colend: Float
+  x: Float
+  width: Float
   height: Float
 }
 
@@ -343,9 +302,8 @@ input PageBlocksGalleryMutation {
 input PageBlocksFactFactMutation {
   headline: String
   subheadline: String
-  colstart: Float
-  colend: Float
-  height: Float
+  x: Float
+  width: Float
 }
 
 input PageBlocksFactMutation {

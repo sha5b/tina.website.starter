@@ -11,7 +11,7 @@ export const QuoteBlock = ({ block, id, i }) => {
       autoColumns={"auto"}
       gap={5}
     >
-      <GridItem colStart={block?.colstart} colEnd={block?.colend}>
+      <GridItem colStart={block?.x} colEnd={block?.width}>
         <Heading textAlign={"justify"} color={"whitecuba.100"} fontSize="4xl">
           {block.quote}
         </Heading>

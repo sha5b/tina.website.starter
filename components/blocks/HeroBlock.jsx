@@ -13,16 +13,18 @@ export const HeroBlock = ({ block, id, i }) => {
     <Box pt={"2rem"} key={id + i}>
       <Grid
         templateColumns={"repeat(6, 1fr)"}
-        templateRows={"repeat(6, 1fr)"}
+        autoRows={'auto'}
         gap={5}
+        pos={'relative'}
       >
         <GridItem
         bg={'rgba(231, 232, 233, 0.25)'}
           zIndex={1}
           colStart={block.position?.text.colstart}
-          colEnd={block.position?.text.colend}
+          colSpan={block.position?.text.colend}
           rowStart={block.position?.text.rowstart}
-          rowEnd={block.position?.text.rowend}
+          rowSpan={block.position?.text.rowend}
+          pos={'relative'}
         >
           <Box p={"1.5rem"}>
             <Heading fontSize={"5xl"}>{block.title}</Heading>
@@ -32,14 +34,15 @@ export const HeroBlock = ({ block, id, i }) => {
         {block.image && (
           <GridItem
             colStart={block.position?.image?.colstart ?? 1}
-            colEnd={block.position?.image?.colend ?? 1}
+            colSpan={block.position?.image?.colend ?? 1}
             rowStart={block.position?.image?.rowstart ?? 1}
-            rowEnd={block.position?.image?.rowend ?? 1}
+            rowSpan={block.position?.image?.rowend ?? 1}
             pos="relative"
           >
               <Img
                 zIndex={0}
                 quality="100"
+                width={'100%'}
                 layout={"fill"}
                 objectFit="cover"
                 rounded={"1.5rem"}

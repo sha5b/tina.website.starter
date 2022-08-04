@@ -443,6 +443,7 @@ const schema = defineSchema({
         {
           name: "date",
           label: "Published Date",
+          dateFormat: 'DD MMMM YYYY',
           type: "datetime",
         },
         {

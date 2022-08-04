@@ -81,10 +81,30 @@ type Collection {
 
 union DocumentNode = Page | Post | Map
 
+type PageBlocksHeroPositionText {
+  colstart: Float
+  colend: Float
+  rowstart: Float
+  rowend: Float
+}
+
+type PageBlocksHeroPositionImage {
+  colstart: Float
+  colend: Float
+  rowstart: Float
+  rowend: Float
+}
+
+type PageBlocksHeroPosition {
+  text: PageBlocksHeroPositionText
+  image: PageBlocksHeroPositionImage
+}
+
 type PageBlocksHero {
   title: String
   subtitle: String
   image: String
+  position: PageBlocksHeroPosition
 }
 
 type PageBlocksCtaButton {
@@ -92,20 +112,45 @@ type PageBlocksCtaButton {
   href: String
 }
 
+type PageBlocksCtaPositionText {
+  colstart: Float
+  colend: Float
+  rowstart: Float
+  rowend: Float
+}
+
+type PageBlocksCtaPositionButton {
+  colstart: Float
+  colend: Float
+  rowstart: Float
+  rowend: Float
+}
+
+type PageBlocksCtaPosition {
+  text: PageBlocksCtaPositionText
+  button: PageBlocksCtaPositionButton
+}
+
 type PageBlocksCta {
   title: String
   subtitle: String
   button: PageBlocksCtaButton
+  position: PageBlocksCtaPosition
 }
 
 type PageBlocksQuote {
   quote: String
   author: String
+  colstart: Float
+  colend: Float
 }
 
 type PageBlocksGalleryGallery {
   image: String
   alt: String
+  colstart: Float
+  colend: Float
+  height: Float
 }
 
 type PageBlocksGallery {
@@ -115,6 +160,9 @@ type PageBlocksGallery {
 type PageBlocksFactFact {
   headline: String
   subheadline: String
+  colstart: Float
+  colend: Float
+  height: Float
 }
 
 type PageBlocksFact {
@@ -124,6 +172,7 @@ type PageBlocksFact {
 type PageBlocksLogosLogos {
   logo: String
   alt: String
+  href: String
 }
 
 type PageBlocksLogos {
@@ -132,7 +181,8 @@ type PageBlocksLogos {
 }
 
 type PageBlocksFeatured {
-  category: [String]
+  category: String
+  size: Float
 }
 
 union PageBlocks = PageBlocksHero | PageBlocksCta | PageBlocksQuote | PageBlocksGallery | PageBlocksFact | PageBlocksLogos | PageBlocksFeatured
@@ -157,7 +207,7 @@ type PageConnection implements Connection {
 
 type Post implements Node & Document {
   title: String
-  category: [String]
+  category: String
   date: String
   description: String
   image: String
@@ -214,10 +264,30 @@ input DocumentMutation {
   map: MapMutation
 }
 
+input PageBlocksHeroPositionTextMutation {
+  colstart: Float
+  colend: Float
+  rowstart: Float
+  rowend: Float
+}
+
+input PageBlocksHeroPositionImageMutation {
+  colstart: Float
+  colend: Float
+  rowstart: Float
+  rowend: Float
+}
+
+input PageBlocksHeroPositionMutation {
+  text: PageBlocksHeroPositionTextMutation
+  image: PageBlocksHeroPositionImageMutation
+}
+
 input PageBlocksHeroMutation {
   title: String
   subtitle: String
   image: String
+  position: PageBlocksHeroPositionMutation
 }
 
 input PageBlocksCtaButtonMutation {
@@ -225,20 +295,45 @@ input PageBlocksCtaButtonMutation {
   href: String
 }
 
+input PageBlocksCtaPositionTextMutation {
+  colstart: Float
+  colend: Float
+  rowstart: Float
+  rowend: Float
+}
+
+input PageBlocksCtaPositionButtonMutation {
+  colstart: Float
+  colend: Float
+  rowstart: Float
+  rowend: Float
+}
+
+input PageBlocksCtaPositionMutation {
+  text: PageBlocksCtaPositionTextMutation
+  button: PageBlocksCtaPositionButtonMutation
+}
+
 input PageBlocksCtaMutation {
   title: String
   subtitle: String
   button: PageBlocksCtaButtonMutation
+  position: PageBlocksCtaPositionMutation
 }
 
 input PageBlocksQuoteMutation {
   quote: String
   author: String
+  colstart: Float
+  colend: Float
 }
 
 input PageBlocksGalleryGalleryMutation {
   image: String
   alt: String
+  colstart: Float
+  colend: Float
+  height: Float
 }
 
 input PageBlocksGalleryMutation {
@@ -248,6 +343,9 @@ input PageBlocksGalleryMutation {
 input PageBlocksFactFactMutation {
   headline: String
   subheadline: String
+  colstart: Float
+  colend: Float
+  height: Float
 }
 
 input PageBlocksFactMutation {
@@ -257,6 +355,7 @@ input PageBlocksFactMutation {
 input PageBlocksLogosLogosMutation {
   logo: String
   alt: String
+  href: String
 }
 
 input PageBlocksLogosMutation {
@@ -265,7 +364,8 @@ input PageBlocksLogosMutation {
 }
 
 input PageBlocksFeaturedMutation {
-  category: [String]
+  category: String
+  size: Float
 }
 
 input PageBlocksMutation {
@@ -284,7 +384,7 @@ input PageMutation {
 
 input PostMutation {
   title: String
-  category: [String]
+  category: String
   date: String
   description: String
   image: String

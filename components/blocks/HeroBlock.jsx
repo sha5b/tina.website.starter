@@ -12,34 +12,43 @@ export const HeroBlock = ({ block, id, i }) => {
   return (
     <Box pt={"2rem"} key={id + i}>
       <Grid
-        templateColumns={"1fr 1fr 1fr 1fr"}
-        templateRows={"0.2fr 1fr 0.2fr"}
+        templateColumns={"repeat(6, 1fr)"}
+        autoRows={'auto'}
         gap={5}
+        pos={'relative'}
       >
-        <GridItem rowSpan={2} colSpan={2}>
-          <Box pos="relative">
-            <Heading fontSize={"6xl"}>{block.title}</Heading>
+        <GridItem
+        bg={'rgba(231, 232, 233, 0.25)'}
+          zIndex={1}
+          colStart={block.position?.text.colstart}
+          colSpan={block.position?.text.colend}
+          rowStart={block.position?.text.rowstart}
+          rowSpan={block.position?.text.rowend}
+          pos={'relative'}
+        >
+          <Box p={"1.5rem"}>
+            <Heading fontSize={"5xl"}>{block.title}</Heading>
             <Text fontSize={"3xl"}>{block.subtitle}</Text>
           </Box>
         </GridItem>
         {block.image && (
-          <GridItem rowSpan={3} colSpan={2}>
-            <Link href="posts/">
-              <Box p={"1.5rem"} bg={"orangebiz.100"} boxShadow={"md"}>
-                <Box pos="relative" display={"block"}>
-                  <Img
-                    quality="100"
-                    width="100%"
-                    height="75%"
-                    layout="responsive"
-                    objectFit="cover"
-                    rounded={"1.5rem"}
-                    src={block.image}
-                    alt={block.title}
-                  />
-                </Box>
-              </Box>
-            </Link>
+          <GridItem
+            colStart={block.position?.image?.colstart ?? 1}
+            colSpan={block.position?.image?.colend ?? 1}
+            rowStart={block.position?.image?.rowstart ?? 1}
+            rowSpan={block.position?.image?.rowend ?? 1}
+            pos="relative"
+          >
+              <Img
+                zIndex={0}
+                quality="100"
+                width={'100%'}
+                layout={"fill"}
+                objectFit="cover"
+                rounded={"1.5rem"}
+                src={block.image}
+                alt={block.title}
+              />
           </GridItem>
         )}
       </Grid>

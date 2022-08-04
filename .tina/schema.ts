@@ -17,6 +17,11 @@ const category = [
 const HeroBlock: TinaTemplate = {
   name: "hero",
   label: "Hero",
+  ui: {
+    itemProps: (item) => {
+      return { label: 'Hero // ' + item?.title };
+    }
+  },
   fields: [
     {
       name: "title",
@@ -36,12 +41,78 @@ const HeroBlock: TinaTemplate = {
       label: "Image",
       type: "image",
     },
+    {
+      name: "position",
+      label: "Positions",
+      type: "object",
+      fields:[
+        {
+          name:'text',
+          label:'Textposition',
+          type: 'object',
+          fields:[
+            {
+              name: "colstart",
+              label: "Start X",
+              type: "number",
+            },
+            {
+              name: "colend",
+              label: "End X",
+              type: "number",
+            },
+            {
+              name: "rowstart",
+              label: "Start Y",
+              type: "number",
+            },
+            {
+              name: "rowend",
+              label: "End Y",
+              type: "number",
+            },
+          ]
+        },
+        {
+          name:'image',
+          label:'Imageposition',
+          type: 'object',
+          fields:[
+            {
+              name: "colstart",
+              label: "Start X",
+              type: "number",
+            },
+            {
+              name: "colend",
+              label: "End X",
+              type: "number",
+            },
+            {
+              name: "rowstart",
+              label: "Start Y",
+              type: "number",
+            },
+            {
+              name: "rowend",
+              label: "End Y",
+              type: "number",
+            },
+          ]
+        },
+      ]
+    },
   ],
 };
 
 const CallToActionBlock: TinaTemplate = {
   name: "cta",
   label: "Call to Action",
+  ui: {
+    itemProps: (item) => {
+      return { label: 'CTA // ' + item?.title };
+    }
+  },
   fields: [
     {
       name: "title",
@@ -67,11 +138,69 @@ const CallToActionBlock: TinaTemplate = {
           name: "href",
           label: "Href",
           type: "string",
-          ui:{
-            defaultValue: '/'
-          }
         },
       ],
+    },
+    {
+      name: "position",
+      label: "Positions",
+      type: "object",
+      fields:[
+        {
+          name:'text',
+          label:'Textposition',
+          type: 'object',
+          fields:[
+            {
+              name: "colstart",
+              label: "Start X",
+              type: "number",
+            },
+            {
+              name: "colend",
+              label: "End X",
+              type: "number",
+            },
+            {
+              name: "rowstart",
+              label: "Start Y",
+              type: "number",
+            },
+            {
+              name: "rowend",
+              label: "End Y",
+              type: "number",
+            },
+          ]
+        },
+        {
+          name:'button',
+          label:'Buttonposition',
+          type: 'object',
+          fields:[
+            {
+              name: "colstart",
+              label: "Start X",
+              type: "number",
+            },
+            {
+              name: "colend",
+              label: "End X",
+              type: "number",
+            },
+            {
+              name: "rowstart",
+              label: "Start Y",
+              type: "number",
+            },
+            {
+              name: "rowend",
+              label: "End Y",
+              type: "number",
+            },
+          ]
+        },
+      ]
     },
   ],
 };
@@ -92,6 +221,16 @@ const QuoteBlock: TinaTemplate = {
       name: "author",
       label: "author",
       type: "string",
+    },
+    {
+      name: 'colstart',
+      label: 'Start X',
+      type: 'number'
+    },
+    {
+      name: 'colend',
+      label: 'End X',
+      type: 'number'
     },
   ],
 };
@@ -121,6 +260,21 @@ const GalleryBlock: TinaTemplate = {
           label: "Alternative Descirption",
           type: "string",
         },
+        {
+          name: "colstart",
+          label: "Start X",
+          type: "number",
+        },
+        {
+          name: "colend",
+          label: "End X",
+          type: "number",
+        },
+        {
+          name: "height",
+          label: "Height",
+          type: "number",
+        }
       ],
     },
   ],
@@ -150,7 +304,25 @@ const FactBlock: TinaTemplate = {
           name: "subheadline",
           label: "Subheadline",
           type: "string",
+          ui: {
+            component: 'textarea'
+          }
         },
+        {
+          name: "colstart",
+          label: "Start X",
+          type: "number",
+        },
+        {
+          name: "colend",
+          label: "End X",
+          type: "number",
+        },
+        {
+          name: "height",
+          label: "Height",
+          type: "number",
+        }
       ],
     },
   ],
@@ -186,6 +358,11 @@ const LogoBlock: TinaTemplate = {
           label: "Alternative Description",
           type: "string",
         },
+        {
+          name: "href",
+          label: "HREF",
+          type: "string",
+        },
       ],
     },
   ],
@@ -199,8 +376,12 @@ const FeaturedPostBlock: TinaTemplate = {
       name: "category",
       label: "Category",
       type: "string",
-      list: true,
       options: category,
+    },
+    {
+      name: "size",
+      label: "Gridsize",
+      type: "number",
     },
   ],
 };
@@ -257,12 +438,12 @@ const schema = defineSchema({
           name: "category",
           label: "Category",
           type: "string",
-          list: true,
           options: category,
         },
         {
           name: "date",
           label: "Published Date",
+          dateFormat: 'DD MMMM YYYY',
           type: "datetime",
         },
         {

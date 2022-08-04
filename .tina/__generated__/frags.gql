@@ -5,6 +5,23 @@ fragment PageParts on Page {
       title
       subtitle
       image
+      position {
+        __typename
+        text {
+          __typename
+          colstart
+          colend
+          rowstart
+          rowend
+        }
+        image {
+          __typename
+          colstart
+          colend
+          rowstart
+          rowend
+        }
+      }
     }
     ... on PageBlocksCta {
       title
@@ -14,16 +31,38 @@ fragment PageParts on Page {
         label
         href
       }
+      position {
+        __typename
+        text {
+          __typename
+          colstart
+          colend
+          rowstart
+          rowend
+        }
+        button {
+          __typename
+          colstart
+          colend
+          rowstart
+          rowend
+        }
+      }
     }
     ... on PageBlocksQuote {
       quote
       author
+      colstart
+      colend
     }
     ... on PageBlocksGallery {
       gallery {
         __typename
         image
         alt
+        colstart
+        colend
+        height
       }
     }
     ... on PageBlocksFact {
@@ -31,6 +70,9 @@ fragment PageParts on Page {
         __typename
         headline
         subheadline
+        colstart
+        colend
+        height
       }
     }
     ... on PageBlocksLogos {
@@ -39,10 +81,12 @@ fragment PageParts on Page {
         __typename
         logo
         alt
+        href
       }
     }
     ... on PageBlocksFeatured {
       category
+      size
     }
   }
 }

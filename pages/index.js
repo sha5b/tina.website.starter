@@ -12,7 +12,7 @@ import { GalleryBlock } from "../components/blocks/GalleryBlock";
 import { FactBlock } from "../components/blocks/FactBlock";
 import { LogoBlock } from "../components/blocks/LogoBLock";
 import { FeaturedPostBlock } from "../components/blocks/FeaturedPostBlock";
-import { Cardblock } from '../components/blocks/CardBlock'
+import { CardBlock } from "../components/blocks/CardBlock";
 // End
 
 // Component Import
@@ -95,8 +95,10 @@ query FetchQuery{
       }
       ... on PageBlocksCard {
         __typename
-        title
-        card
+        cards {
+          title
+          body
+        }
       }
     }
   }
@@ -186,7 +188,7 @@ export default function Home(props) {
                 case "PageBlocksCard":
                   return (
                     <>
-                      <Cardblock
+                      <CardBlock
                         i={i}
                         block={block}
                       />

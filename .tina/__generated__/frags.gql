@@ -67,8 +67,11 @@ fragment PageParts on Page {
       }
     }
     ... on PageBlocksCard {
-      title
-      body
+      cards {
+        __typename
+        title
+        body
+      }
     }
     ... on PageBlocksFeatured {
       category

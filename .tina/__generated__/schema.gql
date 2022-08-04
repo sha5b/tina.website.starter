@@ -159,9 +159,13 @@ type PageBlocksLogos {
   logos: [PageBlocksLogosLogos]
 }
 
-type PageBlocksCard {
+type PageBlocksCardCards {
   title: String
   body: JSON
+}
+
+type PageBlocksCard {
+  cards: [PageBlocksCardCards]
 }
 
 type PageBlocksFeatured {
@@ -326,9 +330,13 @@ input PageBlocksLogosMutation {
   logos: [PageBlocksLogosLogosMutation]
 }
 
-input PageBlocksCardMutation {
+input PageBlocksCardCardsMutation {
   title: String
   body: JSON
+}
+
+input PageBlocksCardMutation {
+  cards: [PageBlocksCardCardsMutation]
 }
 
 input PageBlocksFeaturedMutation {

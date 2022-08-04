@@ -1,5 +1,10 @@
 import { type } from "os";
-import { defineConfig, defineSchema, TinaTemplate } from "tinacms";
+import {
+  defineConfig,
+  defineSchema,
+  FieldsBuilder,
+  TinaTemplate,
+} from "tinacms";
 
 // Variables
 const category = [
@@ -19,8 +24,8 @@ const HeroBlock: TinaTemplate = {
   label: "Hero",
   ui: {
     itemProps: (item) => {
-      return { label: 'Hero // ' + item?.title };
-    }
+      return { label: "Hero // " + item?.title };
+    },
   },
   fields: [
     {
@@ -33,8 +38,8 @@ const HeroBlock: TinaTemplate = {
       label: "Subtitle",
       type: "string",
       ui: {
-        component: 'textarea'
-      }
+        component: "textarea",
+      },
     },
     {
       name: "image",
@@ -45,12 +50,12 @@ const HeroBlock: TinaTemplate = {
       name: "position",
       label: "Positions",
       type: "object",
-      fields:[
+      fields: [
         {
-          name:'text',
-          label:'Textposition',
-          type: 'object',
-          fields:[
+          name: "text",
+          label: "Textposition",
+          type: "object",
+          fields: [
             {
               name: "x",
               label: "X Position",
@@ -71,13 +76,13 @@ const HeroBlock: TinaTemplate = {
               label: "Height",
               type: "number",
             },
-          ]
+          ],
         },
         {
-          name:'image',
-          label:'Imageposition',
-          type: 'object',
-          fields:[
+          name: "image",
+          label: "Imageposition",
+          type: "object",
+          fields: [
             {
               name: "x",
               label: "Start X",
@@ -98,9 +103,9 @@ const HeroBlock: TinaTemplate = {
               label: "Height",
               type: "number",
             },
-          ]
+          ],
         },
-      ]
+      ],
     },
   ],
 };
@@ -110,8 +115,8 @@ const CallToActionBlock: TinaTemplate = {
   label: "Call to Action",
   ui: {
     itemProps: (item) => {
-      return { label: 'CTA // ' + item?.title };
-    }
+      return { label: "CTA // " + item?.title };
+    },
   },
   fields: [
     {
@@ -152,9 +157,9 @@ const QuoteBlock: TinaTemplate = {
       name: "quote",
       label: "Quote",
       type: "string",
-      ui:{
-        component: 'textarea'
-      }
+      ui: {
+        component: "textarea",
+      },
     },
     {
       name: "author",
@@ -162,14 +167,14 @@ const QuoteBlock: TinaTemplate = {
       type: "string",
     },
     {
-      name: 'x',
-      label: 'X Position',
-      type: 'number'
+      name: "x",
+      label: "X Position",
+      type: "number",
     },
     {
-      name: 'width',
-      label: 'Width',
-      type: 'number'
+      name: "width",
+      label: "Width",
+      type: "number",
     },
   ],
 };
@@ -213,7 +218,7 @@ const GalleryBlock: TinaTemplate = {
           name: "height",
           label: "Height",
           type: "number",
-        }
+        },
       ],
     },
   ],
@@ -244,8 +249,8 @@ const FactBlock: TinaTemplate = {
           label: "Subheadline",
           type: "string",
           ui: {
-            component: 'textarea'
-          }
+            component: "textarea",
+          },
         },
         {
           name: "x",
@@ -321,21 +326,34 @@ const FeaturedPostBlock: TinaTemplate = {
 };
 
 const CardBlock: TinaTemplate = {
-  label: 'Card Block',
-  name: 'card',
+  label: "Card Block",
+  name: "card",
   fields: [
     {
-      name: 'title',
-      label: 'Title',
-      type: 'string',
+      name: "cards",
+      label: "Cards",
+      type: "object",
+      list: true,
+      ui: {
+        itemProps: (item) => {
+          return { label: item?.title };
+        },
+      },
+      fields: [
+        {
+          name: "title",
+          label: "Title",
+          type: "string",
+        },
+        {
+          name: "body",
+          label: "Body",
+          type: "rich-text",
+        },
+      ],
     },
-    {
-      name: 'body',
-      label: 'Body',
-      type: 'rich-text',
-    }
-  ]
-}
+  ],
+};
 // Block Section End
 
 const blocks = [
@@ -395,7 +413,7 @@ const schema = defineSchema({
         {
           name: "date",
           label: "Published Date",
-          dateFormat: 'DD MMMM YYYY',
+          dateFormat: "DD MMMM YYYY",
           type: "datetime",
         },
         {

@@ -66,6 +66,10 @@ fragment PageParts on Page {
         href
       }
     }
+    ... on PageBlocksCard {
+      title
+      body
+    }
     ... on PageBlocksFeatured {
       category
       size

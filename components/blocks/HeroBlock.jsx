@@ -57,23 +57,3 @@ export const HeroBlock = ({ block, id, i }) => {
 };
 
 // Problems to solve: I have fatal error when i leave the width and height values to 0 in the tina cms form. i nee to solve this
-
-/*
-
-  Fatal crash when Field is deleted - this is a part solution
-  i dont understand how to use this to my case
-  need more research
-
-  const [height, setCount] = useState(0);
-
-  useEffect(() =>{
-
-    if (!block.imageheight) {
-      (block.imageheight = 100);
-    }
-    if (!block.imagewidth) {
-      (block.imagewidth = 100);
-    }
-  })
-
-*/

@@ -12,6 +12,7 @@ import { GalleryBlock } from "../components/blocks/GalleryBlock";
 import { FactBlock } from "../components/blocks/FactBlock";
 import { LogoBlock } from "../components/blocks/LogoBLock";
 import { FeaturedPostBlock } from "../components/blocks/FeaturedPostBlock";
+import { Cardblock } from '../components/blocks/CardBlock'
 // End
 
 // Component Import
@@ -91,6 +92,11 @@ query FetchQuery{
         __typename
         category
         size
+      }
+      ... on PageBlocksCard {
+        __typename
+        title
+        card
       }
     }
   }
@@ -177,6 +183,15 @@ export default function Home(props) {
                     />
                   </>
                 );
+                case "PageBlocksCard":
+                  return (
+                    <>
+                      <Cardblock
+                        i={i}
+                        block={block}
+                      />
+                    </>
+                  );
             }
           })
         : null}

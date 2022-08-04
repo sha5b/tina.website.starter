@@ -159,12 +159,17 @@ type PageBlocksLogos {
   logos: [PageBlocksLogosLogos]
 }
 
+type PageBlocksCard {
+  title: String
+  body: JSON
+}
+
 type PageBlocksFeatured {
   category: String
   size: Float
 }
 
-union PageBlocks = PageBlocksHero | PageBlocksCta | PageBlocksQuote | PageBlocksGallery | PageBlocksFact | PageBlocksLogos | PageBlocksFeatured
+union PageBlocks = PageBlocksHero | PageBlocksCta | PageBlocksQuote | PageBlocksGallery | PageBlocksFact | PageBlocksLogos | PageBlocksCard | PageBlocksFeatured
 
 type Page implements Node & Document {
   blocks: [PageBlocks]
@@ -321,6 +326,11 @@ input PageBlocksLogosMutation {
   logos: [PageBlocksLogosLogosMutation]
 }
 
+input PageBlocksCardMutation {
+  title: String
+  body: JSON
+}
+
 input PageBlocksFeaturedMutation {
   category: String
   size: Float
@@ -333,6 +343,7 @@ input PageBlocksMutation {
   gallery: PageBlocksGalleryMutation
   fact: PageBlocksFactMutation
   logos: PageBlocksLogosMutation
+  card: PageBlocksCardMutation
   featured: PageBlocksFeaturedMutation
 }
 

@@ -319,6 +319,23 @@ const FeaturedPostBlock: TinaTemplate = {
     },
   ],
 };
+
+const CardBlock: TinaTemplate = {
+  label: 'Card Block',
+  name: 'card',
+  fields: [
+    {
+      name: 'title',
+      label: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'body',
+      label: 'Body',
+      type: 'rich-text',
+    }
+  ]
+}
 // Block Section End
 
 const blocks = [
@@ -328,6 +345,7 @@ const blocks = [
   GalleryBlock,
   FactBlock,
   LogoBlock,
+  CardBlock,
   FeaturedPostBlock,
 ];
 

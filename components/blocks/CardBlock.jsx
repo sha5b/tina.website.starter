@@ -41,7 +41,7 @@ const components = {
       <BlogImage
         mx="auto"
         src={props.url}
-        height="500"
+        height={"500"}
         width="100%"
         alt={props.alt}
         objectFit="cover"
@@ -61,10 +61,10 @@ export const CardBlock = ({ block, id, i }) => {
     >
       {block.cards?.map((item) => {
         return (
-          <GridItem p={"1.5rem"} colStart={item?.x} colSpan={item?.width}>
+          <GridItem mt={'3rem'} mb={'3rem'} gap={5}colStart={item?.x} colSpan={item?.width}>
             {item && (
               <Link href={item.href ?? " "}>
-                <Box bg={"orangebiz.100"}>
+                <Box p={"1.5rem"} bg={"orangebiz.100"}>
                   <Box p={"1.5rem"} bg={"blacksuite.100"}>
                     <Heading color={'whitecuba.100'}>{item.title}</Heading>
                     <TinaMarkdown content={item.body} components={components} />

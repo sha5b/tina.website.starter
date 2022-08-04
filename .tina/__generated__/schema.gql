@@ -162,6 +162,9 @@ type PageBlocksLogos {
 type PageBlocksCardCards {
   title: String
   body: JSON
+  href: String
+  x: Float
+  width: Float
 }
 
 type PageBlocksCard {
@@ -333,6 +336,9 @@ input PageBlocksLogosMutation {
 input PageBlocksCardCardsMutation {
   title: String
   body: JSON
+  href: String
+  x: Float
+  width: Float
 }
 
 input PageBlocksCardMutation {

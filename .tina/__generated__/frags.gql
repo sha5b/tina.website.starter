@@ -71,6 +71,9 @@ fragment PageParts on Page {
         __typename
         title
         body
+        href
+        x
+        width
       }
     }
     ... on PageBlocksFeatured {

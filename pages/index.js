@@ -98,6 +98,8 @@ query FetchQuery{
         cards {
           title
           body
+          x
+          width
         }
       }
     }

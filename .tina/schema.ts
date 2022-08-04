@@ -350,6 +350,21 @@ const CardBlock: TinaTemplate = {
           label: "Body",
           type: "rich-text",
         },
+        {
+          name: 'href',
+          label: 'HREF',
+          type: 'string',
+        },
+        {
+          name: "x",
+          label: "X Position",
+          type: "number",
+        },
+        {
+          name: "width",
+          label: "Width",
+          type: "number",
+        },
       ],
     },
   ],

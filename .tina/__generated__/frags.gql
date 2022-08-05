@@ -89,6 +89,88 @@ fragment PostParts on Post {
   date
   description
   image
+  blocks {
+    __typename
+    ... on PostBlocksHero {
+      title
+      subtitle
+      image
+      position {
+        __typename
+        text {
+          __typename
+          x
+          width
+          y
+          height
+        }
+        image {
+          __typename
+          x
+          width
+          y
+          height
+        }
+      }
+    }
+    ... on PostBlocksCta {
+      title
+      subtitle
+      button {
+        __typename
+        label
+        href
+      }
+    }
+    ... on PostBlocksQuote {
+      quote
+      author
+      x
+      width
+    }
+    ... on PostBlocksGallery {
+      gallery {
+        __typename
+        image
+        alt
+        x
+        width
+        height
+      }
+    }
+    ... on PostBlocksFact {
+      fact {
+        __typename
+        headline
+        subheadline
+        x
+        width
+      }
+    }
+    ... on PostBlocksLogos {
+      headline
+      logos {
+        __typename
+        logo
+        alt
+        href
+      }
+    }
+    ... on PostBlocksCard {
+      cards {
+        __typename
+        title
+        body
+        href
+        x
+        width
+      }
+    }
+    ... on PostBlocksFeatured {
+      category
+      size
+    }
+  }
 }
 
 fragment MapParts on Map {

@@ -1,6 +1,16 @@
 import { staticRequest } from "tinacms";
 import { Layout } from "../../components/Layout";
+import Image from "next/image";
 import { useTina } from "tinacms/dist/edit-state";
+import {
+  Box,
+  Flex,
+  Grid,
+  GridItem,
+  chakra,
+  Heading,
+  Text,
+} from "@chakra-ui/react";
 
 const query = `query getPost($relativePath: String!) {
   post(relativePath: $relativePath) {
@@ -13,6 +23,11 @@ const query = `query getPost($relativePath: String!) {
 }
 `;
 
+const Img = chakra(Image, {
+  shouldForwardProp: (prop) =>
+    ["width", "height", "src", "alt", "layout"].includes(prop),
+});
+
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
   const { data } = useTina({
@@ -23,15 +38,29 @@ export default function Home(props) {
 
   return (
     <Layout>
-      <code>
-        <pre
-          style={{
-            backgroundColor: "lightgray",
-          }}
-        >
-          {JSON.stringify(data.post, null, 2)}
-        </pre>
-      </code>
+      <Grid autoRows={"auto"} autoColumns={"auto"} autoFlow={"dense"} templateColumns={"repeat(3, 1fr)"} gap={5}>
+        <GridItem>
+          <Box>
+            <Heading>{data.post.title}</Heading>
+            <Text>{data.post.category}</Text>
+            <Text>{data.post.description}</Text>
+          </Box>
+        </GridItem>
+        {data.post.image && (
+          <GridItem>
+            <Img
+              rounded={"1.5rem"}
+              quality="100"
+              width={"100%"}
+              height={'100%'}
+              layout={"responsive"}
+              objectFit="cover"
+              src={data.post.image}
+              alt={data.post.title}
+            />
+          </GridItem>
+        )}
+      </Grid>
     </Layout>
   );
 }

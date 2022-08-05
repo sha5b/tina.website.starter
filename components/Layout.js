@@ -1,9 +1,12 @@
 import Link from "next/link";
 import Head from "next/head";
 import { Box, Flex, Container } from "@chakra-ui/react";
-import { Navbar } from "./elements/Navbar";
+import {Navbar} from "./elements/Navbar";
+
+
 
 export const Layout = (props) => {
+
   return (
     <Box p={"5rem"}>
       <Head>
@@ -19,3 +22,4 @@ export const Layout = (props) => {
     </Box>
   );
 };
+

@@ -118,6 +118,13 @@ query FetchQuery{
       }
     }
   }
+  pageConnection {
+    edges {
+      node {
+        id
+      }
+    }
+  }
 }`;
 
 
@@ -133,6 +140,7 @@ export default function Home(props) {
   // Variables
   const id = data.page.id;
   const posts = data.postConnection.edges;
+  const pages = data.pageConnection.edges;
   // End
   return (
     <Layout>

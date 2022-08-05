@@ -414,6 +414,7 @@ const schema = defineSchema({
       path: "content/post",
       format: "mdx",
       fields: [
+
         {
           type: "string",
           label: "Title",
@@ -443,6 +444,13 @@ const schema = defineSchema({
           name: "image",
           label: "og:image",
           type: "image",
+        },
+        {
+          name: "blocks",
+          label: "Page Block Section",
+          type: "object",
+          list: true,
+          templates: blocks,
         },
       ],
     },

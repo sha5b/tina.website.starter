@@ -136,7 +136,6 @@ export default function Home(props) {
   // End
   return (
     <Layout>
-      {console.table(data)}
       {data.page
         ? data.page.blocks?.map((block, i) => {
             switch (block.__typename) {

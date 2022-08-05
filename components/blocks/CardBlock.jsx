@@ -46,7 +46,6 @@ const components = {
         alt={props.alt}
         objectFit="cover"
         quality="100"
-        rounded={'1.5rem'}
       />
     );
   },
@@ -65,7 +64,7 @@ export const CardBlock = ({ block, id, i }) => {
             {item && (
               <Link href={item.href ?? " "}>
                 <Box p={"1.5rem"} bg={"orangebiz.100"}>
-                  <Box p={"1.5rem"} bg={"blacksuite.100"}>
+                  <Box p={"1.5rem"} bg={"blacksuite.100"} rounded={'1.5rem'}>
                     <Heading color={'whitecuba.100'}>{item.title}</Heading>
                     <TinaMarkdown content={item.body} components={components} />
                   </Box>

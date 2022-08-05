@@ -33,19 +33,8 @@ export const FeaturedPostBlock = ({ block, posts, id, i }) => {
             <Box pos={"relative"}>
               {post.node.category == `${block.category}` && (
                 <>
-                  <GridItem
-                    zIndex={1}
-                    p={"2rem"}
-                    pt={'3rem'}
-                    width={'100%'}
-                    pos={'absolute'}
-                    m={'auto'}
-                  >
-                    <Text fontSize={"sm"} textAlign={'center'}>{post.node.date}</Text>
-                    <Heading fontSize={"lg"} textAlign={'center'}>{post.node.title}</Heading>
-                  </GridItem>
                   {post.node.image && (
-                    <GridItem cursor={'pointer'}>
+                    <GridItem cursor={"pointer"}>
                       <Link href={`/posts/${post.node._sys?.filename ?? " "}`}>
                         <Box
                           p={"1.5rem"}
@@ -67,6 +56,20 @@ export const FeaturedPostBlock = ({ block, posts, id, i }) => {
                       </Link>
                     </GridItem>
                   )}
+                  <GridItem
+                    zIndex={1}
+                    p={"2rem"}
+                    pt={"3rem"}
+                    width={"100%"}
+                    m={"auto"}
+                  >
+                    <Text fontSize={"sm"} textAlign={"center"}>
+                      {post.node.date}
+                    </Text>
+                    <Heading fontSize={"lg"} textAlign={"center"}>
+                      {post.node.title}
+                    </Heading>
+                  </GridItem>
                 </>
               )}
             </Box>

@@ -1,8 +1,6 @@
-// Node Import
-import { gql, staticRequest } from "tinacms";
+import { staticRequest } from "tinacms";
+import { Layout } from "../components/Layout";
 import { useTina } from "tinacms/dist/edit-state";
-import React from 'react'
-// End
 
 // Block Import
 import { HeroBlock } from "../components/blocks/HeroBlock";
@@ -15,13 +13,8 @@ import { FeaturedPostBlock } from "../components/blocks/FeaturedPostBlock";
 import { CardBlock } from "../components/blocks/CardBlock";
 // End
 
-// Component Import
-import { Layout } from "../components/Layout";
-// End
-
-const query = `
-query FetchQuery{
-  page (relativePath: "home.mdx"){
+const query = `query getPage($relativePath: String!) {
+  page(relativePath: $relativePath) {
     id
     blocks {
       ... on PageBlocksHero {
@@ -120,20 +113,16 @@ query FetchQuery{
   }
 }`;
 
-
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
   const { data } = useTina({
     query,
-    variables: {},
+    variables: props.variables,
     data: props.data,
   });
-  
 
-  // Variables
   const id = data.page.id;
-  const posts = data.postConnection.edges;
-  // End
+  
   return (
     <Layout>
       {data.page
@@ -182,19 +171,15 @@ export default function Home(props) {
                       id={id}
                       i={i}
                       block={block}
-                      posts={posts}
                     />
                   </>
                 );
-                case "PageBlocksCard":
-                  return (
-                    <>
-                      <CardBlock
-                        i={i}
-                        block={block}
-                      />
-                    </>
-                  );
+              case "PageBlocksCard":
+                return (
+                  <>
+                    <CardBlock i={i} block={block} />
+                  </>
+                );
             }
           })
         : null}
@@ -202,24 +187,50 @@ export default function Home(props) {
   );
 }
 
-export const getStaticProps = async () => {
-  const variables = {};
+export const getStaticPaths = async () => {
+  const postsResponse = await staticRequest({
+    query: `{
+        pageConnection {
+          edges {
+            node {
+              _sys {
+                filename
+              }
+            }
+          }
+        }
+      }`,
+    variables: {},
+  });
+  const paths = postsResponse.pageConnection.edges.map((x) => {
+    return { params: { slug: x.node._sys.filename } };
+  });
+
+  return {
+    paths,
+    fallback: "blocking",
+  };
+};
+
+export const getStaticProps = async (ctx) => {
+  const variables = {
+    relativePath: ctx.params.slug + ".mdx",
+  };
   let data = {};
   try {
     data = await staticRequest({
       query,
       variables,
     });
-  } catch {
+  } catch (error) {
+    console.log(error);
     // swallow errors related to document creation
   }
 
   return {
     props: {
       data,
-      //myOtherProp: 'some-other-data',
+      variables,
     },
   };
 };
-
-//{fs.writeFileSync('../content/database/Layouts.json', JSON.stringify(users, null, 4))}

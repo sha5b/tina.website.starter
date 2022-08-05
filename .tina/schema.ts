@@ -483,6 +483,9 @@ export const tinaConfig = defineConfig({
             return "/";
           }
         }
+        if (["page"].includes(collection.name)) {
+          return `/${document._sys.filename}`;
+        }
 
         if (["post"].includes(collection.name)) {
           return `/posts/${document._sys.filename}`;

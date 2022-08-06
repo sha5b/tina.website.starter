@@ -27,7 +27,7 @@ const components = {
     return <Divider mb={'1.5rem'}{... props}/>
   },
   p: (props) => {
-    return <Text my={2} textAlign={'justify'}{...props} />;
+    return <Text my={2} fontSize='xl' letterSpacing={'wide'} textAlign={'justify'}{...props} />;
   },
   img: (props) => {
     return (

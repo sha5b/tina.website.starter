@@ -93,6 +93,12 @@ fragment PostParts on Post {
   description
   size
   image
+  text {
+    __typename
+    ... on PostTextRichtext {
+      body
+    }
+  }
   blocks {
     __typename
     ... on PostBlocksHero {

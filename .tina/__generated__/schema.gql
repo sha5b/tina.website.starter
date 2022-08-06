@@ -200,6 +200,12 @@ type PageConnection implements Connection {
   edges: [PageConnectionEdges]
 }
 
+type PostTextRichtext {
+  body: JSON
+}
+
+union PostText = PostTextRichtext
+
 type PostBlocksHeroPositionText {
   x: Float
   width: Float
@@ -308,6 +314,7 @@ type Post implements Node & Document {
   description: String
   size: Float
   image: String
+  text: [PostText]
   blocks: [PostBlocks]
   id: ID!
   _sys: SystemInfo!
@@ -477,6 +484,14 @@ input PageMutation {
   blocks: [PageBlocksMutation]
 }
 
+input PostTextRichtextMutation {
+  body: JSON
+}
+
+input PostTextMutation {
+  richtext: PostTextRichtextMutation
+}
+
 input PostBlocksHeroPositionTextMutation {
   x: Float
   width: Float
@@ -595,6 +610,7 @@ input PostMutation {
   description: String
   size: Float
   image: String
+  text: [PostTextMutation]
   blocks: [PostBlocksMutation]
 }
 

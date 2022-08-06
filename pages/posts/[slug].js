@@ -34,6 +34,12 @@ const query = `
       description
       size
       image
+      text {
+        ... on PostTextRichtext {
+          __typename
+          body
+        }
+      }
       blocks {
         ... on PostBlocksHero {
           __typename
@@ -113,10 +119,6 @@ const query = `
             width
           }
         }
-        ... on PostBlocksRichtext {
-          __typename
-          body
-        }
       }
     }
     postConnection {
@@ -167,7 +169,7 @@ export default function Home(props) {
       >
         <GridItem>
           <Box>
-            <Text textAlign={"justify"}>{data.post.description}</Text>
+            <Text fontSize='xl' letterSpacing={'wide'} textAlign={'justify'}>{data.post.description}</Text>
           </Box>
         </GridItem>
         {data.post.image && (
@@ -184,12 +186,12 @@ export default function Home(props) {
           </GridItem>
         )}
         {data.post
-          ? data.post.blocks?.map((block, i) => {
-              switch (block.__typename) {
-                case "PostBlocksRichtext":
+          ? data.post.text?.map((text, i) => {
+              switch (text.__typename) {
+                case "PostTextRichtext":
                   return (
                     <GridItem>
-                      <RichtextBlock i={i} block={block} />
+                      <RichtextBlock i={i} block={text} />
                     </GridItem>
                   );
               }
@@ -238,7 +240,7 @@ export default function Home(props) {
               case "PostBlocksFeatured":
                 return (
                   <>
-                    <FeaturedPostBlock id={id} i={i} block={block} />
+                    <FeaturedPostBlock id={id} i={i} block={block} posts={posts} />
                   </>
                 );
               case "PostBlocksCard":

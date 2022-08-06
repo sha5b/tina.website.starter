@@ -465,8 +465,15 @@ const schema = defineSchema({
           type: "image",
         },
         {
+          name: 'text',
+          label: 'Text Block Section',
+          type: 'object',
+          list: true,
+          templates: [RichtextBlock]
+        },
+        {
           name: "blocks",
-          label: "Page Block Section",
+          label: "Post Block Section",
           type: "object",
           list: true,
           templates: blocks,

@@ -7,6 +7,7 @@ import {
   chakra,
   Heading,
   Text,
+  Divider,
 } from "@chakra-ui/react";
 import Link from "next/link";
 
@@ -18,9 +19,12 @@ const Img = chakra(Image, {
 export const FeaturedPostBlock = ({ block, posts, id, i }) => {
   return (
     <Box mt={"3rem"} mb={"3rem"}>
-      <Heading fontSize={"5xl"} textAlign={"center"}>
-        {block.category}
-      </Heading>
+      <Box>
+        <Heading p={'1.5rem'} fontSize={"3xl"} bg={"orangebiz.100"}>
+          {block.category}
+        </Heading>
+      </Box>
+      <Divider />
       <Grid
         gap={5}
         pt={"1.5rem"}
@@ -37,7 +41,7 @@ export const FeaturedPostBlock = ({ block, posts, id, i }) => {
                     <GridItem cursor={"pointer"}>
                       <Link href={`/posts/${post.node._sys?.filename ?? " "}`}>
                         <Box
-                          p={"1.5rem"}
+                          p={`1.5rem`}
                           bg={"orangebiz.100"}
                           display={"block"}
                           zIndex={0}
@@ -56,16 +60,7 @@ export const FeaturedPostBlock = ({ block, posts, id, i }) => {
                       </Link>
                     </GridItem>
                   )}
-                  <GridItem
-                    zIndex={1}
-                    p={"2rem"}
-                    pt={"3rem"}
-                    width={"100%"}
-                    m={"auto"}
-                  >
-                    <Text fontSize={"sm"} textAlign={"center"}>
-                      {post.node.date}
-                    </Text>
+                  <GridItem pt={'1.5rem'} zIndex={1} width={"100%"} m={"auto"}>
                     <Heading fontSize={"lg"} textAlign={"center"}>
                       {post.node.title}
                     </Heading>
@@ -79,3 +74,11 @@ export const FeaturedPostBlock = ({ block, posts, id, i }) => {
     </Box>
   );
 };
+
+/*
+
+<Text fontSize={"sm"} textAlign={"center"}>
+  {post.node.date}
+</Text>
+
+ */

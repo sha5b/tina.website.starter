@@ -13,10 +13,12 @@ import { FactBlock } from "../components/blocks/FactBlock";
 import { LogoBlock } from "../components/blocks/LogoBLock";
 import { FeaturedPostBlock } from "../components/blocks/FeaturedPostBlock";
 import { CardBlock } from "../components/blocks/CardBlock";
+import { RichtextBlock } from "../components/blocks/RichTextBlock";
 // End
 
 // Component Import
 import { Layout } from "../components/Layout";
+
 // End
 
 const query = `
@@ -102,7 +104,8 @@ query FetchQuery{
           width
         }
       }
-      ... on PostBlocksRichtext {
+      ... on PageBlocksRichtext {
+        __typename
         body
       }
     }
@@ -192,6 +195,12 @@ export default function Home(props) {
                 return (
                   <>
                     <CardBlock i={i} block={block} />
+                  </>
+                );
+              case "PageBlocksRichtext":
+                return (
+                  <>
+                    <RichtextBlock i={i} block={block} />
                   </>
                 );
             }

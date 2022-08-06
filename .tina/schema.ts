@@ -370,18 +370,17 @@ const CardBlock: TinaTemplate = {
   ],
 };
 
-const RichTextBlock: TinaTemplate = {
+const RichtextBlock: TinaTemplate = {
   label: 'Rich Text',
   name: 'richtext',
-  fields: [
+  fields:[
     {
-      name: "body",
-      label: "Body",
-      type: "rich-text",
-    },
+      name: 'body',
+      label: 'Body',
+      type: 'rich-text'
+    }
   ]
 }
-
 // Block Section End
 
 const blocks = [
@@ -392,8 +391,8 @@ const blocks = [
   FactBlock,
   LogoBlock,
   CardBlock,
-  RichTextBlock,
   FeaturedPostBlock,
+  RichtextBlock,
 ];
 
 const schema = defineSchema({
@@ -463,13 +462,6 @@ const schema = defineSchema({
           name: "image",
           label: "og:image",
           type: "image",
-        },
-        {
-          name: "blocks",
-          label: "Page Block Section",
-          type: "object",
-          list: true,
-          templates: blocks,
         },
       ],
     },

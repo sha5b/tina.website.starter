@@ -95,9 +95,6 @@ const query = `query getPage($relativePath: String!) {
           width
         }
       }
-      ... on PostBlocksRichtext {
-        body
-      }
     }
   }
   postConnection {

@@ -171,16 +171,16 @@ type PageBlocksCard {
   cards: [PageBlocksCardCards]
 }
 
-type PageBlocksRichtext {
-  body: JSON
-}
-
 type PageBlocksFeatured {
   category: String
   size: Float
 }
 
-union PageBlocks = PageBlocksHero | PageBlocksCta | PageBlocksQuote | PageBlocksGallery | PageBlocksFact | PageBlocksLogos | PageBlocksCard | PageBlocksRichtext | PageBlocksFeatured
+type PageBlocksRichtext {
+  body: JSON
+}
+
+union PageBlocks = PageBlocksHero | PageBlocksCta | PageBlocksQuote | PageBlocksGallery | PageBlocksFact | PageBlocksLogos | PageBlocksCard | PageBlocksFeatured | PageBlocksRichtext
 
 type Page implements Node & Document {
   blocks: [PageBlocks]
@@ -200,107 +200,6 @@ type PageConnection implements Connection {
   edges: [PageConnectionEdges]
 }
 
-type PostBlocksHeroPositionText {
-  x: Float
-  width: Float
-  y: Float
-  height: Float
-}
-
-type PostBlocksHeroPositionImage {
-  x: Float
-  width: Float
-  y: Float
-  height: Float
-}
-
-type PostBlocksHeroPosition {
-  text: PostBlocksHeroPositionText
-  image: PostBlocksHeroPositionImage
-}
-
-type PostBlocksHero {
-  title: String
-  subtitle: String
-  image: String
-  position: PostBlocksHeroPosition
-}
-
-type PostBlocksCtaButton {
-  label: String
-  href: String
-}
-
-type PostBlocksCta {
-  title: String
-  subtitle: String
-  button: PostBlocksCtaButton
-}
-
-type PostBlocksQuote {
-  quote: String
-  author: String
-  x: Float
-  width: Float
-}
-
-type PostBlocksGalleryGallery {
-  image: String
-  alt: String
-  x: Float
-  width: Float
-  height: Float
-}
-
-type PostBlocksGallery {
-  gallery: [PostBlocksGalleryGallery]
-}
-
-type PostBlocksFactFact {
-  headline: String
-  subheadline: String
-  x: Float
-  width: Float
-}
-
-type PostBlocksFact {
-  fact: [PostBlocksFactFact]
-}
-
-type PostBlocksLogosLogos {
-  logo: String
-  alt: String
-  href: String
-}
-
-type PostBlocksLogos {
-  headline: String
-  logos: [PostBlocksLogosLogos]
-}
-
-type PostBlocksCardCards {
-  title: String
-  body: JSON
-  href: String
-  x: Float
-  width: Float
-}
-
-type PostBlocksCard {
-  cards: [PostBlocksCardCards]
-}
-
-type PostBlocksRichtext {
-  body: JSON
-}
-
-type PostBlocksFeatured {
-  category: String
-  size: Float
-}
-
-union PostBlocks = PostBlocksHero | PostBlocksCta | PostBlocksQuote | PostBlocksGallery | PostBlocksFact | PostBlocksLogos | PostBlocksCard | PostBlocksRichtext | PostBlocksFeatured
-
 type Post implements Node & Document {
   title: String
   category: String
@@ -308,7 +207,6 @@ type Post implements Node & Document {
   description: String
   size: Float
   image: String
-  blocks: [PostBlocks]
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -452,13 +350,13 @@ input PageBlocksCardMutation {
   cards: [PageBlocksCardCardsMutation]
 }
 
-input PageBlocksRichtextMutation {
-  body: JSON
-}
-
 input PageBlocksFeaturedMutation {
   category: String
   size: Float
+}
+
+input PageBlocksRichtextMutation {
+  body: JSON
 }
 
 input PageBlocksMutation {
@@ -469,123 +367,12 @@ input PageBlocksMutation {
   fact: PageBlocksFactMutation
   logos: PageBlocksLogosMutation
   card: PageBlocksCardMutation
-  richtext: PageBlocksRichtextMutation
   featured: PageBlocksFeaturedMutation
+  richtext: PageBlocksRichtextMutation
 }
 
 input PageMutation {
   blocks: [PageBlocksMutation]
-}
-
-input PostBlocksHeroPositionTextMutation {
-  x: Float
-  width: Float
-  y: Float
-  height: Float
-}
-
-input PostBlocksHeroPositionImageMutation {
-  x: Float
-  width: Float
-  y: Float
-  height: Float
-}
-
-input PostBlocksHeroPositionMutation {
-  text: PostBlocksHeroPositionTextMutation
-  image: PostBlocksHeroPositionImageMutation
-}
-
-input PostBlocksHeroMutation {
-  title: String
-  subtitle: String
-  image: String
-  position: PostBlocksHeroPositionMutation
-}
-
-input PostBlocksCtaButtonMutation {
-  label: String
-  href: String
-}
-
-input PostBlocksCtaMutation {
-  title: String
-  subtitle: String
-  button: PostBlocksCtaButtonMutation
-}
-
-input PostBlocksQuoteMutation {
-  quote: String
-  author: String
-  x: Float
-  width: Float
-}
-
-input PostBlocksGalleryGalleryMutation {
-  image: String
-  alt: String
-  x: Float
-  width: Float
-  height: Float
-}
-
-input PostBlocksGalleryMutation {
-  gallery: [PostBlocksGalleryGalleryMutation]
-}
-
-input PostBlocksFactFactMutation {
-  headline: String
-  subheadline: String
-  x: Float
-  width: Float
-}
-
-input PostBlocksFactMutation {
-  fact: [PostBlocksFactFactMutation]
-}
-
-input PostBlocksLogosLogosMutation {
-  logo: String
-  alt: String
-  href: String
-}
-
-input PostBlocksLogosMutation {
-  headline: String
-  logos: [PostBlocksLogosLogosMutation]
-}
-
-input PostBlocksCardCardsMutation {
-  title: String
-  body: JSON
-  href: String
-  x: Float
-  width: Float
-}
-
-input PostBlocksCardMutation {
-  cards: [PostBlocksCardCardsMutation]
-}
-
-input PostBlocksRichtextMutation {
-  body: JSON
-}
-
-input PostBlocksFeaturedMutation {
-  category: String
-  size: Float
-}
-
-input PostBlocksMutation {
-  hero: PostBlocksHeroMutation
-  cta: PostBlocksCtaMutation
-  quote: PostBlocksQuoteMutation
-  gallery: PostBlocksGalleryMutation
-  fact: PostBlocksFactMutation
-  logos: PostBlocksLogosMutation
-  card: PostBlocksCardMutation
-  richtext: PostBlocksRichtextMutation
-  featured: PostBlocksFeaturedMutation
 }
 
 input PostMutation {
@@ -595,7 +382,6 @@ input PostMutation {
   description: String
   size: Float
   image: String
-  blocks: [PostBlocksMutation]
 }
 
 input MapMutation {

@@ -15,6 +15,17 @@ const category = [
   "Integral Technical Planning",
   "Sustainable Cities & Living Spaces",
 ];
+
+const colors = [
+  "whitecuba.100",
+  "blacksuite.100",
+  "greyaltona.100",
+  "greylondon.100",
+  "orangebiz.100",
+  "purplesience.100",
+  "yellowinsurance.100",
+  "greenschool.100",
+];
 // End
 
 // Block Section
@@ -277,6 +288,11 @@ const LogoBlock: TinaTemplate = {
       type: "string",
     },
     {
+      name: "width",
+      label: "Logo Widths",
+      type: "number",
+    },
+    {
       name: "logos",
       label: "Logos",
       list: true,
@@ -321,6 +337,12 @@ const FeaturedPostBlock: TinaTemplate = {
       name: "size",
       label: "Gridsize",
       type: "number",
+    },
+    {
+      name: "colors",
+      label: "Colors",
+      type: "string",
+      options: colors,
     },
   ],
 };
@@ -465,11 +487,11 @@ const schema = defineSchema({
           type: "image",
         },
         {
-          name: 'text',
-          label: 'Text Block Section',
-          type: 'object',
+          name: "text",
+          label: "Text Block Section",
+          type: "object",
           list: true,
-          templates: [RichtextBlock]
+          templates: [RichtextBlock],
         },
         {
           name: "blocks",

@@ -84,6 +84,7 @@ query FetchQuery{
       ... on PageBlocksLogos {
         __typename
         headline
+        width
         logos {
           logo
           alt
@@ -94,6 +95,7 @@ query FetchQuery{
         __typename
         category
         size
+        colors
       }
       ... on PageBlocksCard {
         __typename

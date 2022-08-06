@@ -1,8 +1,9 @@
-import { staticRequest } from "tinacms";
+import {  staticRequest } from "tinacms";
 import { Layout } from "../../components/Layout";
 import Image from "next/image";
 import { useTina } from "tinacms/dist/edit-state";
 import {
+  Button,
   Box,
   Flex,
   Grid,
@@ -99,6 +100,7 @@ const query = `
         ... on PostBlocksLogos {
           __typename
           headline
+          width
           logos {
             logo
             alt
@@ -109,6 +111,7 @@ const query = `
           __typename
           category
           size
+          colors
         }
         ... on PostBlocksCard {
           __typename
@@ -156,7 +159,7 @@ export default function Home(props) {
   return (
     <Layout>
       <Box>
-        <Text pb={"1rem"}>{data.post.category}</Text>
+        <Button p={"1rem"} textAlign={'center'} mb={'1.5rem'} fontSize={'md'} bg={'orangebiz.100'}>{data.post.category}</Button>
         <Heading>{data.post.title}</Heading>
       </Box>
       <Divider mb={"3rem"} mt={"1.5rem"} />
@@ -169,7 +172,7 @@ export default function Home(props) {
       >
         <GridItem>
           <Box>
-            <Text fontSize='xl' letterSpacing={'wide'} textAlign={'justify'}>{data.post.description}</Text>
+            <Text fontSize='lg' letterSpacing={'wide'} textAlign={'justify'}>{data.post.description}</Text>
           </Box>
         </GridItem>
         {data.post.image && (

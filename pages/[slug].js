@@ -76,6 +76,7 @@ const query = `query getPage($relativePath: String!) {
       ... on PageBlocksLogos {
         __typename
         headline
+        width
         logos {
           logo
           alt
@@ -86,6 +87,7 @@ const query = `query getPage($relativePath: String!) {
         __typename
         category
         size
+        colors
       }
       ... on PageBlocksCard {
         __typename

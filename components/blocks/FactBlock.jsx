@@ -12,11 +12,11 @@ export const FactBlock = ({ block, id, i }) => {
     >
       {block.fact?.map((item) => {
         return (
-          <GridItem colStart={item?.x} colEnd={item?.width} zIndex={-i} >
+          <GridItem colStart={item?.x} colSpan={item?.width} zIndex={-i} >
             {item && (
               <Box p={'3rem'} bg={'whitecuba.100'}>
                 <Heading textAlign={"center"} fontSize="3xl" >{item.headline}</Heading>
-                <Text textAlign={"center"} fontSize="lg" >{item.subheadline}</Text>
+                <Text textAlign={"justify"} fontSize="xl" >{item.subheadline}</Text>
               </Box>
             )}
           </GridItem>

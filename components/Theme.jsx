@@ -1,8 +1,10 @@
 import { extendTheme } from "@chakra-ui/react";
 
+
+// "Liberata, serif", "Space Grotesk, sans-serif","DejaVu Mono, monospace",
 export const Theme = extendTheme({
   fonts: {
-    body: "Liberata, serif",
+    body: "DejaVu Mono, monospace",
     heading: "Space Grotesk, sans-serif",
     mono: "DejaVu Mono, monospace",
   },

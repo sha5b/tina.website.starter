@@ -17,24 +17,24 @@ const Img = chakra(Image, {
 });
 
 export const FeaturedPostBlock = ({ block, posts, id, i }) => {
+
+  const color = block.colors
+
   return (
-    <Box mt={"3rem"} mb={"3rem"}>
-      <Box>
-        <Heading p={'1.5rem'} fontSize={"3xl"} bg={"orangebiz.100"}>
+    <Box mt={"3rem"} mb={"3rem"} >
+      <Box pl={'1.5rem'}>
+        <Heading color={color} fontSize={"3xl"} >
           {block.category}
         </Heading>
       </Box>
-      <Divider />
       <Grid
-        gap={5}
         pt={"1.5rem"}
-        pb={"1.5rem"}
         templateColumns={`repeat(${block.size}, 1fr)`}
         pos={"relative"}
       >
         {posts?.map((post) => {
           return (
-            <Box pos={"relative"}>
+            <Box pos={"relative"} p={'1.5rem'}>
               {post.node.category == `${block.category}` && (
                 <>
                   {post.node.image && (
@@ -42,7 +42,7 @@ export const FeaturedPostBlock = ({ block, posts, id, i }) => {
                       <Link href={`/posts/${post.node._sys?.filename ?? " "}`}>
                         <Box
                           p={`1.5rem`}
-                          bg={"orangebiz.100"}
+                          color={color}
                           display={"block"}
                           zIndex={0}
                         >
@@ -60,11 +60,6 @@ export const FeaturedPostBlock = ({ block, posts, id, i }) => {
                       </Link>
                     </GridItem>
                   )}
-                  <GridItem pt={'1.5rem'} zIndex={1} width={"100%"} m={"auto"}>
-                    <Heading fontSize={"lg"} textAlign={"center"}>
-                      {post.node.title}
-                    </Heading>
-                  </GridItem>
                 </>
               )}
             </Box>

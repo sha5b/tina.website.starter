@@ -1,7 +1,15 @@
-import { Image } from "@chakra-ui/react";
+import { Divider, Image } from "@chakra-ui/react";
 import Link from "next/link";
 import { useEffect } from "react";
-import { chakra, Box, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
+import {
+  chakra,
+  Box,
+  Grid,
+  GridItem,
+  Heading,
+  Text,
+  Code,
+} from "@chakra-ui/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 
 const Img = chakra(Image, {
@@ -11,27 +19,27 @@ const Img = chakra(Image, {
 
 const components = {
   h1: (props) => (
-    <Heading as="h1" fontSize="6xl" my={2} color={"whitecuba.100"} {...props} />
+    <Heading as="h1" fontSize="5xl" my={2} color={"whitecuba.100"} {...props} />
   ),
   h2: (props) => (
-    <Heading as="h2" fontSize="5xl" my={2} color={"whitecuba.100"} {...props} />
+    <Heading as="h2" fontSize="4xl" my={2} color={"whitecuba.100"} {...props} />
   ),
   h3: (props) => (
-    <Heading as="h3" fontSize="4xl" my={2} color={"whitecuba.100"} {...props} />
+    <Heading as="h3" fontSize="3xl" my={2} color={"whitecuba.100"} {...props} />
   ),
   h4: (props) => (
-    <Heading as="h4" fontSize="3xl" my={2} color={"whitecuba.100"} {...props} />
+    <Heading as="h4" fontSize="2xl" my={2} color={"whitecuba.100"} {...props} />
   ),
   h5: (props) => (
-    <Heading as="h5" fontSize="2xl" my={2} color={"whitecuba.100"} {...props} />
+    <Heading as="h5" fontSize="xl" my={2} color={"whitecuba.100"} {...props} />
   ),
   h6: (props) => (
-    <Heading as="h6" fontSize="xl" my={2} color={"whitecuba.100"} {...props} />
+    <Heading as="h6" fontSize="lg" my={2} color={"whitecuba.100"} {...props} />
   ),
   li: (props) => (
     <Box
       as="li"
-      fontSize="xl"
+      fontSize="lg"
       my={2}
       mx={4}
       color={"whitecuba.100"}
@@ -41,7 +49,7 @@ const components = {
   ul: (props) => (
     <Box
       as="ul"
-      fontSize="xl"
+      fontSize="lg"
       my={2}
       mx={4}
       color={"whitecuba.100"}
@@ -51,7 +59,7 @@ const components = {
   ol: (props) => (
     <Box
       as="ol"
-      fontSize="xl"
+      fontSize="lg"
       my={2}
       mx={4}
       color={"whitecuba.100"}
@@ -59,30 +67,46 @@ const components = {
     />
   ),
   a: (props) => {
-    return <Link href={props.href}>{props.children}</Link>;
+    return (
+      <Link href={props.href} color={"whitecuba.100"}>
+        {props.children}
+      </Link>
+    );
   },
   code: (props) => {
     return (
-      <Code fontSize="xl" my={2}>
+      <Code fontSize="lg" my={2}>
         {props.children}
       </Code>
     );
   },
   p: (props) => {
-    return <Text fontSize="xl" color={"whitecuba.100"} my={2} {...props} />;
+    return (
+      <Text
+        textAlign={"justify"}
+        fontSize="xl"
+        color={"whitecuba.100"}
+        my={2}
+        {...props}
+      />
+    );
   },
   img: (props) => {
     return (
       <Image
         mx="auto"
         src={props.url}
-        height={"500"}
-        width="100%"
+        height={'inherit'}
+        width={'inherit'}
         alt={props.alt}
-        objectFit="cover"
+        objectFit='scale-down'
         quality="100"
+        overflow={'hidden'}
       />
     );
+  },
+  hr: (props) => {
+    return <Divider pb={"1.5rem"} />;
   },
 };
 
@@ -96,19 +120,30 @@ export const CardBlock = ({ block, id, i }) => {
       {block.cards?.map((item) => {
         return (
           <GridItem
-            mt={"3rem"}
-            mb={"3rem"}
             gap={5}
             colStart={item?.x}
             colSpan={item?.width}
           >
             {item && (
               <Link href={item.href ?? " "}>
-                <Box p={"1.5rem"} bg={"orangebiz.100"}>
-                  <Box p={"1.5rem"} bg={"blacksuite.100"} rounded={"1.5rem"}>
-                    <Heading color={"whitecuba.100"}>{item.title}</Heading>
+                <Box
+                  m={"1.5rem"}
+                  p={"1.5rem"}
+                  bg={"blacksuite.100"}
+                  rounded={"1.5rem"}
+                >
+                  <Heading
+                    color={"whitecuba.100"}
+                    textAlign={"center"}
+                    mb={"1rem"}
+                  >
+                    {item.title}
+                  </Heading>
+                  <Divider mb={"1rem"} />
+                  <Box w={'100%'} h={'100%'}>
                     <TinaMarkdown content={item.body} components={components} />
                   </Box>
+                  <Divider mt={"1rem"} />
                 </Box>
               </Link>
             )}

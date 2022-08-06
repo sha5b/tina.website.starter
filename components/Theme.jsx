@@ -1,5 +1,24 @@
 import { extendTheme } from "@chakra-ui/react";
 
+export const category = [
+  "Geo Tech",
+  "Data Sience",
+  "Knowledge Management",
+  "Ecosystem Service",
+  "Integral Technical Planning",
+  "Sustainable Cities & Living Spaces",
+];
+
+export const colors = [
+  "whitecuba.100",
+  "blacksuite.100",
+  "greyaltona.100",
+  "greylondon.100",
+  "orangebiz.100",
+  "purplesience.100",
+  "yellowinsurance.100",
+  "greenschool.100",
+];
 
 // "Liberata, serif", "Space Grotesk, sans-serif","DejaVu Mono, monospace",
 export const Theme = extendTheme({
@@ -17,7 +36,7 @@ export const Theme = extendTheme({
       100: "#251F1F",
     },
     greyaltona: {
-      100: "#E7E8E9",
+      100: "#888585",
     },
     greylondon: {
       100: "#464242",

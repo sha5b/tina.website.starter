@@ -1,4 +1,4 @@
-import {  staticRequest } from "tinacms";
+import { staticRequest } from "tinacms";
 import { Layout } from "../../components/Layout";
 import Image from "next/image";
 import { useTina } from "tinacms/dist/edit-state";
@@ -31,6 +31,7 @@ const query = `
       id
       title
       category
+      tags
       date
       description
       size
@@ -120,10 +121,7 @@ const query = `
             body
             x
             width
-            colors {
-              font
-              box
-            }
+            colors
           }
         }
       }
@@ -136,6 +134,7 @@ const query = `
           }
           title
           category
+          tags
           date
           description
           image
@@ -163,20 +162,51 @@ export default function Home(props) {
   return (
     <Layout>
       <Box>
-        <Button p={"1rem"} textAlign={'center'} mb={'1.5rem'} fontSize={'md'} bg={'orangebiz.100'}>{data.post.category}</Button>
-        <Heading>{data.post.title}</Heading>
+        <Box>
+          <Button
+            p={"1rem"}
+            textAlign={"center"}
+            color={"whitecuba.100"}
+            mb={"1.5rem"}
+            rounded="full"
+            size={"lg"}
+            bg={"orangebiz.100"}
+          >
+            {data.post.category}
+          </Button>
+          <Flex  wrap={"wrap"} gap={25}>
+            {console.log(data.post.tags)}
+            {data.post.tags?.map((tag) => (
+              <Box>
+                <Button
+                  p={"1rem"}
+                  color={"whitecuba.100"}
+                  rounded={"full"}
+                  textAlign={"center"}
+                  mb={"1.5rem"}
+                  size={"sm"}
+                  bg={"blacksuite.100"}
+                >
+                  {tag}
+                </Button>
+              </Box>
+            ))}
+          </Flex>
+        </Box>
+        <Heading fontSize={"6xl"}>{data.post.title}</Heading>
       </Box>
       <Divider mb={"3rem"} mt={"1.5rem"} />
       <Grid
         autoRows={"auto"}
         autoColumns={"auto"}
-        autoFlow={"dense"}
         templateColumns={`repeat(${data.post.size}, 1fr)`}
         gap={5}
       >
         <GridItem>
           <Box>
-            <Text fontSize='lg' letterSpacing={'wide'} textAlign={'justify'}>{data.post.description}</Text>
+            <Text fontSize="lg" letterSpacing={"wide"} textAlign={"justify"}>
+              {data.post.description}
+            </Text>
           </Box>
         </GridItem>
         {data.post.image && (
@@ -247,7 +277,12 @@ export default function Home(props) {
               case "PostBlocksFeatured":
                 return (
                   <>
-                    <FeaturedPostBlock id={id} i={i} block={block} posts={posts} />
+                    <FeaturedPostBlock
+                      id={id}
+                      i={i}
+                      block={block}
+                      posts={posts}
+                    />
                   </>
                 );
               case "PostBlocksCard":

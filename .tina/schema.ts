@@ -1,4 +1,3 @@
-import { color } from "@chakra-ui/react";
 import { type } from "os";
 import {
   defineConfig,
@@ -8,25 +7,7 @@ import {
 } from "tinacms";
 
 // Variables
-const category = [
-  "Geo Tech",
-  "Data Sience",
-  "Knowledge Management",
-  "Ecosystem Service",
-  "Integral Technical Planning",
-  "Sustainable Cities & Living Spaces",
-];
-
-const colors = [
-  "whitecuba.100",
-  "blacksuite.100",
-  "greyaltona.100",
-  "greylondon.100",
-  "orangebiz.100",
-  "purplesience.100",
-  "yellowinsurance.100",
-  "greenschool.100",
-];
+import { category, colors } from "../components/Theme";
 // End
 
 // Block Section
@@ -72,21 +53,49 @@ const HeroBlock: TinaTemplate = {
               name: "x",
               label: "X Position",
               type: "number",
+              ui:{
+                validate: (val)=>{
+                  if(val >= 8 ) {
+                    return 'the number must be less then 8'
+                  } 
+                }
+              },
             },
             {
               name: "width",
               label: "Width",
               type: "number",
+              ui:{
+                validate: (val)=>{
+                  if(val >= 8 ) {
+                    return 'the number must be less then 8'
+                  } 
+                }
+              },
             },
             {
               name: "y",
               label: "Y Position",
               type: "number",
+              ui:{
+                validate: (val)=>{
+                  if(val >= 51 ) {
+                    return 'the number must be less then 51'
+                  }
+                }
+              },
             },
             {
               name: "height",
               label: "Height",
               type: "number",
+              ui:{
+                validate: (val)=>{
+                  if(val >= 51 ) {
+                    return 'the number must be less then 51'
+                  }
+                }
+              },
             },
           ],
         },
@@ -391,23 +400,10 @@ const CardBlock: TinaTemplate = {
         },
         {
           name: 'colors',
-          label: 'Colors',
-          type: 'object',
-          fields: [
-            {
-              name: 'font',
-              label: 'Font Color',
-              type: 'string',
-              options: colors
-            },
-            {
-              name: 'box',
-              label: 'Box Color',
-              type: 'string',
-              options: colors
-            },
-          ]
-        }
+          label: 'Color',
+          type: 'string',
+          options: colors,
+        },
       ],
     },
   ],
@@ -481,6 +477,15 @@ const schema = defineSchema({
           label: "Category",
           type: "string",
           options: category,
+        },
+        {
+          type: "string",
+          label: "Tags",
+          name: "tags",
+          list: true,
+          ui: {
+            component: "tags",
+          },
         },
         {
           name: "date",

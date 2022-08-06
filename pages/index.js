@@ -104,10 +104,7 @@ query FetchQuery{
           body
           x
           width
-          colors {
-            font
-            box
-          }
+          colors
         }
       }
       ... on PageBlocksRichtext {
@@ -124,6 +121,7 @@ query FetchQuery{
         }
         title
         category
+        tags
         date
         description
         image

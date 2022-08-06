@@ -18,7 +18,7 @@ export const HeroBlock = ({ block, id, i }) => {
         pos={'relative'}
       >
         <GridItem
-        bg={'rgba(231, 232, 233, 0.25)'}
+        bg={'rgba(37, 31, 31, 0.4)'}
           zIndex={1}
           colStart={block.position?.text.x}
           colSpan={block.position?.text.width}
@@ -27,8 +27,8 @@ export const HeroBlock = ({ block, id, i }) => {
           pos={'relative'}
         >
           <Box p={"1.5rem"}>
-            <Heading fontSize={"5xl"}>{block.title}</Heading>
-            <Text fontSize={"3xl"}>{block.subtitle}</Text>
+            <Heading color={'whitecuba.100'} fontSize={"5xl"}>{block.title}</Heading>
+            <Text color={'whitecuba.100'} fontSize={"3xl"}>{block.subtitle}</Text>
           </Box>
         </GridItem>
         {block.image && (

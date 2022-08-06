@@ -1,0 +1,198 @@
+fragment PageParts on Page {
+  blocks {
+    __typename
+    ... on PageBlocksHero {
+      title
+      subtitle
+      image
+      position {
+        __typename
+        text {
+          __typename
+          x
+          width
+          y
+          height
+        }
+        image {
+          __typename
+          x
+          width
+          y
+          height
+        }
+      }
+    }
+    ... on PageBlocksCta {
+      title
+      subtitle
+      button {
+        __typename
+        label
+        href
+      }
+    }
+    ... on PageBlocksQuote {
+      quote
+      author
+      x
+      width
+    }
+    ... on PageBlocksGallery {
+      gallery {
+        __typename
+        image
+        alt
+        x
+        width
+        height
+      }
+    }
+    ... on PageBlocksFact {
+      fact {
+        __typename
+        headline
+        subheadline
+        x
+        width
+      }
+    }
+    ... on PageBlocksLogos {
+      headline
+      width
+      logos {
+        __typename
+        logo
+        alt
+        href
+      }
+    }
+    ... on PageBlocksCard {
+      cards {
+        __typename
+        title
+        body
+        href
+        x
+        width
+        colors
+      }
+    }
+    ... on PageBlocksFeatured {
+      category
+      size
+      colors
+    }
+    ... on PageBlocksRichtext {
+      body
+    }
+  }
+}
+
+fragment PostParts on Post {
+  title
+  category
+  tags
+  date
+  description
+  size
+  image
+  text {
+    __typename
+    ... on PostTextRichtext {
+      body
+    }
+  }
+  blocks {
+    __typename
+    ... on PostBlocksHero {
+      title
+      subtitle
+      image
+      position {
+        __typename
+        text {
+          __typename
+          x
+          width
+          y
+          height
+        }
+        image {
+          __typename
+          x
+          width
+          y
+          height
+        }
+      }
+    }
+    ... on PostBlocksCta {
+      title
+      subtitle
+      button {
+        __typename
+        label
+        href
+      }
+    }
+    ... on PostBlocksQuote {
+      quote
+      author
+      x
+      width
+    }
+    ... on PostBlocksGallery {
+      gallery {
+        __typename
+        image
+        alt
+        x
+        width
+        height
+      }
+    }
+    ... on PostBlocksFact {
+      fact {
+        __typename
+        headline
+        subheadline
+        x
+        width
+      }
+    }
+    ... on PostBlocksLogos {
+      headline
+      width
+      logos {
+        __typename
+        logo
+        alt
+        href
+      }
+    }
+    ... on PostBlocksCard {
+      cards {
+        __typename
+        title
+        body
+        href
+        x
+        width
+        colors
+      }
+    }
+    ... on PostBlocksFeatured {
+      category
+      size
+      colors
+    }
+    ... on PostBlocksRichtext {
+      body
+    }
+  }
+}
+
+fragment MapParts on Map {
+  date
+}

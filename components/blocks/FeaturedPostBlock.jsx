@@ -8,6 +8,7 @@ import {
   Heading,
   Text,
   Divider,
+  Button,
 } from "@chakra-ui/react";
 import Link from "next/link";
 
@@ -17,13 +18,18 @@ const Img = chakra(Image, {
 });
 
 export const FeaturedPostBlock = ({ block, posts, id, i }) => {
-
   return (
-    <Box mt={"3rem"} mb={"3rem"} >
-      <Box pl={'1.5rem'}>
-        <Heading color={block.colors} fontSize={"3xl"} >
+    <Box mt={"3rem"} mb={"3rem"}>
+      <Box pl={"1.5rem"}>
+        <Button
+          p={"2rem"}
+          rounded={"none"}
+          color={"whitecuba.100"}
+          bg={block.colors}
+          fontSize={"3xl"}
+        >
           {block.category}
-        </Heading>
+        </Button>
       </Box>
       <Grid
         pt={"1.5rem"}
@@ -32,7 +38,7 @@ export const FeaturedPostBlock = ({ block, posts, id, i }) => {
       >
         {posts?.map((post) => {
           return (
-            <Box pos={"relative"} p={'1.5rem'}>
+            <Box pos={"relative"} p={"1.5rem"}>
               {post.node.category == `${block.category}` && (
                 <>
                   {post.node.image && (
@@ -45,6 +51,7 @@ export const FeaturedPostBlock = ({ block, posts, id, i }) => {
                           zIndex={0}
                         >
                           <Img
+                            bg={"whitecuba.100"}
                             rounded={"1.5rem"}
                             quality="100"
                             width={"100%"}

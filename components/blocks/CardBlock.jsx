@@ -1,4 +1,4 @@
-import { Divider, Image } from "@chakra-ui/react";
+import { color, Divider, Image } from "@chakra-ui/react";
 import Link from "next/link";
 import { useEffect } from "react";
 import {
@@ -12,37 +12,69 @@ import {
 } from "@chakra-ui/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 
-const Img = chakra(Image, {
-  shouldForwardProp: (prop) =>
-    ["width", "height", "src", "alt", "layout"].includes(prop),
-});
-
 const components = {
   h1: (props) => (
-    <Heading as="h1" fontSize="5xl" my={2} color={item?.colors.font} {...props} />
+    <Heading
+      as="h1"
+      fontSize="5xl"
+      color={"blacksuite.100"}
+      p={"1rem"}
+      {...props}
+    />
   ),
   h2: (props) => (
-    <Heading as="h2" fontSize="4xl" my={2} color={item?.colors.font} {...props} />
+    <Heading
+      as="h2"
+      fontSize="4xl"
+      color={"blacksuite.100"}
+      p={"1rem"}
+      {...props}
+    />
   ),
   h3: (props) => (
-    <Heading as="h3" fontSize="3xl" my={2} color={item?.colors.font} {...props} />
+    <Heading
+      as="h3"
+      fontSize="3xl"
+      color={"blacksuite.100"}
+      p={"1rem"}
+      {...props}
+    />
   ),
   h4: (props) => (
-    <Heading as="h4" fontSize="2xl" my={2} color={item?.colors.font} {...props} />
+    <Heading
+      as="h4"
+      fontSize="2xl"
+      color={"blacksuite.100"}
+      p={"1rem"}
+      {...props}
+    />
   ),
   h5: (props) => (
-    <Heading as="h5" fontSize="xl" my={2} color={item?.colors.font} {...props} />
+    <Heading
+      as="h5"
+      fontSize="xl"
+      color={"blacksuite.100"}
+      p={"1rem"}
+      {...props}
+    />
   ),
   h6: (props) => (
-    <Heading as="h6" fontSize="lg" my={2} color={item?.colors.font} {...props} />
+    <Heading
+      as="h6"
+      fontSize="lg"
+      color={"blacksuite.100"}
+      p={"1rem"}
+      {...props}
+    />
   ),
   li: (props) => (
     <Box
       as="li"
       fontSize="lg"
+      p={"1rem"}
       my={2}
       mx={4}
-      color={item?.colors.font}
+      color={"blacksuite.100"}
       {...props}
     />
   ),
@@ -50,9 +82,10 @@ const components = {
     <Box
       as="ul"
       fontSize="lg"
+      p={"1rem"}
       my={2}
       mx={4}
-      color={item?.colors.font}
+      color={"blacksuite.100"}
       {...props}
     />
   ),
@@ -60,22 +93,23 @@ const components = {
     <Box
       as="ol"
       fontSize="lg"
+      p={"1rem"}
       my={2}
       mx={4}
-      color={item?.colors.font}
+      color={"blacksuite.100"}
       {...props}
     />
   ),
   a: (props) => {
     return (
-      <Link href={props.href} color={item?.colors.font}>
+      <Link href={props.href} color={"blacksuite.100"} p={"1rem"}>
         {props.children}
       </Link>
     );
   },
   code: (props) => {
     return (
-      <Code fontSize="lg" my={2}>
+      <Code fontSize="lg" p={"1rem"}>
         {props.children}
       </Code>
     );
@@ -84,9 +118,9 @@ const components = {
     return (
       <Text
         textAlign={"justify"}
-        fontSize="xl"
-        color={item?.colors.font}
-        my={2}
+        fontSize="lg"
+        p={"1rem"}
+        color={"blacksuite.100"}
         {...props}
       />
     );
@@ -94,19 +128,20 @@ const components = {
   img: (props) => {
     return (
       <Image
-        shadow={'lg'}
+        as='img'
         src={props.url}
-        height={'25%'}
-        width={'100%'}
         alt={props.alt}
-        objectFit='cover'
+        width={"100%"}
+        maxHeight={"500"}
+        minHeight={"150"}
+        objectFit="cover"
         quality="100"
-        overflow={'hidden'}
+        {...props}
       />
     );
   },
   hr: (props) => {
-    return <Divider pb={"1.5rem"} />;
+    return <Divider pb={"1.5rem"} {...props} />;
   },
 };
 
@@ -123,29 +158,26 @@ export const CardBlock = ({ block, id, i }) => {
             gap={5}
             colStart={item?.x}
             colSpan={item?.width}
+            p={"1.5rem"}
           >
             {item && (
               <Link href={item.href ?? " "}>
-                <Box
-                  m={"1.5rem"}
-                  p={"1.5rem"}
-                  bg={item?.colors.box}
-                  rounded={"1.5rem"}
-                  shadow={'lg'}
-  
-                >
-                  <Heading
-                    textAlign={"center"}
-                    mb={"1rem"}
-                    color={item?.colors.font}
-                  >
-                    {item.title}
-                  </Heading>
-                  <Divider mb={"1rem"} />
-                  <Box w={'100%'} h={'100%'}>
-                    <TinaMarkdown content={item.body} components={components} />
+                <Box bg={item.colors} p={"1.5rem"}>
+                  <Box bg={"whitecuba.100"} rounded={"1.5rem"} shadow={"lg"}>
+                    <Heading
+                      textAlign={"center"}
+                      p={"1rem"}
+                      color={"blacksuite.100"}
+                    >
+                      {item.title}
+                    </Heading>
+                    <Box>
+                      <TinaMarkdown
+                        content={item.body}
+                        components={components}
+                      />
+                    </Box>
                   </Box>
-                  <Divider mt={"1rem"} />
                 </Box>
               </Link>
             )}

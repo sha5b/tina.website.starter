@@ -5,7 +5,7 @@ export const QuoteBlock = ({ block, id, i }) => {
     <Grid
       bg={"blacksuite.100"}
       p={"2rem"}
-      mt={"3rem"}
+      mt={"1rem"}
       templateColumns={"1fr 1fr 1fr 1fr"}
       autoRows={"auto"}
       autoColumns={"auto"}

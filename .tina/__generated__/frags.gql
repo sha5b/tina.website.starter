@@ -76,6 +76,9 @@ fragment PageParts on Page {
         width
       }
     }
+    ... on PageBlocksRichtext {
+      body
+    }
     ... on PageBlocksFeatured {
       category
       size
@@ -88,6 +91,7 @@ fragment PostParts on Post {
   category
   date
   description
+  size
   image
   blocks {
     __typename
@@ -165,6 +169,9 @@ fragment PostParts on Post {
         x
         width
       }
+    }
+    ... on PostBlocksRichtext {
+      body
     }
     ... on PostBlocksFeatured {
       category

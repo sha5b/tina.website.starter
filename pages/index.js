@@ -1,7 +1,7 @@
 // Node Import
 import { gql, staticRequest } from "tinacms";
 import { useTina } from "tinacms/dist/edit-state";
-import React from 'react'
+import React from "react";
 // End
 
 // Block Import
@@ -102,6 +102,9 @@ query FetchQuery{
           width
         }
       }
+      ... on PostBlocksRichtext {
+        body
+      }
     }
   }
   postConnection {
@@ -118,15 +121,7 @@ query FetchQuery{
       }
     }
   }
-  pageConnection {
-    edges {
-      node {
-        id
-      }
-    }
-  }
 }`;
-
 
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
@@ -135,12 +130,11 @@ export default function Home(props) {
     variables: {},
     data: props.data,
   });
-  
 
   // Variables
   const id = data.page.id;
   const posts = data.postConnection.edges;
-  const pages = data.pageConnection.edges;
+
   // End
   return (
     <Layout>
@@ -194,15 +188,12 @@ export default function Home(props) {
                     />
                   </>
                 );
-                case "PageBlocksCard":
-                  return (
-                    <>
-                      <CardBlock
-                        i={i}
-                        block={block}
-                      />
-                    </>
-                  );
+              case "PageBlocksCard":
+                return (
+                  <>
+                    <CardBlock i={i} block={block} />
+                  </>
+                );
             }
           })
         : null}

@@ -171,12 +171,16 @@ type PageBlocksCard {
   cards: [PageBlocksCardCards]
 }
 
+type PageBlocksRichtext {
+  body: JSON
+}
+
 type PageBlocksFeatured {
   category: String
   size: Float
 }
 
-union PageBlocks = PageBlocksHero | PageBlocksCta | PageBlocksQuote | PageBlocksGallery | PageBlocksFact | PageBlocksLogos | PageBlocksCard | PageBlocksFeatured
+union PageBlocks = PageBlocksHero | PageBlocksCta | PageBlocksQuote | PageBlocksGallery | PageBlocksFact | PageBlocksLogos | PageBlocksCard | PageBlocksRichtext | PageBlocksFeatured
 
 type Page implements Node & Document {
   blocks: [PageBlocks]
@@ -286,18 +290,23 @@ type PostBlocksCard {
   cards: [PostBlocksCardCards]
 }
 
+type PostBlocksRichtext {
+  body: JSON
+}
+
 type PostBlocksFeatured {
   category: String
   size: Float
 }
 
-union PostBlocks = PostBlocksHero | PostBlocksCta | PostBlocksQuote | PostBlocksGallery | PostBlocksFact | PostBlocksLogos | PostBlocksCard | PostBlocksFeatured
+union PostBlocks = PostBlocksHero | PostBlocksCta | PostBlocksQuote | PostBlocksGallery | PostBlocksFact | PostBlocksLogos | PostBlocksCard | PostBlocksRichtext | PostBlocksFeatured
 
 type Post implements Node & Document {
   title: String
   category: String
   date: String
   description: String
+  size: Float
   image: String
   blocks: [PostBlocks]
   id: ID!
@@ -443,6 +452,10 @@ input PageBlocksCardMutation {
   cards: [PageBlocksCardCardsMutation]
 }
 
+input PageBlocksRichtextMutation {
+  body: JSON
+}
+
 input PageBlocksFeaturedMutation {
   category: String
   size: Float
@@ -456,6 +469,7 @@ input PageBlocksMutation {
   fact: PageBlocksFactMutation
   logos: PageBlocksLogosMutation
   card: PageBlocksCardMutation
+  richtext: PageBlocksRichtextMutation
   featured: PageBlocksFeaturedMutation
 }
 
@@ -553,6 +567,10 @@ input PostBlocksCardMutation {
   cards: [PostBlocksCardCardsMutation]
 }
 
+input PostBlocksRichtextMutation {
+  body: JSON
+}
+
 input PostBlocksFeaturedMutation {
   category: String
   size: Float
@@ -566,6 +584,7 @@ input PostBlocksMutation {
   fact: PostBlocksFactMutation
   logos: PostBlocksLogosMutation
   card: PostBlocksCardMutation
+  richtext: PostBlocksRichtextMutation
   featured: PostBlocksFeaturedMutation
 }
 
@@ -574,6 +593,7 @@ input PostMutation {
   category: String
   date: String
   description: String
+  size: Float
   image: String
   blocks: [PostBlocksMutation]
 }

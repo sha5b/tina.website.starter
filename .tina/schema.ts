@@ -369,6 +369,19 @@ const CardBlock: TinaTemplate = {
     },
   ],
 };
+
+const RichTextBlock: TinaTemplate = {
+  label: 'Rich Text',
+  name: 'richtext',
+  fields: [
+    {
+      name: "body",
+      label: "Body",
+      type: "rich-text",
+    },
+  ]
+}
+
 // Block Section End
 
 const blocks = [
@@ -379,6 +392,7 @@ const blocks = [
   FactBlock,
   LogoBlock,
   CardBlock,
+  RichTextBlock,
   FeaturedPostBlock,
 ];
 
@@ -439,6 +453,11 @@ const schema = defineSchema({
           ui: {
             component: "textarea",
           },
+        },
+        {
+          name: "size",
+          label: "Gridsize",
+          type: "number",
         },
         {
           name: "image",

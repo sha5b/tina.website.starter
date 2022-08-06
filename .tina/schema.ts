@@ -348,12 +348,13 @@ const CardBlock: TinaTemplate = {
         {
           name: "body",
           label: "Body",
+          isBody: true,
           type: "rich-text",
         },
         {
-          name: 'href',
-          label: 'HREF',
-          type: 'string',
+          name: "href",
+          label: "HREF",
+          type: "string",
         },
         {
           name: "x",
@@ -371,16 +372,17 @@ const CardBlock: TinaTemplate = {
 };
 
 const RichtextBlock: TinaTemplate = {
-  label: 'Rich Text',
-  name: 'richtext',
-  fields:[
+  label: "Rich Text",
+  name: "richtext",
+  fields: [
     {
-      name: 'body',
-      label: 'Body',
-      type: 'rich-text'
-    }
-  ]
-}
+      name: "body",
+      label: "Body",
+      isBody: true,
+      type: "rich-text",
+    },
+  ],
+};
 // Block Section End
 
 const blocks = [
@@ -427,7 +429,6 @@ const schema = defineSchema({
       path: "content/post",
       format: "mdx",
       fields: [
-
         {
           type: "string",
           label: "Title",
@@ -462,6 +463,13 @@ const schema = defineSchema({
           name: "image",
           label: "og:image",
           type: "image",
+        },
+        {
+          name: "blocks",
+          label: "Page Block Section",
+          type: "object",
+          list: true,
+          templates: blocks,
         },
       ],
     },

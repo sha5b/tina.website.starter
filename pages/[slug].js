@@ -11,6 +11,7 @@ import { FactBlock } from "../components/blocks/FactBlock";
 import { LogoBlock } from "../components/blocks/LogoBLock";
 import { FeaturedPostBlock } from "../components/blocks/FeaturedPostBlock";
 import { CardBlock } from "../components/blocks/CardBlock";
+import { RichtextBlock } from "../components/blocks/RichTextBlock";
 // End
 
 const query = `query getPage($relativePath: String!) {
@@ -95,6 +96,10 @@ const query = `query getPage($relativePath: String!) {
           width
         }
       }
+      ... on PageBlocksRichtext {
+        __typename
+        body
+      }
     }
   }
   postConnection {
@@ -122,7 +127,7 @@ export default function Home(props) {
   });
 
   const id = data.page.id;
-  
+
   return (
     <Layout>
       {data.page
@@ -167,17 +172,19 @@ export default function Home(props) {
               case "PageBlocksFeatured":
                 return (
                   <>
-                    <FeaturedPostBlock
-                      id={id}
-                      i={i}
-                      block={block}
-                    />
+                    <FeaturedPostBlock id={id} i={i} block={block} />
                   </>
                 );
               case "PageBlocksCard":
                 return (
                   <>
                     <CardBlock i={i} block={block} />
+                  </>
+                );
+              case "PageBlocksRichtext":
+                return (
+                  <>
+                    <RichtextBlock i={i} block={block} />
                   </>
                 );
             }

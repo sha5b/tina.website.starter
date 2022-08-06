@@ -200,6 +200,107 @@ type PageConnection implements Connection {
   edges: [PageConnectionEdges]
 }
 
+type PostBlocksHeroPositionText {
+  x: Float
+  width: Float
+  y: Float
+  height: Float
+}
+
+type PostBlocksHeroPositionImage {
+  x: Float
+  width: Float
+  y: Float
+  height: Float
+}
+
+type PostBlocksHeroPosition {
+  text: PostBlocksHeroPositionText
+  image: PostBlocksHeroPositionImage
+}
+
+type PostBlocksHero {
+  title: String
+  subtitle: String
+  image: String
+  position: PostBlocksHeroPosition
+}
+
+type PostBlocksCtaButton {
+  label: String
+  href: String
+}
+
+type PostBlocksCta {
+  title: String
+  subtitle: String
+  button: PostBlocksCtaButton
+}
+
+type PostBlocksQuote {
+  quote: String
+  author: String
+  x: Float
+  width: Float
+}
+
+type PostBlocksGalleryGallery {
+  image: String
+  alt: String
+  x: Float
+  width: Float
+  height: Float
+}
+
+type PostBlocksGallery {
+  gallery: [PostBlocksGalleryGallery]
+}
+
+type PostBlocksFactFact {
+  headline: String
+  subheadline: String
+  x: Float
+  width: Float
+}
+
+type PostBlocksFact {
+  fact: [PostBlocksFactFact]
+}
+
+type PostBlocksLogosLogos {
+  logo: String
+  alt: String
+  href: String
+}
+
+type PostBlocksLogos {
+  headline: String
+  logos: [PostBlocksLogosLogos]
+}
+
+type PostBlocksCardCards {
+  title: String
+  body: JSON
+  href: String
+  x: Float
+  width: Float
+}
+
+type PostBlocksCard {
+  cards: [PostBlocksCardCards]
+}
+
+type PostBlocksFeatured {
+  category: String
+  size: Float
+}
+
+type PostBlocksRichtext {
+  body: JSON
+}
+
+union PostBlocks = PostBlocksHero | PostBlocksCta | PostBlocksQuote | PostBlocksGallery | PostBlocksFact | PostBlocksLogos | PostBlocksCard | PostBlocksFeatured | PostBlocksRichtext
+
 type Post implements Node & Document {
   title: String
   category: String
@@ -207,6 +308,7 @@ type Post implements Node & Document {
   description: String
   size: Float
   image: String
+  blocks: [PostBlocks]
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -375,6 +477,117 @@ input PageMutation {
   blocks: [PageBlocksMutation]
 }
 
+input PostBlocksHeroPositionTextMutation {
+  x: Float
+  width: Float
+  y: Float
+  height: Float
+}
+
+input PostBlocksHeroPositionImageMutation {
+  x: Float
+  width: Float
+  y: Float
+  height: Float
+}
+
+input PostBlocksHeroPositionMutation {
+  text: PostBlocksHeroPositionTextMutation
+  image: PostBlocksHeroPositionImageMutation
+}
+
+input PostBlocksHeroMutation {
+  title: String
+  subtitle: String
+  image: String
+  position: PostBlocksHeroPositionMutation
+}
+
+input PostBlocksCtaButtonMutation {
+  label: String
+  href: String
+}
+
+input PostBlocksCtaMutation {
+  title: String
+  subtitle: String
+  button: PostBlocksCtaButtonMutation
+}
+
+input PostBlocksQuoteMutation {
+  quote: String
+  author: String
+  x: Float
+  width: Float
+}
+
+input PostBlocksGalleryGalleryMutation {
+  image: String
+  alt: String
+  x: Float
+  width: Float
+  height: Float
+}
+
+input PostBlocksGalleryMutation {
+  gallery: [PostBlocksGalleryGalleryMutation]
+}
+
+input PostBlocksFactFactMutation {
+  headline: String
+  subheadline: String
+  x: Float
+  width: Float
+}
+
+input PostBlocksFactMutation {
+  fact: [PostBlocksFactFactMutation]
+}
+
+input PostBlocksLogosLogosMutation {
+  logo: String
+  alt: String
+  href: String
+}
+
+input PostBlocksLogosMutation {
+  headline: String
+  logos: [PostBlocksLogosLogosMutation]
+}
+
+input PostBlocksCardCardsMutation {
+  title: String
+  body: JSON
+  href: String
+  x: Float
+  width: Float
+}
+
+input PostBlocksCardMutation {
+  cards: [PostBlocksCardCardsMutation]
+}
+
+input PostBlocksFeaturedMutation {
+  category: String
+  size: Float
+}
+
+input PostBlocksRichtextMutation {
+  body: JSON
+}
+
+input PostBlocksMutation {
+  hero: PostBlocksHeroMutation
+  cta: PostBlocksCtaMutation
+  quote: PostBlocksQuoteMutation
+  gallery: PostBlocksGalleryMutation
+  fact: PostBlocksFactMutation
+  logos: PostBlocksLogosMutation
+  card: PostBlocksCardMutation
+  featured: PostBlocksFeaturedMutation
+  richtext: PostBlocksRichtextMutation
+}
+
 input PostMutation {
   title: String
   category: String
@@ -382,6 +595,7 @@ input PostMutation {
   description: String
   size: Float
   image: String
+  blocks: [PostBlocksMutation]
 }
 
 input MapMutation {

@@ -10,15 +10,54 @@ const Img = chakra(Image, {
 });
 
 const components = {
-  h1: (props) => <Heading as="h1" fontSize="6xl" my={2} color={'whitecuba.100'}{...props} />,
-  h2: (props) => <Heading as="h2" fontSize="5xl" my={2} color={'whitecuba.100'}{...props} />,
-  h3: (props) => <Heading as="h3" fontSize="4xl" my={2} color={'whitecuba.100'}{...props} />,
-  h4: (props) => <Heading as="h4" fontSize="3xl" my={2} color={'whitecuba.100'}{...props} />,
-  h5: (props) => <Heading as="h5" fontSize="2xl" my={2} color={'whitecuba.100'}{...props} />,
-  h6: (props) => <Heading as="h6" fontSize="xl" my={2} color={'whitecuba.100'}{...props} />,
-  li: (props) => <Box as="li" fontSize="xl" my={2} mx={4} color={'whitecuba.100'}{...props} />,
-  ul: (props) => <Box as="ul" fontSize="xl" my={2} mx={4} color={'whitecuba.100'}{...props} />,
-  ol: (props) => <Box as="ol" fontSize="xl" my={2} mx={4} color={'whitecuba.100'}{...props} />,
+  h1: (props) => (
+    <Heading as="h1" fontSize="6xl" my={2} color={"whitecuba.100"} {...props} />
+  ),
+  h2: (props) => (
+    <Heading as="h2" fontSize="5xl" my={2} color={"whitecuba.100"} {...props} />
+  ),
+  h3: (props) => (
+    <Heading as="h3" fontSize="4xl" my={2} color={"whitecuba.100"} {...props} />
+  ),
+  h4: (props) => (
+    <Heading as="h4" fontSize="3xl" my={2} color={"whitecuba.100"} {...props} />
+  ),
+  h5: (props) => (
+    <Heading as="h5" fontSize="2xl" my={2} color={"whitecuba.100"} {...props} />
+  ),
+  h6: (props) => (
+    <Heading as="h6" fontSize="xl" my={2} color={"whitecuba.100"} {...props} />
+  ),
+  li: (props) => (
+    <Box
+      as="li"
+      fontSize="xl"
+      my={2}
+      mx={4}
+      color={"whitecuba.100"}
+      {...props}
+    />
+  ),
+  ul: (props) => (
+    <Box
+      as="ul"
+      fontSize="xl"
+      my={2}
+      mx={4}
+      color={"whitecuba.100"}
+      {...props}
+    />
+  ),
+  ol: (props) => (
+    <Box
+      as="ol"
+      fontSize="xl"
+      my={2}
+      mx={4}
+      color={"whitecuba.100"}
+      {...props}
+    />
+  ),
   a: (props) => {
     return <Link href={props.href}>{props.children}</Link>;
   },
@@ -30,15 +69,11 @@ const components = {
     );
   },
   p: (props) => {
-    return <Text fontSize="xl" color={'whitecuba.100'} my={2} {...props} />;
+    return <Text fontSize="xl" color={"whitecuba.100"} my={2} {...props} />;
   },
   img: (props) => {
-    const BlogImage = chakra(Image, {
-      shouldForwardProp: (prop) =>
-        ["height", "width", "quality", "src", "alt"].includes(prop),
-    });
     return (
-      <BlogImage
+      <Image
         mx="auto"
         src={props.url}
         height={"500"}
@@ -60,12 +95,18 @@ export const CardBlock = ({ block, id, i }) => {
     >
       {block.cards?.map((item) => {
         return (
-          <GridItem mt={'3rem'} mb={'3rem'} gap={5}colStart={item?.x} colSpan={item?.width}>
+          <GridItem
+            mt={"3rem"}
+            mb={"3rem"}
+            gap={5}
+            colStart={item?.x}
+            colSpan={item?.width}
+          >
             {item && (
               <Link href={item.href ?? " "}>
                 <Box p={"1.5rem"} bg={"orangebiz.100"}>
-                  <Box p={"1.5rem"} bg={"blacksuite.100"} rounded={'1.5rem'}>
-                    <Heading color={'whitecuba.100'}>{item.title}</Heading>
+                  <Box p={"1.5rem"} bg={"blacksuite.100"} rounded={"1.5rem"}>
+                    <Heading color={"whitecuba.100"}>{item.title}</Heading>
                     <TinaMarkdown content={item.body} components={components} />
                   </Box>
                 </Box>

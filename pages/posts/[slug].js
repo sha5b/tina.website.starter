@@ -21,7 +21,7 @@ import { FactBlock } from "../../components/blocks/FactBlock";
 import { LogoBlock } from "../../components/blocks/LogoBLock";
 import { FeaturedPostBlock } from "../../components/blocks/FeaturedPostBlock";
 import { CardBlock } from "../../components/blocks/CardBlock";
-import { RichTextBlock } from "../../components/blocks/RichTextBlock";
+import { RichtextBlock } from "../../components/blocks/RichTextBlock";
 // End
 
 const query = `
@@ -34,6 +34,90 @@ const query = `
       description
       size
       image
+      blocks {
+        ... on PostBlocksHero {
+          __typename
+          title
+          subtitle
+          image
+          position {
+            image {
+              x
+              y
+              width
+              height
+            }
+            text {
+              x
+              y
+              width
+              height
+            }
+          }
+        }
+        ... on PostBlocksCta {
+          __typename
+          title
+          subtitle
+          button {
+            label
+            href
+          }
+        }
+        ... on PostBlocksQuote {
+          __typename
+          quote
+          author
+          x
+          width
+        }
+        ... on PostBlocksGallery {
+          __typename
+          gallery {
+            image
+            alt
+            x
+            width
+            height
+          }
+        }
+        ... on PostBlocksFact {
+          __typename
+          fact {
+            headline
+            subheadline
+            x
+            width
+          }
+        }
+        ... on PostBlocksLogos {
+          __typename
+          headline
+          logos {
+            logo
+            alt
+            href
+          }
+        }
+        ... on PostBlocksFeatured {
+          __typename
+          category
+          size
+        }
+        ... on PostBlocksCard {
+          __typename
+          cards {
+            title
+            body
+            x
+            width
+          }
+        }
+        ... on PostBlocksRichtext {
+          __typename
+          body
+        }
+      }
     }
     postConnection {
       edges {
@@ -69,7 +153,6 @@ export default function Home(props) {
   const posts = data.postConnection.edges;
   return (
     <Layout>
-      <Divider mb={"3rem"} />
       <Box>
         <Text pb={"1rem"}>{data.post.category}</Text>
         <Heading>{data.post.title}</Heading>
@@ -100,7 +183,73 @@ export default function Home(props) {
             />
           </GridItem>
         )}
+        {data.post
+          ? data.post.blocks?.map((block, i) => {
+              switch (block.__typename) {
+                case "PostBlocksRichtext":
+                  return (
+                    <GridItem>
+                      <RichtextBlock i={i} block={block} />
+                    </GridItem>
+                  );
+              }
+            })
+          : null}
       </Grid>
+      {data.post
+        ? data.post.blocks?.map((block, i) => {
+            switch (block.__typename) {
+              case "PostBlocksHero":
+                return (
+                  <>
+                    <HeroBlock id={id} i={i} block={block} />
+                  </>
+                );
+              case "PostBlocksCta":
+                return (
+                  <>
+                    <CallToActionBlock id={id} i={i} block={block} />
+                  </>
+                );
+              case "PostBlocksQuote":
+                return (
+                  <>
+                    <QuoteBlock id={id} i={i} block={block} />
+                  </>
+                );
+              case "PostBlocksGallery":
+                return (
+                  <>
+                    <GalleryBlock id={id} i={i} block={block} />
+                  </>
+                );
+              case "PostBlocksFact":
+                return (
+                  <>
+                    <FactBlock id={id} i={i} block={block} />
+                  </>
+                );
+              case "PostBlocksLogos":
+                return (
+                  <>
+                    <LogoBlock id={id} i={i} block={block} />
+                  </>
+                );
+              case "PostBlocksFeatured":
+                return (
+                  <>
+                    <FeaturedPostBlock id={id} i={i} block={block} />
+                  </>
+                );
+              case "PostBlocksCard":
+                return (
+                  <>
+                    <CardBlock i={i} block={block} />
+                  </>
+                );
+            }
+          })
+        : null}
     </Layout>
   );
 }

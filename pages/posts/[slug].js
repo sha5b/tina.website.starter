@@ -120,6 +120,10 @@ const query = `
             body
             x
             width
+            colors {
+              font
+              box
+            }
           }
         }
       }

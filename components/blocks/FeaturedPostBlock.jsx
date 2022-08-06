@@ -18,12 +18,10 @@ const Img = chakra(Image, {
 
 export const FeaturedPostBlock = ({ block, posts, id, i }) => {
 
-  const color = block.colors
-
   return (
     <Box mt={"3rem"} mb={"3rem"} >
       <Box pl={'1.5rem'}>
-        <Heading color={color} fontSize={"3xl"} >
+        <Heading color={block.colors} fontSize={"3xl"} >
           {block.category}
         </Heading>
       </Box>
@@ -42,7 +40,7 @@ export const FeaturedPostBlock = ({ block, posts, id, i }) => {
                       <Link href={`/posts/${post.node._sys?.filename ?? " "}`}>
                         <Box
                           p={`1.5rem`}
-                          color={color}
+                          bg={block.colors}
                           display={"block"}
                           zIndex={0}
                         >

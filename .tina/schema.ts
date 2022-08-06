@@ -1,3 +1,4 @@
+import { color } from "@chakra-ui/react";
 import { type } from "os";
 import {
   defineConfig,
@@ -388,6 +389,25 @@ const CardBlock: TinaTemplate = {
           label: "Width",
           type: "number",
         },
+        {
+          name: 'colors',
+          label: 'Colors',
+          type: 'object',
+          fields: [
+            {
+              name: 'font',
+              label: 'Font Color',
+              type: 'string',
+              options: colors
+            },
+            {
+              name: 'box',
+              label: 'Box Color',
+              type: 'string',
+              options: colors
+            },
+          ]
+        }
       ],
     },
   ],

@@ -19,22 +19,22 @@ const Img = chakra(Image, {
 
 const components = {
   h1: (props) => (
-    <Heading as="h1" fontSize="5xl" my={2} color={"whitecuba.100"} {...props} />
+    <Heading as="h1" fontSize="5xl" my={2} color={item?.colors.font} {...props} />
   ),
   h2: (props) => (
-    <Heading as="h2" fontSize="4xl" my={2} color={"whitecuba.100"} {...props} />
+    <Heading as="h2" fontSize="4xl" my={2} color={item?.colors.font} {...props} />
   ),
   h3: (props) => (
-    <Heading as="h3" fontSize="3xl" my={2} color={"whitecuba.100"} {...props} />
+    <Heading as="h3" fontSize="3xl" my={2} color={item?.colors.font} {...props} />
   ),
   h4: (props) => (
-    <Heading as="h4" fontSize="2xl" my={2} color={"whitecuba.100"} {...props} />
+    <Heading as="h4" fontSize="2xl" my={2} color={item?.colors.font} {...props} />
   ),
   h5: (props) => (
-    <Heading as="h5" fontSize="xl" my={2} color={"whitecuba.100"} {...props} />
+    <Heading as="h5" fontSize="xl" my={2} color={item?.colors.font} {...props} />
   ),
   h6: (props) => (
-    <Heading as="h6" fontSize="lg" my={2} color={"whitecuba.100"} {...props} />
+    <Heading as="h6" fontSize="lg" my={2} color={item?.colors.font} {...props} />
   ),
   li: (props) => (
     <Box
@@ -42,7 +42,7 @@ const components = {
       fontSize="lg"
       my={2}
       mx={4}
-      color={"whitecuba.100"}
+      color={item?.colors.font}
       {...props}
     />
   ),
@@ -52,7 +52,7 @@ const components = {
       fontSize="lg"
       my={2}
       mx={4}
-      color={"whitecuba.100"}
+      color={item?.colors.font}
       {...props}
     />
   ),
@@ -62,13 +62,13 @@ const components = {
       fontSize="lg"
       my={2}
       mx={4}
-      color={"whitecuba.100"}
+      color={item?.colors.font}
       {...props}
     />
   ),
   a: (props) => {
     return (
-      <Link href={props.href} color={"whitecuba.100"}>
+      <Link href={props.href} color={item?.colors.font}>
         {props.children}
       </Link>
     );
@@ -85,7 +85,7 @@ const components = {
       <Text
         textAlign={"justify"}
         fontSize="xl"
-        color={"whitecuba.100"}
+        color={item?.colors.font}
         my={2}
         {...props}
       />
@@ -94,12 +94,12 @@ const components = {
   img: (props) => {
     return (
       <Image
-        mx="auto"
+        shadow={'lg'}
         src={props.url}
-        height={'inherit'}
-        width={'inherit'}
+        height={'25%'}
+        width={'100%'}
         alt={props.alt}
-        objectFit='scale-down'
+        objectFit='cover'
         quality="100"
         overflow={'hidden'}
       />
@@ -129,13 +129,15 @@ export const CardBlock = ({ block, id, i }) => {
                 <Box
                   m={"1.5rem"}
                   p={"1.5rem"}
-                  bg={"blacksuite.100"}
+                  bg={item?.colors.box}
                   rounded={"1.5rem"}
+                  shadow={'lg'}
+  
                 >
                   <Heading
-                    color={"whitecuba.100"}
                     textAlign={"center"}
                     mb={"1rem"}
+                    color={item?.colors.font}
                   >
                     {item.title}
                   </Heading>

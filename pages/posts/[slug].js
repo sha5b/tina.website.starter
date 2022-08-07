@@ -157,7 +157,7 @@ export default function Home(props) {
     data: props.data,
   });
 
-  const posts = data.postConnection.edges;
+  const posts = data.postConnection?.edges;
   return (
     <Layout>
       <Box>

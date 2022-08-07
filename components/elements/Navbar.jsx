@@ -10,6 +10,16 @@ import {
   Heading,
   Text,
   HStack,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuDivider,
+  VStack,
+  Spacer,
   Accordion,
   AccordionItem,
   AccordionButton,
@@ -24,8 +34,6 @@ const Img = chakra(Image, {
 });
 
 export const Navbar = (props) => {
-  const { isOpen } = useDisclosure();
-
   return (
     <Box m={"1.5rem"} pos={"sticky"} top={0} zIndex={10}>
       <Flex justify="space-between" align={"center"}>
@@ -44,6 +52,33 @@ export const Navbar = (props) => {
           </Box>
         </Link>
         <HStack flexGrow={1} justify={"center"}>
+          <Menu>
+            <MenuButton
+              as={Button}
+              rounded={"none"}
+              bg={"blacksuite.100"}
+              color={"whitecuba.100"}
+              fontSize={"lg"}
+            >
+              Categories
+            </MenuButton>
+            <MenuList
+              alignSelf={"center"}
+              bg={"blacksuite.100"}
+              rounded={"none"}
+              border={"none"}
+            >
+              <VStack p={"1rem"}>
+                {category.map((item, i) => {
+                  return (
+                    <MenuItem p={"0.5rem"} color={"whitecuba.100"}>
+                      {item}
+                    </MenuItem>
+                  );
+                })}
+              </VStack>
+            </MenuList>
+          </Menu>
         </HStack>
         <HStack flexGrow={1} justify={"right"}>
           <Button
@@ -72,14 +107,50 @@ export const Navbar = (props) => {
           </Button>
         </HStack>
       </Flex>
+      <Box>
+        <Accordion defaultIndex={[0]} allowMultiple allowToggle>
+          <AccordionItem>
+            <h2>
+              <AccordionButton >Category</AccordionButton>
+            </h2>
+            <AccordionPanel>
+              <Flex wrap={"wrap"} gap={15}>
+                {category.map((item, i) => {
+                  let color = "blacksuite.100";
+                  return (
+                    <Button
+                      flexGrow={1}
+                      p={"2rem"}
+                      rounded={"none"}
+                      color={"whitecuba.100"}
+                      bg={"blacksuite.100"}
+                      fontSize={"3xl"}
+                    >
+                      {item}
+                    </Button>
+                  );
+                })}
+              </Flex>
+            </AccordionPanel>
+          </AccordionItem>
+
+          <AccordionItem>
+            <h2>
+              <AccordionButton>
+                <Box flex="1" textAlign="left">
+                  Tags
+                </Box>
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
+      </Box>
     </Box>
   );
 };
-
-
-/*
-
-                {category.map((item, i) => {
-                  return <Box p={"0.5rem"} color={'whitecuba.100'}>{item}</Box>;
-                })}
-*/

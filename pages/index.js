@@ -139,7 +139,7 @@ export default function Home(props) {
   });
 
   // Variables
-  const posts = data.postConnection.edges;
+  const posts = data.postConnection?.edges;
 
   // End
   return (

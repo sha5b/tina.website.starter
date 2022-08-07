@@ -49,11 +49,17 @@ type Query {
   node(id: String): Node!
   document(collection: String, relativePath: String): DocumentNode!
   page(relativePath: String): Page!
-  pageConnection(before: String, after: String, first: Float, last: Float, sort: String): PageConnection!
+  pageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PageFilter): PageConnection!
   post(relativePath: String): Post!
-  postConnection(before: String, after: String, first: Float, last: Float, sort: String): PostConnection!
+  postConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PostFilter): PostConnection!
   map(relativePath: String): Map!
-  mapConnection(before: String, after: String, first: Float, last: Float, sort: String): MapConnection!
+  mapConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: MapFilter): MapConnection!
+}
+
+input DocumentFilter {
+  page: PageFilter
+  post: PostFilter
+  map: MapFilter
 }
 
 type DocumentConnectionEdges {
@@ -76,7 +82,7 @@ type Collection {
   matches: String
   templates: [JSON]
   fields: [JSON]
-  documents(before: String, after: String, first: Float, last: Float, sort: String): DocumentConnection!
+  documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter): DocumentConnection!
 }
 
 union DocumentNode = Page | Post | Map
@@ -190,6 +196,154 @@ type Page implements Node & Document {
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input StringFilter {
+  startsWith: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input ImageFilter {
+  startsWith: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input NumberFilter {
+  lt: Float
+  lte: Float
+  gte: Float
+  gt: Float
+  eq: Float
+  exists: Boolean
+  in: [Float]
+}
+
+input PageBlocksHeroPositionTextFilter {
+  x: NumberFilter
+  width: NumberFilter
+  y: NumberFilter
+  height: NumberFilter
+}
+
+input PageBlocksHeroPositionImageFilter {
+  x: NumberFilter
+  width: NumberFilter
+  y: NumberFilter
+  height: NumberFilter
+}
+
+input PageBlocksHeroPositionFilter {
+  text: PageBlocksHeroPositionTextFilter
+  image: PageBlocksHeroPositionImageFilter
+}
+
+input PageBlocksHeroFilter {
+  title: StringFilter
+  subtitle: StringFilter
+  image: ImageFilter
+  position: PageBlocksHeroPositionFilter
+}
+
+input PageBlocksCtaButtonFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
+input PageBlocksCtaFilter {
+  title: StringFilter
+  subtitle: StringFilter
+  button: PageBlocksCtaButtonFilter
+}
+
+input PageBlocksQuoteFilter {
+  quote: StringFilter
+  author: StringFilter
+  x: NumberFilter
+  width: NumberFilter
+}
+
+input PageBlocksGalleryGalleryFilter {
+  image: ImageFilter
+  alt: StringFilter
+  x: NumberFilter
+  width: NumberFilter
+  height: NumberFilter
+}
+
+input PageBlocksGalleryFilter {
+  gallery: PageBlocksGalleryGalleryFilter
+}
+
+input PageBlocksFactFactFilter {
+  headline: StringFilter
+  subheadline: StringFilter
+  x: NumberFilter
+  width: NumberFilter
+}
+
+input PageBlocksFactFilter {
+  fact: PageBlocksFactFactFilter
+}
+
+input PageBlocksLogosLogosFilter {
+  logo: ImageFilter
+  alt: StringFilter
+  href: StringFilter
+}
+
+input PageBlocksLogosFilter {
+  headline: StringFilter
+  width: NumberFilter
+  logos: PageBlocksLogosLogosFilter
+}
+
+input RichTextFilter {
+  startsWith: String
+  eq: String
+  exists: Boolean
+}
+
+input PageBlocksCardCardsFilter {
+  title: StringFilter
+  body: RichTextFilter
+  href: StringFilter
+  x: NumberFilter
+  width: NumberFilter
+  colors: StringFilter
+}
+
+input PageBlocksCardFilter {
+  cards: PageBlocksCardCardsFilter
+}
+
+input PageBlocksFeaturedFilter {
+  category: StringFilter
+  size: NumberFilter
+  colors: StringFilter
+}
+
+input PageBlocksRichtextFilter {
+  body: RichTextFilter
+}
+
+input PageBlocksFilter {
+  hero: PageBlocksHeroFilter
+  cta: PageBlocksCtaFilter
+  quote: PageBlocksQuoteFilter
+  gallery: PageBlocksGalleryFilter
+  fact: PageBlocksFactFilter
+  logos: PageBlocksLogosFilter
+  card: PageBlocksCardFilter
+  featured: PageBlocksFeaturedFilter
+  richtext: PageBlocksRichtextFilter
+}
+
+input PageFilter {
+  blocks: PageBlocksFilter
 }
 
 type PageConnectionEdges {
@@ -328,6 +482,148 @@ type Post implements Node & Document {
   _values: JSON!
 }
 
+input DatetimeFilter {
+  after: String
+  before: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input PostTextRichtextFilter {
+  body: RichTextFilter
+}
+
+input PostTextFilter {
+  richtext: PostTextRichtextFilter
+}
+
+input PostBlocksHeroPositionTextFilter {
+  x: NumberFilter
+  width: NumberFilter
+  y: NumberFilter
+  height: NumberFilter
+}
+
+input PostBlocksHeroPositionImageFilter {
+  x: NumberFilter
+  width: NumberFilter
+  y: NumberFilter
+  height: NumberFilter
+}
+
+input PostBlocksHeroPositionFilter {
+  text: PostBlocksHeroPositionTextFilter
+  image: PostBlocksHeroPositionImageFilter
+}
+
+input PostBlocksHeroFilter {
+  title: StringFilter
+  subtitle: StringFilter
+  image: ImageFilter
+  position: PostBlocksHeroPositionFilter
+}
+
+input PostBlocksCtaButtonFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
+input PostBlocksCtaFilter {
+  title: StringFilter
+  subtitle: StringFilter
+  button: PostBlocksCtaButtonFilter
+}
+
+input PostBlocksQuoteFilter {
+  quote: StringFilter
+  author: StringFilter
+  x: NumberFilter
+  width: NumberFilter
+}
+
+input PostBlocksGalleryGalleryFilter {
+  image: ImageFilter
+  alt: StringFilter
+  x: NumberFilter
+  width: NumberFilter
+  height: NumberFilter
+}
+
+input PostBlocksGalleryFilter {
+  gallery: PostBlocksGalleryGalleryFilter
+}
+
+input PostBlocksFactFactFilter {
+  headline: StringFilter
+  subheadline: StringFilter
+  x: NumberFilter
+  width: NumberFilter
+}
+
+input PostBlocksFactFilter {
+  fact: PostBlocksFactFactFilter
+}
+
+input PostBlocksLogosLogosFilter {
+  logo: ImageFilter
+  alt: StringFilter
+  href: StringFilter
+}
+
+input PostBlocksLogosFilter {
+  headline: StringFilter
+  width: NumberFilter
+  logos: PostBlocksLogosLogosFilter
+}
+
+input PostBlocksCardCardsFilter {
+  title: StringFilter
+  body: RichTextFilter
+  href: StringFilter
+  x: NumberFilter
+  width: NumberFilter
+  colors: StringFilter
+}
+
+input PostBlocksCardFilter {
+  cards: PostBlocksCardCardsFilter
+}
+
+input PostBlocksFeaturedFilter {
+  category: StringFilter
+  size: NumberFilter
+  colors: StringFilter
+}
+
+input PostBlocksRichtextFilter {
+  body: RichTextFilter
+}
+
+input PostBlocksFilter {
+  hero: PostBlocksHeroFilter
+  cta: PostBlocksCtaFilter
+  quote: PostBlocksQuoteFilter
+  gallery: PostBlocksGalleryFilter
+  fact: PostBlocksFactFilter
+  logos: PostBlocksLogosFilter
+  card: PostBlocksCardFilter
+  featured: PostBlocksFeaturedFilter
+  richtext: PostBlocksRichtextFilter
+}
+
+input PostFilter {
+  title: StringFilter
+  category: StringFilter
+  tags: StringFilter
+  date: DatetimeFilter
+  description: StringFilter
+  size: NumberFilter
+  image: ImageFilter
+  text: PostTextFilter
+  blocks: PostBlocksFilter
+}
+
 type PostConnectionEdges {
   cursor: String!
   node: Post
@@ -344,6 +640,10 @@ type Map implements Node & Document {
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input MapFilter {
+  date: DatetimeFilter
 }
 
 type MapConnectionEdges {

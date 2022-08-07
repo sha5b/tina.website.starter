@@ -38,9 +38,9 @@ export const FeaturedPostBlock = ({ block, posts, id, i }) => {
       >
         {posts?.map((post) => {
           return (
-            <Box pos={"relative"} p={"1.5rem"}>
+            <>
               {post.node.category == `${block.category}` && (
-                <>
+                <Box pos={"relative"} p={"1.5rem"}>
                   {post.node.image && (
                     <GridItem cursor={"pointer"}>
                       <Link href={`/posts/${post.node._sys?.filename ?? " "}`}>
@@ -65,9 +65,9 @@ export const FeaturedPostBlock = ({ block, posts, id, i }) => {
                       </Link>
                     </GridItem>
                   )}
-                </>
+                </Box>
               )}
-            </Box>
+            </>
           );
         })}
       </Grid>

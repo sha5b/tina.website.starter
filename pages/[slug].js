@@ -130,8 +130,6 @@ export default function Home(props) {
     data: props.data,
   });
 
-  const id = data.page.id;
-
   return (
     <Layout>
       {data.page
@@ -140,43 +138,43 @@ export default function Home(props) {
               case "PageBlocksHero":
                 return (
                   <>
-                    <HeroBlock id={id} i={i} block={block} />
+                    <HeroBlock i={i} block={block} />
                   </>
                 );
               case "PageBlocksCta":
                 return (
                   <>
-                    <CallToActionBlock id={id} i={i} block={block} />
+                    <CallToActionBlock i={i} block={block} />
                   </>
                 );
               case "PageBlocksQuote":
                 return (
                   <>
-                    <QuoteBlock id={id} i={i} block={block} />
+                    <QuoteBlock i={i} block={block} />
                   </>
                 );
               case "PageBlocksGallery":
                 return (
                   <>
-                    <GalleryBlock id={id} i={i} block={block} />
+                    <GalleryBlock i={i} block={block} />
                   </>
                 );
               case "PageBlocksFact":
                 return (
                   <>
-                    <FactBlock id={id} i={i} block={block} />
+                    <FactBlock i={i} block={block} />
                   </>
                 );
               case "PageBlocksLogos":
                 return (
                   <>
-                    <LogoBlock id={id} i={i} block={block} />
+                    <LogoBlock i={i} block={block} />
                   </>
                 );
               case "PageBlocksFeatured":
                 return (
                   <>
-                    <FeaturedPostBlock id={id} i={i} block={block} />
+                    <FeaturedPostBlock i={i} block={block} />
                   </>
                 );
               case "PageBlocksCard":

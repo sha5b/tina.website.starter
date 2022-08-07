@@ -157,7 +157,6 @@ export default function Home(props) {
     data: props.data,
   });
 
-  const id = data.post.id;
   const posts = data.postConnection.edges;
   return (
     <Layout>
@@ -175,7 +174,6 @@ export default function Home(props) {
             {data.post.category}
           </Button>
           <Flex  wrap={"wrap"} gap={25}>
-            {console.log(data.post.tags)}
             {data.post.tags?.map((tag) => (
               <Box>
                 <Button
@@ -241,44 +239,43 @@ export default function Home(props) {
               case "PostBlocksHero":
                 return (
                   <>
-                    <HeroBlock id={id} i={i} block={block} />
+                    <HeroBlock i={i} block={block} />
                   </>
                 );
               case "PostBlocksCta":
                 return (
                   <>
-                    <CallToActionBlock id={id} i={i} block={block} />
+                    <CallToActionBlock i={i} block={block} />
                   </>
                 );
               case "PostBlocksQuote":
                 return (
                   <>
-                    <QuoteBlock id={id} i={i} block={block} />
+                    <QuoteBlock i={i} block={block} />
                   </>
                 );
               case "PostBlocksGallery":
                 return (
                   <>
-                    <GalleryBlock id={id} i={i} block={block} />
+                    <GalleryBlock i={i} block={block} />
                   </>
                 );
               case "PostBlocksFact":
                 return (
                   <>
-                    <FactBlock id={id} i={i} block={block} />
+                    <FactBlock i={i} block={block} />
                   </>
                 );
               case "PostBlocksLogos":
                 return (
                   <>
-                    <LogoBlock id={id} i={i} block={block} />
+                    <LogoBlock i={i} block={block} />
                   </>
                 );
               case "PostBlocksFeatured":
                 return (
                   <>
                     <FeaturedPostBlock
-                      id={id}
                       i={i}
                       block={block}
                       posts={posts}

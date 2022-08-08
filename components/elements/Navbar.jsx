@@ -109,9 +109,9 @@ export const Navbar = (props) => {
       </Flex>
       <Box>
         <Accordion defaultIndex={[0]} allowMultiple allowToggle>
-          <AccordionItem>
+          <AccordionItem border="none">
             <h2>
-              <AccordionButton >Category</AccordionButton>
+              <AccordionButton>Category</AccordionButton>
             </h2>
             <AccordionPanel>
               <Flex wrap={"wrap"} gap={15}>
@@ -134,7 +134,7 @@ export const Navbar = (props) => {
             </AccordionPanel>
           </AccordionItem>
 
-          <AccordionItem>
+          <AccordionItem border="none">
             <h2>
               <AccordionButton>
                 <Box flex="1" textAlign="left">

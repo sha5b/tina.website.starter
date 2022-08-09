@@ -82,9 +82,12 @@ export const Navbar = (props) => {
             <Box>
               <AccordionButton
                 w={"100px"}
+                fontWeight={"bold"}
                 rounded={"none"}
                 bg={"blacksuite.100"}
                 color={"whitecuba.100"}
+                mt={"1rem"}
+                mb={'1.5rem'}
               >
                 Category
               </AccordionButton>
@@ -97,8 +100,36 @@ export const Navbar = (props) => {
                       flexGrow={1}
                       p={"2rem"}
                       rounded={"none"}
-                      color={"whitecuba.100"}
-                      bg={"blacksuite.100"}
+                      color={
+                        item === category[0]
+                          ? "whitecuba.100"
+                          : item === category[1]
+                          ? "whitecuba.100"
+                          : item === category[2]
+                          ? 'blacksuite.100'
+                          : item === category[3]
+                          ? "whitecuba.100"
+                          : item === category[4]
+                          ? "whitecuba.100"
+                          : item === category[5]
+                          ? "whitecuba.100"
+                          : 'blacksuite.100'
+                      }
+                      bg={
+                        item === category[0]
+                          ? "blacksuite.100"
+                          : item === category[1]
+                          ? "purplesience.100"
+                          : item === category[2]
+                          ? 'yellowinsurance.100'
+                          : item === category[3]
+                          ? 'greenschool.100'
+                          : item === category[4]
+                          ? 'orangebiz.100'
+                          : item === category[5]
+                          ? 'greyaltona.100'
+                          : 'blacksuite.100'
+                      }
                       fontSize={"3xl"}
                     >
                       {item}
@@ -114,8 +145,10 @@ export const Navbar = (props) => {
               <AccordionButton
                 w={"100px"}
                 rounded={"none"}
+                fontWeight={"bold"}
                 bg={"blacksuite.100"}
                 color={"whitecuba.100"}
+                mt={"1rem"}
               >
                 Tags
               </AccordionButton>

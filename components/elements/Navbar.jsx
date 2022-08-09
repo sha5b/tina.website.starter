@@ -79,13 +79,19 @@ export const Navbar = (props) => {
       <Box>
         <Accordion defaultIndex={[0]} allowMultiple allowToggle>
           <AccordionItem border="none">
-            <h2>
-              <AccordionButton>Category</AccordionButton>
-            </h2>
+            <Box>
+              <AccordionButton
+                w={"100px"}
+                rounded={"none"}
+                bg={"blacksuite.100"}
+                color={"whitecuba.100"}
+              >
+                Category
+              </AccordionButton>
+            </Box>
             <AccordionPanel>
               <Flex wrap={"wrap"} gap={15}>
                 {category.map((item, i) => {
-                  let color = "blacksuite.100";
                   return (
                     <Button
                       flexGrow={1}
@@ -104,13 +110,16 @@ export const Navbar = (props) => {
           </AccordionItem>
 
           <AccordionItem border="none">
-            <h2>
-              <AccordionButton>
-                <Box flex="1" textAlign="left">
-                  Tags
-                </Box>
+            <Box>
+              <AccordionButton
+                w={"100px"}
+                rounded={"none"}
+                bg={"blacksuite.100"}
+                color={"whitecuba.100"}
+              >
+                Tags
               </AccordionButton>
-            </h2>
+            </Box>
             <AccordionPanel pb={4}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut

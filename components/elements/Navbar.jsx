@@ -40,8 +40,6 @@ export const Navbar = (props) => {
         <Link href="/">
           <Box fontSize={"xl"} color={"whitecuba.100"} flexGrow={1}>
             <Img
-              color={"orangebiz.100"}
-              fill={"orangebiz.100"}
               quality="100"
               width={"160"}
               height={"80"}
@@ -51,35 +49,6 @@ export const Navbar = (props) => {
             />
           </Box>
         </Link>
-        <HStack flexGrow={1} justify={"center"}>
-          <Menu>
-            <MenuButton
-              as={Button}
-              rounded={"none"}
-              bg={"blacksuite.100"}
-              color={"whitecuba.100"}
-              fontSize={"lg"}
-            >
-              Categories
-            </MenuButton>
-            <MenuList
-              alignSelf={"center"}
-              bg={"blacksuite.100"}
-              rounded={"none"}
-              border={"none"}
-            >
-              <VStack p={"1rem"}>
-                {category.map((item, i) => {
-                  return (
-                    <MenuItem p={"0.5rem"} color={"whitecuba.100"}>
-                      {item}
-                    </MenuItem>
-                  );
-                })}
-              </VStack>
-            </MenuList>
-          </Menu>
-        </HStack>
         <HStack flexGrow={1} justify={"right"}>
           <Button
             rounded={"none"}

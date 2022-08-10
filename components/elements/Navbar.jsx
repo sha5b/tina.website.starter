@@ -40,8 +40,6 @@ export const Navbar = (props) => {
         <Link href="/">
           <Box fontSize={"xl"} color={"whitecuba.100"} flexGrow={1}>
             <Img
-              color={"orangebiz.100"}
-              fill={"orangebiz.100"}
               quality="100"
               width={"160"}
               height={"80"}
@@ -51,35 +49,6 @@ export const Navbar = (props) => {
             />
           </Box>
         </Link>
-        <HStack flexGrow={1} justify={"center"}>
-          <Menu>
-            <MenuButton
-              as={Button}
-              rounded={"none"}
-              bg={"blacksuite.100"}
-              color={"whitecuba.100"}
-              fontSize={"lg"}
-            >
-              Categories
-            </MenuButton>
-            <MenuList
-              alignSelf={"center"}
-              bg={"blacksuite.100"}
-              rounded={"none"}
-              border={"none"}
-            >
-              <VStack p={"1rem"}>
-                {category.map((item, i) => {
-                  return (
-                    <MenuItem p={"0.5rem"} color={"whitecuba.100"}>
-                      {item}
-                    </MenuItem>
-                  );
-                })}
-              </VStack>
-            </MenuList>
-          </Menu>
-        </HStack>
         <HStack flexGrow={1} justify={"right"}>
           <Button
             rounded={"none"}
@@ -110,20 +79,57 @@ export const Navbar = (props) => {
       <Box>
         <Accordion defaultIndex={[0]} allowMultiple allowToggle>
           <AccordionItem border="none">
-            <h2>
-              <AccordionButton>Category</AccordionButton>
-            </h2>
+            <Box>
+              <AccordionButton
+                w={"100px"}
+                fontWeight={"bold"}
+                rounded={"none"}
+                bg={"blacksuite.100"}
+                color={"whitecuba.100"}
+                mt={"1rem"}
+                mb={'1.5rem'}
+              >
+                Category
+              </AccordionButton>
+            </Box>
             <AccordionPanel>
               <Flex wrap={"wrap"} gap={15}>
                 {category.map((item, i) => {
-                  let color = "blacksuite.100";
                   return (
                     <Button
                       flexGrow={1}
                       p={"2rem"}
                       rounded={"none"}
-                      color={"whitecuba.100"}
-                      bg={"blacksuite.100"}
+                      color={
+                        item === category[0]
+                          ? "whitecuba.100"
+                          : item === category[1]
+                          ? "whitecuba.100"
+                          : item === category[2]
+                          ? 'blacksuite.100'
+                          : item === category[3]
+                          ? "whitecuba.100"
+                          : item === category[4]
+                          ? "whitecuba.100"
+                          : item === category[5]
+                          ? "whitecuba.100"
+                          : 'blacksuite.100'
+                      }
+                      bg={
+                        item === category[0]
+                          ? "blacksuite.100"
+                          : item === category[1]
+                          ? "purplesience.100"
+                          : item === category[2]
+                          ? 'yellowinsurance.100'
+                          : item === category[3]
+                          ? 'greenschool.100'
+                          : item === category[4]
+                          ? 'orangebiz.100'
+                          : item === category[5]
+                          ? 'greyaltona.100'
+                          : 'blacksuite.100'
+                      }
                       fontSize={"3xl"}
                     >
                       {item}
@@ -135,13 +141,18 @@ export const Navbar = (props) => {
           </AccordionItem>
 
           <AccordionItem border="none">
-            <h2>
-              <AccordionButton>
-                <Box flex="1" textAlign="left">
-                  Tags
-                </Box>
+            <Box>
+              <AccordionButton
+                w={"100px"}
+                rounded={"none"}
+                fontWeight={"bold"}
+                bg={"blacksuite.100"}
+                color={"whitecuba.100"}
+                mt={"1rem"}
+              >
+                Tags
               </AccordionButton>
-            </h2>
+            </Box>
             <AccordionPanel pb={4}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut

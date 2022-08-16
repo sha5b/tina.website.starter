@@ -92,6 +92,7 @@ export const Navbar = (props) => {
                 Category
               </AccordionButton>
             </Box>
+            {console.log(props)}
             <AccordionPanel>
               <Flex wrap={"wrap"} gap={15}>
                 {category.map((item, i) => {
@@ -127,7 +128,7 @@ export const Navbar = (props) => {
                           : item === category[4]
                           ? 'orangebiz.100'
                           : item === category[5]
-                          ? 'greyaltona.100'
+                          ? 'greylondon.100'
                           : 'blacksuite.100'
                       }
                       fontSize={"3xl"}

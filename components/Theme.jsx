@@ -18,6 +18,7 @@ export const colors = [
   "purplesience.100",
   "yellowinsurance.100",
   "greenschool.100",
+  
 ];
 
 // "Liberata, serif", "Space Grotesk, sans-serif","DejaVu Mono, monospace",

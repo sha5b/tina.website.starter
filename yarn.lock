@@ -2234,11 +2234,6 @@
   dependencies:
     "@octokit/openapi-types" "^12.11.0"
 
-"@popperjs/core@2.10.2":
-  version "2.10.2"
-  resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.10.2.tgz"
-  integrity sha512-IXf3XA7+XyN7CP9gGh/XB0UxVMlvARGEgGXLubFICsUMGz6Q+DU+i4gGlpOxTjKvXjkJDJC8YdqdKkDj9qZHEQ==
-
 "@popperjs/core@^2.9.3":
   version "2.11.5"
   resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.5.tgz"
@@ -2668,13 +2663,6 @@
   dependencies:
     isomorphic-fetch "^3.0.0"
 
-"@tinacms/schema-tools@0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@tinacms/schema-tools/-/schema-tools-0.0.9.tgz#30fd8b48e98e182cde6c1402d5094ffefd408c76"
-  integrity sha512-nB1i9Vxbs/KA7ez6VDB18trc3fgxL5WJbdJk82qRLDCKBkLIYPS3YIaCYx+oNNEFh2USjQh9Wmcl3bog/TkCaQ==
-  dependencies:
-    zod "^3.14.3"
-
 "@tinacms/schema-tools@0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@tinacms/schema-tools/-/schema-tools-0.1.0.tgz#57aa13346aed2cc9f6f75e2741c6279c42d500d7"
@@ -2720,66 +2708,6 @@
   version "0.1.2"
   resolved "https://registry.npmjs.org/@tinacms/sharedctx/-/sharedctx-0.1.2.tgz"
   integrity sha512-AQr78yxUB67UFl4fWaxewxESaYJmpOwl3ZLDZtgMe3FC/f6lQy8ysknBExLRVJ5kiVXoDsLcptp2CgcOa0iKJQ==
-
-"@tinacms/toolkit@0.56.36":
-  version "0.56.36"
-  resolved "https://registry.yarnpkg.com/@tinacms/toolkit/-/toolkit-0.56.36.tgz#bd204320b9cda7edf098834badcabec5f7371b1e"
-  integrity sha512-khD+rB7GJTKUd4cWjEUjcfIQlZkDSym9xfaC4UVyHxTn8xoOS3KiNRyOWeMmDJr/I22+IwWAXjCovHw5S3WJwA==
-  dependencies:
-    "@floating-ui/dom" "^0.1.7"
-    "@floating-ui/react-dom" "^0.3.3"
-    "@headlessui/react" "^1.5.0"
-    "@heroicons/react" "^1.0.5"
-    "@react-aria/i18n" "^3.3.4"
-    "@react-aria/listbox" "3.3.0"
-    "@react-hook/window-size" "^3.0.7"
-    "@react-types/combobox" "^3.2.0"
-    "@react-types/shared" "^3.10.0"
-    "@sambego/storybook-styles" "^1.0.0"
-    "@tinacms/sharedctx" "0.1.2"
-    "@udecode/plate-autoformat" "^9.2.1"
-    "@udecode/plate-basic-elements" "^9.2.1"
-    "@udecode/plate-basic-marks" "^9.2.1"
-    "@udecode/plate-block-quote" "^9.2.1"
-    "@udecode/plate-break" "^9.2.1"
-    "@udecode/plate-code-block" "^9.2.1"
-    "@udecode/plate-common" "^7.0.2"
-    "@udecode/plate-core" "^9.2.1"
-    "@udecode/plate-heading" "^9.2.1"
-    "@udecode/plate-horizontal-rule" "^9.2.1"
-    "@udecode/plate-image" "^9.2.1"
-    "@udecode/plate-kbd" "^9.2.1"
-    "@udecode/plate-link" "^9.2.1"
-    "@udecode/plate-list" "^9.2.1"
-    "@udecode/plate-node-id" "^9.2.1"
-    "@udecode/plate-normalizers" "^9.2.1"
-    "@udecode/plate-paragraph" "^9.2.1"
-    "@udecode/plate-reset-node" "^9.2.1"
-    "@udecode/plate-select" "^9.2.1"
-    "@udecode/plate-table" "^9.2.1"
-    "@udecode/plate-trailing-block" "^9.2.1"
-    "@udecode/plate-ui-combobox" "^9.2.1"
-    atob "2.1.2"
-    color-string "^1.5.3"
-    final-form "^4.20.2"
-    final-form-arrays "^3.0.1"
-    final-form-set-field-data "^1.0.2"
-    is-hotkey "^0.2.0"
-    lodash.get "^4.4.2"
-    mime-types "^2.1.24"
-    moment ">=2 <=3"
-    prop-types "15.7.2"
-    react-beautiful-dnd "^13.1.0"
-    react-color "^2.17.3"
-    react-datetime "^2.16.3"
-    react-dropzone "10.1.8"
-    react-final-form "^6.3.0"
-    react-icons "^4.3.1"
-    slate "^0.66.0"
-    slate-history "^0.66.0"
-    slate-hyperscript "^0.66.0"
-    slate-react "^0.66.0"
-    webfontloader "1.6.28"
 
 "@tinacms/toolkit@0.57.0":
   version "0.57.0"
@@ -3161,13 +3089,6 @@
   dependencies:
     "@udecode/plate-core" "14.4.2"
 
-"@udecode/plate-autoformat@^9.2.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-autoformat/-/plate-autoformat-9.3.1.tgz"
-  integrity sha512-F5rE9UGs82qN3nvk3g1Oflhrw18pRFcaJbZiFxT+1UoRrO3oUF7qMkkZtbOYetyB5XctR6LEXjAz0BVXlo5vpA==
-  dependencies:
-    "@udecode/plate-core" "9.3.1"
-
 "@udecode/plate-basic-elements@14.4.2":
   version "14.4.2"
   resolved "https://registry.yarnpkg.com/@udecode/plate-basic-elements/-/plate-basic-elements-14.4.2.tgz#e31dad953cbdb92ac8705cc21888b8c79522ef9d"
@@ -3179,30 +3100,12 @@
     "@udecode/plate-heading" "14.4.2"
     "@udecode/plate-paragraph" "14.4.2"
 
-"@udecode/plate-basic-elements@^9.2.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-basic-elements/-/plate-basic-elements-9.3.1.tgz"
-  integrity sha512-zPlVdgl5UE3atzMOU+ZmE1JzPrel1K6uAMWbYZN+yVfxgpaXVH3iU92XQn7nA9WhgpxukT/TQKumDTkxpuNCWA==
-  dependencies:
-    "@udecode/plate-block-quote" "9.3.1"
-    "@udecode/plate-code-block" "9.3.1"
-    "@udecode/plate-core" "9.3.1"
-    "@udecode/plate-heading" "9.3.1"
-    "@udecode/plate-paragraph" "9.3.1"
-
 "@udecode/plate-basic-marks@14.4.2":
   version "14.4.2"
   resolved "https://registry.yarnpkg.com/@udecode/plate-basic-marks/-/plate-basic-marks-14.4.2.tgz#b56967251af9611a0e5731dc604ee2d9fb0d260e"
   integrity sha512-plLDPjQ+VPiiSV43V5dzMCiEAsO/O5pdXUeJao36kQ0tLtWicthq5G/43sHYkATDaXn3UuYMZOqxiGr/AlsvzA==
   dependencies:
     "@udecode/plate-core" "14.4.2"
-
-"@udecode/plate-basic-marks@^9.2.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-basic-marks/-/plate-basic-marks-9.3.1.tgz"
-  integrity sha512-hILYE0Fd50pV6zo/HDr2cfVqo7+ubNfYhmDifABH7Hg+k6SVpEnsqp4WkgFLtQNH66gKNO7mG4aWFK5G7oat4A==
-  dependencies:
-    "@udecode/plate-core" "9.3.1"
 
 "@udecode/plate-block-quote@14.4.2":
   version "14.4.2"
@@ -3211,26 +3114,12 @@
   dependencies:
     "@udecode/plate-core" "14.4.2"
 
-"@udecode/plate-block-quote@9.3.1", "@udecode/plate-block-quote@^9.2.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-block-quote/-/plate-block-quote-9.3.1.tgz"
-  integrity sha512-bm6sVaqJjrJTpD0Yl5ip6lEBgcy3AVf2J3zNESYhwRAMPbIvC/e2jkHvzBb/Oj1+FeQGlB9lJQ0eLaaoznT7RQ==
-  dependencies:
-    "@udecode/plate-core" "9.3.1"
-
 "@udecode/plate-break@14.4.2":
   version "14.4.2"
   resolved "https://registry.yarnpkg.com/@udecode/plate-break/-/plate-break-14.4.2.tgz#64b00eb9f3bde9387a5bba44e0c16f95b8f25ab8"
   integrity sha512-1+K9CCooO+4iYNN+aIzh6eTw5CmgchhllDw0o2PMwhcUSAO1meVxX+CC0Rnxa00UoWAp1SThzKOlhr19f2x48Q==
   dependencies:
     "@udecode/plate-core" "14.4.2"
-
-"@udecode/plate-break@^9.2.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-break/-/plate-break-9.3.1.tgz"
-  integrity sha512-inL6Og+CtYLKarY/hAjiGic4nXtosRMSGVWJYb21UtDWxgWD1o0wtMiDi70KQQJ1fp3gfWxMqdgRaXcxONvdGA==
-  dependencies:
-    "@udecode/plate-core" "9.3.1"
 
 "@udecode/plate-code-block@14.4.2":
   version "14.4.2"
@@ -3240,14 +3129,6 @@
     "@udecode/plate-core" "14.4.2"
     prismjs "^1.25.0"
 
-"@udecode/plate-code-block@9.3.1", "@udecode/plate-code-block@^9.2.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-code-block/-/plate-code-block-9.3.1.tgz"
-  integrity sha512-IIbvVUcR8bvYsPYy8LaisgfORwbpo7BSwLLJYW9/I3GXOTquxDor5UvOVYqwl1FWcmBD4w7uk1PvNMlqa8ZM1w==
-  dependencies:
-    "@udecode/plate-core" "9.3.1"
-    prismjs "^1.25.0"
-
 "@udecode/plate-combobox@14.4.2":
   version "14.4.2"
   resolved "https://registry.yarnpkg.com/@udecode/plate-combobox/-/plate-combobox-14.4.2.tgz#5aeed3f94cf95b50a0d9c598b037a45532438e55"
@@ -3255,24 +3136,6 @@
   dependencies:
     "@udecode/plate-core" "14.4.2"
     downshift "^6.1.7"
-
-"@udecode/plate-combobox@9.3.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-combobox/-/plate-combobox-9.3.1.tgz"
-  integrity sha512-+t7f9VomuYtubSfJM510sVRH9yK35yjvIjYVWT+EBDpEqroDZJQACQQ76bjZyV0rcPocnc48uaC8ThOklBQEeA==
-  dependencies:
-    "@udecode/plate-core" "9.3.1"
-    "@udecode/zustood" "0.4.4"
-    downshift "6.1.7"
-    zustand "3.6.7"
-
-"@udecode/plate-common@^7.0.2":
-  version "7.0.2"
-  resolved "https://registry.npmjs.org/@udecode/plate-common/-/plate-common-7.0.2.tgz"
-  integrity sha512-FYggaasSk7Acy+l/N+dMCuBrVKXwEyRFATry4c5crjQqqhz7PPKtNmmpBGVOLFrEuI76gzZXzk3IrXRwPQebbQ==
-  dependencies:
-    "@udecode/plate-core" "7.0.2"
-    is-hotkey "^0.1.6"
 
 "@udecode/plate-core@14.4.2":
   version "14.4.2"
@@ -3286,26 +3149,6 @@
     lodash "^4.17.21"
     use-deep-compare "^1.1.0"
     zustand "^3.7.2"
-
-"@udecode/plate-core@7.0.2":
-  version "7.0.2"
-  resolved "https://registry.npmjs.org/@udecode/plate-core/-/plate-core-7.0.2.tgz"
-  integrity sha512-YFmzVRcRWkWRbqRuD/guCHuSb/NSdUtUocSz1XL7I/oCzZgXY5ddqsj6Aciu2hiiI0s9PeeAPwmegOi1lsClRg==
-  dependencies:
-    clsx "^1.1.1"
-    lodash "^4.17.21"
-    zustand "^3.4.2"
-
-"@udecode/plate-core@9.3.1", "@udecode/plate-core@^9.2.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-core/-/plate-core-9.3.1.tgz"
-  integrity sha512-3FPKYY6xZxI43uOugAq2sWeDunr1TFmi9XLGEr58gHDjQNiFUEHFJJ1Ie6QcQEmhH++HZf5H8A5rX/7ogxwmYQ==
-  dependencies:
-    "@udecode/zustood" "0.4.4"
-    clsx "1.1.1"
-    lodash "4.17.21"
-    use-deep-compare "1.1.0"
-    zustand "3.6.7"
 
 "@udecode/plate-find-replace@14.4.2":
   version "14.4.2"
@@ -3327,13 +3170,6 @@
   integrity sha512-p7nf5F3q7R6BxHtJ2aPS9Kp56zQtQ7QVO9qG7cFJ0wEo47bsvzVC1uGF24le/SLuqVAwI81MbuRsoTi29fu50Q==
   dependencies:
     "@udecode/plate-core" "14.4.2"
-
-"@udecode/plate-heading@9.3.1", "@udecode/plate-heading@^9.2.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-heading/-/plate-heading-9.3.1.tgz"
-  integrity sha512-067F7q7f8+OOeMe/RnzZikf32dylFh9WxQOIgwqaF/JptzLkVtT3SgCY5LJriVka+AphWPtpU2z9xOHxMcTtXg==
-  dependencies:
-    "@udecode/plate-core" "9.3.1"
 
 "@udecode/plate-headless@^14.0.2":
   version "14.4.3"
@@ -3389,13 +3225,6 @@
   dependencies:
     "@udecode/plate-core" "14.4.2"
 
-"@udecode/plate-horizontal-rule@^9.2.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-horizontal-rule/-/plate-horizontal-rule-9.3.1.tgz"
-  integrity sha512-K1/ZRW52PSRa29149+IkLl9hXeFroVl3/tC6/+8jg6QoR0c+oLQhnXFI5SktbpJEfLC6QdHsoAv+X81I0zzvgA==
-  dependencies:
-    "@udecode/plate-core" "9.3.1"
-
 "@udecode/plate-image@14.4.2":
   version "14.4.2"
   resolved "https://registry.yarnpkg.com/@udecode/plate-image/-/plate-image-14.4.2.tgz#de9a9a86ad891c07db614312059057ee6f538593"
@@ -3404,13 +3233,6 @@
     "@udecode/plate-core" "14.4.2"
     re-resizable "^6.9.9"
     react-textarea-autosize "^8.3.3"
-
-"@udecode/plate-image@^9.2.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-image/-/plate-image-9.3.1.tgz"
-  integrity sha512-miTCqCUP/HdQUxnnZMFa/Is3FabJTssi2BNZYa9WhlavCJNesGjW8i6Ks+xmsm2dMEbHxVZSMQa9KQo1oMnVRQ==
-  dependencies:
-    "@udecode/plate-core" "9.3.1"
 
 "@udecode/plate-indent-list@14.4.3":
   version "14.4.3"
@@ -3435,13 +3257,6 @@
   dependencies:
     "@udecode/plate-core" "14.4.2"
 
-"@udecode/plate-kbd@^9.2.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-kbd/-/plate-kbd-9.3.1.tgz"
-  integrity sha512-9k4NZyrM1FR8V8JGkwOvOtk5Nf+QCcEZ2a1xeVx5GhZHZt0l9mszoQ4AsJWYo/AbvVxxdI/0M4XntjQ5kTaXag==
-  dependencies:
-    "@udecode/plate-core" "9.3.1"
-
 "@udecode/plate-line-height@14.4.2":
   version "14.4.2"
   resolved "https://registry.yarnpkg.com/@udecode/plate-line-height/-/plate-line-height-14.4.2.tgz#a7b8be5f472df0528f6f716791b7089887778010"
@@ -3457,14 +3272,6 @@
     "@udecode/plate-core" "14.4.2"
     "@udecode/plate-normalizers" "14.4.2"
 
-"@udecode/plate-link@^9.2.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-link/-/plate-link-9.3.1.tgz"
-  integrity sha512-//SLI1QnEnklj8TDZLhkGKDJTiEETCCfzLbcM2QqYxnoKYd8p5Z9mV6kNmjjwU04KtPDB0MJc4o0SmJl94EZ8Q==
-  dependencies:
-    "@udecode/plate-core" "9.3.1"
-    "@udecode/plate-normalizers" "9.3.1"
-
 "@udecode/plate-list@14.4.3":
   version "14.4.3"
   resolved "https://registry.yarnpkg.com/@udecode/plate-list/-/plate-list-14.4.3.tgz#6e64fdbee512920f9e9551345d8e7a6ab9ac47af"
@@ -3472,14 +3279,6 @@
   dependencies:
     "@udecode/plate-core" "14.4.2"
     "@udecode/plate-reset-node" "14.4.2"
-
-"@udecode/plate-list@^9.2.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-list/-/plate-list-9.3.1.tgz"
-  integrity sha512-qDieAEAds5CNENnA3zZJtYpeil7XTRHyXjcnoZaVvdEPrk57WhV+ip7wKcbpD/dSFJKyDPN6ICzwO1t7EEzbAw==
-  dependencies:
-    "@udecode/plate-core" "9.3.1"
-    "@udecode/plate-reset-node" "9.3.1"
 
 "@udecode/plate-media-embed@14.4.2":
   version "14.4.2"
@@ -3503,26 +3302,12 @@
   dependencies:
     "@udecode/plate-core" "14.4.2"
 
-"@udecode/plate-node-id@^9.2.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-node-id/-/plate-node-id-9.3.1.tgz"
-  integrity sha512-UzeqfUzexznxJKCabifBnM2H1qA5IhDeycEjKP4dvrgq8sYEO5oF3QAgRfdk1ST0hceO3IbZROFEB45lAHO/IQ==
-  dependencies:
-    "@udecode/plate-core" "9.3.1"
-
 "@udecode/plate-normalizers@14.4.2":
   version "14.4.2"
   resolved "https://registry.yarnpkg.com/@udecode/plate-normalizers/-/plate-normalizers-14.4.2.tgz#c1c941ea47189784731444022555890d81774c6d"
   integrity sha512-4NeFrHzOa+jjLz6aqDUetdxYwFMnxzaCsCeqESANoLKhN6GycVqCuaBSY6IZ887YTJbCKxE7jtxPC5QrRqznWQ==
   dependencies:
     "@udecode/plate-core" "14.4.2"
-
-"@udecode/plate-normalizers@9.3.1", "@udecode/plate-normalizers@^9.2.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-normalizers/-/plate-normalizers-9.3.1.tgz"
-  integrity sha512-B1Wzt/ogW++8CsvN5PS3wl4iboaPhhewdqUByTG+35ynS2bw0oKBMUGhpaAlbfPKq1u+9txLdQg/L68y/sgFqA==
-  dependencies:
-    "@udecode/plate-core" "9.3.1"
 
 "@udecode/plate-paragraph@14.4.2":
   version "14.4.2"
@@ -3531,13 +3316,6 @@
   dependencies:
     "@udecode/plate-core" "14.4.2"
 
-"@udecode/plate-paragraph@9.3.1", "@udecode/plate-paragraph@^9.2.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-paragraph/-/plate-paragraph-9.3.1.tgz"
-  integrity sha512-D4Zf4/yhD3nhJwxRizUFAGQ0wUgZBnf7cHVrMHoRsXHgrIr3+fkvjwXSjpDZhFol8FzQ9mPAMRx2IYFhphf42A==
-  dependencies:
-    "@udecode/plate-core" "9.3.1"
-
 "@udecode/plate-reset-node@14.4.2":
   version "14.4.2"
   resolved "https://registry.yarnpkg.com/@udecode/plate-reset-node/-/plate-reset-node-14.4.2.tgz#37c94fe882ae73839b3989f14d6ff39a5553c3ab"
@@ -3545,26 +3323,12 @@
   dependencies:
     "@udecode/plate-core" "14.4.2"
 
-"@udecode/plate-reset-node@9.3.1", "@udecode/plate-reset-node@^9.2.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-reset-node/-/plate-reset-node-9.3.1.tgz"
-  integrity sha512-9Op6DQR6vN0TVz//X6Cu3xmyrzb0ZRkRF16a+fsUg/I4jRXaHJgLuJtF1mo7AKah5BfU3uAxtTphZ/8RuGyp7A==
-  dependencies:
-    "@udecode/plate-core" "9.3.1"
-
 "@udecode/plate-select@14.4.2":
   version "14.4.2"
   resolved "https://registry.yarnpkg.com/@udecode/plate-select/-/plate-select-14.4.2.tgz#52b49a06661fe7fa4f0fd092d30362caec5e60bd"
   integrity sha512-NDdyScKVG5dBXfCSvPvZNvsaxo+8YUqApuaMzztogdRJHLQ84QXGamrovxwtJmiOY7gptYrF4UsgJCQKrYmHQg==
   dependencies:
     "@udecode/plate-core" "14.4.2"
-
-"@udecode/plate-select@^9.2.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-select/-/plate-select-9.3.1.tgz"
-  integrity sha512-KtmKMDle4yAcR9QuLxWLCbkCfn0yz+zPAIB93yWpDQ1WX44mroueClJw2acc+yNHasqro5IySBnRjXvVYrYi2g==
-  dependencies:
-    "@udecode/plate-core" "9.3.1"
 
 "@udecode/plate-serializer-csv@14.4.2":
   version "14.4.2"
@@ -3613,14 +3377,6 @@
     remark-slate "^1.8.6"
     unified "^9.2.1"
 
-"@udecode/plate-styled-components@9.3.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-styled-components/-/plate-styled-components-9.3.1.tgz"
-  integrity sha512-MdXVM0cHAYZBOh+aZYu4ziwq8k5eBqW5+8os+MFiDVMh5d54XSOBPlzjXZIPMZzym4QUvqv9OGTNyzb2ciAr7A==
-  dependencies:
-    "@udecode/plate-core" "9.3.1"
-    clsx "^1.1.1"
-
 "@udecode/plate-table@14.4.2":
   version "14.4.2"
   resolved "https://registry.yarnpkg.com/@udecode/plate-table/-/plate-table-14.4.2.tgz#9fd8b551fe68374231bf2c9dc741736e5fe82955"
@@ -3628,52 +3384,12 @@
   dependencies:
     "@udecode/plate-core" "14.4.2"
 
-"@udecode/plate-table@^9.2.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-table/-/plate-table-9.3.1.tgz"
-  integrity sha512-Dx0a5oId3dnfv0v+RLmOWBLbWRmcY1exZV/lrM/uRbEjJyAnrsxC2EaIT2flOAMBVfoMyZI/R9VBqPRHmyIbMw==
-  dependencies:
-    "@udecode/plate-core" "9.3.1"
-
 "@udecode/plate-trailing-block@14.4.2":
   version "14.4.2"
   resolved "https://registry.yarnpkg.com/@udecode/plate-trailing-block/-/plate-trailing-block-14.4.2.tgz#db229c5f4b426701e09039105ac2e86288bd0b0d"
   integrity sha512-FuSVBnZIga8crcEcvRfVbOpSl9AHt7MBI88M1XosqO8XKuKsqiGtEBZbBfgvbvrwMrrNnVcZ0fIZeGN+/DaMow==
   dependencies:
     "@udecode/plate-core" "14.4.2"
-
-"@udecode/plate-trailing-block@^9.2.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-trailing-block/-/plate-trailing-block-9.3.1.tgz"
-  integrity sha512-Qo4mYy8rMD705wph31itH/+feYQtdpyXOh52iCxMkmvEtuCPWQCEfkmvnol5Cj6oDAs6LWBUU4Dqb2oGfK5suQ==
-  dependencies:
-    "@udecode/plate-core" "9.3.1"
-
-"@udecode/plate-ui-combobox@^9.2.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-ui-combobox/-/plate-ui-combobox-9.3.1.tgz"
-  integrity sha512-MZ3kQpT24mZMUT+eI+NT+BzfnQzS4ftmab3SQYElxQm9o/j/MM2W9P+Jg4h5b0DR1VGAWn/hFEXCM+TZl8EBIQ==
-  dependencies:
-    "@udecode/plate-combobox" "9.3.1"
-    "@udecode/plate-core" "9.3.1"
-    "@udecode/plate-styled-components" "9.3.1"
-    "@udecode/plate-ui-popper" "9.3.1"
-
-"@udecode/plate-ui-popper@9.3.1":
-  version "9.3.1"
-  resolved "https://registry.npmjs.org/@udecode/plate-ui-popper/-/plate-ui-popper-9.3.1.tgz"
-  integrity sha512-97gTYAswNGNF5db8AGzlBenUsprqZktg6RHI/upuWcU0uGKJTdBv7EDkRWBfOem5B2wlF2GLKU9cvwssFbASNg==
-  dependencies:
-    "@popperjs/core" "2.10.2"
-    "@udecode/plate-core" "9.3.1"
-    react-popper "2.2.5"
-
-"@udecode/zustood@0.4.4":
-  version "0.4.4"
-  resolved "https://registry.npmjs.org/@udecode/zustood/-/zustood-0.4.4.tgz"
-  integrity sha512-OtkRGu8TKBkidOOf28TY4tqYJRhMAiVt+BF6lHbF/FnXRmOa8eLal8Q/k9sqQcGzQAHBaZYcx0pR1+wlQzaurg==
-  dependencies:
-    immer "9.0.6"
 
 "@udecode/zustood@^1.1.1":
   version "1.1.1"
@@ -4837,11 +4553,6 @@ cliui@^7.0.2:
     strip-ansi "^6.0.0"
     wrap-ansi "^7.0.0"
 
-clsx@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.npmjs.org/clsx/-/clsx-1.1.1.tgz"
-  integrity sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==
-
 clsx@^1.1.1:
   version "1.2.1"
   resolved "https://registry.npmjs.org/clsx/-/clsx-1.2.1.tgz"
@@ -5567,17 +5278,6 @@ dotenv@^16.0.1:
   version "16.0.1"
   resolved "https://registry.npmjs.org/dotenv/-/dotenv-16.0.1.tgz"
   integrity sha512-1K6hR6wtk2FviQ4kEiSjFiH5rpzEVi8WW0x96aztHVMhEspNpc4DVOUTEHtEva5VThQ8IaBX1Pe4gSzpVVUsKQ==
-
-downshift@6.1.7:
-  version "6.1.7"
-  resolved "https://registry.npmjs.org/downshift/-/downshift-6.1.7.tgz"
-  integrity sha512-cVprZg/9Lvj/uhYRxELzlu1aezRcgPWBjTvspiGTVEU64gF5pRdSRKFVLcxqsZC637cLAGMbL40JavEfWnqgNg==
-  dependencies:
-    "@babel/runtime" "^7.14.8"
-    compute-scroll-into-view "^1.0.17"
-    prop-types "^15.7.2"
-    react-is "^17.0.2"
-    tslib "^2.3.0"
 
 downshift@^6.1.7:
   version "6.1.9"
@@ -7303,11 +7003,6 @@ image-size@1.0.0:
   dependencies:
     queue "6.0.2"
 
-immer@9.0.6:
-  version "9.0.6"
-  resolved "https://registry.npmjs.org/immer/-/immer-9.0.6.tgz"
-  integrity sha512-G95ivKpy+EvVAnAab4fVa4YGYn24J1SpEktnJX7JJ45Bd7xqME/SCplFzYFmTbrkwZbQ4xJK1xMTUYBkN6pWsQ==
-
 immer@^9.0.6:
   version "9.0.15"
   resolved "https://registry.npmjs.org/immer/-/immer-9.0.15.tgz"
@@ -8813,7 +8508,7 @@ lodash.truncate@^4.4.2:
   resolved "https://registry.npmjs.org/lodash.truncate/-/lodash.truncate-4.4.2.tgz"
   integrity sha512-jttmRe7bRse52OsWIMDLaXxWqRAmtIUccAQ3garviCqJjafXOfNMO0yMfNpdD6zbGaTU0P5Nz7e7gAT6cKmJRw==
 
-lodash@4.17.21, lodash@^4.0.1, lodash@^4.17.11, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.4, lodash@^4.7.0, lodash@~4.17.0:
+lodash@^4.0.1, lodash@^4.17.11, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.4, lodash@^4.7.0, lodash@~4.17.0:
   version "4.17.21"
   resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -10751,7 +10446,7 @@ react-dropzone@10.1.8:
     file-selector "^0.1.11"
     prop-types "^15.7.2"
 
-react-fast-compare@3.2.0, react-fast-compare@^3.0.1:
+react-fast-compare@3.2.0:
   version "3.2.0"
   resolved "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-3.2.0.tgz"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
@@ -10794,14 +10489,6 @@ react-onclickoutside@^6.12.2, react-onclickoutside@^6.5.0:
   version "6.12.2"
   resolved "https://registry.npmjs.org/react-onclickoutside/-/react-onclickoutside-6.12.2.tgz"
   integrity sha512-NMXGa223OnsrGVp5dJHkuKxQ4czdLmXSp5jSV9OqiCky9LOpPATn3vLldc+q5fK3gKbEHvr7J1u0yhBh/xYkpA==
-
-react-popper@2.2.5:
-  version "2.2.5"
-  resolved "https://registry.npmjs.org/react-popper/-/react-popper-2.2.5.tgz"
-  integrity sha512-kxGkS80eQGtLl18+uig1UIf9MKixFSyPxglsgLBxlYnyDf65BiY9B3nZSc6C9XUNDgStROB0fMQlTEz1KxGddw==
-  dependencies:
-    react-fast-compare "^3.0.1"
-    warning "^4.0.2"
 
 react-redux@^7.2.0:
   version "7.2.8"
@@ -11615,33 +11302,12 @@ slate-history@^0.66.0:
   dependencies:
     is-plain-object "^5.0.0"
 
-slate-hyperscript@^0.66.0:
-  version "0.66.0"
-  resolved "https://registry.npmjs.org/slate-hyperscript/-/slate-hyperscript-0.66.0.tgz"
-  integrity sha512-uMBwuVBKl5jk0V37BMYhJdqO/R8mgoKvYGo1NmJbTxwf2capX4/4RgQtPPH20o09rbx8l9e554hLc8UiRPGg4w==
-  dependencies:
-    is-plain-object "^5.0.0"
-
 slate-hyperscript@^0.77.0:
   version "0.77.0"
   resolved "https://registry.yarnpkg.com/slate-hyperscript/-/slate-hyperscript-0.77.0.tgz#72c1c0fbd54dc6b6210ecd81d020c8d3d0ab8eae"
   integrity sha512-M6uRpttwKnosniQORNPYQABHQ9XWC7qaSr/127LWWPjTOR5MSSwrHGrghN81BhZVqpICHrI7jkPA2813cWdHNA==
   dependencies:
     is-plain-object "^5.0.0"
-
-slate-react@^0.66.0:
-  version "0.66.7"
-  resolved "https://registry.npmjs.org/slate-react/-/slate-react-0.66.7.tgz"
-  integrity sha512-M0MGCnANdjRZCKGY9cvqHBR/WJ+/4SMIvBvEx4UJ5ycx9uNkDVPdpsyvwDKOpmsJuzZ1DH+34YrpxT7RnQyp1Q==
-  dependencies:
-    "@types/is-hotkey" "^0.1.1"
-    "@types/lodash" "^4.14.149"
-    direction "^1.0.3"
-    is-hotkey "^0.1.6"
-    is-plain-object "^5.0.0"
-    lodash "^4.17.4"
-    scroll-into-view-if-needed "^2.2.20"
-    tiny-invariant "1.0.6"
 
 slate-react@^0.81.0:
   version "0.81.0"
@@ -11656,15 +11322,6 @@ slate-react@^0.81.0:
     lodash "^4.17.4"
     scroll-into-view-if-needed "^2.2.20"
     tiny-invariant "1.0.6"
-
-slate@^0.66.0:
-  version "0.66.5"
-  resolved "https://registry.npmjs.org/slate/-/slate-0.66.5.tgz"
-  integrity sha512-bG03uEKIm/gS6jQarKSNbHn2anemOON2vnSI3VGRd7MJJU5Yiwmutze0yHNO9uZwDLTB+LeDQYZeGu1ACWT0VA==
-  dependencies:
-    immer "^9.0.6"
-    is-plain-object "^5.0.0"
-    tiny-warning "^1.0.3"
 
 slate@^0.81.1:
   version "0.81.3"
@@ -12272,7 +11929,7 @@ timers-browserify@2.0.12:
   dependencies:
     setimmediate "^1.0.4"
 
-tinacms@0.69.0:
+tinacms@0.69.0, tinacms@^0.69.0:
   version "0.69.0"
   resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-0.69.0.tgz#77ac524d3d37dc71ee49b4b6040c56bc579c3321"
   integrity sha512-AiMox+LCmJh8CLQb1GzHmTPMXkJIjAkC5WdWCZKm0U5I8a18SH15EJstXpZRvtcUHtdDGdHvkvWfQ6xmcYCZHQ==
@@ -12292,29 +11949,6 @@ tinacms@0.69.0:
     lodash.set "^4.3.2"
     prism "^4.1.2"
     prism-react-renderer "^1.3.5"
-    react-icons "^4.3.1"
-    react-router-dom "6"
-    url-pattern "^1.0.3"
-    yup "^0.32.0"
-
-tinacms@^0.68.14:
-  version "0.68.14"
-  resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-0.68.14.tgz#877256843d37a177a43b7531afa966119737969c"
-  integrity sha512-o+jOEvzuVZ9FjL1O+vV/EgxypAfe03/gwn/hQWB0sCVpBkMzN0JUa7fwcTlGZrK+91wXPG4qQ0VaF2PnBTuThQ==
-  dependencies:
-    "@graphql-tools/relay-operation-optimizer" "^6.4.1"
-    "@headlessui/react" "^1.5.0"
-    "@heroicons/react" "^1.0.4"
-    "@react-hook/window-size" "^3.0.7"
-    "@tinacms/schema-tools" "0.0.9"
-    "@tinacms/sharedctx" "0.1.2"
-    "@tinacms/toolkit" "0.56.36"
-    crypto-js "^4.0.0"
-    fetch-ponyfill "^7.1.0"
-    final-form "4.20.1"
-    graphql "^15.1.0"
-    graphql-tag "^2.11.0"
-    lodash.set "^4.3.2"
     react-icons "^4.3.1"
     react-router-dom "6"
     url-pattern "^1.0.3"
@@ -12854,7 +12488,7 @@ use-context-selector@1.4.1:
   resolved "https://registry.yarnpkg.com/use-context-selector/-/use-context-selector-1.4.1.tgz#eb96279965846b72915d7f899b8e6ef1d768b0ae"
   integrity sha512-Io2ArvcRO+6MWIhkdfMFt+WKQX+Vb++W8DS2l03z/Vw/rz3BclKpM0ynr4LYGyU85Eke+Yx5oIhTY++QR0ZDoA==
 
-use-deep-compare@1.1.0, use-deep-compare@^1.1.0:
+use-deep-compare@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/use-deep-compare/-/use-deep-compare-1.1.0.tgz"
   integrity sha512-6yY3zmKNCJ1jjIivfZMZMReZjr8e6iC6Uqtp701jvWJ6ejC/usXD+JjmslZDPJQgX8P4B1Oi5XSLHkOLeYSJsA==
@@ -13080,13 +12714,6 @@ walker@^1.0.7, walker@~1.0.5:
   integrity sha512-ts/8E8l5b7kY0vlWLewOkDXMmPdLcVV4GmOQLyxuSswIJsweeFZtAsMF7k1Nszz+TYBQrlYRmzOnr398y1JemQ==
   dependencies:
     makeerror "1.0.12"
-
-warning@^4.0.2:
-  version "4.0.3"
-  resolved "https://registry.npmjs.org/warning/-/warning-4.0.3.tgz"
-  integrity sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==
-  dependencies:
-    loose-envify "^1.0.0"
 
 watchpack@2.1.1:
   version "2.1.1"
@@ -13373,12 +13000,7 @@ zod@^3.14.3:
   resolved "https://registry.npmjs.org/zod/-/zod-3.17.10.tgz"
   integrity sha512-IHXnQYQuOOOL/XgHhgl8YjNxBHi3xX0mVcHmqsvJgcxKkEczPshoWdxqyFwsARpf41E0v9U95WUROqsHHxt0UQ==
 
-zustand@3.6.7:
-  version "3.6.7"
-  resolved "https://registry.npmjs.org/zustand/-/zustand-3.6.7.tgz"
-  integrity sha512-bYWKXMfoJwZyliFgidcQ3tJC/F2f2hHq1+lhTk8dVPX2k28i4VnpnKjBGNxAd2QNliV0m455Vm+gDL8LShrV3g==
-
-zustand@^3.4.2, zustand@^3.7.2:
+zustand@^3.7.2:
   version "3.7.2"
   resolved "https://registry.npmjs.org/zustand/-/zustand-3.7.2.tgz"
   integrity sha512-PIJDIZKtokhof+9+60cpockVOq05sJzHCriyvaLBmEJixseQ1a5Kdov6fWZfWOu5SK9c+FhH1jU0tntLxRJYMA==

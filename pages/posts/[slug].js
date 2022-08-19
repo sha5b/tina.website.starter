@@ -171,10 +171,10 @@ export default function Home(props) {
             size={"lg"}
             bg={"orangebiz.100"}
           >
-            {data.post.category}
+            {data.post?.category}
           </Button>
           <Flex  wrap={"wrap"} gap={25}>
-            {data.post.tags?.map((tag) => (
+            {data.post?.tags.map((tag) => (
               <Box>
                 <Button
                   p={"1rem"}
@@ -191,23 +191,23 @@ export default function Home(props) {
             ))}
           </Flex>
         </Box>
-        <Heading fontSize={"6xl"}>{data.post.title}</Heading>
+        <Heading fontSize={"6xl"}>{data.post?.title}</Heading>
       </Box>
       <Divider mb={"3rem"} mt={"1.5rem"} />
       <Grid
         autoRows={"auto"}
         autoColumns={"auto"}
-        templateColumns={`repeat(${data.post.size}, 1fr)`}
+        templateColumns={`repeat(${data.post?.size}, 1fr)`}
         gap={5}
       >
         <GridItem>
           <Box>
             <Text fontSize="lg" letterSpacing={"wide"} textAlign={"justify"}>
-              {data.post.description}
+              {data.post?.description}
             </Text>
           </Box>
         </GridItem>
-        {data.post.image && (
+        {data.post?.image && (
           <GridItem>
             <Img
               quality="100"

@@ -82,7 +82,7 @@ export const Navbar = (props) => {
       </Flex>
       <Box>
         <Accordion allowMultiple allowToggle>
-          <Flex gap={15}>
+          <Flex gap={15} justify={"left"}>
             <AccordionItem border="none">
               <Box pos={"relative"}>
                 <AccordionButton
@@ -96,7 +96,7 @@ export const Navbar = (props) => {
                 </AccordionButton>
               </Box>
               <AccordionPanel>
-                <Flex wrap={"wrap"} gap={15}>
+                <Flex wrap={"wrap"} gap={15} >
                   <Divider />
                   {category.map((item, i) => {
                     return (
@@ -201,7 +201,7 @@ export const Navbar = (props) => {
                                           {item === tag && (
                                             <Link href={`/posts/${node.node._sys.filename}`}>
                                               <Text>
-                                                {node.node._sys.filename}
+                                                {node.node.title}
                                               </Text>
                                             </Link>
                                           )}

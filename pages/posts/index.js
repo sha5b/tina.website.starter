@@ -25,7 +25,7 @@ export default function Home(props) {
   });
   const postsList = data.postConnection?.edges;
   return (
-    <Layout>
+    <Layout {... props}>
       <h1>Posts</h1>
       <div>
         {postsList?.map((post) => (

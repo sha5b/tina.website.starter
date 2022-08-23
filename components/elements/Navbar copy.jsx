@@ -158,27 +158,20 @@ export const Navbar = (props) => {
                 <Flex wrap={"wrap"} gap={15}>
                   <Divider />
                   {props.props.data?.postConnection.edges.map((node, i) => {
-                    const tags = node.node.tags;
-                    const filteredTags = [];
-
-                    const uniqueTags = tags.filter((element) => {
-                      const isDublicate = filteredTags.includes(element);
-
-                      if (!isDublicate) {
-                        filteredTags.push(element);
-
-                        return true;
-                      }
-
-                      return false;
-                    });
-                    console.log(uniqueTags);
                     return (
                       <>
-                        {uniqueTags.map((tag, i) => {
+                        {node.node.tags?.map((tag, i) => {
                           return (
-                            <>
-                            </>
+                            <Button
+                              p={"1rem"}
+                              color={"whitecuba.100"}
+                              rounded={'none'}
+                              textAlign={"center"}
+                              size={"sm"}
+                              bg={"blacksuite.100"}
+                            >
+                              {tag}
+                            </Button>
                           );
                         })}
                       </>

@@ -1,7 +1,9 @@
 import { staticRequest } from "tinacms";
+import Link from "next/link";
 import { Layout } from "../../components/Layout";
 import Image from "next/image";
 import { useTina } from "tinacms/dist/edit-state";
+import { category } from "../../components/Theme";
 import {
   Button,
   Box,
@@ -159,29 +161,72 @@ export default function Home(props) {
 
   const posts = data.postConnection?.edges;
   return (
-    <Layout {... props}>
+    <Layout {...props}>
       <Box>
         <Box>
-          <Button
-            p={"1rem"}
-            textAlign={"center"}
-            color={"whitecuba.100"}
-            mb={"1.5rem"}
-            rounded="full"
-            size={"lg"}
-            bg={"orangebiz.100"}
-          >
-            {data.post?.category}
-          </Button>
-          <Flex  wrap={"wrap"} gap={25}>
+          <Flex align={"center"} pb={"2rem"} pt={"2rem"} gap={15}>
+            <Link
+              href={
+                data.post?.category === category[0]
+                  ? "/geo_tech/"
+                  : data.post?.category === category[1]
+                  ? "/data_science/"
+                  : data.post?.category === category[2]
+                  ? "/knowledge_management/"
+                  : data.post?.category === category[3]
+                  ? "/ecosystem_service/"
+                  : data.post?.category === category[4]
+                  ? "/integral_technical_planning/"
+                  : data.post?.category === category[5]
+                  ? "/sustainable_cities_and_living_spaces/"
+                  : "/"
+              }
+            >
+              <Button
+                p={"2rem"}
+                rounded={"none"}
+                color={
+                  data.post?.category === category[0]
+                    ? "whitecuba.100"
+                    : data.post?.category === category[1]
+                    ? "whitecuba.100"
+                    : data.post?.category === category[2]
+                    ? "blacksuite.100"
+                    : data.post?.category === category[3]
+                    ? "whitecuba.100"
+                    : data.post?.category === category[4]
+                    ? "whitecuba.100"
+                    : data.post?.category === category[5]
+                    ? "whitecuba.100"
+                    : "blacksuite.100"
+                }
+                bg={
+                  data.post?.category === category[0]
+                    ? "blacksuite.100"
+                    : data.post?.category === category[1]
+                    ? "purplesience.100"
+                    : data.post?.category === category[2]
+                    ? "yellowinsurance.100"
+                    : data.post?.category === category[3]
+                    ? "greenschool.100"
+                    : data.post?.category === category[4]
+                    ? "orangebiz.100"
+                    : data.post?.category === category[5]
+                    ? "greylondon.100"
+                    : "blacksuite.100"
+                }
+                fontSize={"1xl"}
+              >
+                {data.post?.category}
+              </Button>
+            </Link>
             {data.post?.tags.map((tag) => (
               <Box>
                 <Button
                   p={"1rem"}
                   color={"whitecuba.100"}
-                  rounded={"full"}
+                  rounded={"none"}
                   textAlign={"center"}
-                  mb={"1.5rem"}
                   size={"sm"}
                   bg={"blacksuite.100"}
                 >
@@ -191,7 +236,7 @@ export default function Home(props) {
             ))}
           </Flex>
         </Box>
-        <Heading fontSize={"6xl"}>{data.post?.title}</Heading>
+        <Heading fontSize={"6xl"} textAlign={'center'}>{data.post?.title}</Heading>
       </Box>
       <Divider mb={"3rem"} mt={"1.5rem"} />
       <Grid
@@ -275,11 +320,7 @@ export default function Home(props) {
               case "PostBlocksFeatured":
                 return (
                   <>
-                    <FeaturedPostBlock
-                      i={i}
-                      block={block}
-                      posts={posts}
-                    />
+                    <FeaturedPostBlock i={i} block={block} posts={posts} />
                   </>
                 );
               case "PostBlocksCard":

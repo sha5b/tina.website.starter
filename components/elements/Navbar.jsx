@@ -33,7 +33,7 @@ export const Navbar = (props) => {
 
   const mergedTags = [].concat.apply([], allTags);
 
-  console.log(mergedTags);
+  const uniqueTags = [...new Set(mergedTags)];
 
   return (
     <Box pos={"sticky"} top={0} zIndex={10}>
@@ -96,8 +96,7 @@ export const Navbar = (props) => {
                 </AccordionButton>
               </Box>
               <AccordionPanel>
-                <Flex wrap={"wrap"} gap={15} >
-                  <Divider />
+                <Flex wrap={"wrap"} gap={15}>
                   {category.map((item, i) => {
                     return (
                       <Link
@@ -119,6 +118,7 @@ export const Navbar = (props) => {
                       >
                         <Button
                           p={"2rem"}
+                          fontWeight={'light'}
                           rounded={"none"}
                           color={
                             item === category[0]
@@ -174,10 +174,9 @@ export const Navbar = (props) => {
                 </AccordionButton>
               </Box>
               <AccordionPanel gap={15} pb={4}>
-                <Divider />
                 <Accordion allowMultiple allowToggle>
                   <Flex wrap={"wrap"}>
-                    {mergedTags?.map((tag, i) => {
+                    {uniqueTags?.map((tag, i) => {
                       return (
                         <AccordionItem border="none" m={"0.25rem"}>
                           <AccordionButton
@@ -191,27 +190,77 @@ export const Navbar = (props) => {
                           </AccordionButton>
 
                           <AccordionPanel>
-                            {props.props.data.postConnection.edges.map(
-                              (node) => {
-                                return (
-                                  <>
-                                    {node.node.tags.map((item) => {
-                                      return (
-                                        <>
-                                          {item === tag && (
-                                            <Link href={`/posts/${node.node._sys.filename}`}>
-                                              <Text>
-                                                {node.node.title}
-                                              </Text>
-                                            </Link>
-                                          )}
-                                        </>
-                                      );
-                                    })}
-                                  </>
-                                );
-                              }
-                            )}
+                            <Flex wrap={"wrap"} gap={15}>
+                              {props.props.data.postConnection.edges.map(
+                                (node) => {
+                                  return (
+                                    <>
+                                      {node.node.tags.map((item) => {
+                                        return (
+                                          <>
+                                            {item === tag && (
+                                              <Link
+                                                href={`/posts/${node.node._sys.filename}`}
+                                              >
+                                                <Button
+                                                  color={
+                                                    node.node.category ===
+                                                    category[0]
+                                                      ? "whitecuba.100"
+                                                      : node.node.category ===
+                                                        category[1]
+                                                      ? "whitecuba.100"
+                                                      : node.node.category ===
+                                                        category[2]
+                                                      ? "blacksuite.100"
+                                                      : node.node.category ===
+                                                        category[3]
+                                                      ? "whitecuba.100"
+                                                      : node.node.category ===
+                                                        category[4]
+                                                      ? "whitecuba.100"
+                                                      : node.node.category ===
+                                                        category[5]
+                                                      ? "whitecuba.100"
+                                                      : "blacksuite.100"
+                                                  }
+                                                  bg={
+                                                    node.node.category ===
+                                                    category[0]
+                                                      ? "blacksuite.100"
+                                                      : node.node.category ===
+                                                        category[1]
+                                                      ? "purplesience.100"
+                                                      : node.node.category ===
+                                                        category[2]
+                                                      ? "yellowinsurance.100"
+                                                      : node.node.category ===
+                                                        category[3]
+                                                      ? "greenschool.100"
+                                                      : node.node.category ===
+                                                        category[4]
+                                                      ? "orangebiz.100"
+                                                      : node.node.category ===
+                                                        category[5]
+                                                      ? "greylondon.100"
+                                                      : "blacksuite.100"
+                                                  }
+                                                  fontWeight={"light"}
+                                                  rounded={"none"}
+                                                  size={"xs"}
+                                                >
+                                                  <Text>{node.node.title}</Text>
+                                                </Button>
+                                              </Link>
+                                            )}
+                                          </>
+                                        );
+                                      })}
+                                    </>
+                                  );
+                                }
+                              )}
+                            </Flex>
                           </AccordionPanel>
                         </AccordionItem>
                       );

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useState } from "react";
 import Image from "next/image";
 import { useTina } from "tinacms/dist/edit-state";
 import Logo from "../../public/Telesis_Logo_black_negativ_space.svg";
@@ -11,16 +12,6 @@ import {
   Heading,
   Text,
   HStack,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
-  VStack,
-  Spacer,
   Accordion,
   AccordionItem,
   AccordionButton,
@@ -28,7 +19,7 @@ import {
   AccordionIcon,
   Divider,
 } from "@chakra-ui/react";
-import { category, Theme } from "../Theme";
+import { category } from "../Theme";
 
 const Img = chakra(Image, {
   shouldForwardProp: (prop) =>
@@ -36,6 +27,7 @@ const Img = chakra(Image, {
 });
 
 export const Navbar = (props) => {
+  
   return (
     <Box pos={"sticky"} top={0} zIndex={10}>
       <Flex justify="space-between" align={"center"}>
@@ -52,30 +44,33 @@ export const Navbar = (props) => {
           </Box>
         </Link>
         <HStack flexGrow={1} justify={"right"}>
-          <Button
-            rounded={"none"}
-            bg={"blacksuite.100"}
-            color={"whitecuba.100"}
-            href="/"
-          >
-            About Us
-          </Button>
-          <Button
-            rounded={"none"}
-            bg={"blacksuite.100"}
-            color={"whitecuba.100"}
-            href="/"
-          >
-            Contact
-          </Button>
-          <Button
-            rounded={"none"}
-            bg={"blacksuite.100"}
-            color={"whitecuba.100"}
-            href="/"
-          >
-            Our Mission
-          </Button>
+          <Link href="/about/">
+            <Button
+              rounded={"none"}
+              bg={"blacksuite.100"}
+              color={"whitecuba.100"}
+            >
+              About Us
+            </Button>
+          </Link>
+          <Link href="/contact/">
+            <Button
+              rounded={"none"}
+              bg={"blacksuite.100"}
+              color={"whitecuba.100"}
+            >
+              Contact
+            </Button>
+          </Link>
+          <Link href="/our_mission/">
+            <Button
+              rounded={"none"}
+              bg={"blacksuite.100"}
+              color={"whitecuba.100"}
+            >
+              Our Mission
+            </Button>
+          </Link>
         </HStack>
       </Flex>
       <Box>
@@ -84,13 +79,13 @@ export const Navbar = (props) => {
             <AccordionItem border="none">
               <Box pos={"relative"}>
                 <AccordionButton
-                  w={"100px"}
+                  w={"150px"}
                   fontWeight={"bold"}
                   rounded={"none"}
                   bg={"blacksuite.100"}
                   color={"whitecuba.100"}
                 >
-                  Category
+                  Field of Work
                 </AccordionButton>
               </Box>
               <AccordionPanel>
@@ -98,44 +93,61 @@ export const Navbar = (props) => {
                   <Divider />
                   {category.map((item, i) => {
                     return (
-                      <Button
-                        flexGrow={1}
-                        p={"2rem"}
-                        rounded={"none"}
-                        color={
+                      <Link
+                        href={
                           item === category[0]
-                            ? "whitecuba.100"
+                            ? "/geo_tech/"
                             : item === category[1]
-                            ? "whitecuba.100"
+                            ? "/data_science/"
                             : item === category[2]
-                            ? "blacksuite.100"
+                            ? "/knowledge_management/"
                             : item === category[3]
-                            ? "whitecuba.100"
+                            ? "/ecosystem_service/"
                             : item === category[4]
-                            ? "whitecuba.100"
+                            ? "/integral_technical_planning/"
                             : item === category[5]
-                            ? "whitecuba.100"
-                            : "blacksuite.100"
+                            ? "/sustainable_cities_and_living_spaces/"
+                            : "/"
                         }
-                        bg={
-                          item === category[0]
-                            ? "blacksuite.100"
-                            : item === category[1]
-                            ? "purplesience.100"
-                            : item === category[2]
-                            ? "yellowinsurance.100"
-                            : item === category[3]
-                            ? "greenschool.100"
-                            : item === category[4]
-                            ? "orangebiz.100"
-                            : item === category[5]
-                            ? "greylondon.100"
-                            : "blacksuite.100"
-                        }
-                        fontSize={"1xl"}
                       >
-                        {item}
-                      </Button>
+                        <Button
+                          p={"2rem"}
+                          rounded={"none"}
+                          color={
+                            item === category[0]
+                              ? "whitecuba.100"
+                              : item === category[1]
+                              ? "whitecuba.100"
+                              : item === category[2]
+                              ? "blacksuite.100"
+                              : item === category[3]
+                              ? "whitecuba.100"
+                              : item === category[4]
+                              ? "whitecuba.100"
+                              : item === category[5]
+                              ? "whitecuba.100"
+                              : "blacksuite.100"
+                          }
+                          bg={
+                            item === category[0]
+                              ? "blacksuite.100"
+                              : item === category[1]
+                              ? "purplesience.100"
+                              : item === category[2]
+                              ? "yellowinsurance.100"
+                              : item === category[3]
+                              ? "greenschool.100"
+                              : item === category[4]
+                              ? "orangebiz.100"
+                              : item === category[5]
+                              ? "greylondon.100"
+                              : "blacksuite.100"
+                          }
+                          fontSize={"1xl"}
+                        >
+                          {item}
+                        </Button>
+                      </Link>
                     );
                   })}
                 </Flex>
@@ -143,7 +155,7 @@ export const Navbar = (props) => {
             </AccordionItem>
 
             <AccordionItem border="none">
-              <Box pos={"relative"}>
+              <Box>
                 <AccordionButton
                   w={"100px"}
                   rounded={"none"}
@@ -151,33 +163,41 @@ export const Navbar = (props) => {
                   bg={"blacksuite.100"}
                   color={"whitecuba.100"}
                 >
-                  Tags
+                  Topics
                 </AccordionButton>
               </Box>
               <AccordionPanel gap={15} pb={4}>
-                <Flex wrap={"wrap"} gap={15}>
-                  <Divider />
-                  {props.props.data?.postConnection.edges.map((node, i) => {
-                    return (
-                      <>
-                        {node.node.tags?.map((tag, i) => {
-                          return (
-                            <Button
-                              p={"1rem"}
-                              color={"whitecuba.100"}
-                              rounded={'none'}
-                              textAlign={"center"}
-                              size={"sm"}
-                              bg={"blacksuite.100"}
-                            >
-                              {tag}
-                            </Button>
-                          );
-                        })}
-                      </>
-                    );
-                  })}
-                </Flex>
+                <Divider />
+                <Accordion allowMultiple allowToggle>
+                  <Flex wrap={"wrap"}>
+                    {props.props.data?.postConnection.edges.map((node, i) => {
+                      const mergedTags = node.node.tags.concat(node.node.tags)
+                      return (
+                        <>
+                          {mergedTags?.map((tag, i) => {
+                            return (
+                              <AccordionItem border="none" m={"0.25rem"}>
+                                <AccordionButton
+                                  color={"whitecuba.100"}
+                                  rounded={"none"}
+                                  textAlign={"center"}
+                                  size={"sm"}
+                                  bg={"blacksuite.100"}
+                                >
+                                  {tag}
+                                </AccordionButton>
+
+                                <AccordionPanel>
+                                  <Text>{node.node._sys?.filename}</Text>
+                                </AccordionPanel>
+                              </AccordionItem>
+                            );
+                          })}
+                        </>
+                      );
+                    })}
+                  </Flex>
+                </Accordion>
               </AccordionPanel>
             </AccordionItem>
           </Flex>

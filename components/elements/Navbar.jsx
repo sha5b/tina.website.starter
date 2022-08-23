@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useState } from "react";
 import Image from "next/image";
 import { useTina } from "tinacms/dist/edit-state";
 import Logo from "../../public/Telesis_Logo_black_negativ_space.svg";
@@ -11,16 +12,6 @@ import {
   Heading,
   Text,
   HStack,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
-  VStack,
-  Spacer,
   Accordion,
   AccordionItem,
   AccordionButton,
@@ -36,6 +27,14 @@ const Img = chakra(Image, {
 });
 
 export const Navbar = (props) => {
+  const allTags = props.props.data?.postConnection.edges.map((node) => {
+    return node.node.tags;
+  });
+
+  const mergedTags = [].concat.apply([], allTags);
+
+  console.log(mergedTags);
+
   return (
     <Box pos={"sticky"} top={0} zIndex={10}>
       <Flex justify="space-between" align={"center"}>
@@ -178,29 +177,43 @@ export const Navbar = (props) => {
                 <Divider />
                 <Accordion allowMultiple allowToggle>
                   <Flex wrap={"wrap"}>
-                    {props.props.data?.postConnection.edges.map((node, i) => {
+                    {mergedTags?.map((tag, i) => {
                       return (
-                        <>
-                          {node.node.tags?.map((tag, i) => {
-                            return (
-                              <AccordionItem border="none" m={"0.25rem"}>
-                                <AccordionButton
-                                  color={"whitecuba.100"}
-                                  rounded={"none"}
-                                  textAlign={"center"}
-                                  size={"sm"}
-                                  bg={"blacksuite.100"}
-                                >
-                                  {tag}
-                                </AccordionButton>
+                        <AccordionItem border="none" m={"0.25rem"}>
+                          <AccordionButton
+                            color={"whitecuba.100"}
+                            rounded={"none"}
+                            textAlign={"center"}
+                            size={"sm"}
+                            bg={"blacksuite.100"}
+                          >
+                            {tag}
+                          </AccordionButton>
 
-                                <AccordionPanel>
-                                  <Text>{node.node._sys?.filename}</Text>
-                                </AccordionPanel>
-                              </AccordionItem>
-                            );
-                          })}
-                        </>
+                          <AccordionPanel>
+                            {props.props.data.postConnection.edges.map(
+                              (node) => {
+                                return (
+                                  <>
+                                    {node.node.tags.map((item) => {
+                                      return (
+                                        <>
+                                          {item === tag && (
+                                            <Link href={`/posts/${node.node._sys.filename}`}>
+                                              <Text>
+                                                {node.node._sys.filename}
+                                              </Text>
+                                            </Link>
+                                          )}
+                                        </>
+                                      );
+                                    })}
+                                  </>
+                                );
+                              }
+                            )}
+                          </AccordionPanel>
+                        </AccordionItem>
                       );
                     })}
                   </Flex>

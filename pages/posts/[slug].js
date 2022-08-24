@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Layout } from "../../components/Layout";
 import Image from "next/image";
 import { useTina } from "tinacms/dist/edit-state";
-import { category } from "../../components/Theme";
+import { bgColor, category, categoryHref, textColor } from "../../components/Theme";
 import {
   Button,
   Box,
@@ -166,55 +166,13 @@ export default function Home(props) {
         <Box>
           <Flex align={"center"} pb={"2rem"} pt={"2rem"} gap={15}>
             <Link
-              href={
-                data.post?.category === category[0]
-                  ? "/geo_tech/"
-                  : data.post?.category === category[1]
-                  ? "/data_science/"
-                  : data.post?.category === category[2]
-                  ? "/knowledge_management/"
-                  : data.post?.category === category[3]
-                  ? "/ecosystem_service/"
-                  : data.post?.category === category[4]
-                  ? "/integral_technical_planning/"
-                  : data.post?.category === category[5]
-                  ? "/sustainable_cities_and_living_spaces/"
-                  : "/"
-              }
+              href={categoryHref(data.post?.category)}
             >
               <Button
                 p={"2rem"}
                 rounded={"none"}
-                color={
-                  data.post?.category === category[0]
-                    ? "whitecuba.100"
-                    : data.post?.category === category[1]
-                    ? "whitecuba.100"
-                    : data.post?.category === category[2]
-                    ? "blacksuite.100"
-                    : data.post?.category === category[3]
-                    ? "whitecuba.100"
-                    : data.post?.category === category[4]
-                    ? "whitecuba.100"
-                    : data.post?.category === category[5]
-                    ? "whitecuba.100"
-                    : "blacksuite.100"
-                }
-                bg={
-                  data.post?.category === category[0]
-                    ? "blacksuite.100"
-                    : data.post?.category === category[1]
-                    ? "purplesience.100"
-                    : data.post?.category === category[2]
-                    ? "yellowinsurance.100"
-                    : data.post?.category === category[3]
-                    ? "greenschool.100"
-                    : data.post?.category === category[4]
-                    ? "orangebiz.100"
-                    : data.post?.category === category[5]
-                    ? "greylondon.100"
-                    : "blacksuite.100"
-                }
+                color={textColor(data.post?.category)}
+                bg={bgColor(data.post?.category)}
                 fontSize={"1xl"}
               >
                 {data.post?.category}

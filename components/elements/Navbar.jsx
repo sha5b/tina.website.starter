@@ -19,7 +19,7 @@ import {
   AccordionIcon,
   Divider,
 } from "@chakra-ui/react";
-import { category } from "../Theme";
+import { bgColor, category, categoryHref, textColor } from "../Theme";
 
 const Img = chakra(Image, {
   shouldForwardProp: (prop) =>
@@ -99,57 +99,13 @@ export const Navbar = (props) => {
                 <Flex wrap={"wrap"} gap={15}>
                   {category.map((item, i) => {
                     return (
-                      <Link
-                        href={
-                          item === category[0]
-                            ? "/geo_tech/"
-                            : item === category[1]
-                            ? "/data_science/"
-                            : item === category[2]
-                            ? "/knowledge_management/"
-                            : item === category[3]
-                            ? "/ecosystem_service/"
-                            : item === category[4]
-                            ? "/integral_technical_planning/"
-                            : item === category[5]
-                            ? "/sustainable_cities_and_living_spaces/"
-                            : "/"
-                        }
-                      >
+                      <Link href={categoryHref(item)}>
                         <Button
                           p={"2rem"}
-                          fontWeight={'light'}
+                          fontWeight={"light"}
                           rounded={"none"}
-                          color={
-                            item === category[0]
-                              ? "whitecuba.100"
-                              : item === category[1]
-                              ? "whitecuba.100"
-                              : item === category[2]
-                              ? "blacksuite.100"
-                              : item === category[3]
-                              ? "whitecuba.100"
-                              : item === category[4]
-                              ? "whitecuba.100"
-                              : item === category[5]
-                              ? "whitecuba.100"
-                              : "blacksuite.100"
-                          }
-                          bg={
-                            item === category[0]
-                              ? "blacksuite.100"
-                              : item === category[1]
-                              ? "purplesience.100"
-                              : item === category[2]
-                              ? "yellowinsurance.100"
-                              : item === category[3]
-                              ? "greenschool.100"
-                              : item === category[4]
-                              ? "orangebiz.100"
-                              : item === category[5]
-                              ? "greylondon.100"
-                              : "blacksuite.100"
-                          }
+                          color={textColor(item)}
+                          bg={bgColor(item)}
                           fontSize={"1xl"}
                         >
                           {item}
@@ -174,7 +130,7 @@ export const Navbar = (props) => {
                 </AccordionButton>
               </Box>
               <AccordionPanel gap={15} pb={4}>
-                <Accordion allowMultiple allowToggle>
+                <Accordion allowToggle>
                   <Flex wrap={"wrap"}>
                     {uniqueTags?.map((tag, i) => {
                       return (
@@ -203,48 +159,12 @@ export const Navbar = (props) => {
                                                 href={`/posts/${node.node._sys.filename}`}
                                               >
                                                 <Button
-                                                  color={
-                                                    node.node.category ===
-                                                    category[0]
-                                                      ? "whitecuba.100"
-                                                      : node.node.category ===
-                                                        category[1]
-                                                      ? "whitecuba.100"
-                                                      : node.node.category ===
-                                                        category[2]
-                                                      ? "blacksuite.100"
-                                                      : node.node.category ===
-                                                        category[3]
-                                                      ? "whitecuba.100"
-                                                      : node.node.category ===
-                                                        category[4]
-                                                      ? "whitecuba.100"
-                                                      : node.node.category ===
-                                                        category[5]
-                                                      ? "whitecuba.100"
-                                                      : "blacksuite.100"
-                                                  }
-                                                  bg={
-                                                    node.node.category ===
-                                                    category[0]
-                                                      ? "blacksuite.100"
-                                                      : node.node.category ===
-                                                        category[1]
-                                                      ? "purplesience.100"
-                                                      : node.node.category ===
-                                                        category[2]
-                                                      ? "yellowinsurance.100"
-                                                      : node.node.category ===
-                                                        category[3]
-                                                      ? "greenschool.100"
-                                                      : node.node.category ===
-                                                        category[4]
-                                                      ? "orangebiz.100"
-                                                      : node.node.category ===
-                                                        category[5]
-                                                      ? "greylondon.100"
-                                                      : "blacksuite.100"
-                                                  }
+                                                  color={textColor(
+                                                    node.node.category
+                                                  )}
+                                                  bg={bgColor(
+                                                    node.node.category
+                                                  )}
                                                   fontWeight={"light"}
                                                   rounded={"none"}
                                                   size={"xs"}

@@ -23,7 +23,7 @@ import { bgColor, category, categoryHref, textColor } from "../Theme";
 
 const Img = chakra(Image, {
   shouldForwardProp: (prop) =>
-    ["width", "height", "src", "alt", "layout",'fill'].includes(prop),
+    ["width", "height", "src", "alt", "layout", "fill"].includes(prop),
 });
 
 export const Navbar = (props) => {
@@ -42,8 +42,9 @@ export const Navbar = (props) => {
     <Box pos={"sticky"} top={0} zIndex={10}>
       <Flex justify="space-between" align={"center"}>
         <Link href="/">
-          <Box fontSize={"xl"} color={"whitecuba.100"} flexGrow={1}>
+          <Box fontSize={"xl"} flexGrow={1} pb={'.5rem'}>
             <Img
+              bg={'whitecuba.100'}
               quality="100"
               width={"160"}
               height={"80"}

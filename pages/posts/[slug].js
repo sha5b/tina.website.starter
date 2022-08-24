@@ -3,7 +3,12 @@ import Link from "next/link";
 import { Layout } from "../../components/Layout";
 import Image from "next/image";
 import { useTina } from "tinacms/dist/edit-state";
-import { bgColor, category, categoryHref, textColor } from "../../components/Theme";
+import {
+  bgColor,
+  category,
+  categoryHref,
+  textColor,
+} from "../../components/Theme";
 import {
   Button,
   Box,
@@ -163,11 +168,12 @@ export default function Home(props) {
   return (
     <Layout {...props}>
       <Box>
+        <Heading pt={'6rem'} fontSize={"6xl"} textAlign={"left"}>
+          {data.post?.title}
+        </Heading>
         <Box>
-          <Flex wrap={'wrap'} align={"center"} pb={"2rem"} pt={"2rem"} gap={15}>
-            <Link
-              href={categoryHref(data.post?.category)}
-            >
+          <Flex wrap={"wrap"} align={"end"} pb={"2rem"} pt={"2rem"} gap={15}>
+            <Link href={categoryHref(data.post?.category)}>
               <Button
                 p={"2rem"}
                 rounded={"none"}
@@ -182,7 +188,7 @@ export default function Home(props) {
               <Box>
                 <Button
                   p={"1rem"}
-                  color={"whitecuba.100"}
+                  color={'whitecuba.100'}
                   rounded={"none"}
                   textAlign={"center"}
                   size={"sm"}
@@ -194,7 +200,6 @@ export default function Home(props) {
             ))}
           </Flex>
         </Box>
-        <Heading fontSize={"6xl"} textAlign={'center'}>{data.post?.title}</Heading>
       </Box>
       <Divider mb={"3rem"} mt={"1.5rem"} />
       <Grid

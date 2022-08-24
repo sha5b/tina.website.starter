@@ -23,7 +23,7 @@ import { bgColor, category, categoryHref, textColor } from "../Theme";
 
 const Img = chakra(Image, {
   shouldForwardProp: (prop) =>
-    ["width", "height", "src", "alt", "layout"].includes(prop),
+    ["width", "height", "src", "alt", "layout",'fill'].includes(prop),
 });
 
 export const Navbar = (props) => {
@@ -35,10 +35,8 @@ export const Navbar = (props) => {
 
   const uniqueTags = [...new Set(mergedTags)];
 
-  const bg = bgColor(props.props.data.post?.category)
-  const textcol = textColor(props.props.data.post?.category)
-  const href = categoryHref( props.props.data.post?.category)
-
+  const bg = bgColor(props.props.data.post?.category);
+  const textcol = textColor(props.props.data.post?.category);
 
   return (
     <Box pos={"sticky"} top={0} zIndex={10}>
@@ -62,18 +60,12 @@ export const Navbar = (props) => {
             </Button>
           </Link>
           <Link href="/contact/">
-            <Button
-              rounded={"none"}
-              bg={bg} color={textcol}
-            >
+            <Button rounded={"none"} bg={bg} color={textcol}>
               Contact
             </Button>
           </Link>
           <Link href="/our_mission/">
-            <Button
-              rounded={"none"}
-              bg={bg} color={textcol}
-            >
+            <Button rounded={"none"} bg={bg} color={textcol}>
               Our Mission
             </Button>
           </Link>
@@ -88,7 +80,8 @@ export const Navbar = (props) => {
                   w={"150px"}
                   fontWeight={"bold"}
                   rounded={"none"}
-                  bg={bg} color={textcol}
+                  bg={bg}
+                  color={textcol}
                 >
                   Field of Work
                 </AccordionButton>
@@ -97,7 +90,23 @@ export const Navbar = (props) => {
                 <Flex wrap={"wrap"} gap={15}>
                   {category.map((item, i) => {
                     return (
-                      <Link href={categoryHref(item)}>
+                      <Link
+                        href={
+                          item === category[0]
+                            ? "/geo_tech/"
+                            : item === category[1]
+                            ? "/data_science/"
+                            : item === category[2]
+                            ? "/knowledge_management/"
+                            : item === category[3]
+                            ? "/ecosystem_service/"
+                            : item === category[4]
+                            ? "/integral_technical_planning/"
+                            : item === category[5]
+                            ? "/sustainable_cities_and_living_spaces/"
+                            : "/"
+                        }
+                      >
                         <Button
                           p={"2rem"}
                           fontWeight={"light"}
@@ -121,7 +130,8 @@ export const Navbar = (props) => {
                   w={"100px"}
                   rounded={"none"}
                   fontWeight={"bold"}
-                  bg={bg} color={textcol}
+                  bg={bg}
+                  color={textcol}
                 >
                   Topics
                 </AccordionButton>
@@ -133,11 +143,11 @@ export const Navbar = (props) => {
                       return (
                         <AccordionItem border="none" m={"0.25rem"}>
                           <AccordionButton
-                            color={"whitecuba.100"}
+                            color={textcol}
                             rounded={"none"}
                             textAlign={"center"}
                             size={"sm"}
-                            bg={"blacksuite.100"}
+                            bg={bg}
                           >
                             {tag}
                           </AccordionButton>

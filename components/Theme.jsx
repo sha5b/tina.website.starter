@@ -22,7 +22,7 @@ export const colors = [
 
 export const categoryHref = (item) => {
   if (item === category[0]){
-    return '/geo_tech'
+    return '/geo_tech/'
   }
   if (item === category[1]){
     return "/data_science/"

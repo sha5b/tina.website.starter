@@ -35,6 +35,11 @@ export const Navbar = (props) => {
 
   const uniqueTags = [...new Set(mergedTags)];
 
+  const bg = bgColor(props.props.data.post?.category)
+  const textcol = textColor(props.props.data.post?.category)
+  const href = categoryHref( props.props.data.post?.category)
+
+
   return (
     <Box pos={"sticky"} top={0} zIndex={10}>
       <Flex justify="space-between" align={"center"}>
@@ -52,19 +57,14 @@ export const Navbar = (props) => {
         </Link>
         <HStack flexGrow={1} justify={"right"}>
           <Link href="/about/">
-            <Button
-              rounded={"none"}
-              bg={"blacksuite.100"}
-              color={"whitecuba.100"}
-            >
+            <Button rounded={"none"} bg={bg} color={textcol}>
               About Us
             </Button>
           </Link>
           <Link href="/contact/">
             <Button
               rounded={"none"}
-              bg={"blacksuite.100"}
-              color={"whitecuba.100"}
+              bg={bg} color={textcol}
             >
               Contact
             </Button>
@@ -72,8 +72,7 @@ export const Navbar = (props) => {
           <Link href="/our_mission/">
             <Button
               rounded={"none"}
-              bg={"blacksuite.100"}
-              color={"whitecuba.100"}
+              bg={bg} color={textcol}
             >
               Our Mission
             </Button>
@@ -89,8 +88,7 @@ export const Navbar = (props) => {
                   w={"150px"}
                   fontWeight={"bold"}
                   rounded={"none"}
-                  bg={"blacksuite.100"}
-                  color={"whitecuba.100"}
+                  bg={bg} color={textcol}
                 >
                   Field of Work
                 </AccordionButton>
@@ -123,8 +121,7 @@ export const Navbar = (props) => {
                   w={"100px"}
                   rounded={"none"}
                   fontWeight={"bold"}
-                  bg={"blacksuite.100"}
-                  color={"whitecuba.100"}
+                  bg={bg} color={textcol}
                 >
                   Topics
                 </AccordionButton>

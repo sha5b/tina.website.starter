@@ -61,7 +61,7 @@ export const textColor = (item) => {
   if (item === category[5]){
     return "whitecuba.100"
   }
-  return "blacksuite.100"
+  return "whitecuba.100"
 }
 
 export const bgColor = (item) => {

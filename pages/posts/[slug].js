@@ -164,7 +164,7 @@ export default function Home(props) {
     <Layout {...props}>
       <Box>
         <Box>
-          <Flex align={"center"} pb={"2rem"} pt={"2rem"} gap={15}>
+          <Flex wrap={'wrap'} align={"center"} pb={"2rem"} pt={"2rem"} gap={15}>
             <Link
               href={categoryHref(data.post?.category)}
             >

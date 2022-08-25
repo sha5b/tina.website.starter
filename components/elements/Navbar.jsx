@@ -42,7 +42,7 @@ export const Navbar = (props) => {
   const { scrollYProgress } = useScroll();
 
   return (
-    <Box pos={"sticky"} top={0} zIndex={10}>
+    <Box top={0} zIndex={10}>
       <Flex justify="space-between" align={"center"}>
         <Link href="/">
           <Box fontSize={"xl"} flexGrow={1} pb={".5rem"}>

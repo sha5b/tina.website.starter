@@ -49,7 +49,7 @@ export const Footer = (props) => {
     <Box top={0} zIndex={10} pt={'5rem'}>
       <Flex wrap={"wrap"} gap={150} pb={'3rem'}>
       <Link href="/">
-          <Box fontSize={"xl"}  >
+          <Box fontSize={"xl"} >
             <Img
               bg={"whitecuba.100"}
               quality="100"
@@ -66,22 +66,22 @@ export const Footer = (props) => {
           <Heading fontSize={"md"} >Company</Heading>
           <List>
             <ListItem fontSize={"xs"} lineHeight={'1.5rem'}>
-              <Link  href="/">About us</Link>
+              <Link  href="/about_us/">About us</Link>
             </ListItem>
             <ListItem fontSize={"xs"} lineHeight={'1.5rem'}>
-              <Link href="/">Contact</Link>
+              <Link href="/contact/">Contact</Link>
             </ListItem>
             <ListItem fontSize={"xs"} lineHeight={'1.5rem'}>
-              <Link href="/">Our Mission</Link>
+              <Link href="/our_mission/">Our Mission</Link>
             </ListItem>
             <ListItem fontSize={"xs"} lineHeight={'1.5rem'}>
-              <Link href="/">Terms</Link>
+              <Link href="/terms/">Terms</Link>
             </ListItem>
             <ListItem fontSize={"xs"} lineHeight={'1.5rem'}>
-              <Link href="/">Privacy</Link>
+              <Link href="/privacy/">Privacy</Link>
             </ListItem>
             <ListItem fontSize={"xs"} lineHeight={'1.5rem'}>
-              <Link href="/">Security</Link>
+              <Link href="/security/">Security</Link>
             </ListItem>
           </List>
         </Box>
@@ -89,22 +89,22 @@ export const Footer = (props) => {
           <Heading fontSize={"md"}>Field of Work</Heading>
           <List>
           <ListItem fontSize={"xs"} lineHeight={'1.5rem'}>
-              <Link href="/">Geo Tech</Link>
+              <Link href="/geo_tech/">Geo Tech</Link>
             </ListItem>
             <ListItem fontSize={"xs"} lineHeight={'1.5rem'}>
-              <Link href="/">Data Sience</Link>
+              <Link href="/data_sience/">Data Sience</Link>
             </ListItem>
             <ListItem fontSize={"xs"} lineHeight={'1.5rem'}>
-              <Link href="/">Knowledge Management</Link>
+              <Link href="/knowledge_management/">Knowledge Management</Link>
             </ListItem>
             <ListItem fontSize={"xs"} lineHeight={'1.5rem'}>
-              <Link href="/">Ecosystem Service</Link>
+              <Link href="/ecosystem_service">Ecosystem Service</Link>
             </ListItem>
             <ListItem fontSize={"xs"} lineHeight={'1.5rem'}>
-              <Link href="/">Integral Technical Planning</Link>
+              <Link href="/integral_technical_planning/">Integral Technical Planning</Link>
             </ListItem>
             <ListItem fontSize={"xs"} lineHeight={'1.5rem'}>
-              <Link href="/">Sustainable Cities & Living Spaces</Link>
+              <Link href="/sustainable_cities_and_living_spaces">Sustainable Cities & Living Spaces</Link>
             </ListItem>
           </List>
         </Box>
@@ -112,10 +112,10 @@ export const Footer = (props) => {
           <Heading fontSize={"md"}>Contribute</Heading>
           <List>
           <ListItem fontSize={"xs"} lineHeight={'1.5rem'}>
-              <Link href="/">Documentation</Link>
+              <a href="/">Documentation</a>
             </ListItem>
             <ListItem fontSize={"xs"} lineHeight={'1.5rem'}>
-              <Link href="/">Github</Link>
+              <a href="/">Github</a>
             </ListItem>
             <ListItem fontSize={"xs"} lineHeight={'1.5rem'}>
               <Link href="/">Stack</Link>
@@ -126,13 +126,13 @@ export const Footer = (props) => {
           <Heading fontSize={"md"}>Social Media</Heading>
           <List>
           <ListItem fontSize={"xs"} lineHeight={'1.5rem'}>
-              <Link href="/">Youtube</Link>
+              <a href="/">Youtube</a>
             </ListItem>
             <ListItem fontSize={"xs"} lineHeight={'1.5rem'}>
-              <Link href="/">Facebook</Link>
+              <a href="/">Facebook</a>
             </ListItem>
             <ListItem fontSize={"xs"} lineHeight={'1.5rem'}>
-              <Link href="/">Instagram</Link>
+              <a href="/">Instagram</a>
             </ListItem>
           </List>
         </Box>

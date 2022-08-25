@@ -168,7 +168,7 @@ export default function Home(props) {
   return (
     <Layout {...props}>
       <Box>
-        <Heading pt={'6rem'} fontSize={"6xl"} textAlign={"left"}>
+        <Heading pt={"6rem"} fontSize={"6xl"} textAlign={"left"}>
           {data.post?.title}
         </Heading>
         <Box>
@@ -188,7 +188,7 @@ export default function Home(props) {
               <Box>
                 <Button
                   p={"1rem"}
-                  color={'whitecuba.100'}
+                  color={"whitecuba.100"}
                   rounded={"none"}
                   textAlign={"center"}
                   size={"sm"}
@@ -265,7 +265,7 @@ export default function Home(props) {
               case "PostBlocksGallery":
                 return (
                   <>
-                    <GalleryBlock i={i} block={block} />
+                    <GalleryBlock i={i} block={block} category={`${data.post?.category}`} />
                   </>
                 );
               case "PostBlocksFact":
@@ -295,6 +295,13 @@ export default function Home(props) {
             }
           })
         : null}
+        <Box>
+          <Flex>
+            <Box>
+
+            </Box>
+          </Flex>
+        </Box>
     </Layout>
   );
 }

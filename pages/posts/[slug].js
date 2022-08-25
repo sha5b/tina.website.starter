@@ -167,12 +167,12 @@ export default function Home(props) {
   const posts = data.postConnection?.edges;
   return (
     <Layout {...props}>
-      <Box>
-        <Heading pt={"6rem"} fontSize={"6xl"} textAlign={"left"}>
-          {data.post?.title}
-        </Heading>
+      <Flex gap={25} align={"end"} justify={'space-between'}>
         <Box>
-          <Flex wrap={"wrap"} align={"end"} pb={"2rem"} pt={"2rem"} gap={15}>
+          <Heading pt={"6rem"} pb={'2rem'} fontSize={"6xl"} textAlign={"left"}>
+            {data.post?.title}
+          </Heading>
+          <Flex wrap={"wrap"} align={"end"} gap={15}>
             <Link href={categoryHref(data.post?.category)}>
               <Button
                 p={"2rem"}
@@ -200,23 +200,8 @@ export default function Home(props) {
             ))}
           </Flex>
         </Box>
-      </Box>
-      <Divider mb={"3rem"} mt={"1.5rem"} />
-      <Grid
-        autoRows={"auto"}
-        autoColumns={"auto"}
-        templateColumns={`repeat(${data.post?.size}, 1fr)`}
-        gap={5}
-      >
-        <GridItem>
-          <Box>
-            <Text fontSize="lg" letterSpacing={"wide"} textAlign={"justify"}>
-              {data.post?.description}
-            </Text>
-          </Box>
-        </GridItem>
-        {data.post?.image && (
-          <GridItem>
+        <Box w={"15%"}>
+          {data.post?.image && (
             <Box
               p={"1.5rem"}
               bg={bgColor(data.post?.category)}
@@ -234,8 +219,21 @@ export default function Home(props) {
                 alt={data.post.title}
               />
             </Box>
-          </GridItem>
-        )}
+          )}
+        </Box>
+        <Box w={"25%"}>
+          <Text fontSize="sm" letterSpacing={"wide"} textAlign={"justify"}>
+            {data.post?.description}
+          </Text>
+        </Box>
+      </Flex>
+      <Divider mb={"3rem"} mt={"1.5rem"} />
+      <Grid
+        autoRows={"auto"}
+        autoColumns={"auto"}
+        templateColumns={`repeat(${data.post?.size}, 1fr)`}
+        gap={5}
+      >
         {data.post
           ? data.post.text?.map((text, i) => {
               switch (text.__typename) {
@@ -255,7 +253,11 @@ export default function Home(props) {
               case "PostBlocksHero":
                 return (
                   <>
-                    <HeroBlock i={i} block={block} />
+                    <HeroBlock
+                      i={i}
+                      block={block}
+                      category={data.post?.category}
+                    />
                   </>
                 );
               case "PostBlocksCta":
@@ -310,7 +312,15 @@ export default function Home(props) {
       <Box>
         <Flex wrap={"wrap"}>
           <Box pt={"2rem"}>
-            <Heading fontSize={"xl"}>Related Articles</Heading>
+            <Button
+              p={"2rem"}
+              rounded={"none"}
+              bg={bgColor(data.post?.category)}
+              color={textColor(data.post?.category)}
+              fontSize={"3xl"}
+            >
+              Related Articles
+            </Button>
             <Flex wrap={"wrap"}>
               {posts?.map((node) => {
                 return (
@@ -340,7 +350,7 @@ export default function Home(props) {
                             <Box
                               margin={"auto"}
                               mt={"0.5rem"}
-                              p={"0.85rem"}
+                              p={"1.5rem"}
                               bg={bgColor(data.post?.category)}
                               display={"block"}
                             >

@@ -308,17 +308,18 @@ export default function Home(props) {
         : null}
       <Box>
         <Flex wrap={"wrap"}>
-          <Box pt={"2rem"} pb={"2rem"}>
-            <Heading fontSize={"lg"}>Related Articles</Heading>
-            <Flex>
+          <Box pt={"2rem"}>
+            <Heading fontSize={"xl"}>Related Articles</Heading>
+            <Flex wrap={'wrap'} >
               {posts?.map((node) => {
                 return (
                   <Box>
                     {node.node.category === data.post?.category && (
                       <>
-                        <Box width={"10rem"} m={"1.5rem"}>
+                        <Box flexGrow={1} minW={'15rem'} mt={"0.5rem"} mb={"1.5rem"}mr={"1.5rem"}>
                           <Text
                           fontSize={'md'}
+                          fontWeight={'bolder'}
                             margin={"auto"}
                             bg={bgColor(data.post?.category)}
                             color={textColor(data.post?.category)}
@@ -328,7 +329,7 @@ export default function Home(props) {
                           >
                             {node.node.title}
                           </Text>
-                          <Link href={"/"}>
+                          <Link href={`${node.node._sys.filename}`}>
                             <Box
                               margin={"auto"}
                               mt={"0.5rem"}

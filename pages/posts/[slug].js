@@ -217,15 +217,22 @@ export default function Home(props) {
         </GridItem>
         {data.post?.image && (
           <GridItem>
-            <Img
-              quality="100"
-              width={"100%"}
-              height={"100%"}
-              layout={"responsive"}
-              objectFit="cover"
-              src={data.post.image}
-              alt={data.post.title}
-            />
+            <Box
+              p={"1.5rem"}
+              bg={bgColor(data.post?.category)}
+              display={"block"}
+            >
+              <Img
+                rounded={"1.5rem"}
+                quality="100"
+                width={"100%"}
+                height={"100%"}
+                layout={"responsive"}
+                objectFit="cover"
+                src={data.post.image}
+                alt={data.post.title}
+              />
+            </Box>
           </GridItem>
         )}
         {data.post
@@ -265,7 +272,11 @@ export default function Home(props) {
               case "PostBlocksGallery":
                 return (
                   <>
-                    <GalleryBlock i={i} block={block} category={`${data.post?.category}`} />
+                    <GalleryBlock
+                      i={i}
+                      block={block}
+                      category={`${data.post?.category}`}
+                    />
                   </>
                 );
               case "PostBlocksFact":
@@ -295,13 +306,58 @@ export default function Home(props) {
             }
           })
         : null}
-        <Box>
-          <Flex>
-            <Box>
-
-            </Box>
-          </Flex>
-        </Box>
+      <Box>
+        <Flex wrap={"wrap"}>
+          <Box pt={"2rem"} pb={"2rem"}>
+            <Heading fontSize={"lg"}>Related Articles</Heading>
+            <Flex>
+              {posts?.map((node) => {
+                return (
+                  <Box>
+                    {node.node.category === data.post?.category && (
+                      <>
+                        <Box width={"10rem"} m={"1.5rem"}>
+                          <Text
+                          fontSize={'md'}
+                            margin={"auto"}
+                            bg={bgColor(data.post?.category)}
+                            color={textColor(data.post?.category)}
+                            pt={'0.5rem'}
+                            pb={'0.5rem'}
+                            pl={'0.5rem'}
+                          >
+                            {node.node.title}
+                          </Text>
+                          <Link href={"/"}>
+                            <Box
+                              margin={"auto"}
+                              mt={"0.5rem"}
+                              p={"0.85rem"}
+                              bg={bgColor(data.post?.category)}
+                              display={"block"}
+                            >
+                              <Img
+                                rounded={"1.5rem"}
+                                quality="100"
+                                width={"100%"}
+                                height={"100%"}
+                                layout={"responsive"}
+                                objectFit="cover"
+                                src={node.node.image}
+                                alt={node.node.title}
+                              />
+                            </Box>
+                          </Link>
+                        </Box>
+                      </>
+                    )}
+                  </Box>
+                );
+              })}
+            </Flex>
+          </Box>
+        </Flex>
+      </Box>
     </Layout>
   );
 }

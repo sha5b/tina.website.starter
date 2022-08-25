@@ -184,7 +184,7 @@ export const Navbar = (props) => {
                                 (node) => {
                                   return (
                                     <>
-                                      {node.node.tags.map((item) => {
+                                      {node.node.tags?.map((item) => {
                                         return (
                                           <>
                                             {item === tag && (

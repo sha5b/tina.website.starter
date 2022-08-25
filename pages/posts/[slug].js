@@ -19,6 +19,7 @@ import {
   Heading,
   Text,
   Divider,
+  Spacer,
 } from "@chakra-ui/react";
 // Block Import
 import { HeroBlock } from "../../components/blocks/HeroBlock";
@@ -164,15 +165,17 @@ export default function Home(props) {
     data: props.data,
   });
 
+  
   const posts = data.postConnection?.edges;
   return (
     <Layout {...props}>
-      <Flex gap={25} align={"end"} justify={'space-between'}>
+      <Heading pt={"4rem"} fontSize={"6xl"} textAlign={"left"}>
+        {data.post?.title}
+      </Heading>
+      <Divider mb={"1.5rem"} mt={"1rem"} />
+      <Flex gap={25} align={"end"} justify={"flex-start"}>
         <Box>
-          <Heading pt={"6rem"} pb={'2rem'} fontSize={"6xl"} textAlign={"left"}>
-            {data.post?.title}
-          </Heading>
-          <Flex wrap={"wrap"} align={"end"} gap={15}>
+          <Flex wrap={"wrap"} align={"end"} justify={"flex-start"} gap={15}>
             <Link href={categoryHref(data.post?.category)}>
               <Button
                 p={"2rem"}
@@ -221,8 +224,8 @@ export default function Home(props) {
             </Box>
           )}
         </Box>
-        <Box w={"25%"}>
-          <Text fontSize="sm" letterSpacing={"wide"} textAlign={"justify"}>
+        <Box w={"50%"}>
+          <Text fontSize="sm" fontWeight={"thin"} textAlign={"justify"}>
             {data.post?.description}
           </Text>
         </Box>
@@ -234,18 +237,6 @@ export default function Home(props) {
         templateColumns={`repeat(${data.post?.size}, 1fr)`}
         gap={5}
       >
-        {data.post
-          ? data.post.text?.map((text, i) => {
-              switch (text.__typename) {
-                case "PostTextRichtext":
-                  return (
-                    <GridItem>
-                      <RichtextBlock i={i} block={text} />
-                    </GridItem>
-                  );
-              }
-            })
-          : null}
       </Grid>
       {data.post
         ? data.post.blocks?.map((block, i) => {
@@ -306,6 +297,12 @@ export default function Home(props) {
                     <CardBlock i={i} block={block} />
                   </>
                 );
+                case "PostTextRichtext":
+                  return (
+                    <>
+                      <RichtextBlock i={i} block={text} />
+                    </>
+                  );
             }
           })
         : null}

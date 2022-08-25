@@ -52,7 +52,7 @@ export const FeaturedPostBlock = ({ block, posts, id, i }) => {
                           zIndex={0}
                         >
                           <Img
-                            bg={"whitecuba.100"}
+                            bg={textColor(block.category)}
                             rounded={"1.5rem"}
                             quality="100"
                             width={"100%"}

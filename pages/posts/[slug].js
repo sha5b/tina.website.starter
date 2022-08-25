@@ -223,6 +223,7 @@ export default function Home(props) {
               display={"block"}
             >
               <Img
+                bg={textColor(data.post?.category)}
                 rounded={"1.5rem"}
                 quality="100"
                 width={"100%"}
@@ -310,22 +311,28 @@ export default function Home(props) {
         <Flex wrap={"wrap"}>
           <Box pt={"2rem"}>
             <Heading fontSize={"xl"}>Related Articles</Heading>
-            <Flex wrap={'wrap'} >
+            <Flex wrap={"wrap"}>
               {posts?.map((node) => {
                 return (
                   <Box>
                     {node.node.category === data.post?.category && (
                       <>
-                        <Box flexGrow={1} minW={'15rem'} mt={"0.5rem"} mb={"1.5rem"}mr={"1.5rem"}>
+                        <Box
+                          flexGrow={1}
+                          minW={"15rem"}
+                          mt={"0.5rem"}
+                          mb={"1.5rem"}
+                          mr={"1.5rem"}
+                        >
                           <Text
-                          fontSize={'md'}
-                          fontWeight={'bolder'}
+                            fontSize={"md"}
+                            fontWeight={"bolder"}
                             margin={"auto"}
                             bg={bgColor(data.post?.category)}
                             color={textColor(data.post?.category)}
-                            pt={'0.5rem'}
-                            pb={'0.5rem'}
-                            pl={'0.5rem'}
+                            pt={"0.5rem"}
+                            pb={"0.5rem"}
+                            pl={"0.5rem"}
                           >
                             {node.node.title}
                           </Text>
@@ -339,6 +346,7 @@ export default function Home(props) {
                             >
                               <Img
                                 rounded={"1.5rem"}
+                                bg={textColor(node.node?.category)}
                                 quality="100"
                                 width={"100%"}
                                 height={"100%"}

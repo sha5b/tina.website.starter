@@ -3,8 +3,22 @@ import { gql, staticRequest } from "tinacms";
 import { useTina } from "tinacms/dist/edit-state";
 import React from "react";
 import { Layout } from "../components/Layout";
-import { Box, Flex, Heading, Text, chakra } from "@chakra-ui/react";
-import { bgColor, category, categoryHref, textColor } from "../components/Theme";
+import {
+  Box,
+  Flex,
+  Heading,
+  Text,
+  chakra,
+  Button,
+  GridItem,
+  Grid,
+} from "@chakra-ui/react";
+import {
+  bgColor,
+  category,
+  categoryHref,
+  textColor,
+} from "../components/Theme";
 import Link from "next/link";
 import Image from "next/image";
 // End
@@ -20,7 +34,6 @@ import { FeaturedPostBlock } from "../components/blocks/FeaturedPostBlock";
 import { CardBlock } from "../components/blocks/CardBlock";
 import { RichtextBlock } from "../components/blocks/RichTextBlock";
 // End
-
 
 const query = `
 query FetchQuery{
@@ -136,7 +149,6 @@ const Img = chakra(Image, {
     ["width", "height", "src", "alt", "layout"].includes(prop),
 });
 
-
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
   const { data } = useTina({
@@ -150,7 +162,7 @@ export default function Home(props) {
 
   // End
   return (
-    <Layout {... props}>
+    <Layout {...props}>
       {data.page
         ? data.page.blocks?.map((block, i) => {
             switch (block.__typename) {
@@ -193,11 +205,7 @@ export default function Home(props) {
               case "PageBlocksFeatured":
                 return (
                   <>
-                    <FeaturedPostBlock
-                      i={i}
-                      block={block}
-                      posts={posts}
-                    />
+                    <FeaturedPostBlock i={i} block={block} posts={posts} />
                   </>
                 );
               case "PageBlocksCard":
@@ -215,48 +223,63 @@ export default function Home(props) {
             }
           })
         : null}
-             <Box>
+      <Box>
         <Flex wrap={"wrap"}>
           <Box pt={"2rem"}>
-            <Heading fontSize={"xl"}>All Articles</Heading>
-            <Flex wrap={'wrap'} >
+            <Button
+              p={"2rem"}
+              rounded={"none"}
+              color={"whitecuba.100"}
+              bg={"blacksuite.100"}
+              fontSize={"3xl"}
+            >
+              All Articles
+            </Button>
+            <Flex
+              pt={"1.5rem"}
+              gap={25}
+              wrap={'wrap'}
+              justify={'space-evenly'}
+            >
               {posts?.map((node) => {
                 return (
-                  <Box>
-                        <Box flexGrow={1} minW={'15rem'} mt={"0.5rem"} mb={"1.5rem"}mr={"1.5rem"}>
-                          <Text
-                          fontSize={'md'}
-                          fontWeight={'bolder'}
-                            margin={"auto"}
-                            bg={bgColor(node.node?.category)}
-                            color={textColor(node.node?.category)}
-                            pt={'0.5rem'}
-                            pb={'0.5rem'}
-                            pl={'0.5rem'}
-                          >
-                            {node.node.title}
-                          </Text>
-                          <Link href={`posts/${node.node._sys.filename}`}>
-                            <Box
-                              margin={"auto"}
-                              mt={"0.5rem"}
-                              p={"0.85rem"}
-                              bg={bgColor(node.node?.category)}
-                              display={"block"}
-                            >
-                              <Img
-                                rounded={"1.5rem"}
-                                quality="100"
-                                width={"100%"}
-                                height={"100%"}
-                                layout={"responsive"}
-                                objectFit="cover"
-                                src={node.node.image}
-                                alt={node.node.title}
-                              />
-                            </Box>
-                          </Link>
+                  <Box minW={'15rem'}>
+                    <Box
+                      boxShadow={"lg"}
+                    >
+                      <Text
+                        fontSize={"md"}
+                        fontWeight={"bolder"}
+                        margin={"auto"}
+                        bg={bgColor(node.node?.category)}
+                        color={textColor(node.node?.category)}
+                        p={"0.5rem"}
+                      >
+                        {node.node.title}
+                      </Text>
+                      <Link href={`posts/${node.node._sys.filename}`}>
+                        <Box
+                          flexGrow={1}
+                          margin={"auto"}
+                          mt={"0.5rem"}
+                          p={"0.85rem"}
+                          bg={bgColor(node.node?.category)}
+                          display={"block"}
+                        >
+                          <Img
+                            bg={textColor(node.node?.category)}
+                            rounded={"1.5rem"}
+                            quality="100"
+                            width={"100%"}
+                            height={"100%"}
+                            layout={"responsive"}
+                            objectFit="cover"
+                            src={node.node.image}
+                            alt={node.node.title}
+                          />
                         </Box>
+                      </Link>
+                    </Box>
                   </Box>
                 );
               })}

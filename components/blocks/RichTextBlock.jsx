@@ -27,7 +27,7 @@ const components = {
     return <Divider mb={'1.5rem'}{... props}/>
   },
   p: (props) => {
-    return <Text my={2} fontSize='lg' letterSpacing={'wide'} textAlign={'justify'}{...props} />;
+    return <Text my={2} fontSize='md' letterSpacing={'wide'} textAlign={'justify'}{...props} />;
   },
   img: (props) => {
 
@@ -52,9 +52,7 @@ const components = {
 export const RichtextBlock = ({ block, id, i }) => {
   return (
     <Box >
-      <Divider mb={'1.5rem'}/>
       <TinaMarkdown content={block.body} components={components}/>
-      <Divider mb={'1.5rem'} mt={'1.5rem'}/>
     </Box>
   );
 };

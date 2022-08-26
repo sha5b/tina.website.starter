@@ -3,8 +3,9 @@ import { Layout } from "../../components/Layout";
 import { useTina } from "tinacms/dist/edit-state";
 import React from "react";
 import { Box, Flex, Heading, Text, chakra } from "@chakra-ui/react";
-import Map, { Marker } from "react-map-gl";
-import { DeckGL } from "deck.gl";
+import Map from "react-map-gl";
+import { DeckGL, LineLayer, MapView } from "deck.gl";
+
 
 const query = `query getMap($relativePath: String!) {
   map(relativePath: $relativePath) {
@@ -38,16 +39,16 @@ export default function Home(props) {
 
   return (
     <Layout {...props}>
-      <Box p={"1.5rem"} w={"100%"} margin={"auto"} height={800}>
-        <Map
-          position={"aboslute"}
-          initialViewState={{
-            latitude: 37.8,
-            longitude: -122.4,
-            zoom: 14,
-          }}
-          mapStyle="https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json"
-        ></Map>
+      <Box p={"1.5rem"}>
+          <Map
+            initialViewState={{
+              longitude: -100,
+              latitude: 40,
+              zoom:12,
+            }}
+            style={{ width: "100%", height: '100%' }}
+            mapStyle="https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json"
+          />
       </Box>
     </Layout>
   );

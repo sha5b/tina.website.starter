@@ -39,8 +39,6 @@ export const Navbar = (props) => {
   const bg = bgColor(props.props.data.post?.category);
   const textcol = textColor(props.props.data.post?.category);
 
-  const { scrollYProgress } = useScroll();
-
   return (
     <Box top={0} zIndex={10}>
       <Flex justify="space-between" align={"center"}>

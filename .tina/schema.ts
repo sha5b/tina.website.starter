@@ -537,6 +537,26 @@ const schema = defineSchema({
           label: "Published Date",
           type: "datetime",
         },
+        {
+          name: "long",
+          label: "Long",
+          type: 'number',
+        },
+        {
+          name: "lat",
+          label: "Lati",
+          type: 'number',
+        },
+        {
+          name: "bearing",
+          label: "Bearing",
+          type: 'number',
+        },
+        {
+          name: "pitch",
+          label: "Pitch",
+          type: 'number',
+        },
       ],
     },
     // End of Maps

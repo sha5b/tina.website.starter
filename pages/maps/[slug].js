@@ -3,9 +3,9 @@ import { Layout } from "../../components/Layout";
 import { useTina } from "tinacms/dist/edit-state";
 import React from "react";
 import { Box, Flex, Heading, Text, chakra } from "@chakra-ui/react";
-import Map from "react-map-gl";
-import { DeckGL, LineLayer, MapView } from "deck.gl";
-
+import { DeckGL, GeoJsonLayer, ArcLayer } from "deck.gl";
+import {BitmapLayer} from '@deck.gl/layers';
+import {TileLayer} from '@deck.gl/geo-layers';
 
 const query = `query getMap($relativePath: String!) {
   map(relativePath: $relativePath) {
@@ -29,6 +29,14 @@ const query = `query getMap($relativePath: String!) {
 }
 `;
 
+const INITIAL_VIEW_STATE = {
+  latitude: 51.47,
+  longitude: 0.45,
+  zoom: 5,
+  bearing: 25,
+  pitch: 45,
+};
+
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
   const { data } = useTina({
@@ -36,19 +44,34 @@ export default function Home(props) {
     variables: props.variables,
     data: props.data,
   });
+  const layer = new TileLayer({
+    // https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Tile_servers
+    data: 'https://c.tile.openstreetmap.org/{z}/{x}/{y}.png',
+
+    minZoom: 0,
+    maxZoom: 19,
+    tileSize: 256,
+
+    renderSubLayers: props => {
+      const {
+        bbox: {west, south, east, north}
+      } = props.tile;
+
+      return new BitmapLayer(props, {
+        data: null,
+        image: props.data,
+        bounds: [west, south, east, north]
+      });
+    }
+  });
 
   return (
     <Layout {...props}>
-      <Box p={"1.5rem"}>
-          <Map
-            initialViewState={{
-              longitude: -100,
-              latitude: 40,
-              zoom:12,
-            }}
-            style={{ width: "100%", height: '100%' }}
-            mapStyle="https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json"
-          />
+      <Box  mt={"2rem"} mb={"2rem"}>
+        <Box pos={"relative"}  w={"100%"} h={"750px"}>
+          <DeckGL controller={true} initialViewState={INITIAL_VIEW_STATE} border={"25px"} layers={[layer]}>
+          </DeckGL>
+        </Box>
       </Box>
     </Layout>
   );

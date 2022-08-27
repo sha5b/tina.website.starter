@@ -9,11 +9,10 @@ import DeckGL, {
   ArcLayer,
   BitmapLayer,
   TileLayer,
+  TerrainLayer,
+  TextLayer,
 } from "deck.gl";
 import { StaticMap, MapContext, NavigationControl } from "react-map-gl";
-
-import {} from 'deck.gl';
-import {} from 'mapbox-gl';
 
 const query = `query getMap($relativePath: String!) {
   map(relativePath: $relativePath) {
@@ -40,6 +39,19 @@ const query = `query getMap($relativePath: String!) {
   }
 }
 `;
+// "https://stamen-tiles.a.ssl.fastly.net/toner/{z}/{x}/{y}.png",
+const COUNTRIES =
+  "https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_admin_0_scale_rank.geojson"; //eslint-disable-line
+const AIR_PORTS =
+  "https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_airports.geojson";
+
+const INITIAL_VIEW_STATE = {
+  latitude: 47.4504823,
+  longitude: 9.830742,
+  zoom: 5,
+  bearing: 25,
+  pitch: 25,
+};
 
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
@@ -48,68 +60,49 @@ export default function Home(props) {
     variables: props.variables,
     data: props.data,
   });
-  const INITIAL_VIEW_STATE = {
-    latitude: 47.4504823,
-    longitude: 9.830742,
-    zoom: 15,
-    bearing: 25,
-    pitch: 25,
-  };
-  const baseLayer = new TileLayer({
-    // https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Tile_servers
-    data: "https://stamen-tiles.a.ssl.fastly.net/toner/{z}/{x}/{y}.png",
-
-    minZoom: 0,
-    maxZoom: 20,
-    tileSize: 256,
-
-    renderSubLayers: (props) => {
-      const {
-        bbox: { west, south, east, north },
-      } = props.tile;
-
-      return new BitmapLayer(props, {
-        data: null,
-        image: props.data,
-        bounds: [west, south, east, north],
-      });
-    },
-  });
-
-  const pointLayer = new TileLayer({
-    // https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Tile_servers
-    data: "https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png",
-
-    minZoom: 0,
-    maxZoom: 20,
-    tileSize: 256,
-    
-
-    renderSubLayers: (props) => {
-      const {
-        bbox: { west, south, east, north },
-      } = props.tile;
-
-      return new BitmapLayer(props, {
-        data: null,
-        image: props.data,
-        bounds: [west, south, east, north],
-      });
-    },
-  });
 
   return (
     <Layout {...props}>
       <Box mt={"2rem"} mb={"2rem"}>
         <Box pos={"relative"} w={"100%"} h={"800px"}>
-          <DeckGL
-            controller={true}
-            initialViewState={INITIAL_VIEW_STATE}
-            layers={[pointLayer, baseLayer ]}
-          ></DeckGL>
+          <DeckGL initialViewState={INITIAL_VIEW_STATE}>
+            <NavigationControl/>
+            <GeoJsonLayer
+              id="base-map"
+              data={COUNTRIES}
+              stroked={true}
+              filled={true}
+              lineWidthMinPixels={2}
+              opacity={0.4}
+              getLineColor={[60, 60, 60]}
+              getFillColor={[200, 200, 200]}
+            />
+            <GeoJsonLayer
+              id="airports"
+              data={AIR_PORTS}
+              filled={true}
+              pointRadiusMinPixels={2}
+              pointRadiusScale={2000}
+              getPointRadius={(f) => 11 - f.properties.scalerank}
+              getFillColor={[200, 0, 80, 180]}
+              pickable={true}
+              autoHighlight={true}
+            />
+            <ArcLayer
+              id="arcs"
+              data={AIR_PORTS}
+              dataTransform={(d) =>
+                d.features.filter((f) => f.properties.scalerank < 4)
+              }
+              getSourcePosition={(f) => [-0.4531566, 51.4709959]}
+              getTargetPosition={(f) => f.geometry.coordinates}
+              getSourceColor={[0, 128, 200]}
+              getTargetColor={[200, 0, 80]}
+              getWidth={1}
+            />
+          </DeckGL>
         </Box>
       </Box>
-
     </Layout>
   );
 }

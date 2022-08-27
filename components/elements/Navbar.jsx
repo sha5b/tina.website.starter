@@ -28,7 +28,7 @@ const Img = chakra(Image, {
 });
 
 export const Navbar = (props) => {
-  const allTags = props.props.data?.postConnection.edges.map((node) => {
+  const allTags = props.props.data.postConnection?.edges.map((node) => {
     return node.node.tags;
   });
 

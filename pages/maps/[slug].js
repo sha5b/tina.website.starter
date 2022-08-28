@@ -1,18 +1,13 @@
 import { staticRequest } from "tinacms";
 import { Layout } from "../../components/Layout";
 import { useTina } from "tinacms/dist/edit-state";
-import React from "react";
+import React, { useState } from "react";
 import { Box, Flex, Heading, Text, chakra } from "@chakra-ui/react";
-import DeckGL, {
-  GeoJsonLayer,
-  ScatterplotLayer,
-  ArcLayer,
-  BitmapLayer,
-  TileLayer,
-  TerrainLayer,
-  TextLayer,
-} from "deck.gl";
-import { StaticMap, MapContext, NavigationControl } from "react-map-gl";
+import Map, { NavigationControl } from "react-map-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
+import DeckGL from "@deck.gl/react";
+import { HeatmapLayer } from "@deck.gl/aggregation-layers";
+import { GeoJsonLayer, ArcLayer } from "@deck.gl/layers";
 
 const query = `query getMap($relativePath: String!) {
   map(relativePath: $relativePath) {
@@ -39,18 +34,15 @@ const query = `query getMap($relativePath: String!) {
   }
 }
 `;
-// "https://stamen-tiles.a.ssl.fastly.net/toner/{z}/{x}/{y}.png",
-const COUNTRIES =
-  "https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_admin_0_scale_rank.geojson"; //eslint-disable-line
-const AIR_PORTS =
-  "https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_airports.geojson";
 
 const INITIAL_VIEW_STATE = {
-  latitude: 47.4504823,
-  longitude: 9.830742,
-  zoom: 5,
-  bearing: 25,
+  longitude: 47.4504823,
+  latitude: 9.830742,
+  zoom: 9,
+  maxZoom: 16,
+  minZoom: 3,
   pitch: 25,
+  bearing: 25,
 };
 
 export default function Home(props) {
@@ -65,11 +57,13 @@ export default function Home(props) {
     <Layout {...props}>
       <Box mt={"2rem"} mb={"2rem"}>
         <Box pos={"relative"} w={"100%"} h={"800px"}>
-          <DeckGL initialViewState={INITIAL_VIEW_STATE}>
-            <NavigationControl/>
+          <DeckGL
+            initialViewState={INITIAL_VIEW_STATE}
+            controller={true}
+          >
             <GeoJsonLayer
               id="base-map"
-              data={COUNTRIES}
+              data="https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/highway/roads.json"
               stroked={true}
               filled={true}
               lineWidthMinPixels={2}
@@ -79,7 +73,7 @@ export default function Home(props) {
             />
             <GeoJsonLayer
               id="airports"
-              data={AIR_PORTS}
+              data="https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_airports.geojson"
               filled={true}
               pointRadiusMinPixels={2}
               pointRadiusScale={2000}
@@ -90,7 +84,7 @@ export default function Home(props) {
             />
             <ArcLayer
               id="arcs"
-              data={AIR_PORTS}
+              data="https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_airports.geojson"
               dataTransform={(d) =>
                 d.features.filter((f) => f.properties.scalerank < 4)
               }
@@ -100,6 +94,20 @@ export default function Home(props) {
               getTargetColor={[200, 0, 80]}
               getWidth={1}
             />
+            <Map
+              initialViewState={{
+                latitude: 47.65,
+                longitude: 7,
+                zoom: 4.5,
+                maxZoom: 16,
+                pitch: 50,
+                bearing: 0,
+              }}
+              mapStyle="https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json"
+              mapboxAccessToken={process.env.mapbox_key}
+            >
+              <NavigationControl />
+            </Map>
           </DeckGL>
         </Box>
       </Box>

@@ -20,15 +20,90 @@ import {
 
 export const RichtextBlock = ({ block, category, id, i }) => {
   const components = {
-    h1: (props) => <Heading as="h1"  color={bgColor(category)} fontSize="5xl" my={2} {...props} />,
-    h2: (props) => <Heading as="h2"  color={bgColor(category)} fontSize="4xl" my={2} {...props} />,
-    h3: (props) => <Heading as="h3"  color={bgColor(category)} fontSize="3xl" my={2} {...props} />,
-    h4: (props) => <Heading as="h4"  color={bgColor(category)} fontSize="2xl" my={2} {...props} />,
-    h5: (props) => <Heading as="h5"  color={bgColor(category)} fontSize="xl" my={2} {...props} />,
-    h6: (props) => <Heading as="h6"  color={bgColor(category)} fontSize="lg" my={2} {...props} />,
-    li: (props) => <Box as="li"  color={bgColor(category)} fontSize="lg" my={2} mx={4} {...props} />,
-    ul: (props) => <Box as="ul"  color={bgColor(category)} fontSize="lg" my={2} mx={4} {...props} />,
-    ol: (props) => <Box as="ol"  color={bgColor(category)} fontSize="lg" my={2} mx={4} {...props} />,
+    h1: (props) => (
+      <Heading
+        as="h1"
+        color={bgColor(category)}
+        fontSize="5xl"
+        my={2}
+        {...props}
+      />
+    ),
+    h2: (props) => (
+      <Heading
+        as="h2"
+        color={bgColor(category)}
+        fontSize="4xl"
+        my={2}
+        {...props}
+      />
+    ),
+    h3: (props) => (
+      <Heading
+        as="h3"
+        color={bgColor(category)}
+        fontSize="3xl"
+        my={2}
+        {...props}
+      />
+    ),
+    h4: (props) => (
+      <Heading
+        as="h4"
+        color={bgColor(category)}
+        fontSize="2xl"
+        my={2}
+        {...props}
+      />
+    ),
+    h5: (props) => (
+      <Heading
+        as="h5"
+        color={bgColor(category)}
+        fontSize="xl"
+        my={2}
+        {...props}
+      />
+    ),
+    h6: (props) => (
+      <Heading
+        as="h6"
+        color={bgColor(category)}
+        fontSize="lg"
+        my={2}
+        {...props}
+      />
+    ),
+    li: (props) => (
+      <Box
+        as="li"
+        color={bgColor(category)}
+        fontSize="lg"
+        my={2}
+        mx={4}
+        {...props}
+      />
+    ),
+    ul: (props) => (
+      <Box
+        as="ul"
+        color={bgColor(category)}
+        fontSize="lg"
+        my={2}
+        mx={4}
+        {...props}
+      />
+    ),
+    ol: (props) => (
+      <Box
+        as="ol"
+        color={bgColor(category)}
+        fontSize="lg"
+        my={2}
+        mx={4}
+        {...props}
+      />
+    ),
     a: (props) => {
       return <Link href={props.href}>{props.children}</Link>;
     },
@@ -67,6 +142,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
           alt={props.alt}
           objectFit="cover"
           quality="100"
+          rounded={'1.5rem'}
         />
       );
     },
@@ -81,7 +157,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
             rounded={"none"}
             bg={bgColor(category)}
             color={textColor(category)}
-            p={'1.5rem'}
+            p={"1.5rem"}
           >
             <a href={`${props.href}`}>{props.message}</a>
           </Button>
@@ -98,9 +174,13 @@ export const RichtextBlock = ({ block, category, id, i }) => {
         autoColumns={"auto"}
         gap={5}
       >
-        <GridItem colStart={block?.x} colSpan={block?.width}>
-          <TinaMarkdown content={block.body} components={components} />
-        </GridItem>
+        {block.textblock?.map((textitem) => {
+          return (
+            <GridItem colStart={textitem?.x} colSpan={textitem?.width}>
+              <TinaMarkdown content={textitem.body} components={components} />
+            </GridItem>
+          );
+        })}
       </Grid>
     </Box>
   );

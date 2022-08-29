@@ -413,34 +413,42 @@ const RichtextBlock: TinaTemplate = {
   name: "richtext",
   fields: [
     {
-      name: "x",
-      label: "X Position",
-      type: "number",
-    },
-    {
-      name: "width",
-      label: "Width",
-      type: "number",
-    },
-    {
-      name: "body",
-      label: "Body",
-      isBody: true,
-      type: "rich-text",
-      templates: [
+      name: "textblock",
+      label: "Textblock",
+      type: "object",
+      list: true,
+      ui: {
+        itemProps: (item) => {
+          return { label: item?.title };
+        },
+      },
+      fields: [
         {
-          name: "callout",
-          label: "Callout",
-          fields: [
+          name: "x",
+          label: "X Position",
+          type: "number",
+        },
+        {
+          name: "width",
+          label: "Width",
+          type: "number",
+        },
+        {
+          name: "body",
+          label: "Body",
+          isBody: true,
+          type: "rich-text",
+          templates: [
             {
-              name: "message",
-              label: "Message",
-              type: "string",
-            },
-            {
-              name: "href",
-              label: "Href",
-              type: "string",
+              name: "callout",
+              label: "Callout",
+              fields: [
+                {
+                  name: "message",
+                  label: "Message",
+                  type: "string",
+                },
+              ],
             },
           ],
         },

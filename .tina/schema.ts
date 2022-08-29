@@ -435,6 +435,9 @@ const blocks = [
 
 const schema = defineSchema({
   config: {
+    clientId: '***',
+    branch: '***',
+    token: '***',
     media: {
       tina: {
         mediaRoot: "uploads",
@@ -514,13 +517,6 @@ const schema = defineSchema({
           name: "image",
           label: "og:image",
           type: "image",
-        },
-        {
-          name: "text",
-          label: "Text Block Section",
-          type: "object",
-          list: true,
-          templates: [RichtextBlock],
         },
         {
           name: "blocks",

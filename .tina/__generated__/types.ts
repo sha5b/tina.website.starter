@@ -483,13 +483,6 @@ export type PageConnection = Connection & {
   edges?: Maybe<Array<Maybe<PageConnectionEdges>>>;
 };
 
-export type PostTextRichtext = {
-  __typename?: 'PostTextRichtext';
-  body?: Maybe<Scalars['JSON']>;
-};
-
-export type PostText = PostTextRichtext;
-
 export type PostBlocksHeroPositionText = {
   __typename?: 'PostBlocksHeroPositionText';
   x?: Maybe<Scalars['Float']>;
@@ -620,7 +613,6 @@ export type Post = Node & Document & {
   description?: Maybe<Scalars['String']>;
   size?: Maybe<Scalars['Float']>;
   image?: Maybe<Scalars['String']>;
-  text?: Maybe<Array<Maybe<PostText>>>;
   blocks?: Maybe<Array<Maybe<PostBlocks>>>;
   id: Scalars['ID'];
   _sys: SystemInfo;
@@ -633,14 +625,6 @@ export type DatetimeFilter = {
   eq?: InputMaybe<Scalars['String']>;
   exists?: InputMaybe<Scalars['Boolean']>;
   in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type PostTextRichtextFilter = {
-  body?: InputMaybe<RichTextFilter>;
-};
-
-export type PostTextFilter = {
-  richtext?: InputMaybe<PostTextRichtextFilter>;
 };
 
 export type PostBlocksHeroPositionTextFilter = {
@@ -765,7 +749,6 @@ export type PostFilter = {
   description?: InputMaybe<StringFilter>;
   size?: InputMaybe<NumberFilter>;
   image?: InputMaybe<ImageFilter>;
-  text?: InputMaybe<PostTextFilter>;
   blocks?: InputMaybe<PostBlocksFilter>;
 };
 
@@ -1017,14 +1000,6 @@ export type PageMutation = {
   blocks?: InputMaybe<Array<InputMaybe<PageBlocksMutation>>>;
 };
 
-export type PostTextRichtextMutation = {
-  body?: InputMaybe<Scalars['JSON']>;
-};
-
-export type PostTextMutation = {
-  richtext?: InputMaybe<PostTextRichtextMutation>;
-};
-
 export type PostBlocksHeroPositionTextMutation = {
   x?: InputMaybe<Scalars['Float']>;
   width?: InputMaybe<Scalars['Float']>;
@@ -1147,7 +1122,6 @@ export type PostMutation = {
   description?: InputMaybe<Scalars['String']>;
   size?: InputMaybe<Scalars['Float']>;
   image?: InputMaybe<Scalars['String']>;
-  text?: InputMaybe<Array<InputMaybe<PostTextMutation>>>;
   blocks?: InputMaybe<Array<InputMaybe<PostBlocksMutation>>>;
 };
 
@@ -1161,7 +1135,7 @@ export type MapMutation = {
 
 export type PagePartsFragment = { __typename?: 'Page', category?: string | null, blocks?: Array<{ __typename: 'PageBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null, position?: { __typename: 'PageBlocksHeroPosition', text?: { __typename: 'PageBlocksHeroPositionText', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null, image?: { __typename: 'PageBlocksHeroPositionImage', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null } | null } | { __typename: 'PageBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PageBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PageBlocksQuote', quote?: string | null, author?: string | null, x?: number | null, width?: number | null } | { __typename: 'PageBlocksGallery', gallery?: Array<{ __typename: 'PageBlocksGalleryGallery', image?: string | null, alt?: string | null, x?: number | null, width?: number | null, height?: number | null } | null> | null } | { __typename: 'PageBlocksFact', fact?: Array<{ __typename: 'PageBlocksFactFact', headline?: string | null, subheadline?: string | null, x?: number | null, width?: number | null } | null> | null } | { __typename: 'PageBlocksLogos', headline?: string | null, width?: number | null, logos?: Array<{ __typename: 'PageBlocksLogosLogos', logo?: string | null, alt?: string | null, href?: string | null } | null> | null } | { __typename: 'PageBlocksCard', cards?: Array<{ __typename: 'PageBlocksCardCards', title?: string | null, body?: any | null, href?: string | null, x?: number | null, width?: number | null, colors?: string | null } | null> | null } | { __typename: 'PageBlocksFeatured', category?: string | null, size?: number | null, colors?: string | null } | { __typename: 'PageBlocksRichtext', body?: any | null } | null> | null };
 
-export type PostPartsFragment = { __typename?: 'Post', title?: string | null, category?: string | null, tags?: Array<string | null> | null, date?: string | null, description?: string | null, size?: number | null, image?: string | null, text?: Array<{ __typename: 'PostTextRichtext', body?: any | null } | null> | null, blocks?: Array<{ __typename: 'PostBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null, position?: { __typename: 'PostBlocksHeroPosition', text?: { __typename: 'PostBlocksHeroPositionText', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null, image?: { __typename: 'PostBlocksHeroPositionImage', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null } | null } | { __typename: 'PostBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PostBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PostBlocksQuote', quote?: string | null, author?: string | null, x?: number | null, width?: number | null } | { __typename: 'PostBlocksGallery', gallery?: Array<{ __typename: 'PostBlocksGalleryGallery', image?: string | null, alt?: string | null, x?: number | null, width?: number | null, height?: number | null } | null> | null } | { __typename: 'PostBlocksFact', fact?: Array<{ __typename: 'PostBlocksFactFact', headline?: string | null, subheadline?: string | null, x?: number | null, width?: number | null } | null> | null } | { __typename: 'PostBlocksLogos', headline?: string | null, width?: number | null, logos?: Array<{ __typename: 'PostBlocksLogosLogos', logo?: string | null, alt?: string | null, href?: string | null } | null> | null } | { __typename: 'PostBlocksCard', cards?: Array<{ __typename: 'PostBlocksCardCards', title?: string | null, body?: any | null, href?: string | null, x?: number | null, width?: number | null, colors?: string | null } | null> | null } | { __typename: 'PostBlocksFeatured', category?: string | null, size?: number | null, colors?: string | null } | { __typename: 'PostBlocksRichtext', body?: any | null } | null> | null };
+export type PostPartsFragment = { __typename?: 'Post', title?: string | null, category?: string | null, tags?: Array<string | null> | null, date?: string | null, description?: string | null, size?: number | null, image?: string | null, blocks?: Array<{ __typename: 'PostBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null, position?: { __typename: 'PostBlocksHeroPosition', text?: { __typename: 'PostBlocksHeroPositionText', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null, image?: { __typename: 'PostBlocksHeroPositionImage', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null } | null } | { __typename: 'PostBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PostBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PostBlocksQuote', quote?: string | null, author?: string | null, x?: number | null, width?: number | null } | { __typename: 'PostBlocksGallery', gallery?: Array<{ __typename: 'PostBlocksGalleryGallery', image?: string | null, alt?: string | null, x?: number | null, width?: number | null, height?: number | null } | null> | null } | { __typename: 'PostBlocksFact', fact?: Array<{ __typename: 'PostBlocksFactFact', headline?: string | null, subheadline?: string | null, x?: number | null, width?: number | null } | null> | null } | { __typename: 'PostBlocksLogos', headline?: string | null, width?: number | null, logos?: Array<{ __typename: 'PostBlocksLogosLogos', logo?: string | null, alt?: string | null, href?: string | null } | null> | null } | { __typename: 'PostBlocksCard', cards?: Array<{ __typename: 'PostBlocksCardCards', title?: string | null, body?: any | null, href?: string | null, x?: number | null, width?: number | null, colors?: string | null } | null> | null } | { __typename: 'PostBlocksFeatured', category?: string | null, size?: number | null, colors?: string | null } | { __typename: 'PostBlocksRichtext', body?: any | null } | null> | null };
 
 export type MapPartsFragment = { __typename?: 'Map', date?: string | null, long?: number | null, lat?: number | null, bearing?: number | null, pitch?: number | null };
 
@@ -1189,7 +1163,7 @@ export type PostQueryVariables = Exact<{
 }>;
 
 
-export type PostQuery = { __typename?: 'Query', post: { __typename?: 'Post', id: string, title?: string | null, category?: string | null, tags?: Array<string | null> | null, date?: string | null, description?: string | null, size?: number | null, image?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, text?: Array<{ __typename: 'PostTextRichtext', body?: any | null } | null> | null, blocks?: Array<{ __typename: 'PostBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null, position?: { __typename: 'PostBlocksHeroPosition', text?: { __typename: 'PostBlocksHeroPositionText', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null, image?: { __typename: 'PostBlocksHeroPositionImage', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null } | null } | { __typename: 'PostBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PostBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PostBlocksQuote', quote?: string | null, author?: string | null, x?: number | null, width?: number | null } | { __typename: 'PostBlocksGallery', gallery?: Array<{ __typename: 'PostBlocksGalleryGallery', image?: string | null, alt?: string | null, x?: number | null, width?: number | null, height?: number | null } | null> | null } | { __typename: 'PostBlocksFact', fact?: Array<{ __typename: 'PostBlocksFactFact', headline?: string | null, subheadline?: string | null, x?: number | null, width?: number | null } | null> | null } | { __typename: 'PostBlocksLogos', headline?: string | null, width?: number | null, logos?: Array<{ __typename: 'PostBlocksLogosLogos', logo?: string | null, alt?: string | null, href?: string | null } | null> | null } | { __typename: 'PostBlocksCard', cards?: Array<{ __typename: 'PostBlocksCardCards', title?: string | null, body?: any | null, href?: string | null, x?: number | null, width?: number | null, colors?: string | null } | null> | null } | { __typename: 'PostBlocksFeatured', category?: string | null, size?: number | null, colors?: string | null } | { __typename: 'PostBlocksRichtext', body?: any | null } | null> | null } };
+export type PostQuery = { __typename?: 'Query', post: { __typename?: 'Post', id: string, title?: string | null, category?: string | null, tags?: Array<string | null> | null, date?: string | null, description?: string | null, size?: number | null, image?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PostBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null, position?: { __typename: 'PostBlocksHeroPosition', text?: { __typename: 'PostBlocksHeroPositionText', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null, image?: { __typename: 'PostBlocksHeroPositionImage', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null } | null } | { __typename: 'PostBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PostBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PostBlocksQuote', quote?: string | null, author?: string | null, x?: number | null, width?: number | null } | { __typename: 'PostBlocksGallery', gallery?: Array<{ __typename: 'PostBlocksGalleryGallery', image?: string | null, alt?: string | null, x?: number | null, width?: number | null, height?: number | null } | null> | null } | { __typename: 'PostBlocksFact', fact?: Array<{ __typename: 'PostBlocksFactFact', headline?: string | null, subheadline?: string | null, x?: number | null, width?: number | null } | null> | null } | { __typename: 'PostBlocksLogos', headline?: string | null, width?: number | null, logos?: Array<{ __typename: 'PostBlocksLogosLogos', logo?: string | null, alt?: string | null, href?: string | null } | null> | null } | { __typename: 'PostBlocksCard', cards?: Array<{ __typename: 'PostBlocksCardCards', title?: string | null, body?: any | null, href?: string | null, x?: number | null, width?: number | null, colors?: string | null } | null> | null } | { __typename: 'PostBlocksFeatured', category?: string | null, size?: number | null, colors?: string | null } | { __typename: 'PostBlocksRichtext', body?: any | null } | null> | null } };
 
 export type PostConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -1201,7 +1175,7 @@ export type PostConnectionQueryVariables = Exact<{
 }>;
 
 
-export type PostConnectionQuery = { __typename?: 'Query', postConnection: { __typename?: 'PostConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PostConnectionEdges', node?: { __typename?: 'Post', id: string, title?: string | null, category?: string | null, tags?: Array<string | null> | null, date?: string | null, description?: string | null, size?: number | null, image?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, text?: Array<{ __typename: 'PostTextRichtext', body?: any | null } | null> | null, blocks?: Array<{ __typename: 'PostBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null, position?: { __typename: 'PostBlocksHeroPosition', text?: { __typename: 'PostBlocksHeroPositionText', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null, image?: { __typename: 'PostBlocksHeroPositionImage', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null } | null } | { __typename: 'PostBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PostBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PostBlocksQuote', quote?: string | null, author?: string | null, x?: number | null, width?: number | null } | { __typename: 'PostBlocksGallery', gallery?: Array<{ __typename: 'PostBlocksGalleryGallery', image?: string | null, alt?: string | null, x?: number | null, width?: number | null, height?: number | null } | null> | null } | { __typename: 'PostBlocksFact', fact?: Array<{ __typename: 'PostBlocksFactFact', headline?: string | null, subheadline?: string | null, x?: number | null, width?: number | null } | null> | null } | { __typename: 'PostBlocksLogos', headline?: string | null, width?: number | null, logos?: Array<{ __typename: 'PostBlocksLogosLogos', logo?: string | null, alt?: string | null, href?: string | null } | null> | null } | { __typename: 'PostBlocksCard', cards?: Array<{ __typename: 'PostBlocksCardCards', title?: string | null, body?: any | null, href?: string | null, x?: number | null, width?: number | null, colors?: string | null } | null> | null } | { __typename: 'PostBlocksFeatured', category?: string | null, size?: number | null, colors?: string | null } | { __typename: 'PostBlocksRichtext', body?: any | null } | null> | null } | null } | null> | null } };
+export type PostConnectionQuery = { __typename?: 'Query', postConnection: { __typename?: 'PostConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PostConnectionEdges', node?: { __typename?: 'Post', id: string, title?: string | null, category?: string | null, tags?: Array<string | null> | null, date?: string | null, description?: string | null, size?: number | null, image?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PostBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null, position?: { __typename: 'PostBlocksHeroPosition', text?: { __typename: 'PostBlocksHeroPositionText', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null, image?: { __typename: 'PostBlocksHeroPositionImage', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null } | null } | { __typename: 'PostBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PostBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PostBlocksQuote', quote?: string | null, author?: string | null, x?: number | null, width?: number | null } | { __typename: 'PostBlocksGallery', gallery?: Array<{ __typename: 'PostBlocksGalleryGallery', image?: string | null, alt?: string | null, x?: number | null, width?: number | null, height?: number | null } | null> | null } | { __typename: 'PostBlocksFact', fact?: Array<{ __typename: 'PostBlocksFactFact', headline?: string | null, subheadline?: string | null, x?: number | null, width?: number | null } | null> | null } | { __typename: 'PostBlocksLogos', headline?: string | null, width?: number | null, logos?: Array<{ __typename: 'PostBlocksLogosLogos', logo?: string | null, alt?: string | null, href?: string | null } | null> | null } | { __typename: 'PostBlocksCard', cards?: Array<{ __typename: 'PostBlocksCardCards', title?: string | null, body?: any | null, href?: string | null, x?: number | null, width?: number | null, colors?: string | null } | null> | null } | { __typename: 'PostBlocksFeatured', category?: string | null, size?: number | null, colors?: string | null } | { __typename: 'PostBlocksRichtext', body?: any | null } | null> | null } | null } | null> | null } };
 
 export type MapQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -1324,12 +1298,6 @@ export const PostPartsFragmentDoc = gql`
   description
   size
   image
-  text {
-    __typename
-    ... on PostTextRichtext {
-      body
-    }
-  }
   blocks {
     __typename
     ... on PostBlocksHero {

@@ -413,8 +413,19 @@ const RichtextBlock: TinaTemplate = {
   name: "richtext",
   fields: [
     {
+      name: "x",
+      label: "X Position",
+      type: "number",
+    },
+    {
+      name: "width",
+      label: "Width",
+      type: "number",
+    },
+    {
       name: "body",
       label: "Body",
+      isBody: true,
       type: "rich-text",
     },
   ],
@@ -435,9 +446,9 @@ const blocks = [
 
 const schema = defineSchema({
   config: {
-    clientId: '***',
-    branch: '***',
-    token: '***',
+    clientId: "***",
+    branch: "***",
+    token: "***",
     media: {
       tina: {
         mediaRoot: "uploads",

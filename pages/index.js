@@ -123,6 +123,8 @@ query FetchQuery{
       }
       ... on PageBlocksRichtext {
         __typename
+        x
+        width
         body
       }
     }
@@ -225,7 +227,7 @@ export default function Home(props) {
         : null}
       <Box>
         <Flex wrap={"wrap"}>
-          <Box pt={"2rem"} w={'100%'}>
+          <Box pt={"2rem"} w={"100%"}>
             <Button
               p={"2rem"}
               rounded={"none"}
@@ -235,10 +237,15 @@ export default function Home(props) {
             >
               All Articles
             </Button>
-            <Flex pt={"1.5rem"} gap={25} wrap={"wrap"} justify={'space-between'}>
+            <Flex
+              pt={"1.5rem"}
+              gap={25}
+              wrap={"wrap"}
+              justify={"space-between"}
+            >
               {posts?.map((node) => {
                 return (
-                  <Box w={'12rem'}>
+                  <Box w={"12rem"}>
                     <Box boxShadow={"lg"}>
                       <Text
                         fontSize={"xs"}

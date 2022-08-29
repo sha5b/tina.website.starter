@@ -109,6 +109,8 @@ const query = `query getPage($relativePath: String!) {
       }
       ... on PageBlocksRichtext {
         __typename
+        x
+        width
         body
       }
     }

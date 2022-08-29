@@ -23,7 +23,11 @@ export const CallToActionBlock = ({ block, category, id, i }) => {
       bg={bgColor(category)}
     >
       <Box>
-        <Heading textAlign={"center"} color={textColor(category)} fontSize={"5xl"}>
+        <Heading
+          textAlign={"center"}
+          color={textColor(category)}
+          fontSize={"5xl"}
+        >
           {block.title}
         </Heading>
         <Text textAlign={"center"} color={textColor(category)} fontSize={"2xl"}>
@@ -33,7 +37,14 @@ export const CallToActionBlock = ({ block, category, id, i }) => {
       {block.button && (
         <Box>
           <Link href={block.button.href ?? " "}>
-            <Button fontSize={"lg"} p={"2rem"} textAlign={"center"} color={bgColor(category)} bg={textColor(category)}>
+            <Button
+              fontSize={"lg"}
+              p={"2rem"}
+              textAlign={"center"}
+              color={bgColor(category)}
+              bg={textColor(category)}
+              rounded={"none"}
+            >
               {block.button.label}
             </Button>
           </Link>

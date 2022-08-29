@@ -1,4 +1,13 @@
-import { chakra, Box, Grid, GridItem, Heading, Text, Divider } from "@chakra-ui/react";
+import {
+  chakra,
+  Box,
+  Grid,
+  GridItem,
+  Heading,
+  Text,
+  Divider,
+  Button,
+} from "@chakra-ui/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { Image } from "@chakra-ui/react";
 import Link from "next/link";
@@ -24,13 +33,20 @@ const components = {
     );
   },
   hr: (props) => {
-    return <Divider mb={'1.5rem'}{... props}/>
+    return <Divider mb={"1.5rem"} {...props} />;
   },
   p: (props) => {
-    return <Text my={2} fontSize='md' letterSpacing={'wide'} textAlign={'justify'}{...props} />;
+    return (
+      <Text
+        my={2}
+        fontSize="md"
+        letterSpacing={"wide"}
+        textAlign={"justify"}
+        {...props}
+      />
+    );
   },
   img: (props) => {
-
     const Img = chakra(Image, {
       shouldForwardProp: (prop) =>
         ["width", "height", "src", "alt", "layout", "fill"].includes(prop),
@@ -38,7 +54,7 @@ const components = {
     return (
       <Img
         mx="auto"
-        src={props.url ? props.url : '/'}
+        src={props.url ? props.url : "/"}
         height={"500"}
         width="100%"
         alt={props.alt}
@@ -50,10 +66,19 @@ const components = {
 };
 
 export const RichtextBlock = ({ block, id, i }) => {
+
   return (
-    <Box >
-      <TinaMarkdown content={block.body} components={components}/>
+    <Box>
+      <Grid
+        templateColumns={"repeat(6, 1fr)"}
+        autoRows={"auto"}
+        autoColumns={"auto"}
+        gap={5}
+      >
+        <GridItem colStart={block?.x} colSpan={block?.width} p={"1.5rem"}>
+          <TinaMarkdown content={block.body} components={components} />
+        </GridItem>
+      </Grid>
     </Box>
   );
 };
-

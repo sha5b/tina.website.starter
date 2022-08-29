@@ -61,7 +61,6 @@ export const Navbar = (props) => {
               rounded={"none"}
               bg={bg}
               color={textcol}
-              _hover={{ color: "blacksuite.100", bg: "whitecuba.100" }}
             >
               About Us
             </Button>
@@ -71,7 +70,6 @@ export const Navbar = (props) => {
               rounded={"none"}
               bg={bg}
               color={textcol}
-              _hover={{ color: "blacksuite.100", bg: "whitecuba.100" }}
             >
               Contact
             </Button>
@@ -81,7 +79,6 @@ export const Navbar = (props) => {
               rounded={"none"}
               bg={bg}
               color={textcol}
-              _hover={{ color: "blacksuite.100", bg: "whitecuba.100" }}
             >
               Our Mission
             </Button>
@@ -99,7 +96,6 @@ export const Navbar = (props) => {
                   rounded={"none"}
                   bg={bg}
                   color={textcol}
-                  _hover={{ color: "blacksuite.100", bg: "whitecuba.100" }}
                 >
                   Field of Work
                 </AccordionButton>
@@ -154,7 +150,6 @@ export const Navbar = (props) => {
                   fontWeight={"bold"}
                   bg={bg}
                   color={textcol}
-                  _hover={{ color: "blacksuite.100", bg: "whitecuba.100" }}
                 >
                   Topics
                 </AccordionButton>
@@ -171,7 +166,6 @@ export const Navbar = (props) => {
                             textAlign={"center"}
                             size={"sm"}
                             bg={bg}
-                            _hover={{ color: "blacksuite.100", bg: "whitecuba.100" }}
                           >
                             {tag}
                           </AccordionButton>

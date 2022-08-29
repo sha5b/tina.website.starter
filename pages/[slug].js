@@ -21,6 +21,9 @@ import { RichtextBlock } from "../components/blocks/RichTextBlock";
 const query = `query getPage($relativePath: String!) {
   page(relativePath: $relativePath) {
     id
+    _sys {
+      filename
+    }
     blocks {
       ... on PageBlocksHero {
         __typename

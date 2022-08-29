@@ -28,7 +28,7 @@ const Img = chakra(Image, {
 });
 
 export const Navbar = (props) => {
-  const allTags = props.props.data?.postConnection.edges.map((node) => {
+  const allTags = props.props.data.postConnection?.edges.map((node) => {
     return node.node.tags;
   });
 
@@ -38,8 +38,6 @@ export const Navbar = (props) => {
 
   const bg = bgColor(props.props.data.post?.category);
   const textcol = textColor(props.props.data.post?.category);
-
-  const { scrollYProgress } = useScroll();
 
   return (
     <Box top={0} zIndex={10}>

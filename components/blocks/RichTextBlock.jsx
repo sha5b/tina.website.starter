@@ -1,6 +1,6 @@
 import { chakra, Box, Grid, GridItem, Heading, Text, Divider } from "@chakra-ui/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import Image from "next/image";
+import { Image } from "@chakra-ui/react";
 import Link from "next/link";
 
 const components = {

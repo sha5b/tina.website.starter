@@ -25,7 +25,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
         as="h1"
         color={bgColor(category)}
         fontSize="5xl"
-        my={2}
+        pb={"0.75rem"}
         {...props}
       />
     ),
@@ -34,7 +34,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
         as="h2"
         color={bgColor(category)}
         fontSize="4xl"
-        my={2}
+        pb={"0.75rem"}
         {...props}
       />
     ),
@@ -43,7 +43,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
         as="h3"
         color={bgColor(category)}
         fontSize="3xl"
-        my={2}
+        pb={"0.75rem"}
         {...props}
       />
     ),
@@ -52,7 +52,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
         as="h4"
         color={bgColor(category)}
         fontSize="2xl"
-        my={2}
+        pb={"0.75rem"}
         {...props}
       />
     ),
@@ -61,7 +61,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
         as="h5"
         color={bgColor(category)}
         fontSize="xl"
-        my={2}
+        pb={"0.75rem"}
         {...props}
       />
     ),
@@ -70,40 +70,13 @@ export const RichtextBlock = ({ block, category, id, i }) => {
         as="h6"
         color={bgColor(category)}
         fontSize="lg"
-        my={2}
+        pb={"0.75rem"}
         {...props}
       />
     ),
-    li: (props) => (
-      <Box
-        as="li"
-        color={bgColor(category)}
-        fontSize="lg"
-        my={2}
-        mx={4}
-        {...props}
-      />
-    ),
-    ul: (props) => (
-      <Box
-        as="ul"
-        color={bgColor(category)}
-        fontSize="lg"
-        my={2}
-        mx={4}
-        {...props}
-      />
-    ),
-    ol: (props) => (
-      <Box
-        as="ol"
-        color={bgColor(category)}
-        fontSize="lg"
-        my={2}
-        mx={4}
-        {...props}
-      />
-    ),
+    li: (props) => <Box as="li" fontSize="lg" py={2} px={4} {...props} />,
+    ul: (props) => <Box as="ul" fontSize="lg" py={2} px={4} {...props} />,
+    ol: (props) => <Box as="ol" fontSize="lg" py={2} px={4} {...props} />,
     a: (props) => {
       return <Link href={props.href}>{props.children}</Link>;
     },
@@ -119,13 +92,17 @@ export const RichtextBlock = ({ block, category, id, i }) => {
     },
     p: (props) => {
       return (
-        <Text
-          my={2}
-          fontSize="md"
-          letterSpacing={"wide"}
-          textAlign={"justify"}
-          {...props}
-        />
+        <Box>
+          <Text
+            color={textColor(category)}
+            fontSize="lg"
+            letterSpacing={"wide"}
+            textAlign={"justify"}
+            {...props}
+            pt={"0.5rem"}
+            pb={"0.75rem"}
+          />
+        </Box>
       );
     },
     img: (props) => {
@@ -142,7 +119,8 @@ export const RichtextBlock = ({ block, category, id, i }) => {
           alt={props.alt}
           objectFit="cover"
           quality="100"
-          rounded={'1.5rem'}
+          rounded={"1.5rem"}
+          {...props}
         />
       );
     },
@@ -152,12 +130,16 @@ export const RichtextBlock = ({ block, category, id, i }) => {
         return null;
       }
       return (
-        <Box>
+        <Box textAlign={"center"} pt={"1.5rem"} pb={"1.5rem"}>
           <Button
+            as="h5"
+            fontSize={"xl"}
+            size={"lg"}
             rounded={"none"}
             bg={bgColor(category)}
             color={textColor(category)}
             p={"1.5rem"}
+            {...props}
           >
             <a href={`${props.href}`}>{props.message}</a>
           </Button>
@@ -167,12 +149,12 @@ export const RichtextBlock = ({ block, category, id, i }) => {
   };
 
   return (
-    <Box>
+    <Box pt={"2rem"} pb={"2rem"}>
       <Grid
         templateColumns={"repeat(6, 1fr)"}
         autoRows={"auto"}
         autoColumns={"auto"}
-        gap={5}
+        gap={25}
       >
         {block.textblock?.map((textitem) => {
           return (

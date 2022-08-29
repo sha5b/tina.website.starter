@@ -225,7 +225,7 @@ export default function Home(props) {
           )}
         </Box>
         <Box w={"50%"}>
-          <Text fontSize="sm" fontWeight={"thin"} textAlign={"justify"}>
+          <Text fontSize="xs" fontWeight={"thin"} textAlign={"justify"}>
             {data.post?.description}
           </Text>
         </Box>

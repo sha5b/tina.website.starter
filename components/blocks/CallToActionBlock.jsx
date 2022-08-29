@@ -8,8 +8,9 @@ import {
   Text,
   Button,
 } from "@chakra-ui/react";
+import { bgColor, category, categoryHref, textColor } from "../Theme";
 
-export const CallToActionBlock = ({ block, id, i }) => {
+export const CallToActionBlock = ({ block, category, id, i }) => {
   return (
     <Flex
       pt={"3rem"}
@@ -19,20 +20,20 @@ export const CallToActionBlock = ({ block, id, i }) => {
       direction={"column"}
       gap={"3rem"}
       align={"center"}
-      bg={"blacksuite.100"}
+      bg={bgColor(category)}
     >
       <Box>
-        <Heading textAlign={"center"} color={"whitecuba.100"} fontSize={"5xl"}>
+        <Heading textAlign={"center"} color={textColor(category)} fontSize={"5xl"}>
           {block.title}
         </Heading>
-        <Text textAlign={"center"} color={"whitecuba.100"} fontSize={"2xl"}>
+        <Text textAlign={"center"} color={textColor(category)} fontSize={"2xl"}>
           {block.subtitle}
         </Text>
       </Box>
       {block.button && (
         <Box>
           <Link href={block.button.href ?? " "}>
-            <Button fontSize={"lg"} p={"2rem"} textAlign={"center"}>
+            <Button fontSize={"lg"} p={"2rem"} textAlign={"center"} color={bgColor(category)} bg={textColor(category)}>
               {block.button.label}
             </Button>
           </Link>

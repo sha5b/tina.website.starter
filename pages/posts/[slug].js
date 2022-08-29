@@ -228,81 +228,74 @@ export default function Home(props) {
         </Box>
       </Flex>
       <Divider mb={"3rem"} mt={"1.5rem"} />
-      <Grid
-        autoRows={"auto"}
-        autoColumns={"auto"}
-        templateColumns={`repeat(${data.post?.size}, 1fr)`}
-        gap={5}
-      >
-        {data.post
-          ? data.post.blocks?.map((block, i) => {
-              switch (block.__typename) {
-                case "PostBlocksHero":
-                  return (
-                    <>
-                      <HeroBlock
-                        i={i}
-                        block={block}
-                        category={data.post?.category}
-                      />
-                    </>
-                  );
-                case "PostBlocksCta":
-                  return (
-                    <>
-                      <CallToActionBlock i={i} block={block} />
-                    </>
-                  );
-                case "PostBlocksQuote":
-                  return (
-                    <>
-                      <QuoteBlock i={i} block={block} />
-                    </>
-                  );
-                case "PostBlocksGallery":
-                  return (
-                    <>
-                      <GalleryBlock
-                        i={i}
-                        block={block}
-                        category={`${data.post?.category}`}
-                      />
-                    </>
-                  );
-                case "PostBlocksFact":
-                  return (
-                    <>
-                      <FactBlock i={i} block={block} />
-                    </>
-                  );
-                case "PostBlocksLogos":
-                  return (
-                    <>
-                      <LogoBlock i={i} block={block} />
-                    </>
-                  );
-                case "PostBlocksFeatured":
-                  return (
-                    <>
-                      <FeaturedPostBlock i={i} block={block} posts={posts} />
-                    </>
-                  );
-                case "PostBlocksCard":
-                  return (
-                    <>
-                      <CardBlock i={i} block={block} />
-                    </>
-                  );
-                case "PostBlocksRichtext":
-                  return (
-                    <>
-                      <RichtextBlock i={i} block={block} />
-                    </>
-                  );
-              }
-            })
-          : null}
-      </Grid>
+      {data.post
+        ? data.post.blocks?.map((block, i) => {
+            switch (block.__typename) {
+              case "PostBlocksHero":
+                return (
+                  <>
+                    <HeroBlock
+                      i={i}
+                      block={block}
+                      category={data.post?.category}
+                    />
+                  </>
+                );
+              case "PostBlocksCta":
+                return (
+                  <>
+                    <CallToActionBlock i={i} block={block} category={data.post?.category} />
+                  </>
+                );
+              case "PostBlocksQuote":
+                return (
+                  <>
+                    <QuoteBlock i={i} block={block} />
+                  </>
+                );
+              case "PostBlocksGallery":
+                return (
+                  <>
+                    <GalleryBlock
+                      i={i}
+                      block={block}
+                      category={`${data.post?.category}`}
+                    />
+                  </>
+                );
+              case "PostBlocksFact":
+                return (
+                  <>
+                    <FactBlock i={i} block={block} />
+                  </>
+                );
+              case "PostBlocksLogos":
+                return (
+                  <>
+                    <LogoBlock i={i} block={block} />
+                  </>
+                );
+              case "PostBlocksFeatured":
+                return (
+                  <>
+                    <FeaturedPostBlock i={i} block={block} posts={posts} />
+                  </>
+                );
+              case "PostBlocksCard":
+                return (
+                  <>
+                    <CardBlock i={i} block={block} />
+                  </>
+                );
+              case "PostBlocksRichtext":
+                return (
+                  <>
+                    <RichtextBlock i={i} block={block} />
+                  </>
+                );
+            }
+          })
+        : null}
       <Box>
         <Flex wrap={"wrap"}>
           <Box pt={"2rem"}>

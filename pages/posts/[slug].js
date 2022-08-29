@@ -42,14 +42,7 @@ const query = `
       tags
       date
       description
-      size
       image
-      text {
-        ... on PostTextRichtext {
-          __typename
-          body
-        }
-      }
       blocks {
         ... on PostBlocksHero {
           __typename
@@ -132,6 +125,14 @@ const query = `
             colors
           }
         }
+        ... on PostBlocksRichtext {
+          __typename
+          textblock {
+            x
+            width
+            body 
+          }
+        }
       }
     }
     postConnection {
@@ -165,7 +166,6 @@ export default function Home(props) {
     data: props.data,
   });
 
-  
   const posts = data.postConnection?.edges;
   return (
     <Layout {...props}>
@@ -231,13 +231,6 @@ export default function Home(props) {
         </Box>
       </Flex>
       <Divider mb={"3rem"} mt={"1.5rem"} />
-      <Grid
-        autoRows={"auto"}
-        autoColumns={"auto"}
-        templateColumns={`repeat(${data.post?.size}, 1fr)`}
-        gap={5}
-      >
-      </Grid>
       {data.post
         ? data.post.blocks?.map((block, i) => {
             switch (block.__typename) {
@@ -254,7 +247,7 @@ export default function Home(props) {
               case "PostBlocksCta":
                 return (
                   <>
-                    <CallToActionBlock i={i} block={block} />
+                    <CallToActionBlock i={i} block={block} category={data.post?.category} />
                   </>
                 );
               case "PostBlocksQuote":
@@ -297,12 +290,12 @@ export default function Home(props) {
                     <CardBlock i={i} block={block} />
                   </>
                 );
-                case "PostTextRichtext":
-                  return (
-                    <>
-                      <RichtextBlock i={i} block={text} />
-                    </>
-                  );
+              case "PostBlocksRichtext":
+                return (
+                  <>
+                    <RichtextBlock i={i} block={block} category={data.post?.category}/>
+                  </>
+                );
             }
           })
         : null}

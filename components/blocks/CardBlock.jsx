@@ -128,7 +128,7 @@ const components = {
   img: (props) => {
     return (
       <Image
-        as='img'
+        as="img"
         src={props.url}
         alt={props.alt}
         width={"100%"}
@@ -149,26 +149,18 @@ export const CardBlock = ({ block, id, i }) => {
   return (
     <Grid
       templateColumns={"repeat(6, 1fr)"}
+      gap={5}
       autoRows={"auto"}
       autoColumns={"auto"}
     >
       {block.cards?.map((item) => {
         return (
-          <GridItem
-            gap={5}
-            colStart={item?.x}
-            colSpan={item?.width}
-            p={"1.5rem"}
-          >
+          <GridItem colStart={item?.x} colSpan={item?.width}>
             {item && (
               <Link href={item.href ?? " "}>
                 <Box bg={item.colors} p={"1.5rem"}>
                   <Box bg={"whitecuba.100"} rounded={"1.5rem"} shadow={"lg"}>
-                    <Heading
-                      textAlign={"center"}
-                      p={"1rem"}
-                      color={"blacksuite.100"}
-                    >
+                    <Heading textAlign={"center"} color={"blacksuite.100"}>
                       {item.title}
                     </Heading>
                     <Box>

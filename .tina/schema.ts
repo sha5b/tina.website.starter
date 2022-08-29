@@ -413,9 +413,38 @@ const RichtextBlock: TinaTemplate = {
   name: "richtext",
   fields: [
     {
+      name: "x",
+      label: "X Position",
+      type: "number",
+    },
+    {
+      name: "width",
+      label: "Width",
+      type: "number",
+    },
+    {
       name: "body",
       label: "Body",
+      isBody: true,
       type: "rich-text",
+      templates: [
+        {
+          name: "callout",
+          label: "Callout",
+          fields: [
+            {
+              name: "message",
+              label: "Message",
+              type: "string",
+            },
+            {
+              name: "href",
+              label: "Href",
+              type: "string",
+            },
+          ],
+        },
+      ],
     },
   ],
 };
@@ -435,6 +464,9 @@ const blocks = [
 
 const schema = defineSchema({
   config: {
+    clientId: "***",
+    branch: "***",
+    token: "***",
     media: {
       tina: {
         mediaRoot: "uploads",
@@ -477,6 +509,20 @@ const schema = defineSchema({
           name: "title",
         },
         {
+          name: "date",
+          label: "Published Date",
+          dateFormat: "DD MMMM YYYY",
+          type: "datetime",
+        },
+        {
+          type: "string",
+          label: "Description",
+          name: "description",
+          ui: {
+            component: "textarea",
+          },
+        },
+        {
           name: "category",
           label: "Category",
           type: "string",
@@ -492,35 +538,9 @@ const schema = defineSchema({
           },
         },
         {
-          name: "date",
-          label: "Published Date",
-          dateFormat: "DD MMMM YYYY",
-          type: "datetime",
-        },
-        {
-          type: "string",
-          label: "Description",
-          name: "description",
-          ui: {
-            component: "textarea",
-          },
-        },
-        {
-          name: "size",
-          label: "Gridsize",
-          type: "number",
-        },
-        {
           name: "image",
           label: "og:image",
           type: "image",
-        },
-        {
-          name: "text",
-          label: "Text Block Section",
-          type: "object",
-          list: true,
-          templates: [RichtextBlock],
         },
         {
           name: "blocks",

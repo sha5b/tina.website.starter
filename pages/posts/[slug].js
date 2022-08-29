@@ -42,7 +42,6 @@ const query = `
       tags
       date
       description
-      size
       image
       blocks {
         ... on PostBlocksHero {
@@ -130,7 +129,7 @@ const query = `
           __typename
           x
           width
-          body
+          body 
         }
       }
     }
@@ -292,7 +291,7 @@ export default function Home(props) {
               case "PostBlocksRichtext":
                 return (
                   <>
-                    <RichtextBlock i={i} block={block} />
+                    <RichtextBlock i={i} block={block} category={data.post?.category}/>
                   </>
                 );
             }

@@ -427,6 +427,19 @@ const RichtextBlock: TinaTemplate = {
       label: "Body",
       isBody: true,
       type: "rich-text",
+      templates: [
+        {
+          name: "callout",
+          label: "Callout",
+          fields: [
+            {
+              name: "message",
+              label: "Message",
+              type: "string",
+            },
+          ],
+        },
+      ],
     },
   ],
 };
@@ -491,21 +504,6 @@ const schema = defineSchema({
           name: "title",
         },
         {
-          name: "category",
-          label: "Category",
-          type: "string",
-          options: category,
-        },
-        {
-          type: "string",
-          label: "Tags",
-          name: "tags",
-          list: true,
-          ui: {
-            component: "tags",
-          },
-        },
-        {
           name: "date",
           label: "Published Date",
           dateFormat: "DD MMMM YYYY",
@@ -520,9 +518,19 @@ const schema = defineSchema({
           },
         },
         {
-          name: "size",
-          label: "Gridsize",
-          type: "number",
+          name: "category",
+          label: "Category",
+          type: "string",
+          options: category,
+        },
+        {
+          type: "string",
+          label: "Tags",
+          name: "tags",
+          list: true,
+          ui: {
+            component: "tags",
+          },
         },
         {
           name: "image",

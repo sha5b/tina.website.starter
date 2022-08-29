@@ -8,7 +8,7 @@ import {
   Text,
   Button,
 } from "@chakra-ui/react";
-import { bgColor, category, categoryHref, textColor } from "../Theme";
+import { bgColor, textColor } from "../Theme";
 
 export const CallToActionBlock = ({ block, category, id, i }) => {
   return (

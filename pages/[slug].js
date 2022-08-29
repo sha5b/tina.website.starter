@@ -104,7 +104,7 @@ const query = `query getPage($relativePath: String!) {
           body
           x
           width
-          colors
+          category
         }
       }
       ... on PageBlocksRichtext {

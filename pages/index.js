@@ -118,7 +118,7 @@ query FetchQuery{
           body
           x
           width
-          colors
+          category
         }
       }
       ... on PageBlocksRichtext {

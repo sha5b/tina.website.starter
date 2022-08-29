@@ -398,10 +398,10 @@ const CardBlock: TinaTemplate = {
           type: "number",
         },
         {
-          name: "colors",
-          label: "Color",
+          name: "category",
+          label: "Category",
           type: "string",
-          options: colors,
+          options: category,
         },
       ],
     },
@@ -436,7 +436,6 @@ const RichtextBlock: TinaTemplate = {
         {
           name: "body",
           label: "Body",
-          isBody: true,
           type: "rich-text",
           templates: [
             {
@@ -446,6 +445,11 @@ const RichtextBlock: TinaTemplate = {
                 {
                   name: "message",
                   label: "Message",
+                  type: "string",
+                },
+                {
+                  name: "href",
+                  label: "href",
                   type: "string",
                 },
               ],

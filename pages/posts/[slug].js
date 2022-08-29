@@ -122,7 +122,7 @@ const query = `
             body
             x
             width
-            colors
+            category
           }
         }
         ... on PostBlocksRichtext {

@@ -53,48 +53,48 @@ const HeroBlock: TinaTemplate = {
               name: "x",
               label: "X Position",
               type: "number",
-              ui:{
-                validate: (val)=>{
-                  if(val >= 8 ) {
-                    return 'the number must be less then 8'
-                  } 
-                }
+              ui: {
+                validate: (val) => {
+                  if (val >= 8) {
+                    return "the number must be less then 8";
+                  }
+                },
               },
             },
             {
               name: "width",
               label: "Width",
               type: "number",
-              ui:{
-                validate: (val)=>{
-                  if(val >= 8 ) {
-                    return 'the number must be less then 8'
-                  } 
-                }
+              ui: {
+                validate: (val) => {
+                  if (val >= 8) {
+                    return "the number must be less then 8";
+                  }
+                },
               },
             },
             {
               name: "y",
               label: "Y Position",
               type: "number",
-              ui:{
-                validate: (val)=>{
-                  if(val >= 51 ) {
-                    return 'the number must be less then 51'
+              ui: {
+                validate: (val) => {
+                  if (val >= 51) {
+                    return "the number must be less then 51";
                   }
-                }
+                },
               },
             },
             {
               name: "height",
               label: "Height",
               type: "number",
-              ui:{
-                validate: (val)=>{
-                  if(val >= 51 ) {
-                    return 'the number must be less then 51'
+              ui: {
+                validate: (val) => {
+                  if (val >= 51) {
+                    return "the number must be less then 51";
                   }
-                }
+                },
               },
             },
           ],
@@ -398,9 +398,9 @@ const CardBlock: TinaTemplate = {
           type: "number",
         },
         {
-          name: 'colors',
-          label: 'Color',
-          type: 'string',
+          name: "colors",
+          label: "Color",
+          type: "string",
           options: colors,
         },
       ],
@@ -449,6 +449,12 @@ const schema = defineSchema({
       path: "content/page",
       format: "mdx",
       fields: [
+        {
+          name: "category",
+          label: "Category",
+          type: "string",
+          options: category,
+        },
         {
           name: "blocks",
           label: "Page Block Section",
@@ -540,22 +546,22 @@ const schema = defineSchema({
         {
           name: "long",
           label: "Long",
-          type: 'number',
+          type: "number",
         },
         {
           name: "lat",
           label: "Lati",
-          type: 'number',
+          type: "number",
         },
         {
           name: "bearing",
           label: "Bearing",
-          type: 'number',
+          type: "number",
         },
         {
           name: "pitch",
           label: "Pitch",
-          type: 'number',
+          type: "number",
         },
       ],
     },

@@ -36,8 +36,8 @@ export const Navbar = (props) => {
 
   const uniqueTags = [...new Set(mergedTags)];
 
-  const bg = bgColor(props.props.data.post?.category);
-  const textcol = textColor(props.props.data.post?.category);
+  const bg = bgColor(props.props.data.post?.category ? props.props.data.post?.category : `${props.props.data.page?.category}`);
+  const textcol = textColor(props.props.data.post?.category ? props.props.data.post?.category : `${props.props.data.page?.category}`);
 
   return (
     <Box top={0} zIndex={10}>

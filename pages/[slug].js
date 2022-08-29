@@ -24,6 +24,7 @@ const query = `query getPage($relativePath: String!) {
     _sys {
       filename
     }
+    category
     blocks {
       ... on PageBlocksHero {
         __typename
@@ -152,7 +153,7 @@ export default function Home(props) {
               case "PageBlocksHero":
                 return (
                   <>
-                    <HeroBlock i={i} block={block} />
+                    <HeroBlock i={i} block={block} category={data.page?.category} />
                   </>
                 );
               case "PageBlocksCta":

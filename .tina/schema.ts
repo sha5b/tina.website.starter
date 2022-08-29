@@ -437,6 +437,11 @@ const RichtextBlock: TinaTemplate = {
               label: "Message",
               type: "string",
             },
+            {
+              name: "href",
+              label: "Href",
+              type: "string",
+            },
           ],
         },
       ],

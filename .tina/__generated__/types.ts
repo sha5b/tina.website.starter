@@ -453,6 +453,7 @@ export type PageBlocksFeaturedFilter = {
 
 export type PageBlocksRichtextBodyCalloutFilter = {
   message?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
 };
 
 export type PageBlocksRichtextBodyFilter = {
@@ -740,6 +741,7 @@ export type PostBlocksFeaturedFilter = {
 
 export type PostBlocksRichtextBodyCalloutFilter = {
   message?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
 };
 
 export type PostBlocksRichtextBodyFilter = {

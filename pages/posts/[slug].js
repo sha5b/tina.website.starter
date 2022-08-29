@@ -127,9 +127,11 @@ const query = `
         }
         ... on PostBlocksRichtext {
           __typename
-          x
-          width
-          body 
+          textblock {
+            x
+            width
+            body 
+          }
         }
       }
     }

@@ -81,6 +81,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
             rounded={"none"}
             bg={bgColor(category)}
             color={textColor(category)}
+            p={'1.5rem'}
           >
             <a href={`${props.href}`}>{props.message}</a>
           </Button>

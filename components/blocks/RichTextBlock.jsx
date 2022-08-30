@@ -94,13 +94,11 @@ export const RichtextBlock = ({ block, category, id, i }) => {
       return (
         <Box>
           <Text
-            as="p"
             fontSize="xl"
-            textAlign={"justify"}
+            textAlign={'left'}
             {...props}
             pt={"0.5rem"}
             pb={"0.75rem"}
-            letterSpacing={'normal'}
           />
         </Box>
       );

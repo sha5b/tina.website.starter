@@ -181,7 +181,7 @@ export default function Home(props) {
               case "PageBlocksFact":
                 return (
                   <>
-                    <FactBlock i={i} block={block} />
+                    <FactBlock i={i} block={block} category={data.page?.category}/>
                   </>
                 );
               case "PageBlocksLogos":

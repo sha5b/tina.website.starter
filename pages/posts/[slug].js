@@ -233,7 +233,7 @@ export default function Home(props) {
       <Divider mb={"3rem"} mt={"1.5rem"} />
       <Grid
       templateColumns={"repeat(2, 1fr)"}
-      gap={5}
+      gap={5}y
       pt={"1.5rem"}
       pb={"1.5rem"}
       autoRows={"auto"}
@@ -277,7 +277,7 @@ export default function Home(props) {
               case "PostBlocksFact":
                 return (
                   <GridItem>
-                    <FactBlock i={i} block={block} />
+                    <FactBlock i={i} block={block} category={`${data.post?.category}`}/>
                   </GridItem>
                 );
               case "PostBlocksLogos":

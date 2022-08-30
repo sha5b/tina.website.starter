@@ -123,6 +123,7 @@ const query = `
             x
             width
             category
+            href
           }
         }
         ... on PostBlocksRichtext {

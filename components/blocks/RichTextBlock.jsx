@@ -9,7 +9,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import Image from 'next/image'
+import Image from "next/image";
 import Link from "next/link";
 import {
   bgColor,
@@ -108,6 +108,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
         shouldForwardProp: (prop) =>
           ["width", "height", "src", "alt", "layout", "fill"].includes(prop),
       });
+
       return (
         <Img
           p="1.5rem"
@@ -119,7 +120,8 @@ export const RichtextBlock = ({ block, category, id, i }) => {
           alt={props.alt}
           objectFit="cover"
           quality="100"
-          objectPosition={'50% 50%'}
+          objectPosition={"50% 50%"}
+          rounded="1.5rem"
           {...props}
         />
       );
@@ -131,19 +133,21 @@ export const RichtextBlock = ({ block, category, id, i }) => {
       }
       return (
         <Box textAlign={"center"} pt={"1.5rem"} pb={"1.5rem"}>
-          <Button
-            as="h5"
-            fontSize={"xl"}
-            size={"lg"}
-            rounded={"none"}
-            fontWeight={"extrabold"}
-            bg={bgColor(category)}
-            color={textColor(category)}
-            p={"1.5rem"}
-            {...props}
-          >
-            <a href={`${props.href}`}>{props.message}</a>
-          </Button>
+          <Link href={`${props.href}`}>
+            <Button
+              as="h5"
+              fontSize={"xl"}
+              size={"lg"}
+              rounded={"none"}
+              fontWeight={"extrabold"}
+              bg={bgColor(category)}
+              color={textColor(category)}
+              p={"1.5rem"}
+              {...props}
+            >
+              {props.message}
+            </Button>
+          </Link>
         </Box>
       );
     },

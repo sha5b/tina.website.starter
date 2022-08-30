@@ -358,7 +358,7 @@ const FeaturedPostBlock: TinaTemplate = {
 };
 
 const CardBlock: TinaTemplate = {
-  label: "Card Block",
+  label: "Cards",
   name: "card",
   fields: [
     {
@@ -383,8 +383,8 @@ const CardBlock: TinaTemplate = {
           type: "rich-text",
         },
         {
+          label: "Href",
           name: "href",
-          label: "HREF",
           type: "string",
         },
         {

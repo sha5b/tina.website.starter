@@ -123,8 +123,7 @@ export const CardBlock = ({ block, id, i }) => {
     img: (props) => {
       return (
         <Image
-          as="img"
-          src={props.url}
+          src={props.url ? props.url : "/"}
           alt={props.alt}
           height={"100%"}
           width="100%"
@@ -132,7 +131,7 @@ export const CardBlock = ({ block, id, i }) => {
           objectFit="cover"
           objectPosition={'50% 50%'}
           quality="100"
-          rounded={"1.5rem"}
+          rounded='1.5rem'
           {...props}
         />
       );
@@ -154,7 +153,7 @@ export const CardBlock = ({ block, id, i }) => {
         return (
           <GridItem colStart={item?.x} colSpan={item?.width}>
             {item && (
-              <Link href={item.href ?? " "}>
+              <Link href={`/posts/${item.href}` ?? " "}>
                 <Box bg={bgColor(item.category)} p={"2rem"}>
                   <Box rounded={"1.5rem"}>
                     <Heading

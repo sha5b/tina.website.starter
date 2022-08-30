@@ -163,13 +163,13 @@ export default function Home(props) {
               case "PageBlocksCta":
                 return (
                   <>
-                    <CallToActionBlock i={i} block={block} />
+                    <CallToActionBlock i={i} block={block} category={data.page?.category}/>
                   </>
                 );
               case "PageBlocksQuote":
                 return (
                   <>
-                    <QuoteBlock i={i} block={block} />
+                    <QuoteBlock i={i} block={block} category={data.page?.category}/>
                   </>
                 );
               case "PageBlocksGallery":
@@ -205,7 +205,7 @@ export default function Home(props) {
               case "PageBlocksRichtext":
                 return (
                   <>
-                    <RichtextBlock i={i} block={block} />
+                    <RichtextBlock i={i} block={block} category={data.page?.category} />
                   </>
                 );
             }

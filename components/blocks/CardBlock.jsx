@@ -145,6 +145,8 @@ export const CardBlock = ({ block, id, i }) => {
       gap={5}
       autoRows={"auto"}
       autoColumns={"auto"}
+      mt={'2rem'}
+      mb={'2rem'}
     >
       {block.cards?.map((item) => {
         return (

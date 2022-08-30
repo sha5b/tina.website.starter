@@ -231,74 +231,83 @@ export default function Home(props) {
         </Box>
       </Flex>
       <Divider mb={"3rem"} mt={"1.5rem"} />
+      <Grid
+      templateColumns={"repeat(2, 1fr)"}
+      gap={5}
+      pt={"1.5rem"}
+      pb={"1.5rem"}
+      autoRows={"auto"}
+      autoColumns={"auto"}
+    >
       {data.post
         ? data.post.blocks?.map((block, i) => {
             switch (block.__typename) {
               case "PostBlocksHero":
                 return (
-                  <>
+                  <GridItem>
                     <HeroBlock
                       i={i}
                       block={block}
                       category={data.post?.category}
                     />
-                  </>
+                  </GridItem>
                 );
               case "PostBlocksCta":
                 return (
-                  <>
+                  <GridItem>
                     <CallToActionBlock i={i} block={block} category={data.post?.category} />
-                  </>
+                  </GridItem>
                 );
               case "PostBlocksQuote":
                 return (
-                  <>
-                    <QuoteBlock i={i} block={block} />
-                  </>
+                  <GridItem>
+                    <QuoteBlock i={i} block={block} category={`${data.post?.category}`}/>
+                  </GridItem>
                 );
               case "PostBlocksGallery":
                 return (
-                  <>
+                  <GridItem>
                     <GalleryBlock
                       i={i}
                       block={block}
                       category={`${data.post?.category}`}
                     />
-                  </>
+                  </GridItem>
                 );
               case "PostBlocksFact":
                 return (
-                  <>
+                  <GridItem>
                     <FactBlock i={i} block={block} />
-                  </>
+                  </GridItem>
                 );
               case "PostBlocksLogos":
                 return (
-                  <>
+                  <GridItem>
                     <LogoBlock i={i} block={block} />
-                  </>
+                  </GridItem>
                 );
               case "PostBlocksFeatured":
                 return (
-                  <>
+                  <GridItem>
                     <FeaturedPostBlock i={i} block={block} posts={posts} />
-                  </>
+                  </GridItem>
                 );
               case "PostBlocksCard":
                 return (
-                  <>
+                  <GridItem>
                     <CardBlock i={i} block={block} />
-                  </>
+                  </GridItem>
                 );
               case "PostBlocksRichtext":
                 return (
-                  <>
+                  <GridItem>
                     <RichtextBlock i={i} block={block} category={data.post?.category}/>
-                  </>
+                  </GridItem>
                 );
             }
           })
         : null}
+        </Grid>
       <Box>
         <Flex wrap={"wrap"}>
           <Box pt={"2rem"}>

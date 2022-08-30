@@ -1,8 +1,21 @@
 import { staticRequest } from "tinacms";
 import { Layout } from "../components/Layout";
 import { useTina } from "tinacms/dist/edit-state";
-import { Box, Flex, Heading, Text, chakra } from "@chakra-ui/react";
-import { bgColor, category, categoryHref, textColor } from "../components/Theme";
+import {
+  Box,
+  Flex,
+  Heading,
+  Text,
+  chakra,
+  GridItem,
+  Grid,
+} from "@chakra-ui/react";
+import {
+  bgColor,
+  category,
+  categoryHref,
+  textColor,
+} from "../components/Theme";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -147,7 +160,6 @@ export default function Home(props) {
     data: props.data,
   });
 
-
   const posts = data.postConnection?.edges;
   return (
     <Layout {...props}>
@@ -157,19 +169,31 @@ export default function Home(props) {
               case "PageBlocksHero":
                 return (
                   <>
-                    <HeroBlock i={i} block={block} category={data.page?.category} />
+                    <HeroBlock
+                      i={i}
+                      block={block}
+                      category={data.page?.category}
+                    />
                   </>
                 );
               case "PageBlocksCta":
                 return (
                   <>
-                    <CallToActionBlock i={i} block={block} category={data.page?.category}/>
+                    <CallToActionBlock
+                      i={i}
+                      block={block}
+                      category={data.page?.category}
+                    />
                   </>
                 );
               case "PageBlocksQuote":
                 return (
                   <>
-                    <QuoteBlock i={i} block={block} category={data.page?.category}/>
+                    <QuoteBlock
+                      i={i}
+                      block={block}
+                      category={data.page?.category}
+                    />
                   </>
                 );
               case "PageBlocksGallery":
@@ -181,7 +205,11 @@ export default function Home(props) {
               case "PageBlocksFact":
                 return (
                   <>
-                    <FactBlock i={i} block={block} category={data.page?.category}/>
+                    <FactBlock
+                      i={i}
+                      block={block}
+                      category={data.page?.category}
+                    />
                   </>
                 );
               case "PageBlocksLogos":
@@ -193,7 +221,7 @@ export default function Home(props) {
               case "PageBlocksFeatured":
                 return (
                   <>
-                    <FeaturedPostBlock i={i} block={block} posts={posts}/>
+                    <FeaturedPostBlock i={i} block={block} posts={posts} />
                   </>
                 );
               case "PageBlocksCard":
@@ -205,7 +233,11 @@ export default function Home(props) {
               case "PageBlocksRichtext":
                 return (
                   <>
-                    <RichtextBlock i={i} block={block} category={data.page?.category} />
+                    <RichtextBlock
+                      i={i}
+                      block={block}
+                      category={data.page?.category}
+                    />
                   </>
                 );
             }

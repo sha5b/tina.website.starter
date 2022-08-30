@@ -203,6 +203,7 @@ export default function Home(props) {
             ))}
           </Flex>
         </Box>
+        <Spacer/>
         <Box w={"15%"}>
           {data.post?.image && (
             <Box
@@ -224,8 +225,8 @@ export default function Home(props) {
             </Box>
           )}
         </Box>
-        <Box w={"50%"}>
-          <Text fontSize="xs" fontWeight={"thin"} textAlign={"justify"}>
+        <Box w={"25%"}>
+          <Text fontSize="sm" fontWeight={"thin"} textAlign={"justify"}>
             {data.post?.description}
           </Text>
         </Box>

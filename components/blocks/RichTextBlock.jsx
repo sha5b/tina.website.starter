@@ -95,7 +95,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
         <Box>
           <Text
             fontSize="xl"
-            textAlign={'left'}
+            textAlign={"left"}
             {...props}
             pt={"0.5rem"}
             pb={"0.75rem"}
@@ -110,7 +110,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
       });
       return (
         <Img
-          bg={"none"}
+          p="1.5rem"
           mx="auto"
           src={props.url ? props.url : "/"}
           height={"400"}
@@ -118,7 +118,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
           alt={props.alt}
           objectFit="cover"
           quality="100"
-          rounded={"1.5rem"}
+          rounded={'1.5rem'}
           {...props}
         />
       );
@@ -135,7 +135,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
             fontSize={"xl"}
             size={"lg"}
             rounded={"none"}
-            fontWeight={'extrabold'}
+            fontWeight={"extrabold"}
             bg={bgColor(category)}
             color={textColor(category)}
             p={"1.5rem"}

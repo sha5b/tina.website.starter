@@ -28,10 +28,10 @@ export const HeroBlock = ({ block, category, id, i }) => {
           pos={"relative"}
         >
           <Box p={"1.5rem"}>
-            <Heading color={textColor(category)} fontSize={"5xl"}>
+            <Heading color={textColor(category)} fontSize={"4xl"}>
               {block.title}
             </Heading>
-            <Text color={textColor(category)} fontSize={"3xl"}>
+            <Text color={textColor(category)} fontSize={"2xl"} fontFamily={"Space Grotesk, sans-serif"} fontWeight='hairline'>
               {block.subtitle}
             </Text>
           </Box>

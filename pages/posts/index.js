@@ -26,6 +26,7 @@ export default function Home(props) {
   const postsList = data.postConnection?.edges;
   return (
     <Layout {... props}>
+      <iframe src="https://www.youtube.com/embed/Lp6MSGge-sk" title="YouTube video player" height="500px" width="500px"></iframe>
       <h1>Posts</h1>
       <div>
         {postsList?.map((post) => (

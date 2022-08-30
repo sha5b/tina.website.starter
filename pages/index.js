@@ -241,16 +241,16 @@ export default function Home(props) {
             </Button>
             <Flex
               pt={"1.5rem"}
-              gap={25}
+              gap={10}
               wrap={"wrap"}
-              justify={"space-between"}
+              justify={"center"}
             >
               {posts?.map((node) => {
                 return (
                   <Box w={"12rem"}>
-                    <Box boxShadow={"lg"}>
+                    <Box boxShadow={"md"}>
                       <Text
-                        fontSize={"xs"}
+                        fontSize={"sm"}
                         fontWeight={"bolder"}
                         margin={"auto"}
                         bg={bgColor(node.node?.category)}
@@ -264,7 +264,7 @@ export default function Home(props) {
                           flexGrow={1}
                           margin={"auto"}
                           mt={"0.5rem"}
-                          p={"0.85rem"}
+                          p={"1rem"}
                           bg={bgColor(node.node?.category)}
                           display={"block"}
                         >

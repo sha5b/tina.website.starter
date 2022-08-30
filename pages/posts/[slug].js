@@ -329,7 +329,7 @@ export default function Home(props) {
                       <>
                         <Box
                           flexGrow={1}
-                          minW={"15rem"}
+                          minW={"12rem"}
                           mt={"0.5rem"}
                           mb={"1.5rem"}
                           mr={"1.5rem"}

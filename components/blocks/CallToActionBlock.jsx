@@ -18,11 +18,11 @@ export const CallToActionBlock = ({ block, category, id, i }) => {
       mb={"3rem"}
       mt={"3rem"}
       direction={"column"}
-      gap={"3rem"}
+      gap={15}
       align={"center"}
       bg={bgColor(category)}
     >
-      <Box>
+      <Box p={'1.5rem'}>
         <Heading
           textAlign={"center"}
           color={textColor(category)}
@@ -30,7 +30,7 @@ export const CallToActionBlock = ({ block, category, id, i }) => {
         >
           {block.title}
         </Heading>
-        <Text textAlign={"center"} color={textColor(category)} fontSize={"2xl"}>
+        <Text textAlign={"center"} color={textColor(category)} fontSize={"2xl"} pl={'1.5rem'} pr={'1.5rem'}>
           {block.subtitle}
         </Text>
       </Box>

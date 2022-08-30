@@ -33,6 +33,7 @@ export const LogoBlock = ({ block, id, i }) => {
                       width={block?.width  ?? '50'}
                       height="100%"
                       quality="100"
+                      objectPosition={'50% 50%'}
                       objectFit='contain'
                       src={item.logo}
                       alt={"Logo"}

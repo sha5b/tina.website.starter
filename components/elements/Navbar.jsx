@@ -36,14 +36,22 @@ export const Navbar = (props) => {
 
   const uniqueTags = [...new Set(mergedTags)];
 
-  const bg = bgColor(props.props.data.post?.category ? props.props.data.post?.category : `${props.props.data.page?.category}`);
-  const textcol = textColor(props.props.data.post?.category ? props.props.data.post?.category : `${props.props.data.page?.category}`);
+  const bg = bgColor(
+    props.props.data.post?.category
+      ? props.props.data.post?.category
+      : `${props.props.data.page?.category}`
+  );
+  const textcol = textColor(
+    props.props.data.post?.category
+      ? props.props.data.post?.category
+      : `${props.props.data.page?.category}`
+  );
 
   return (
     <Box top={0} zIndex={10}>
       <Flex justify="space-between" align={"center"}>
         <Link href="/">
-          <Box fontSize={"xl"} flexGrow={1} pb={".5rem"}>
+          <Box fontSize={"xl"} pb={".5rem"} flexGrow={0}>
             <Img
               bg={"whitecuba.100"}
               quality="100"
@@ -57,29 +65,17 @@ export const Navbar = (props) => {
         </Link>
         <HStack flexGrow={1} justify={"right"}>
           <Link href="/about/">
-            <Button
-              rounded={"none"}
-              bg={bg}
-              color={textcol}
-            >
+            <Button rounded={"none"} bg={bg} color={textcol}>
               About Us
             </Button>
           </Link>
           <Link href="/contact/">
-            <Button
-              rounded={"none"}
-              bg={bg}
-              color={textcol}
-            >
+            <Button rounded={"none"} bg={bg} color={textcol}>
               Contact
             </Button>
           </Link>
           <Link href="/our_mission/">
-            <Button
-              rounded={"none"}
-              bg={bg}
-              color={textcol}
-            >
+            <Button rounded={"none"} bg={bg} color={textcol}>
               Our Mission
             </Button>
           </Link>

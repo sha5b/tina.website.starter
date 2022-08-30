@@ -276,6 +276,7 @@ export default function Home(props) {
                             height={"100%"}
                             layout={"responsive"}
                             objectFit="cover"
+                            objectPosition={'50% 50%'}
                             src={node.node.image}
                             alt={node.node.title}
                           />

@@ -9,7 +9,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { Image } from "@chakra-ui/react";
+import Image from 'next/image'
 import Link from "next/link";
 import {
   bgColor,
@@ -113,12 +113,13 @@ export const RichtextBlock = ({ block, category, id, i }) => {
           p="1.5rem"
           mx="auto"
           src={props.url ? props.url : "/"}
-          height={"400"}
+          height={"50%"}
           width="100%"
+          layout="responsive"
           alt={props.alt}
           objectFit="cover"
           quality="100"
-          rounded={'1.5rem'}
+          objectPosition={'50% 50%'}
           {...props}
         />
       );

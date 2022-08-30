@@ -51,6 +51,7 @@ export const HeroBlock = ({ block, category, id, i }) => {
               layout={"fill"}
               objectFit="cover"
               rounded={"1.5rem"}
+              objectPosition={'50% 50%'}
               src={block.image}
               alt={block.title}
             />

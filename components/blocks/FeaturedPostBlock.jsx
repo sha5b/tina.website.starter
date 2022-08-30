@@ -59,6 +59,7 @@ export const FeaturedPostBlock = ({ block, posts, id, i }) => {
                             height={"100%"}
                             layout={"responsive"}
                             objectFit="cover"
+                            objectPosition={'50% 50%'}
                             src={post.node.image}
                             alt={post.node.title}
                           />

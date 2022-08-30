@@ -1,4 +1,5 @@
-import { color, Divider, Image } from "@chakra-ui/react";
+import { color, Divider} from "@chakra-ui/react";
+import Image from 'next/image'
 import Link from "next/link";
 import { useEffect } from "react";
 import {
@@ -125,10 +126,11 @@ export const CardBlock = ({ block, id, i }) => {
           as="img"
           src={props.url}
           alt={props.alt}
-          width={"100%"}
-          maxHeight={"500"}
-          minHeight={"150"}
+          height={"100%"}
+          width="100%"
+          layout="responsive"
           objectFit="cover"
+          objectPosition={'50% 50%'}
           quality="100"
           rounded={"1.5rem"}
           {...props}

@@ -50,6 +50,7 @@ export const GalleryBlock = ({ block, category, id, i }) => {
                   rounded={"1.5rem"}
                   quality="100"
                   width={"100%"}
+                  objectPosition={'50% 50%'}
                   height={item?.height ?? "25%"}
                   layout={"responsive"}
                   objectFit="cover"

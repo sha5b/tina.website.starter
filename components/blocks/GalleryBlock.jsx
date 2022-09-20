@@ -11,18 +11,15 @@ import {
   ModalBody,
 } from "@chakra-ui/react";
 import Image from "next/image";
+import { useDisclosure } from "@chakra-ui/react";
+import { bgColor } from "../Theme";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Img = chakra(Image, {
   shouldForwardProp: (prop) =>
     ["width", "height", "src", "alt", "layout"].includes(prop),
 });
-
-import { useDisclosure } from "@chakra-ui/react";
-
-import { bgColor } from "../Theme";
-import Link from "next/link";
-
-// TO SOLVE: Image height throws error when value is empty when you retype stuff.
 
 export const GalleryBlock = ({ block, category, id, i }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -37,8 +34,13 @@ export const GalleryBlock = ({ block, category, id, i }) => {
     >
       {block.gallery?.map((item, i) => {
         return (
-          <GridItem colStart={item?.x} colSpan={item?.width} zIndex={-i}>
-            {console.log(category)}
+          <GridItem
+            colStart={item?.x}
+            colSpan={item?.width}
+            zIndex={-i}
+            as={motion.div}
+            viewport={{ once: true, amount: 0.8 }}
+          >
             {item.image && (
               <Box
                 p={"1.5rem"}
@@ -50,7 +52,7 @@ export const GalleryBlock = ({ block, category, id, i }) => {
                   rounded={"1.5rem"}
                   quality="100"
                   width={"100%"}
-                  objectPosition={'50% 50%'}
+                  objectPosition={"50% 50%"}
                   height={item?.height ?? "25%"}
                   layout={"responsive"}
                   objectFit="cover"

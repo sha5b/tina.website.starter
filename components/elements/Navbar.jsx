@@ -87,6 +87,10 @@ export const Navbar = (props) => {
             <AccordionItem border="none">
               <Box pos={"relative"}>
                 <AccordionButton
+                  _hover={{
+                    color: "blacksuite.100",
+                    bg: "whitecuba.100",
+                  }}
                   w={"150px"}
                   fontWeight={"bold"}
                   rounded={"none"}
@@ -118,10 +122,6 @@ export const Navbar = (props) => {
                         }
                       >
                         <Button
-                          _hover={{
-                            color: "blacksuite.100",
-                            bg: "whitecuba.100",
-                          }}
                           p={"2rem"}
                           fontWeight={"light"}
                           rounded={"none"}
@@ -141,6 +141,10 @@ export const Navbar = (props) => {
             <AccordionItem border="none">
               <Box>
                 <AccordionButton
+                  _hover={{
+                    color: "blacksuite.100",
+                    bg: "whitecuba.100",
+                  }}
                   w={"100px"}
                   rounded={"none"}
                   fontWeight={"bold"}
@@ -151,12 +155,16 @@ export const Navbar = (props) => {
                 </AccordionButton>
               </Box>
               <AccordionPanel gap={15} pb={4}>
-                <Accordion allowToggle>
+                <Accordion allowToggle allowMultiple>
                   <Flex wrap={"wrap"}>
                     {uniqueTags?.map((tag, i) => {
                       return (
                         <AccordionItem border="none" m={"0.25rem"}>
                           <AccordionButton
+                            _hover={{
+                              color: "blacksuite.100",
+                              bg: "whitecuba.100",
+                            }}
                             color={textcol}
                             rounded={"none"}
                             textAlign={"center"}

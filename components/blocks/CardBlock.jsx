@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { bgColor, textColor } from "../Theme";
+import { motion } from "framer-motion";
 
 export const CardBlock = ({ block, id, i }) => {
   const components = {
@@ -148,6 +149,15 @@ export const CardBlock = ({ block, id, i }) => {
       autoColumns={"auto"}
       mt={'2rem'}
       mb={'2rem'}
+      as={motion.div}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      transition={{ duration: 0.3 }}
+      variants={{
+        visible: { opacity: 1, y: 0},
+        hidden: { opacity: 0, y: 50},
+      }}
     >
       {block.cards?.map((item) => {
         return (

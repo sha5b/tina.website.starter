@@ -1,5 +1,6 @@
 import { Grid, GridItem, Heading, Text, Box } from "@chakra-ui/react";
 import { bgColor, textColor } from "../Theme";
+import { motion } from "framer-motion";
 
 export const FactBlock = ({ block,category, id, i }) => {
   return (
@@ -10,6 +11,15 @@ export const FactBlock = ({ block,category, id, i }) => {
       mb={"1.5rem"}
       autoRows={"auto"}
       autoColumns={"auto"}
+      as={motion.div}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      transition={{ duration: 0.3 }}
+      variants={{
+        visible: { opacity: 1, y: 0},
+        hidden: { opacity: 0, y: 50},
+      }}
     >
       {block.fact?.map((item) => {
         return (

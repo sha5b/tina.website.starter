@@ -39,7 +39,14 @@ export const GalleryBlock = ({ block, category, id, i }) => {
             colSpan={item?.width}
             zIndex={-i}
             as={motion.div}
-            viewport={{ once: true, amount: 0.8 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.3 }}
+            variants={{
+              visible: { opacity: 1, y: 0 },
+              hidden: { opacity: 0, y: 50 },
+            }}
           >
             {item.image && (
               <Box

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { chakra, Box, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
 import { bgColor, category, categoryHref, textColor } from "../Theme";
+import { motion } from "framer-motion";
 
 const Img = chakra(Image, {
   shouldForwardProp: (prop) =>
@@ -11,7 +12,19 @@ const Img = chakra(Image, {
 
 export const HeroBlock = ({ block, category, id, i }) => {
   return (
-    <Box pt={"2rem"} key={id + i}>
+    <Box
+      pt={"2rem"}
+      key={id + i}
+      as={motion.div}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      transition={{ duration: 0.3 }}
+      variants={{
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: 50 },
+      }}
+    >
       <Grid
         templateColumns={"repeat(6, 1fr)"}
         autoRows={"auto"}
@@ -31,7 +44,12 @@ export const HeroBlock = ({ block, category, id, i }) => {
             <Heading color={textColor(category)} fontSize={"4xl"}>
               {block.title}
             </Heading>
-            <Text color={textColor(category)} fontSize={"2xl"} fontFamily={"Space Grotesk, sans-serif"} fontWeight='hairline'>
+            <Text
+              color={textColor(category)}
+              fontSize={"2xl"}
+              fontFamily={"Space Grotesk, sans-serif"}
+              fontWeight="hairline"
+            >
               {block.subtitle}
             </Text>
           </Box>
@@ -51,7 +69,7 @@ export const HeroBlock = ({ block, category, id, i }) => {
               layout={"fill"}
               objectFit="cover"
               rounded={"1.5rem"}
-              objectPosition={'50% 50%'}
+              objectPosition={"50% 50%"}
               src={block.image}
               alt={block.title}
             />

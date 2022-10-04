@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { bgColor, category, categoryHref, textColor } from "../Theme";
+import { motion } from "framer-motion";
 
 const Img = chakra(Image, {
   shouldForwardProp: (prop) =>
@@ -20,7 +21,19 @@ const Img = chakra(Image, {
 
 export const FeaturedPostBlock = ({ block, posts, id, i }) => {
   return (
-    <Box mt={"3rem"} mb={"3rem"}>
+    <Box
+      mt={"3rem"}
+      mb={"3rem"}
+      as={motion.div}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      transition={{ duration: 0.3 }}
+      variants={{
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: 50 },
+      }}
+    >
       <Box>
         <Button
           p={"2rem"}
@@ -59,7 +72,7 @@ export const FeaturedPostBlock = ({ block, posts, id, i }) => {
                             height={"100%"}
                             layout={"responsive"}
                             objectFit="cover"
-                            objectPosition={'50% 50%'}
+                            objectPosition={"50% 50%"}
                             src={post.node.image}
                             alt={post.node.title}
                           />

@@ -17,6 +17,7 @@ import {
   categoryHref,
   textColor,
 } from "../../components/Theme";
+import { motion } from "framer-motion";
 
 export const RichtextBlock = ({ block, category, id, i }) => {
   const components = {
@@ -154,7 +155,19 @@ export const RichtextBlock = ({ block, category, id, i }) => {
   };
 
   return (
-    <Box pt={"2rem"} pb={"2rem"}>
+    <Box
+      pt={"2rem"}
+      pb={"2rem"}
+      as={motion.div}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      transition={{ duration: 0.3 }}
+      variants={{
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: 50 },
+      }}
+    >
       <Grid
         templateColumns={"repeat(6, 1fr)"}
         autoRows={"auto"}

@@ -5,11 +5,23 @@ import {
   categoryHref,
   textColor,
 } from "../../components/Theme";
-import { Layout } from "../Layout";
+import { motion } from "framer-motion";
 
 export const QuoteBlock = ({ block, category, id, i }) => {
   return (
-    <Box mt={"2rem"} mb={"2rem"}>
+    <Box
+      mt={"2rem"}
+      mb={"2rem"}
+      as={motion.div}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      transition={{ duration: 0.3 }}
+      variants={{
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: 50 },
+      }}
+    >
       <Grid
         bg={bgColor(category)}
         p={"2rem"}

@@ -1,8 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
-import { useEffect } from "react";
 import { chakra, Box, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
-import { bgColor, category, categoryHref, textColor } from "../Theme";
+import { bgColor, textColor, animationDuration, animationHidden, animationVisible  } from "../Theme";
 import { motion } from "framer-motion";
 
 const Img = chakra(Image, {
@@ -19,10 +17,10 @@ export const HeroBlock = ({ block, category, id, i }) => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: animationDuration }}
       variants={{
-        visible: { opacity: 1, y: 0 },
-        hidden: { opacity: 0, y: 50 },
+        visible: animationVisible,
+        hidden: animationHidden,
       }}
     >
       <Grid

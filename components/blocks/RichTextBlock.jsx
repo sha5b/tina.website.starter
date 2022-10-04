@@ -13,9 +13,10 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   bgColor,
-  category,
-  categoryHref,
   textColor,
+  animationDuration,
+  animationHidden,
+  animationVisible,
 } from "../../components/Theme";
 import { motion } from "framer-motion";
 
@@ -162,10 +163,10 @@ export const RichtextBlock = ({ block, category, id, i }) => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: animationDuration }}
       variants={{
-        visible: { opacity: 1, y: 0 },
-        hidden: { opacity: 0, y: 50 },
+        visible: animationVisible,
+        hidden: animationHidden,
       }}
     >
       <Grid

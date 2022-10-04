@@ -1,14 +1,12 @@
 import Image from "next/image";
 import {
-  Grid,
-  GridItem,
   Heading,
-  Text,
   Box,
   Flex,
   chakra,
   Divider,
 } from "@chakra-ui/react";
+import { animationDuration, animationHidden, animationVisible  } from "../Theme";
 import { motion } from "framer-motion";
 
 const Img = chakra(Image, {
@@ -25,10 +23,10 @@ export const LogoBlock = ({ block, id, i }) => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: animationDuration }}
       variants={{
-        visible: { opacity: 1, y: 0 },
-        hidden: { opacity: 0, y: 50 },
+        visible: animationVisible,
+        hidden: animationHidden,
       }}
     >
       <Heading textAlign={"center"} fontSize="3xl" pb={"1.5rem"}>

@@ -1,15 +1,12 @@
 import Link from "next/link";
 import {
-  Grid,
-  GridItem,
   Box,
   Flex,
   Heading,
   Text,
   Button,
 } from "@chakra-ui/react";
-import { bgColor, textColor } from "../Theme";
-
+import { bgColor, textColor, animationDuration, animationHidden, animationVisible } from "../Theme";
 import { motion } from "framer-motion";
 
 export const CallToActionBlock = ({ block, category, id, i }) => {
@@ -19,10 +16,10 @@ export const CallToActionBlock = ({ block, category, id, i }) => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: animationDuration }}
       variants={{
-        visible: { opacity: 1, y: 0},
-        hidden: { opacity: 0, y: 50},
+        visible: animationVisible,
+        hidden: animationHidden,
       }}
       pt={"3rem"}
       pb={"3rem"}

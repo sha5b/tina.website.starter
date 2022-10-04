@@ -1,5 +1,10 @@
 import { extendTheme } from "@chakra-ui/react";
 
+
+export const animationDuration = 0.5
+export const animationVisible = { opacity: 1, y: 0}
+export const animationHidden =  { opacity: 0, y: 50}
+
 export const category = [
   "Geo Tech",
   "Data Sience",

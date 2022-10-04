@@ -1,26 +1,19 @@
 import Link from "next/link";
-import { useState } from "react";
 import Image from "next/image";
-import { useTina } from "tinacms/dist/edit-state";
 import Logo from "../../public/Telesis_Logo_black_negativ_space.svg";
-import { motion, useScroll } from "framer-motion";
 import {
-  useDisclosure,
   Button,
   Box,
   Flex,
   chakra,
-  Heading,
   Text,
   HStack,
   Accordion,
   AccordionItem,
   AccordionButton,
   AccordionPanel,
-  AccordionIcon,
-  Divider,
 } from "@chakra-ui/react";
-import { bgColor, category, categoryHref, textColor } from "../Theme";
+import { bgColor, category, textColor } from "../Theme";
 
 const Img = chakra(Image, {
   shouldForwardProp: (prop) =>

@@ -7,7 +7,7 @@ import { Footer } from "./elements/Footer";
 export const Layout = (props) => {
   return (
     <Box>
-      <Box p={"5rem"}>
+      <Box p={"5rem"} pl={'10rem'} pr={'10rem'}>
         <Head>
           <title>Telesis</title>
           <meta

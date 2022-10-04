@@ -1,30 +1,19 @@
 import Link from "next/link";
-import { useState } from "react";
 import Image from "next/image";
-import { useTina } from "tinacms/dist/edit-state";
 import Logo from "../../public/Telesis_Logo_black_negativ_space.svg";
-import { motion, useScroll } from "framer-motion";
+import { useScroll } from "framer-motion";
 import {
-  useDisclosure,
-  Button,
   Box,
   Flex,
   chakra,
   Heading,
   Text,
-  HStack,
-  VStack,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
   Divider,
   Spacer,
   List,
   ListItem,
 } from "@chakra-ui/react";
-import { bgColor, category, categoryHref, textColor } from "../Theme";
+import { bgColor, textColor } from "../Theme";
 
 const Img = chakra(Image, {
   shouldForwardProp: (prop) =>
@@ -32,18 +21,6 @@ const Img = chakra(Image, {
 });
 
 export const Footer = (props) => {
-  const allTags = props.props.data.postConnection?.edges.map((node) => {
-    return node.node.tags;
-  });
-
-  const mergedTags = [].concat.apply([], allTags);
-
-  const uniqueTags = [...new Set(mergedTags)];
-
-  const bg = bgColor(props.props.data.post?.category);
-  const textcol = textColor(props.props.data.post?.category);
-
-  const { scrollYProgress } = useScroll();
 
   return (
     <Box top={0} zIndex={10} pt={'5rem'}>

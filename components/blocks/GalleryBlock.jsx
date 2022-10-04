@@ -40,6 +40,7 @@ export const GalleryBlock = ({ block, category, id, i }) => {
               visible: animationVisible,
               hidden: animationHidden,
             }}
+
           >
             {item.image && (
               <Box

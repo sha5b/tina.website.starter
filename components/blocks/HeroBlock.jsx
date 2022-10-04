@@ -1,6 +1,12 @@
 import Image from "next/image";
 import { chakra, Box, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
-import { bgColor, textColor, animationDuration, animationHidden, animationVisible  } from "../Theme";
+import {
+  bgColor,
+  textColor,
+  animationDuration,
+  animationHidden,
+  animationVisible,
+} from "../Theme";
 import { motion } from "framer-motion";
 
 const Img = chakra(Image, {
@@ -38,7 +44,7 @@ export const HeroBlock = ({ block, category, id, i }) => {
           rowSpan={block.position?.text.height}
           pos={"relative"}
         >
-          <Box p={"1.5rem"}>
+          <Box p={"1.5rem"} textAlign={'center'}>
             <Heading color={textColor(category)} fontSize={"4xl"}>
               {block.title}
             </Heading>

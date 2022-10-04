@@ -199,7 +199,7 @@ export default function Home(props) {
               case "PageBlocksGallery":
                 return (
                   <>
-                    <GalleryBlock i={i} block={block} />
+                    <GalleryBlock category={data.page?.category} i={i} block={block} />
                   </>
                 );
               case "PageBlocksFact":

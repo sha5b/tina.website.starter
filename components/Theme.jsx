@@ -1,9 +1,9 @@
 import { extendTheme } from "@chakra-ui/react";
 
 
-export const animationDuration = 0.5
+export const animationDuration = 1.5
 export const animationVisible = { opacity: 1, y: 0}
-export const animationHidden =  { opacity: 0, y: 50}
+export const animationHidden =  { opacity: 1, y: 100}
 
 export const category = [
   "Geo Tech",
@@ -104,7 +104,7 @@ export const Theme = extendTheme({
     },
   },
   fonts: {
-    body: "DejaVu Mono, monospace",
+    body: "Nunito, sans-serif",
     heading: "Space Grotesk, sans-serif",
     mono: "DejaVu Mono, monospace",
   },

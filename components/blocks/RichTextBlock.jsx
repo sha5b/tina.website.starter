@@ -26,7 +26,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
       <Heading
         as="h1"
         color={bgColor(category)}
-        fontSize="5xl"
+        fontSize="7xl"
         pb={"0.75rem"}
         {...props}
       />
@@ -35,7 +35,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
       <Heading
         as="h2"
         color={bgColor(category)}
-        fontSize="4xl"
+        fontSize="6xl"
         pb={"0.75rem"}
         {...props}
       />
@@ -44,7 +44,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
       <Heading
         as="h3"
         color={bgColor(category)}
-        fontSize="3xl"
+        fontSize="5xl"
         pb={"0.75rem"}
         {...props}
       />
@@ -53,7 +53,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
       <Heading
         as="h4"
         color={bgColor(category)}
-        fontSize="2xl"
+        fontSize="4xl"
         pb={"0.75rem"}
         {...props}
       />
@@ -62,7 +62,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
       <Heading
         as="h5"
         color={bgColor(category)}
-        fontSize="xl"
+        fontSize="3xl"
         pb={"0.75rem"}
         {...props}
       />
@@ -71,14 +71,14 @@ export const RichtextBlock = ({ block, category, id, i }) => {
       <Heading
         as="h6"
         color={bgColor(category)}
-        fontSize="lg"
+        fontSize="2xl"
         pb={"0.75rem"}
         {...props}
       />
     ),
-    li: (props) => <Box as="li" fontSize="lg" py={2} px={4} {...props} />,
-    ul: (props) => <Box as="ul" fontSize="lg" py={2} px={4} {...props} />,
-    ol: (props) => <Box as="ol" fontSize="lg" py={2} px={4} {...props} />,
+    li: (props) => <Box as="li" fontSize="2xl" py={2} px={4} {...props} />,
+    ul: (props) => <Box as="ul" fontSize="2xl" py={2} px={4} {...props} />,
+    ol: (props) => <Box as="ol" fontSize="2xl" py={2} px={4} {...props} />,
     a: (props) => {
       return <Link href={props.href}>{props.children}</Link>;
     },
@@ -96,7 +96,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
       return (
         <Box>
           <Text
-            fontSize="xl"
+            fontSize="2xl"
             textAlign={"left"}
             {...props}
             pt={"0.5rem"}

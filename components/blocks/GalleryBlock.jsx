@@ -20,10 +20,10 @@ export const GalleryBlock = ({ block, category, id, i }) => {
     <Grid
       templateColumns={"repeat(6, 1fr)"}
       gap={5}
-      pt={"1.5rem"}
-      pb={"1.5rem"}
       autoRows={"auto"}
       autoColumns={"auto"}
+      pt={'1rem'}
+      pb={'1rem'}
     >
       {block.gallery?.map((item, i) => {
         return (

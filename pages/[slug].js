@@ -1,23 +1,6 @@
 import { staticRequest } from "tinacms";
 import { Layout } from "../components/Layout";
 import { useTina } from "tinacms/dist/edit-state";
-import {
-  Box,
-  Flex,
-  Heading,
-  Text,
-  chakra,
-  GridItem,
-  Grid,
-} from "@chakra-ui/react";
-import {
-  bgColor,
-  category,
-  categoryHref,
-  textColor,
-} from "../components/Theme";
-import Link from "next/link";
-import Image from "next/image";
 
 // Block Import
 import { HeroBlock } from "../components/blocks/HeroBlock";
@@ -147,10 +130,6 @@ const query = `query getPage($relativePath: String!) {
   }
 }`;
 
-const Img = chakra(Image, {
-  shouldForwardProp: (prop) =>
-    ["width", "height", "src", "alt", "layout"].includes(prop),
-});
 
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode

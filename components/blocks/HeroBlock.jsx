@@ -17,7 +17,10 @@ const Img = chakra(Image, {
 export const HeroBlock = ({ block, category, id, i }) => {
   return (
     <Box
-      pt={"2rem"}
+      bg={bgColor(category)}
+      mt={'1.5rem'}
+      mb={'1.5rem'}
+      p={"1.5rem"}
       key={id + i}
       as={motion.div}
       initial="hidden"
@@ -44,7 +47,7 @@ export const HeroBlock = ({ block, category, id, i }) => {
           rowSpan={block.position?.text.height}
           pos={"relative"}
         >
-          <Box p={"1.5rem"} textAlign={'center'}>
+          <Box p={"1.5rem"} textAlign={"center"}>
             <Heading color={textColor(category)} fontSize={"4xl"}>
               {block.title}
             </Heading>

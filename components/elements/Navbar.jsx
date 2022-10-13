@@ -11,14 +11,15 @@ import {
   Accordion,
   AccordionItem,
   AccordionButton,
-  AccordionPanel,
+  AccordionPanel
 } from "@chakra-ui/react";
 import { bgColor, category, textColor } from "../Theme";
 
 const Img = chakra(Image, {
   shouldForwardProp: (prop) =>
-    ["width", "height", "src", "alt", "layout", "fill"].includes(prop),
+    ["width", "height", "src", "alt", "layout", "fill"].includes(prop)
 });
+
 
 export const Navbar = (props) => {
   const allTags = props.props.data.postConnection?.edges.map((node) => {
@@ -82,7 +83,7 @@ export const Navbar = (props) => {
                 <AccordionButton
                   _hover={{
                     color: "blacksuite.100",
-                    bg: "whitecuba.100",
+                    bg: "whitecuba.100"
                   }}
                   w={"150px"}
                   fontWeight={"bold"}
@@ -102,16 +103,16 @@ export const Navbar = (props) => {
                           item === category[0]
                             ? "/geo_tech/"
                             : item === category[1]
-                            ? "/data_science/"
-                            : item === category[2]
-                            ? "/knowledge_management/"
-                            : item === category[3]
-                            ? "/ecosystem_service/"
-                            : item === category[4]
-                            ? "/integral_technical_planning/"
-                            : item === category[5]
-                            ? "/sustainable_cities_and_living_spaces/"
-                            : "/"
+                              ? "/data_science/"
+                              : item === category[2]
+                                ? "/knowledge_management/"
+                                : item === category[3]
+                                  ? "/ecosystem_service/"
+                                  : item === category[4]
+                                    ? "/integral_technical_planning/"
+                                    : item === category[5]
+                                      ? "/sustainable_cities_and_living_spaces/"
+                                      : "/"
                         }
                       >
                         <Button
@@ -136,7 +137,7 @@ export const Navbar = (props) => {
                 <AccordionButton
                   _hover={{
                     color: "blacksuite.100",
-                    bg: "whitecuba.100",
+                    bg: "whitecuba.100"
                   }}
                   w={"100px"}
                   rounded={"none"}
@@ -156,7 +157,7 @@ export const Navbar = (props) => {
                           <AccordionButton
                             _hover={{
                               color: "blacksuite.100",
-                              bg: "whitecuba.100",
+                              bg: "whitecuba.100"
                             }}
                             color={textcol}
                             rounded={"none"}

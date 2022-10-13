@@ -4,14 +4,14 @@ import {
   Box,
   Flex,
   chakra,
-  Divider,
+  Divider
 } from "@chakra-ui/react";
-import { animationDuration, animationHidden, animationVisible  } from "../Theme";
+import { animationDuration, animationHidden, animationVisible } from "../Theme";
 import { motion } from "framer-motion";
 
 const Img = chakra(Image, {
   shouldForwardProp: (prop) =>
-    ["width", "height", "src", "alt", "layout"].includes(prop),
+    ["width", "height", "src", "alt", "layout"].includes(prop)
 });
 
 export const LogoBlock = ({ block, id, i }) => {
@@ -26,7 +26,7 @@ export const LogoBlock = ({ block, id, i }) => {
       transition={{ duration: animationDuration }}
       variants={{
         visible: animationVisible,
-        hidden: animationHidden,
+        hidden: animationHidden
       }}
     >
       <Heading textAlign={"center"} fontSize="3xl" pb={"1.5rem"}>

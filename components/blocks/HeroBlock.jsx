@@ -5,22 +5,20 @@ import {
   textColor,
   animationDuration,
   animationHidden,
-  animationVisible,
+  animationVisible
 } from "../Theme";
 import { motion } from "framer-motion";
 
 const Img = chakra(Image, {
   shouldForwardProp: (prop) =>
-    ["width", "height", "src", "alt", "layout"].includes(prop),
+    ["width", "height", "src", "alt", "layout"].includes(prop)
 });
 
 export const HeroBlock = ({ block, category, id, i }) => {
   return (
     <Box
-      bg={bgColor(category)}
-      mt={'1.5rem'}
-      mb={'1.5rem'}
-      p={"1.5rem"}
+      pt={"1.5rem"}
+      pb={"1.5rem"}
       key={id + i}
       as={motion.div}
       initial="hidden"
@@ -29,7 +27,7 @@ export const HeroBlock = ({ block, category, id, i }) => {
       transition={{ duration: animationDuration }}
       variants={{
         visible: animationVisible,
-        hidden: animationHidden,
+        hidden: animationHidden
       }}
     >
       <Grid

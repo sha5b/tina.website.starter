@@ -4,7 +4,7 @@ import {
   textColor,
   animationDuration,
   animationHidden,
-  animationVisible,
+  animationVisible
 } from "../../components/Theme";
 import { motion } from "framer-motion";
 
@@ -20,7 +20,7 @@ export const QuoteBlock = ({ block, category, id, i }) => {
       transition={{ duration: animationDuration }}
       variants={{
         visible: animationVisible,
-        hidden: animationHidden,
+        hidden: animationHidden
       }}
     >
       <Grid

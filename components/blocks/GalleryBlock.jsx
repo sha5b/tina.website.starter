@@ -2,7 +2,7 @@ import {
   Box,
   Grid,
   GridItem,
-  chakra,
+  chakra
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { useDisclosure } from "@chakra-ui/react";
@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 
 const Img = chakra(Image, {
   shouldForwardProp: (prop) =>
-    ["width", "height", "src", "alt", "layout"].includes(prop),
+    ["width", "height", "src", "alt", "layout"].includes(prop)
 });
 
 export const GalleryBlock = ({ block, category, id, i }) => {
@@ -22,8 +22,8 @@ export const GalleryBlock = ({ block, category, id, i }) => {
       gap={5}
       autoRows={"auto"}
       autoColumns={"auto"}
-      pt={'1rem'}
-      pb={'1rem'}
+      pt={"1rem"}
+      pb={"1rem"}
     >
       {block.gallery?.map((item, i) => {
         return (
@@ -38,7 +38,7 @@ export const GalleryBlock = ({ block, category, id, i }) => {
             transition={{ duration: animationDuration }}
             variants={{
               visible: animationVisible,
-              hidden: animationHidden,
+              hidden: animationHidden
             }}
 
           >

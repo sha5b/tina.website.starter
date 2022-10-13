@@ -4,15 +4,15 @@ import {
   Grid,
   GridItem,
   chakra,
-  Button,
+  Button
 } from "@chakra-ui/react";
 import Link from "next/link";
-import { textColor, animationDuration, animationHidden, animationVisible  } from "../Theme";
+import { textColor, animationDuration, animationHidden, animationVisible } from "../Theme";
 import { motion } from "framer-motion";
 
 const Img = chakra(Image, {
   shouldForwardProp: (prop) =>
-    ["width", "height", "src", "alt", "layout"].includes(prop),
+    ["width", "height", "src", "alt", "layout"].includes(prop)
 });
 
 export const FeaturedPostBlock = ({ block, posts, id, i }) => {
@@ -27,7 +27,7 @@ export const FeaturedPostBlock = ({ block, posts, id, i }) => {
       transition={{ duration: animationDuration }}
       variants={{
         visible: animationVisible,
-        hidden: animationHidden,
+        hidden: animationHidden
       }}
     >
       <Box>

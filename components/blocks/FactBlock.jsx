@@ -1,8 +1,8 @@
 import { Grid, GridItem, Heading, Text, Box } from "@chakra-ui/react";
-import { bgColor, textColor, animationDuration, animationHidden, animationVisible  } from "../Theme";
+import { bgColor, textColor, animationDuration, animationHidden, animationVisible } from "../Theme";
 import { motion } from "framer-motion";
 
-export const FactBlock = ({ block,category, id, i }) => {
+export const FactBlock = ({ block, category, id, i }) => {
   return (
     <Grid
       templateColumns={"repeat(6, 1fr)"}
@@ -18,16 +18,16 @@ export const FactBlock = ({ block,category, id, i }) => {
       transition={{ duration: animationDuration }}
       variants={{
         visible: animationVisible,
-        hidden: animationHidden,
+        hidden: animationHidden
       }}
     >
       {block.fact?.map((item) => {
         return (
-          <GridItem colStart={item?.x} colSpan={item?.width} zIndex={-i} >
+          <GridItem colStart={item?.x} colSpan={item?.width} zIndex={-i}>
             {item && (
-              <Box p={'3rem'} color={bgColor(category)} bg={textColor(category)}>
-                <Heading textAlign={"center"} fontSize="3xl" >{item.headline}</Heading>
-                <Text textAlign={"center"} fontSize="xl" >{item.subheadline}</Text>
+              <Box p={"3rem"} color={bgColor(category)} bg={textColor(category)}>
+                <Heading textAlign={"center"} fontSize="3xl">{item.headline}</Heading>
+                <Text textAlign={"center"} fontSize="xl">{item.subheadline}</Text>
               </Box>
             )}
           </GridItem>

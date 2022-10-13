@@ -6,7 +6,7 @@ const App = ({ Component, pageProps }) => {
   return (
     <ChakraProvider theme={Theme} resetCSS>
       <TinaProvider>
-          <Component {...pageProps} />
+        <Component {...pageProps} />
       </TinaProvider>
     </ChakraProvider>
   );

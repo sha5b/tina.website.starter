@@ -6,7 +6,7 @@ import {
   Heading,
   Text,
   Divider,
-  Button,
+  Button
 } from "@chakra-ui/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import Image from "next/image";
@@ -16,7 +16,7 @@ import {
   textColor,
   animationDuration,
   animationHidden,
-  animationVisible,
+  animationVisible
 } from "../../components/Theme";
 import { motion } from "framer-motion";
 
@@ -108,7 +108,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
     img: (props) => {
       const Img = chakra(Image, {
         shouldForwardProp: (prop) =>
-          ["width", "height", "src", "alt", "layout", "fill"].includes(prop),
+          ["width", "height", "src", "alt", "layout", "fill"].includes(prop)
       });
 
       return (
@@ -152,7 +152,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
           </Link>
         </Box>
       );
-    },
+    }
   };
 
   return (
@@ -166,7 +166,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
       transition={{ duration: animationDuration }}
       variants={{
         visible: animationVisible,
-        hidden: animationHidden,
+        hidden: animationHidden
       }}
     >
       <Grid

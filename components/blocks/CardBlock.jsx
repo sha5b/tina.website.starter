@@ -1,5 +1,5 @@
-import {Divider} from "@chakra-ui/react";
-import Image from 'next/image'
+import { Divider } from "@chakra-ui/react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   Box,
@@ -7,10 +7,10 @@ import {
   GridItem,
   Heading,
   Text,
-  Code,
+  Code
 } from "@chakra-ui/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { bgColor, textColor, animationDuration, animationHidden, animationVisible  } from "../Theme";
+import { bgColor, textColor, animationDuration, animationHidden, animationVisible } from "../Theme";
 import { motion } from "framer-motion";
 
 export const CardBlock = ({ block, id, i }) => {
@@ -128,16 +128,16 @@ export const CardBlock = ({ block, id, i }) => {
           width="100%"
           layout="responsive"
           objectFit="cover"
-          objectPosition={'50% 50%'}
+          objectPosition={"50% 50%"}
           quality="100"
-          rounded='1.5rem'
+          rounded="1.5rem"
           {...props}
         />
       );
     },
     hr: (props) => {
       return <Divider pb={"1.5rem"} {...props} />;
-    },
+    }
   };
   return (
     <Grid
@@ -145,8 +145,8 @@ export const CardBlock = ({ block, id, i }) => {
       gap={5}
       autoRows={"auto"}
       autoColumns={"auto"}
-      mt={'2rem'}
-      mb={'2rem'}
+      mt={"2rem"}
+      mb={"2rem"}
       as={motion.div}
       initial="hidden"
       whileInView="visible"
@@ -154,7 +154,7 @@ export const CardBlock = ({ block, id, i }) => {
       transition={{ duration: animationDuration }}
       variants={{
         visible: animationVisible,
-        hidden: animationHidden,
+        hidden: animationHidden
       }}
     >
       {block.cards?.map((item) => {

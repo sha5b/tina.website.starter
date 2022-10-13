@@ -11,13 +11,13 @@ import {
   chakra,
   Button,
   GridItem,
-  Grid,
+  Grid
 } from "@chakra-ui/react";
 import {
   bgColor,
   category,
   categoryHref,
-  textColor,
+  textColor
 } from "../components/Theme";
 import Link from "next/link";
 import Image from "next/image";
@@ -150,7 +150,7 @@ query FetchQuery{
 
 const Img = chakra(Image, {
   shouldForwardProp: (prop) =>
-    ["width", "height", "src", "alt", "layout"].includes(prop),
+    ["width", "height", "src", "alt", "layout"].includes(prop)
 });
 
 export default function Home(props) {
@@ -158,7 +158,7 @@ export default function Home(props) {
   const { data } = useTina({
     query,
     variables: {},
-    data: props.data,
+    data: props.data
   });
 
   // Variables
@@ -169,63 +169,63 @@ export default function Home(props) {
     <Layout {...props}>
       {data.page
         ? data.page.blocks?.map((block, i) => {
-            switch (block.__typename) {
-              case "PageBlocksHero":
-                return (
-                  <>
-                    <HeroBlock i={i} block={block} />
-                  </>
-                );
-              case "PageBlocksCta":
-                return (
-                  <>
-                    <CallToActionBlock i={i} block={block} />
-                  </>
-                );
-              case "PageBlocksQuote":
-                return (
-                  <>
-                    <QuoteBlock i={i} block={block} />
-                  </>
-                );
-              case "PageBlocksGallery":
-                return (
-                  <>
-                    <GalleryBlock i={i} block={block} />
-                  </>
-                );
-              case "PageBlocksFact":
-                return (
-                  <>
-                    <FactBlock i={i} block={block} />
-                  </>
-                );
-              case "PageBlocksLogos":
-                return (
-                  <>
-                    <LogoBlock i={i} block={block} />
-                  </>
-                );
-              case "PageBlocksFeatured":
-                return (
-                  <>
-                    <FeaturedPostBlock i={i} block={block} posts={posts} />
-                  </>
-                );
-              case "PageBlocksCard":
-                return (
-                  <>
-                    <CardBlock i={i} block={block} />
-                  </>
-                );
-              case "PageBlocksRichtext":
-                return (
-                  <>
-                    <RichtextBlock i={i} block={block} />
-                  </>
-                );
-            }
-          })
+          switch (block.__typename) {
+            case "PageBlocksHero":
+              return (
+                <>
+                  <HeroBlock i={i} block={block} />
+                </>
+              );
+            case "PageBlocksCta":
+              return (
+                <>
+                  <CallToActionBlock i={i} block={block} />
+                </>
+              );
+            case "PageBlocksQuote":
+              return (
+                <>
+                  <QuoteBlock i={i} block={block} />
+                </>
+              );
+            case "PageBlocksGallery":
+              return (
+                <>
+                  <GalleryBlock i={i} block={block} />
+                </>
+              );
+            case "PageBlocksFact":
+              return (
+                <>
+                  <FactBlock i={i} block={block} />
+                </>
+              );
+            case "PageBlocksLogos":
+              return (
+                <>
+                  <LogoBlock i={i} block={block} />
+                </>
+              );
+            case "PageBlocksFeatured":
+              return (
+                <>
+                  <FeaturedPostBlock i={i} block={block} posts={posts} />
+                </>
+              );
+            case "PageBlocksCard":
+              return (
+                <>
+                  <CardBlock i={i} block={block} />
+                </>
+              );
+            case "PageBlocksRichtext":
+              return (
+                <>
+                  <RichtextBlock i={i} block={block} />
+                </>
+              );
+          }
+        })
         : null}
       <Box>
         <Flex wrap={"wrap"}>
@@ -276,7 +276,7 @@ export default function Home(props) {
                             height={"100%"}
                             layout={"responsive"}
                             objectFit="cover"
-                            objectPosition={'50% 50%'}
+                            objectPosition={"50% 50%"}
                             src={node.node.image}
                             alt={node.node.title}
                           />
@@ -300,7 +300,7 @@ export const getStaticProps = async () => {
   try {
     data = await staticRequest({
       query,
-      variables,
+      variables
     });
   } catch {
     // swallow errors related to document creation
@@ -308,9 +308,9 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      data,
+      data
       //myOtherProp: 'some-other-data',
-    },
+    }
   };
 };
 

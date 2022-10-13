@@ -19,13 +19,12 @@ const query = `{
   }`;
 
 
-
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
   const { data } = useTina({
     query,
     variables: props.variables,
-    data: props.data,
+    data: props.data
   });
 
   return (
@@ -40,7 +39,7 @@ export const getStaticProps = async () => {
   try {
     data = await staticRequest({
       query,
-      variables,
+      variables
     });
   } catch {
     // swallow errors related to document creation
@@ -48,8 +47,8 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      data,
+      data
       //myOtherProp: 'some-other-data',
-    },
+    }
   };
 };

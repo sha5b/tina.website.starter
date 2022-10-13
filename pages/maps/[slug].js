@@ -7,7 +7,7 @@ import Map, {
   NavigationControl,
   GeolocateControl,
   FullscreenControl,
-  ScaleControl,
+  ScaleControl
 } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
@@ -42,7 +42,7 @@ export default function Home(props) {
   const { data } = useTina({
     query,
     variables: props.variables,
-    data: props.data,
+    data: props.data
   });
 
   return (
@@ -57,7 +57,7 @@ export default function Home(props) {
               maxZoom: 18,
               minZoom: 7,
               pitch: 25,
-              bearing: 0,
+              bearing: 0
             }}
             doubleClickZoom={false}
             scrollZoom={false}
@@ -89,7 +89,7 @@ export const getStaticPaths = async () => {
           }
         }
       }`,
-    variables: {},
+    variables: {}
   });
   const paths = postsResponse.mapConnection.edges.map((x) => {
     return { params: { slug: x.node._sys.filename } };
@@ -97,19 +97,19 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: "blocking",
+    fallback: "blocking"
   };
 };
 
 export const getStaticProps = async (ctx) => {
   const variables = {
-    relativePath: ctx.params.slug + ".mdx",
+    relativePath: ctx.params.slug + ".mdx"
   };
   let data = {};
   try {
     data = await staticRequest({
       query,
-      variables,
+      variables
     });
   } catch (error) {
     console.log(error);
@@ -119,7 +119,7 @@ export const getStaticProps = async (ctx) => {
   return {
     props: {
       data,
-      variables,
-    },
+      variables
+    }
   };
 };

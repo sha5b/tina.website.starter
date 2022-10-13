@@ -4,7 +4,7 @@ import {
   Flex,
   Heading,
   Text,
-  Button,
+  Button
 } from "@chakra-ui/react";
 import { bgColor, textColor, animationDuration, animationHidden, animationVisible } from "../Theme";
 import { motion } from "framer-motion";
@@ -19,7 +19,7 @@ export const CallToActionBlock = ({ block, category, id, i }) => {
       transition={{ duration: animationDuration }}
       variants={{
         visible: animationVisible,
-        hidden: animationHidden,
+        hidden: animationHidden
       }}
       pt={"3rem"}
       pb={"3rem"}

@@ -136,7 +136,7 @@ export default function Home(props) {
   const { data } = useTina({
     query,
     variables: props.variables,
-    data: props.data,
+    data: props.data
   });
 
   const posts = data.postConnection?.edges;
@@ -144,83 +144,83 @@ export default function Home(props) {
     <Layout {...props}>
       {data.page
         ? data.page.blocks?.map((block, i) => {
-            switch (block.__typename) {
-              case "PageBlocksHero":
-                return (
-                  <>
-                    <HeroBlock
-                      i={i}
-                      block={block}
-                      category={data.page?.category}
-                    />
-                  </>
-                );
-              case "PageBlocksCta":
-                return (
-                  <>
-                    <CallToActionBlock
-                      i={i}
-                      block={block}
-                      category={data.page?.category}
-                    />
-                  </>
-                );
-              case "PageBlocksQuote":
-                return (
-                  <>
-                    <QuoteBlock
-                      i={i}
-                      block={block}
-                      category={data.page?.category}
-                    />
-                  </>
-                );
-              case "PageBlocksGallery":
-                return (
-                  <>
-                    <GalleryBlock category={data.page?.category} i={i} block={block} />
-                  </>
-                );
-              case "PageBlocksFact":
-                return (
-                  <>
-                    <FactBlock
-                      i={i}
-                      block={block}
-                      category={data.page?.category}
-                    />
-                  </>
-                );
-              case "PageBlocksLogos":
-                return (
-                  <>
-                    <LogoBlock i={i} block={block} />
-                  </>
-                );
-              case "PageBlocksFeatured":
-                return (
-                  <>
-                    <FeaturedPostBlock i={i} block={block} posts={posts} />
-                  </>
-                );
-              case "PageBlocksCard":
-                return (
-                  <>
-                    <CardBlock i={i} block={block} />
-                  </>
-                );
-              case "PageBlocksRichtext":
-                return (
-                  <>
-                    <RichtextBlock
-                      i={i}
-                      block={block}
-                      category={data.page?.category}
-                    />
-                  </>
-                );
-            }
-          })
+          switch (block.__typename) {
+            case "PageBlocksHero":
+              return (
+                <>
+                  <HeroBlock
+                    i={i}
+                    block={block}
+                    category={data.page?.category}
+                  />
+                </>
+              );
+            case "PageBlocksCta":
+              return (
+                <>
+                  <CallToActionBlock
+                    i={i}
+                    block={block}
+                    category={data.page?.category}
+                  />
+                </>
+              );
+            case "PageBlocksQuote":
+              return (
+                <>
+                  <QuoteBlock
+                    i={i}
+                    block={block}
+                    category={data.page?.category}
+                  />
+                </>
+              );
+            case "PageBlocksGallery":
+              return (
+                <>
+                  <GalleryBlock category={data.page?.category} i={i} block={block} />
+                </>
+              );
+            case "PageBlocksFact":
+              return (
+                <>
+                  <FactBlock
+                    i={i}
+                    block={block}
+                    category={data.page?.category}
+                  />
+                </>
+              );
+            case "PageBlocksLogos":
+              return (
+                <>
+                  <LogoBlock i={i} block={block} />
+                </>
+              );
+            case "PageBlocksFeatured":
+              return (
+                <>
+                  <FeaturedPostBlock i={i} block={block} posts={posts} />
+                </>
+              );
+            case "PageBlocksCard":
+              return (
+                <>
+                  <CardBlock i={i} block={block} />
+                </>
+              );
+            case "PageBlocksRichtext":
+              return (
+                <>
+                  <RichtextBlock
+                    i={i}
+                    block={block}
+                    category={data.page?.category}
+                  />
+                </>
+              );
+          }
+        })
         : null}
     </Layout>
   );
@@ -239,7 +239,7 @@ export const getStaticPaths = async () => {
           }
         }
       }`,
-    variables: {},
+    variables: {}
   });
   const paths = postsResponse.pageConnection.edges.map((x) => {
     return { params: { slug: x.node._sys.filename } };
@@ -247,19 +247,19 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: "blocking",
+    fallback: "blocking"
   };
 };
 
 export const getStaticProps = async (ctx) => {
   const variables = {
-    relativePath: ctx.params.slug + ".mdx",
+    relativePath: ctx.params.slug + ".mdx"
   };
   let data = {};
   try {
     data = await staticRequest({
       query,
-      variables,
+      variables
     });
   } catch (error) {
     console.log(error);
@@ -269,7 +269,7 @@ export const getStaticProps = async (ctx) => {
   return {
     props: {
       data,
-      variables,
-    },
+      variables
+    }
   };
 };

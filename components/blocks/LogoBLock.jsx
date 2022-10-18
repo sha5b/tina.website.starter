@@ -53,3 +53,53 @@ export const LogoBlock = ({ block, id, i }) => {
 		</Box>
 	);
 };
+
+
+/*
+
+const LogoBlock: TinaTemplate = {
+	name: "logos",
+	label: "Logos",
+	fields: [
+		{
+			name: "headline",
+			label: "Headline",
+			type: "string",
+		},
+		{
+			name: "width",
+			label: "Logo Widths",
+			type: "number",
+		},
+		{
+			name: "logos",
+			label: "Logos",
+			list: true,
+			type: "object",
+			ui: {
+				itemProps: (item) => {
+					return { label: item?.alt };
+				},
+			},
+			fields: [
+				{
+					name: "logo",
+					label: "Single Logo",
+					type: "image",
+				},
+				{
+					name: "alt",
+					label: "Alternative Description",
+					type: "string",
+				},
+				{
+					name: "href",
+					label: "HREF",
+					type: "string",
+				},
+			],
+		},
+	],
+};
+
+*/

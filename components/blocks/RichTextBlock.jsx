@@ -186,3 +186,61 @@ export const RichtextBlock = ({ block, category, id, i }) => {
 		</Box>
 	);
 };
+
+
+/*
+
+const RichtextBlock: TinaTemplate = {
+	label: "Rich Text",
+	name: "richtext",
+	fields: [
+		{
+			name: "textblock",
+			label: "Textblock",
+			type: "object",
+			list: true,
+			ui: {
+				itemProps: (item) => {
+					return { label: item?.title };
+				},
+			},
+			fields: [
+				{
+					name: "x",
+					label: "X Position",
+					type: "number",
+				},
+				{
+					name: "width",
+					label: "Width",
+					type: "number",
+				},
+				{
+					name: "body",
+					label: "Body",
+					type: "rich-text",
+					templates: [
+						{
+							name: "callout",
+							label: "Callout",
+							fields: [
+								{
+									name: "message",
+									label: "Message",
+									type: "string",
+								},
+								{
+									name: "href",
+									label: "href",
+									type: "string",
+								},
+							],
+						},
+					],
+				},
+			],
+		},
+	],
+};
+
+*/

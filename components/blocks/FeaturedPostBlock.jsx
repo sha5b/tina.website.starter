@@ -78,8 +78,29 @@ export const FeaturedPostBlock = ({ block, posts, id, i }) => {
 
 /*
 
-<Text fontSize={"sm"} textAlign={"center"}>
-  {post.node.date}
-</Text>
+const FeaturedPostBlock: TinaTemplate = {
+	label: "Featured Posts",
+	name: "featured",
+	fields: [
+		{
+			name: "category",
+			label: "Category",
+			type: "string",
+			options: category,
+		},
+		{
+			name: "size",
+			label: "Gridsize",
+			type: "number",
+		},
+		{
+			name: "colors",
+			label: "Colors",
+			type: "string",
+			options: colors,
+		},
+	],
+};
+
 
  */

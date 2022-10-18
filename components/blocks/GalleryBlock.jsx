@@ -67,3 +67,53 @@ export const GalleryBlock = ({ block, category, id, i }) => {
 		</Grid>
 	);
 };
+
+/*
+
+
+const GalleryBlock: TinaTemplate = {
+	name: "gallery",
+	label: "Gallery",
+	fields: [
+		{
+			name: "gallery",
+			label: "Images",
+			list: true,
+			type: "object",
+			ui: {
+				itemProps: (item) => {
+					return { label: item?.alt };
+				},
+			},
+			fields: [
+				{
+					name: "image",
+					label: "Single Image",
+					type: "image",
+				},
+				{
+					name: "alt",
+					label: "Alternative Descirption",
+					type: "string",
+				},
+				{
+					name: "x",
+					label: "X Position",
+					type: "number",
+				},
+				{
+					name: "width",
+					label: "Width",
+					type: "number",
+				},
+				{
+					name: "height",
+					label: "Height",
+					type: "number",
+				},
+			],
+		},
+	],
+};
+
+*/

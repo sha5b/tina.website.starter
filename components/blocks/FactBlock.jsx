@@ -46,3 +46,52 @@ export const FactBlock = ({ block, category, id, i }) => {
 		</Grid>
 	);
 };
+
+
+/*
+
+const FactBlock: TinaTemplate = {
+	name: "fact",
+	label: "Facts",
+	fields: [
+		{
+			name: "fact",
+			label: "Facts",
+			list: true,
+			type: "object",
+			ui: {
+				itemProps: (item) => {
+					return { label: item?.headline };
+				},
+			},
+			fields: [
+				{
+					name: "headline",
+					label: "Headline",
+					type: "string",
+				},
+				{
+					name: "subheadline",
+					label: "Subheadline",
+					type: "string",
+					ui: {
+						component: "textarea",
+					},
+				},
+				{
+					name: "x",
+					label: "X Position",
+					type: "number",
+				},
+				{
+					name: "width",
+					label: "Width",
+					type: "number",
+				},
+			],
+		},
+	],
+};
+
+*/
+

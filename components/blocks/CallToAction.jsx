@@ -1,12 +1,6 @@
 import Link from "next/link";
 import { Box, Flex, Heading, Text, Button } from "@chakra-ui/react";
-import {
-	bgColor,
-	textColor,
-	animationDuration,
-	animationHidden,
-	animationVisible,
-} from "../Theme";
+import { bgColor, textColor, animationDuration, animationHidden, animationVisible } from "../Theme";
 import { motion } from "framer-motion";
 
 export const callToActionTemplate = {
@@ -73,27 +67,14 @@ export const CallToAction = ({ block, category, id, i }) => {
 				<Heading textAlign={"center"} color={textColor(category)} fontSize={"5xl"}>
 					{block.title}
 				</Heading>
-				<Text
-					textAlign={"center"}
-					color={textColor(category)}
-					fontSize={"2xl"}
-					pl={"1.5rem"}
-					pr={"1.5rem"}
-				>
+				<Text textAlign={"center"} color={textColor(category)} fontSize={"2xl"} pl={"1.5rem"} pr={"1.5rem"}>
 					{block.subtitle}
 				</Text>
 			</Box>
 			{block.button && (
 				<Box>
 					<Link href={block.button.href ?? " "}>
-						<Button
-							fontSize={"lg"}
-							p={"2rem"}
-							textAlign={"center"}
-							color={bgColor(category)}
-							bg={textColor(category)}
-							rounded={"none"}
-						>
+						<Button fontSize={"lg"} p={"2rem"} textAlign={"center"} color={bgColor(category)} bg={textColor(category)} rounded={"none"}>
 							{block.button.label}
 						</Button>
 					</Link>

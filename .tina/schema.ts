@@ -1,9 +1,6 @@
-import { type } from "os";
 import { defineConfig, defineSchema, TinaTemplate } from "tinacms";
-
 import { callToActionTemplate } from "../components/blocks/CallToAction";
 import { heroTemplate } from "../components/blocks/Hero";
-
 import { category, colors } from "../components/Theme";
 
 const blocks = [
@@ -38,7 +35,7 @@ const schema = defineSchema({
 				},
 				{
 					name: "blocks",
-					label: "Page Block Section",
+					label: "Blocks",
 					type: "object",
 					list: true,
 					templates: blocks,
@@ -65,7 +62,7 @@ const schema = defineSchema({
 				},
 				{
 					type: "string",
-					label: "Description",
+					label: "Short-Description",
 					name: "description",
 					ui: {
 						component: "textarea",
@@ -88,12 +85,12 @@ const schema = defineSchema({
 				},
 				{
 					name: "image",
-					label: "og:image",
+					label: "Thumpnail",
 					type: "image",
 				},
 				{
 					name: "blocks",
-					label: "Post Block Section",
+					label: "Blocks",
 					type: "object",
 					list: true,
 					templates: blocks,

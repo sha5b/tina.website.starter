@@ -9,7 +9,47 @@ import {
 import { bgColor, textColor, animationDuration, animationHidden, animationVisible } from "../Theme";
 import { motion } from "framer-motion";
 
-export const CallToActionBlock = ({ block, category, id, i }) => {
+
+export const callToActionTemplate = {
+  name: "cta",
+  label: "Call to Action", 
+  ui: {
+    itemProps: (item) => {
+      return { label: "CTA // " + item?.title };
+    },
+  },
+  fields: [
+    {
+      name: "title",
+      label: "Title",
+      type: "string",
+    },
+    {
+      name: "subtitle",
+      label: "Subtitle",
+      type: "string",
+    },
+    {
+      name: "button",
+      label: "Button",
+      type: "object",
+      fields: [
+        {
+          name: "label",
+          label: "Label",
+          type: "string",
+        },
+        {
+          name: "href",
+          label: "Href",
+          type: "string",
+        },
+      ],
+    },
+  ],
+};
+
+export const CallToAction = ({ block, category, id, i }) => {
   return (
     <Flex
       as={motion.div}

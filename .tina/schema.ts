@@ -2,203 +2,19 @@ import { type } from "os";
 import {
   defineConfig,
   defineSchema,
-  FieldsBuilder,
   TinaTemplate,
 } from "tinacms";
 
-// Variables
+import { callToActionTemplate } from "../components/blocks/CallToAction";
+import { heroTemplate } from "../components/blocks/Hero";
+
+
+
+
+
+
 import { category, colors } from "../components/Theme";
-// End
 
-// Block Section
-
-const HeroBlock: TinaTemplate = {
-  name: "hero",
-  label: "Hero",
-  ui: {
-    itemProps: (item) => {
-      return { label: "Hero // " + item?.title };
-    },
-  },
-  fields: [
-    {
-      name: "title",
-      label: "Title",
-      type: "string",
-    },
-    {
-      name: "subtitle",
-      label: "Subtitle",
-      type: "string",
-      ui: {
-        component: "textarea",
-      },
-    },
-    {
-      name: "image",
-      label: "Image",
-      type: "image",
-    },
-    {
-      name: "position",
-      label: "Positions",
-      type: "object",
-      fields: [
-        {
-          name: "text",
-          label: "Textposition",
-          type: "object",
-          fields: [
-            {
-              name: "x",
-              label: "X Position",
-              type: "number",
-              ui: {
-                validate: (val) => {
-                  if (val >= 8) {
-                    return "the number must be less then 8";
-                  }
-                },
-              },
-            },
-            {
-              name: "width",
-              label: "Width",
-              type: "number",
-              ui: {
-                validate: (val) => {
-                  if (val >= 8) {
-                    return "the number must be less then 8";
-                  }
-                },
-              },
-            },
-            {
-              name: "y",
-              label: "Y Position",
-              type: "number",
-              ui: {
-                validate: (val) => {
-                  if (val >= 51) {
-                    return "the number must be less then 51";
-                  }
-                },
-              },
-            },
-            {
-              name: "height",
-              label: "Height",
-              type: "number",
-              ui: {
-                validate: (val) => {
-                  if (val >= 51) {
-                    return "the number must be less then 51";
-                  }
-                },
-              },
-            },
-          ],
-        },
-        {
-          name: "image",
-          label: "Imageposition",
-          type: "object",
-          fields: [
-            {
-              name: "x",
-              label: "Start X",
-              type: "number",
-            },
-            {
-              name: "width",
-              label: "Width",
-              type: "number",
-            },
-            {
-              name: "y",
-              label: "Y",
-              type: "number",
-            },
-            {
-              name: "height",
-              label: "Height",
-              type: "number",
-            },
-          ],
-        },
-      ],
-    },
-  ],
-};
-
-const CallToActionBlock: TinaTemplate = {
-  name: "cta",
-  label: "Call to Action",
-  ui: {
-    itemProps: (item) => {
-      return { label: "CTA // " + item?.title };
-    },
-  },
-  fields: [
-    {
-      name: "title",
-      label: "Title",
-      type: "string",
-    },
-    {
-      name: "subtitle",
-      label: "Subtitle",
-      type: "string",
-    },
-    {
-      name: "button",
-      label: "Button",
-      type: "object",
-      fields: [
-        {
-          name: "label",
-          label: "Label",
-          type: "string",
-        },
-        {
-          name: "href",
-          label: "Href",
-          type: "string",
-        },
-      ],
-    },
-  ],
-};
-
-const QuoteBlock: TinaTemplate = {
-  name: "quote",
-  label: "Quote",
-  fields: [
-    {
-      name: "quote",
-      label: "Quote",
-      type: "string",
-      ui: {
-        component: "textarea",
-      },
-    },
-    {
-      name: "author",
-      label: "author",
-      type: "string",
-    },
-    {
-      name: "x",
-      label: "X Position",
-      type: "number",
-    },
-    {
-      name: "width",
-      label: "Width",
-      type: "number",
-    },
-  ],
-};
 
 const GalleryBlock: TinaTemplate = {
   name: "gallery",
@@ -460,18 +276,11 @@ const RichtextBlock: TinaTemplate = {
     },
   ],
 };
-// Block Section End
+
 
 const blocks = [
-  HeroBlock,
-  CallToActionBlock,
-  QuoteBlock,
-  GalleryBlock,
-  FactBlock,
-  LogoBlock,
-  CardBlock,
-  FeaturedPostBlock,
-  RichtextBlock,
+  callToActionTemplate as TinaTemplate,
+  heroTemplate as TinaTemplate,
 ];
 
 const schema = defineSchema({

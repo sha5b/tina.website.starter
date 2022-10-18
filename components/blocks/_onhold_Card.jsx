@@ -13,7 +13,59 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { bgColor, textColor, animationDuration, animationHidden, animationVisible } from "../Theme";
 import { motion } from "framer-motion";
 
-export const CardBlock = ({ block, id, i }) => {
+
+const cardTemplate = {
+  label: "Cards",
+  name: "card",
+  fields: [
+    {
+      name: "cards",
+      label: "Cards",
+      type: "object",
+      list: true,
+      ui: {
+        itemProps: (item) => {
+          return { label: item?.title };
+        },
+      },
+      fields: [
+        {
+          name: "title",
+          label: "Title",
+          type: "string",
+        },
+        {
+          name: "body",
+          label: "Body",
+          type: "rich-text",
+        },
+        {
+          label: "Href",
+          name: "href",
+          type: "string",
+        },
+        {
+          name: "x",
+          label: "X Position",
+          type: "number",
+        },
+        {
+          name: "width",
+          label: "Width",
+          type: "number",
+        },
+        {
+          name: "category",
+          label: "Category",
+          type: "string",
+          options: category,
+        },
+      ],
+    },
+  ],
+};
+
+export const Card= ({ block, id, i }) => {
   const components = {
     h1: (props) => (
       <Heading

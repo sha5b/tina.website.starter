@@ -24,15 +24,9 @@ import Image from "next/image";
 // End
 
 // Block Import
-import { HeroBlock } from "../components/blocks/HeroBlock";
-import { CallToActionBlock } from "../components/blocks/CallToActionBlock";
-import { QuoteBlock } from "../components/blocks/QuoteBlock";
-import { GalleryBlock } from "../components/blocks/GalleryBlock";
-import { FactBlock } from "../components/blocks/FactBlock";
-import { LogoBlock } from "../components/blocks/LogoBLock";
-import { FeaturedPostBlock } from "../components/blocks/FeaturedPostBlock";
-import { CardBlock } from "../components/blocks/CardBlock";
-import { RichtextBlock } from "../components/blocks/RichTextBlock";
+import { Hero } from "../components/blocks/Hero";
+import { CallToAction } from "../components/blocks/CallToAction";
+
 // End
 
 const query = `
@@ -173,55 +167,13 @@ export default function Home(props) {
             case "PageBlocksHero":
               return (
                 <>
-                  <HeroBlock i={i} block={block} />
+                  <Hero i={i} block={block} />
                 </>
               );
             case "PageBlocksCta":
               return (
                 <>
-                  <CallToActionBlock i={i} block={block} />
-                </>
-              );
-            case "PageBlocksQuote":
-              return (
-                <>
-                  <QuoteBlock i={i} block={block} />
-                </>
-              );
-            case "PageBlocksGallery":
-              return (
-                <>
-                  <GalleryBlock i={i} block={block} />
-                </>
-              );
-            case "PageBlocksFact":
-              return (
-                <>
-                  <FactBlock i={i} block={block} />
-                </>
-              );
-            case "PageBlocksLogos":
-              return (
-                <>
-                  <LogoBlock i={i} block={block} />
-                </>
-              );
-            case "PageBlocksFeatured":
-              return (
-                <>
-                  <FeaturedPostBlock i={i} block={block} posts={posts} />
-                </>
-              );
-            case "PageBlocksCard":
-              return (
-                <>
-                  <CardBlock i={i} block={block} />
-                </>
-              );
-            case "PageBlocksRichtext":
-              return (
-                <>
-                  <RichtextBlock i={i} block={block} />
+                  <CallToAction i={i} block={block} />
                 </>
               );
           }
@@ -314,4 +266,47 @@ export const getStaticProps = async () => {
   };
 };
 
-//{fs.writeFileSync('../content/database/Layouts.json', JSON.stringify(users, null, 4))}
+/*
+case "PageBlocksQuote":
+  return (
+    <>
+      <QuoteBlock i={i} block={block} />
+    </>
+  );
+case "PageBlocksGallery":
+  return (
+    <>
+      <GalleryBlock i={i} block={block} />
+    </>
+  );
+case "PageBlocksFact":
+  return (
+    <>
+      <FactBlock i={i} block={block} />
+    </>
+  );
+case "PageBlocksLogos":
+  return (
+    <>
+      <LogoBlock i={i} block={block} />
+    </>
+  );
+case "PageBlocksFeatured":
+  return (
+    <>
+      <FeaturedPostBlock i={i} block={block} posts={posts} />
+    </>
+  );
+case "PageBlocksCard":
+  return (
+    <>
+      <CardBlock i={i} block={block} />
+    </>
+  );
+case "PageBlocksRichtext":
+  return (
+    <>
+      <RichtextBlock i={i} block={block} />
+    </>
+  );
+*/

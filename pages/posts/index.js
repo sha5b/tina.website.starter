@@ -17,46 +17,51 @@ const query = `{
 }`;
 
 export default function Home(props) {
-  // data passes though in production mode and data is updated to the sidebar data in edit-mode
-  const { data } = useTina({
-    query,
-    variables: {},
-    data: props.data,
-  });
-  const postsList = data.postConnection?.edges;
-  return (
-    <Layout {... props}>
-      <iframe src="https://www.youtube.com/embed/Lp6MSGge-sk" title="YouTube video player" height="500px" width="500px"></iframe>
-      <h1>Posts</h1>
-      <div>
-        {postsList?.map((post) => (
-          <div key={post.node.id}>
-            <Link href={`/posts/${post.node._sys.filename}`}>
-              <a>{post.node._sys.filename}</a>
-            </Link>
-          </div>
-        ))}
-      </div>
-    </Layout>
-  );
+	// data passes though in production mode and data is updated to the sidebar data in edit-mode
+	const { data } = useTina({
+		query,
+		variables: {},
+		data: props.data,
+	});
+	const postsList = data.postConnection?.edges;
+	return (
+		<Layout {...props}>
+			<iframe
+				src="https://www.youtube.com/embed/Lp6MSGge-sk"
+				title="YouTube video player"
+				height="500px"
+				width="500px"
+			></iframe>
+			<h1>Posts</h1>
+			<div>
+				{postsList?.map((post) => (
+					<div key={post.node.id}>
+						<Link href={`/posts/${post.node._sys.filename}`}>
+							<a>{post.node._sys.filename}</a>
+						</Link>
+					</div>
+				))}
+			</div>
+		</Layout>
+	);
 }
 
 export const getStaticProps = async () => {
-  let data = {};
-  const variables = {};
-  try {
-    data = await staticRequest({
-      query,
-      variables,
-    });
-  } catch {
-    // swallow errors related to document creation
-  }
+	let data = {};
+	const variables = {};
+	try {
+		data = await staticRequest({
+			query,
+			variables,
+		});
+	} catch {
+		// swallow errors related to document creation
+	}
 
-  return {
-    props: {
-      data,
-      //myOtherProp: 'some-other-data',
-    },
-  };
+	return {
+		props: {
+			data,
+			//myOtherProp: 'some-other-data',
+		},
+	};
 };

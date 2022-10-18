@@ -1,18 +1,81 @@
-import { chakra, Box, Grid, GridItem, Heading, Text, Divider, Button } from "@chakra-ui/react";
+import {
+	chakra,
+	Box,
+	Grid,
+	GridItem,
+	Heading,
+	Text,
+	Divider,
+	Button,
+} from "@chakra-ui/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import Image from "next/image";
 import Link from "next/link";
-import { bgColor, textColor, animationDuration, animationHidden, animationVisible } from "../Theme";
+import {
+	bgColor,
+	textColor,
+	animationDuration,
+	animationHidden,
+	animationVisible,
+} from "../../components/Theme";
 import { motion } from "framer-motion";
 
 export const RichtextBlock = ({ block, category, id, i }) => {
 	const components = {
-		h1: (props) => <Heading as="h1" color={bgColor(category)} fontSize="7xl" pb={"0.75rem"} {...props} />,
-		h2: (props) => <Heading as="h2" color={bgColor(category)} fontSize="6xl" pb={"0.75rem"} {...props} />,
-		h3: (props) => <Heading as="h3" color={bgColor(category)} fontSize="5xl" pb={"0.75rem"} {...props} />,
-		h4: (props) => <Heading as="h4" color={bgColor(category)} fontSize="4xl" pb={"0.75rem"} {...props} />,
-		h5: (props) => <Heading as="h5" color={bgColor(category)} fontSize="3xl" pb={"0.75rem"} {...props} />,
-		h6: (props) => <Heading as="h6" color={bgColor(category)} fontSize="2xl" pb={"0.75rem"} {...props} />,
+		h1: (props) => (
+			<Heading
+				as="h1"
+				color={bgColor(category)}
+				fontSize="7xl"
+				pb={"0.75rem"}
+				{...props}
+			/>
+		),
+		h2: (props) => (
+			<Heading
+				as="h2"
+				color={bgColor(category)}
+				fontSize="6xl"
+				pb={"0.75rem"}
+				{...props}
+			/>
+		),
+		h3: (props) => (
+			<Heading
+				as="h3"
+				color={bgColor(category)}
+				fontSize="5xl"
+				pb={"0.75rem"}
+				{...props}
+			/>
+		),
+		h4: (props) => (
+			<Heading
+				as="h4"
+				color={bgColor(category)}
+				fontSize="4xl"
+				pb={"0.75rem"}
+				{...props}
+			/>
+		),
+		h5: (props) => (
+			<Heading
+				as="h5"
+				color={bgColor(category)}
+				fontSize="3xl"
+				pb={"0.75rem"}
+				{...props}
+			/>
+		),
+		h6: (props) => (
+			<Heading
+				as="h6"
+				color={bgColor(category)}
+				fontSize="2xl"
+				pb={"0.75rem"}
+				{...props}
+			/>
+		),
 		li: (props) => <Box as="li" fontSize="2xl" py={2} px={4} {...props} />,
 		ul: (props) => <Box as="ul" fontSize="2xl" py={2} px={4} {...props} />,
 		ol: (props) => <Box as="ol" fontSize="2xl" py={2} px={4} {...props} />,
@@ -32,13 +95,20 @@ export const RichtextBlock = ({ block, category, id, i }) => {
 		p: (props) => {
 			return (
 				<Box>
-					<Text fontSize="2xl" textAlign={"left"} {...props} pt={"0.5rem"} pb={"0.75rem"} />
+					<Text
+						fontSize="2xl"
+						textAlign={"left"}
+						{...props}
+						pt={"0.5rem"}
+						pb={"0.75rem"}
+					/>
 				</Box>
 			);
 		},
 		img: (props) => {
 			const Img = chakra(Image, {
-				shouldForwardProp: (prop) => ["width", "height", "src", "alt", "layout", "fill"].includes(prop),
+				shouldForwardProp: (prop) =>
+					["width", "height", "src", "alt", "layout", "fill"].includes(prop),
 			});
 
 			return (
@@ -99,7 +169,12 @@ export const RichtextBlock = ({ block, category, id, i }) => {
 				hidden: animationHidden,
 			}}
 		>
-			<Grid templateColumns={"repeat(6, 1fr)"} autoRows={"auto"} autoColumns={"auto"} gap={25}>
+			<Grid
+				templateColumns={"repeat(6, 1fr)"}
+				autoRows={"auto"}
+				autoColumns={"auto"}
+				gap={25}
+			>
 				{block.textblock?.map((textitem) => {
 					return (
 						<GridItem colStart={textitem?.x} colSpan={textitem?.width}>
@@ -111,6 +186,7 @@ export const RichtextBlock = ({ block, category, id, i }) => {
 		</Box>
 	);
 };
+
 
 /*
 

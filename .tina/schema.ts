@@ -3,10 +3,11 @@ import { defineConfig, defineSchema, TinaTemplate } from 'tinacms'
 
 import { callToActionTemplate } from '../components/blocks/CallToAction'
 import { heroTemplate } from '../components/blocks/Hero'
+import { Section, sectionTemplate } from '../components/blocks/Section'
 
 import { category, colors } from '../components/Theme'
 
-const blocks = [heroTemplate as TinaTemplate, callToActionTemplate as TinaTemplate]
+const blocks = [heroTemplate as TinaTemplate, callToActionTemplate as TinaTemplate, sectionTemplate as TinaTemplate]
 
 const schema = defineSchema({
 	config: {
@@ -35,7 +36,7 @@ const schema = defineSchema({
 				},
 				{
 					name: 'blocks',
-					label: 'Page Block Section',
+					label: 'Blocks',
 					type: 'object',
 					list: true,
 					templates: blocks,
@@ -90,7 +91,7 @@ const schema = defineSchema({
 				},
 				{
 					name: 'blocks',
-					label: 'Post Block Section',
+					label: 'Blocks',
 					type: 'object',
 					list: true,
 					templates: blocks,

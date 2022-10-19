@@ -25,20 +25,6 @@ query FetchQuery{
         title
         subtitle
         image
-        position {
-          image {
-            x
-            y
-            width
-            height
-          }
-          text {
-            x
-            y
-            width
-            height
-          }
-        }
       }
     }
   }

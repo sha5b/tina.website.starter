@@ -3,8 +3,8 @@ import { Layout } from "../components/Layout";
 import { useTina } from "tinacms/dist/edit-state";
 
 // Block Import
-import { HeroBlock } from "../components/blocks/HeroBlock";
-import { CallToActionBlock } from "../components/blocks/CallToActionBlock";
+import { Hero } from "../components/blocks/Hero";
+import { CallToAction } from "../components/blocks/CallToAction";
 
 // End
 
@@ -21,20 +21,6 @@ const query = `query getPage($relativePath: String!) {
         title
         subtitle
         image
-        position {
-          image {
-            x
-            y
-            width
-            height
-          }
-          text {
-            x
-            y
-            width
-            height
-          }
-        }
       }
       ... on PageBlocksCta {
         __typename
@@ -81,17 +67,13 @@ export default function Home(props) {
 							case "PageBlocksHero":
 								return (
 									<>
-										<HeroBlock i={i} block={block} category={data.page?.category} />
+										<Hero i={i} block={block} category={data.page?.category} />
 									</>
 								);
 							case "PageBlocksCta":
 								return (
 									<>
-										<CallToActionBlock
-											i={i}
-											block={block}
-											category={data.page?.category}
-										/>
+										<CallToAction i={i} block={block} category={data.page?.category} />
 									</>
 								);
 						}

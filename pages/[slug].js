@@ -1,10 +1,10 @@
-import { staticRequest } from "tinacms";
-import { Layout } from "../components/Layout";
-import { useTina } from "tinacms/dist/edit-state";
+import { staticRequest } from 'tinacms'
+import { Layout } from '../components/Layout'
+import { useTina } from 'tinacms/dist/edit-state'
 
 // Block Import
-import { Hero } from "../components/blocks/Hero";
-import { CallToAction } from "../components/blocks/CallToAction";
+import { Hero } from '../components/blocks/Hero'
+import { CallToAction } from '../components/blocks/CallToAction'
 
 // End
 
@@ -48,7 +48,7 @@ const query = `query getPage($relativePath: String!) {
       }
     }
   }
-}`;
+}`
 
 export default function Home(props) {
 	// data passes though in production mode and data is updated to the sidebar data in edit-mode
@@ -56,31 +56,31 @@ export default function Home(props) {
 		query,
 		variables: props.variables,
 		data: props.data,
-	});
+	})
 
-	const posts = data.postConnection?.edges;
+	const posts = data.postConnection?.edges
 	return (
 		<Layout {...props}>
 			{data.page
 				? data.page.blocks?.map((block, i) => {
 						switch (block.__typename) {
-							case "PageBlocksHero":
+							case 'PageBlocksHero':
 								return (
 									<>
 										<Hero i={i} block={block} category={data.page?.category} />
 									</>
-								);
-							case "PageBlocksCta":
+								)
+							case 'PageBlocksCta':
 								return (
 									<>
 										<CallToAction i={i} block={block} category={data.page?.category} />
 									</>
-								);
+								)
 						}
 				  })
 				: null}
 		</Layout>
-	);
+	)
 }
 
 export const getStaticPaths = async () => {
@@ -97,29 +97,29 @@ export const getStaticPaths = async () => {
         }
       }`,
 		variables: {},
-	});
+	})
 	const paths = postsResponse.pageConnection.edges.map((x) => {
-		return { params: { slug: x.node._sys.filename } };
-	});
+		return { params: { slug: x.node._sys.filename } }
+	})
 
 	return {
 		paths,
-		fallback: "blocking",
-	};
-};
+		fallback: 'blocking',
+	}
+}
 
 export const getStaticProps = async (ctx) => {
 	const variables = {
-		relativePath: ctx.params.slug + ".mdx",
-	};
-	let data = {};
+		relativePath: ctx.params.slug + '.mdx',
+	}
+	let data = {}
 	try {
 		data = await staticRequest({
 			query,
 			variables,
-		});
+		})
 	} catch (error) {
-		console.log(error);
+		console.log(error)
 		// swallow errors related to document creation
 	}
 
@@ -128,8 +128,8 @@ export const getStaticProps = async (ctx) => {
 			data,
 			variables,
 		},
-	};
-};
+	}
+}
 
 /*
 case "PageBlocksQuote":

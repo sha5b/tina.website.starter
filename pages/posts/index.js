@@ -1,7 +1,7 @@
-import { staticRequest } from "tinacms";
-import { Layout } from "../../components/Layout";
-import Link from "next/link";
-import { useTina } from "tinacms/dist/edit-state";
+import { staticRequest } from 'tinacms'
+import { Layout } from '../../components/Layout'
+import Link from 'next/link'
+import { useTina } from 'tinacms/dist/edit-state'
 
 const query = `{
   postConnection {
@@ -14,7 +14,7 @@ const query = `{
       }
     }
   }
-}`;
+}`
 
 export default function Home(props) {
 	// data passes though in production mode and data is updated to the sidebar data in edit-mode
@@ -22,16 +22,15 @@ export default function Home(props) {
 		query,
 		variables: {},
 		data: props.data,
-	});
-	const postsList = data.postConnection?.edges;
+	})
+	const postsList = data.postConnection?.edges
 	return (
 		<Layout {...props}>
 			<iframe
 				src="https://www.youtube.com/embed/Lp6MSGge-sk"
 				title="YouTube video player"
 				height="500px"
-				width="500px"
-			></iframe>
+				width="500px"></iframe>
 			<h1>Posts</h1>
 			<div>
 				{postsList?.map((post) => (
@@ -43,17 +42,17 @@ export default function Home(props) {
 				))}
 			</div>
 		</Layout>
-	);
+	)
 }
 
 export const getStaticProps = async () => {
-	let data = {};
-	const variables = {};
+	let data = {}
+	const variables = {}
 	try {
 		data = await staticRequest({
 			query,
 			variables,
-		});
+		})
 	} catch {
 		// swallow errors related to document creation
 	}
@@ -63,5 +62,5 @@ export const getStaticProps = async () => {
 			data,
 			//myOtherProp: 'some-other-data',
 		},
-	};
-};
+	}
+}

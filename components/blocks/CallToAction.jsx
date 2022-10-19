@@ -1,52 +1,46 @@
-import Link from "next/link";
-import { Box, Flex, Heading, Text, Button } from "@chakra-ui/react";
-import {
-	bgColor,
-	textColor,
-	animationDuration,
-	animationHidden,
-	animationVisible,
-} from "../Theme";
-import { motion } from "framer-motion";
+import Link from 'next/link'
+import { Box, Flex, Heading, Text, Button } from '@chakra-ui/react'
+import { bgColor, textColor, animationDuration, animationHidden, animationVisible } from '../Theme'
+import { motion } from 'framer-motion'
 
 export const callToActionTemplate = {
-	name: "cta",
-	label: "Call to Action",
+	name: 'cta',
+	label: 'Call to Action',
 	ui: {
 		itemProps: (item) => {
-			return { label: "CTA // " + item?.title };
+			return { label: 'CTA // ' + item?.title }
 		},
 	},
 	fields: [
 		{
-			name: "title",
-			label: "Title",
-			type: "string",
+			name: 'title',
+			label: 'Title',
+			type: 'string',
 		},
 		{
-			name: "subtitle",
-			label: "Subtitle",
-			type: "string",
+			name: 'subtitle',
+			label: 'Subtitle',
+			type: 'string',
 		},
 		{
-			name: "button",
-			label: "Button",
-			type: "object",
+			name: 'button',
+			label: 'Button',
+			type: 'object',
 			fields: [
 				{
-					name: "label",
-					label: "Label",
-					type: "string",
+					name: 'label',
+					label: 'Label',
+					type: 'string',
 				},
 				{
-					name: "href",
-					label: "Href",
-					type: "string",
+					name: 'href',
+					label: 'Href',
+					type: 'string',
 				},
 			],
 		},
 	],
-};
+}
 
 export const CallToAction = ({ block, category, id, i }) => {
 	return (
@@ -60,45 +54,42 @@ export const CallToAction = ({ block, category, id, i }) => {
 				visible: animationVisible,
 				hidden: animationHidden,
 			}}
-			pt={"3rem"}
-			pb={"3rem"}
-			mb={"3rem"}
-			mt={"3rem"}
-			direction={"column"}
+			pt={'3rem'}
+			pb={'3rem'}
+			mb={'3rem'}
+			mt={'3rem'}
+			direction={'column'}
 			gap={15}
-			align={"center"}
-			bg={bgColor(category)}
-		>
-			<Box p={"1.5rem"}>
-				<Heading textAlign={"center"} color={textColor(category)} fontSize={"5xl"}>
+			align={'center'}
+			bg={bgColor(category)}>
+			<Box p={'1.5rem'}>
+				<Heading textAlign={'center'} color={textColor(category)} fontSize={'5xl'}>
 					{block.title}
 				</Heading>
 				<Text
-					textAlign={"center"}
+					textAlign={'center'}
 					color={textColor(category)}
-					fontSize={"2xl"}
-					pl={"1.5rem"}
-					pr={"1.5rem"}
-				>
+					fontSize={'2xl'}
+					pl={'1.5rem'}
+					pr={'1.5rem'}>
 					{block.subtitle}
 				</Text>
 			</Box>
 			{block.button && (
 				<Box>
-					<Link href={block.button.href ?? " "}>
+					<Link href={block.button.href ?? ' '}>
 						<Button
-							fontSize={"lg"}
-							p={"2rem"}
-							textAlign={"center"}
+							fontSize={'lg'}
+							p={'2rem'}
+							textAlign={'center'}
 							color={bgColor(category)}
 							bg={textColor(category)}
-							rounded={"none"}
-						>
+							rounded={'none'}>
 							{block.button.label}
 						</Button>
 					</Link>
 				</Box>
 			)}
 		</Flex>
-	);
-};
+	)
+}

@@ -17,7 +17,7 @@ import {
 	animationDuration,
 	animationHidden,
 	animationVisible,
-} from "../../components/Theme";
+} from "../Theme";
 import { motion } from "framer-motion";
 
 export const RichtextBlock = ({ block, category, id, i }) => {

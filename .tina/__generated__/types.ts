@@ -191,19 +191,6 @@ export type CollectionDocumentsArgs = {
 
 export type DocumentNode = Page | Post | Map;
 
-export type PageBlocksCtaButton = {
-  __typename?: 'PageBlocksCtaButton';
-  label?: Maybe<Scalars['String']>;
-  href?: Maybe<Scalars['String']>;
-};
-
-export type PageBlocksCta = {
-  __typename?: 'PageBlocksCta';
-  title?: Maybe<Scalars['String']>;
-  subtitle?: Maybe<Scalars['String']>;
-  button?: Maybe<PageBlocksCtaButton>;
-};
-
 export type PageBlocksHeroPositionText = {
   __typename?: 'PageBlocksHeroPositionText';
   x?: Maybe<Scalars['Float']>;
@@ -234,7 +221,20 @@ export type PageBlocksHero = {
   position?: Maybe<PageBlocksHeroPosition>;
 };
 
-export type PageBlocks = PageBlocksCta | PageBlocksHero;
+export type PageBlocksCtaButton = {
+  __typename?: 'PageBlocksCtaButton';
+  label?: Maybe<Scalars['String']>;
+  href?: Maybe<Scalars['String']>;
+};
+
+export type PageBlocksCta = {
+  __typename?: 'PageBlocksCta';
+  title?: Maybe<Scalars['String']>;
+  subtitle?: Maybe<Scalars['String']>;
+  button?: Maybe<PageBlocksCtaButton>;
+};
+
+export type PageBlocks = PageBlocksHero | PageBlocksCta;
 
 export type Page = Node & Document & {
   __typename?: 'Page';
@@ -250,17 +250,6 @@ export type StringFilter = {
   eq?: InputMaybe<Scalars['String']>;
   exists?: InputMaybe<Scalars['Boolean']>;
   in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type PageBlocksCtaButtonFilter = {
-  label?: InputMaybe<StringFilter>;
-  href?: InputMaybe<StringFilter>;
-};
-
-export type PageBlocksCtaFilter = {
-  title?: InputMaybe<StringFilter>;
-  subtitle?: InputMaybe<StringFilter>;
-  button?: InputMaybe<PageBlocksCtaButtonFilter>;
 };
 
 export type ImageFilter = {
@@ -306,9 +295,20 @@ export type PageBlocksHeroFilter = {
   position?: InputMaybe<PageBlocksHeroPositionFilter>;
 };
 
+export type PageBlocksCtaButtonFilter = {
+  label?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+};
+
+export type PageBlocksCtaFilter = {
+  title?: InputMaybe<StringFilter>;
+  subtitle?: InputMaybe<StringFilter>;
+  button?: InputMaybe<PageBlocksCtaButtonFilter>;
+};
+
 export type PageBlocksFilter = {
-  cta?: InputMaybe<PageBlocksCtaFilter>;
   hero?: InputMaybe<PageBlocksHeroFilter>;
+  cta?: InputMaybe<PageBlocksCtaFilter>;
 };
 
 export type PageFilter = {
@@ -327,19 +327,6 @@ export type PageConnection = Connection & {
   pageInfo: PageInfo;
   totalCount: Scalars['Float'];
   edges?: Maybe<Array<Maybe<PageConnectionEdges>>>;
-};
-
-export type PostBlocksCtaButton = {
-  __typename?: 'PostBlocksCtaButton';
-  label?: Maybe<Scalars['String']>;
-  href?: Maybe<Scalars['String']>;
-};
-
-export type PostBlocksCta = {
-  __typename?: 'PostBlocksCta';
-  title?: Maybe<Scalars['String']>;
-  subtitle?: Maybe<Scalars['String']>;
-  button?: Maybe<PostBlocksCtaButton>;
 };
 
 export type PostBlocksHeroPositionText = {
@@ -372,7 +359,20 @@ export type PostBlocksHero = {
   position?: Maybe<PostBlocksHeroPosition>;
 };
 
-export type PostBlocks = PostBlocksCta | PostBlocksHero;
+export type PostBlocksCtaButton = {
+  __typename?: 'PostBlocksCtaButton';
+  label?: Maybe<Scalars['String']>;
+  href?: Maybe<Scalars['String']>;
+};
+
+export type PostBlocksCta = {
+  __typename?: 'PostBlocksCta';
+  title?: Maybe<Scalars['String']>;
+  subtitle?: Maybe<Scalars['String']>;
+  button?: Maybe<PostBlocksCtaButton>;
+};
+
+export type PostBlocks = PostBlocksHero | PostBlocksCta;
 
 export type Post = Node & Document & {
   __typename?: 'Post';
@@ -394,17 +394,6 @@ export type DatetimeFilter = {
   eq?: InputMaybe<Scalars['String']>;
   exists?: InputMaybe<Scalars['Boolean']>;
   in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type PostBlocksCtaButtonFilter = {
-  label?: InputMaybe<StringFilter>;
-  href?: InputMaybe<StringFilter>;
-};
-
-export type PostBlocksCtaFilter = {
-  title?: InputMaybe<StringFilter>;
-  subtitle?: InputMaybe<StringFilter>;
-  button?: InputMaybe<PostBlocksCtaButtonFilter>;
 };
 
 export type PostBlocksHeroPositionTextFilter = {
@@ -433,9 +422,20 @@ export type PostBlocksHeroFilter = {
   position?: InputMaybe<PostBlocksHeroPositionFilter>;
 };
 
+export type PostBlocksCtaButtonFilter = {
+  label?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+};
+
+export type PostBlocksCtaFilter = {
+  title?: InputMaybe<StringFilter>;
+  subtitle?: InputMaybe<StringFilter>;
+  button?: InputMaybe<PostBlocksCtaButtonFilter>;
+};
+
 export type PostBlocksFilter = {
-  cta?: InputMaybe<PostBlocksCtaFilter>;
   hero?: InputMaybe<PostBlocksHeroFilter>;
+  cta?: InputMaybe<PostBlocksCtaFilter>;
 };
 
 export type PostFilter = {
@@ -577,17 +577,6 @@ export type DocumentMutation = {
   map?: InputMaybe<MapMutation>;
 };
 
-export type PageBlocksCtaButtonMutation = {
-  label?: InputMaybe<Scalars['String']>;
-  href?: InputMaybe<Scalars['String']>;
-};
-
-export type PageBlocksCtaMutation = {
-  title?: InputMaybe<Scalars['String']>;
-  subtitle?: InputMaybe<Scalars['String']>;
-  button?: InputMaybe<PageBlocksCtaButtonMutation>;
-};
-
 export type PageBlocksHeroPositionTextMutation = {
   x?: InputMaybe<Scalars['Float']>;
   width?: InputMaybe<Scalars['Float']>;
@@ -614,25 +603,25 @@ export type PageBlocksHeroMutation = {
   position?: InputMaybe<PageBlocksHeroPositionMutation>;
 };
 
+export type PageBlocksCtaButtonMutation = {
+  label?: InputMaybe<Scalars['String']>;
+  href?: InputMaybe<Scalars['String']>;
+};
+
+export type PageBlocksCtaMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  subtitle?: InputMaybe<Scalars['String']>;
+  button?: InputMaybe<PageBlocksCtaButtonMutation>;
+};
+
 export type PageBlocksMutation = {
-  cta?: InputMaybe<PageBlocksCtaMutation>;
   hero?: InputMaybe<PageBlocksHeroMutation>;
+  cta?: InputMaybe<PageBlocksCtaMutation>;
 };
 
 export type PageMutation = {
   category?: InputMaybe<Scalars['String']>;
   blocks?: InputMaybe<Array<InputMaybe<PageBlocksMutation>>>;
-};
-
-export type PostBlocksCtaButtonMutation = {
-  label?: InputMaybe<Scalars['String']>;
-  href?: InputMaybe<Scalars['String']>;
-};
-
-export type PostBlocksCtaMutation = {
-  title?: InputMaybe<Scalars['String']>;
-  subtitle?: InputMaybe<Scalars['String']>;
-  button?: InputMaybe<PostBlocksCtaButtonMutation>;
 };
 
 export type PostBlocksHeroPositionTextMutation = {
@@ -661,9 +650,20 @@ export type PostBlocksHeroMutation = {
   position?: InputMaybe<PostBlocksHeroPositionMutation>;
 };
 
+export type PostBlocksCtaButtonMutation = {
+  label?: InputMaybe<Scalars['String']>;
+  href?: InputMaybe<Scalars['String']>;
+};
+
+export type PostBlocksCtaMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  subtitle?: InputMaybe<Scalars['String']>;
+  button?: InputMaybe<PostBlocksCtaButtonMutation>;
+};
+
 export type PostBlocksMutation = {
-  cta?: InputMaybe<PostBlocksCtaMutation>;
   hero?: InputMaybe<PostBlocksHeroMutation>;
+  cta?: InputMaybe<PostBlocksCtaMutation>;
 };
 
 export type PostMutation = {
@@ -684,9 +684,9 @@ export type MapMutation = {
   pitch?: InputMaybe<Scalars['Float']>;
 };
 
-export type PagePartsFragment = { __typename?: 'Page', category?: string | null, blocks?: Array<{ __typename: 'PageBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PageBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PageBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null, position?: { __typename: 'PageBlocksHeroPosition', text?: { __typename: 'PageBlocksHeroPositionText', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null, image?: { __typename: 'PageBlocksHeroPositionImage', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null } | null } | null> | null };
+export type PagePartsFragment = { __typename?: 'Page', category?: string | null, blocks?: Array<{ __typename: 'PageBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null, position?: { __typename: 'PageBlocksHeroPosition', text?: { __typename: 'PageBlocksHeroPositionText', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null, image?: { __typename: 'PageBlocksHeroPositionImage', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null } | null } | { __typename: 'PageBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PageBlocksCtaButton', label?: string | null, href?: string | null } | null } | null> | null };
 
-export type PostPartsFragment = { __typename?: 'Post', title?: string | null, date?: string | null, description?: string | null, category?: string | null, tags?: Array<string | null> | null, image?: string | null, blocks?: Array<{ __typename: 'PostBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PostBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PostBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null, position?: { __typename: 'PostBlocksHeroPosition', text?: { __typename: 'PostBlocksHeroPositionText', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null, image?: { __typename: 'PostBlocksHeroPositionImage', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null } | null } | null> | null };
+export type PostPartsFragment = { __typename?: 'Post', title?: string | null, date?: string | null, description?: string | null, category?: string | null, tags?: Array<string | null> | null, image?: string | null, blocks?: Array<{ __typename: 'PostBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null, position?: { __typename: 'PostBlocksHeroPosition', text?: { __typename: 'PostBlocksHeroPositionText', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null, image?: { __typename: 'PostBlocksHeroPositionImage', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null } | null } | { __typename: 'PostBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PostBlocksCtaButton', label?: string | null, href?: string | null } | null } | null> | null };
 
 export type MapPartsFragment = { __typename?: 'Map', date?: string | null, long?: number | null, lat?: number | null, bearing?: number | null, pitch?: number | null };
 
@@ -695,7 +695,7 @@ export type PageQueryVariables = Exact<{
 }>;
 
 
-export type PageQuery = { __typename?: 'Query', page: { __typename?: 'Page', id: string, category?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PageBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PageBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PageBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null, position?: { __typename: 'PageBlocksHeroPosition', text?: { __typename: 'PageBlocksHeroPositionText', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null, image?: { __typename: 'PageBlocksHeroPositionImage', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null } | null } | null> | null } };
+export type PageQuery = { __typename?: 'Query', page: { __typename?: 'Page', id: string, category?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PageBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null, position?: { __typename: 'PageBlocksHeroPosition', text?: { __typename: 'PageBlocksHeroPositionText', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null, image?: { __typename: 'PageBlocksHeroPositionImage', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null } | null } | { __typename: 'PageBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PageBlocksCtaButton', label?: string | null, href?: string | null } | null } | null> | null } };
 
 export type PageConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -707,14 +707,14 @@ export type PageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type PageConnectionQuery = { __typename?: 'Query', pageConnection: { __typename?: 'PageConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PageConnectionEdges', node?: { __typename?: 'Page', id: string, category?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PageBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PageBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PageBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null, position?: { __typename: 'PageBlocksHeroPosition', text?: { __typename: 'PageBlocksHeroPositionText', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null, image?: { __typename: 'PageBlocksHeroPositionImage', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null } | null } | null> | null } | null } | null> | null } };
+export type PageConnectionQuery = { __typename?: 'Query', pageConnection: { __typename?: 'PageConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PageConnectionEdges', node?: { __typename?: 'Page', id: string, category?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PageBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null, position?: { __typename: 'PageBlocksHeroPosition', text?: { __typename: 'PageBlocksHeroPositionText', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null, image?: { __typename: 'PageBlocksHeroPositionImage', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null } | null } | { __typename: 'PageBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PageBlocksCtaButton', label?: string | null, href?: string | null } | null } | null> | null } | null } | null> | null } };
 
 export type PostQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type PostQuery = { __typename?: 'Query', post: { __typename?: 'Post', id: string, title?: string | null, date?: string | null, description?: string | null, category?: string | null, tags?: Array<string | null> | null, image?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PostBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PostBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PostBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null, position?: { __typename: 'PostBlocksHeroPosition', text?: { __typename: 'PostBlocksHeroPositionText', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null, image?: { __typename: 'PostBlocksHeroPositionImage', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null } | null } | null> | null } };
+export type PostQuery = { __typename?: 'Query', post: { __typename?: 'Post', id: string, title?: string | null, date?: string | null, description?: string | null, category?: string | null, tags?: Array<string | null> | null, image?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PostBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null, position?: { __typename: 'PostBlocksHeroPosition', text?: { __typename: 'PostBlocksHeroPositionText', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null, image?: { __typename: 'PostBlocksHeroPositionImage', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null } | null } | { __typename: 'PostBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PostBlocksCtaButton', label?: string | null, href?: string | null } | null } | null> | null } };
 
 export type PostConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -726,7 +726,7 @@ export type PostConnectionQueryVariables = Exact<{
 }>;
 
 
-export type PostConnectionQuery = { __typename?: 'Query', postConnection: { __typename?: 'PostConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PostConnectionEdges', node?: { __typename?: 'Post', id: string, title?: string | null, date?: string | null, description?: string | null, category?: string | null, tags?: Array<string | null> | null, image?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PostBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PostBlocksCtaButton', label?: string | null, href?: string | null } | null } | { __typename: 'PostBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null, position?: { __typename: 'PostBlocksHeroPosition', text?: { __typename: 'PostBlocksHeroPositionText', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null, image?: { __typename: 'PostBlocksHeroPositionImage', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null } | null } | null> | null } | null } | null> | null } };
+export type PostConnectionQuery = { __typename?: 'Query', postConnection: { __typename?: 'PostConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PostConnectionEdges', node?: { __typename?: 'Post', id: string, title?: string | null, date?: string | null, description?: string | null, category?: string | null, tags?: Array<string | null> | null, image?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PostBlocksHero', title?: string | null, subtitle?: string | null, image?: string | null, position?: { __typename: 'PostBlocksHeroPosition', text?: { __typename: 'PostBlocksHeroPositionText', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null, image?: { __typename: 'PostBlocksHeroPositionImage', x?: number | null, width?: number | null, y?: number | null, height?: number | null } | null } | null } | { __typename: 'PostBlocksCta', title?: string | null, subtitle?: string | null, button?: { __typename: 'PostBlocksCtaButton', label?: string | null, href?: string | null } | null } | null> | null } | null } | null> | null } };
 
 export type MapQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -752,15 +752,6 @@ export const PagePartsFragmentDoc = gql`
   category
   blocks {
     __typename
-    ... on PageBlocksCta {
-      title
-      subtitle
-      button {
-        __typename
-        label
-        href
-      }
-    }
     ... on PageBlocksHero {
       title
       subtitle
@@ -783,6 +774,15 @@ export const PagePartsFragmentDoc = gql`
         }
       }
     }
+    ... on PageBlocksCta {
+      title
+      subtitle
+      button {
+        __typename
+        label
+        href
+      }
+    }
   }
 }
     `;
@@ -796,15 +796,6 @@ export const PostPartsFragmentDoc = gql`
   image
   blocks {
     __typename
-    ... on PostBlocksCta {
-      title
-      subtitle
-      button {
-        __typename
-        label
-        href
-      }
-    }
     ... on PostBlocksHero {
       title
       subtitle
@@ -825,6 +816,15 @@ export const PostPartsFragmentDoc = gql`
           y
           height
         }
+      }
+    }
+    ... on PostBlocksCta {
+      title
+      subtitle
+      button {
+        __typename
+        label
+        href
       }
     }
   }

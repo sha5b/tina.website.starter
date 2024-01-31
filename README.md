@@ -1,3 +1,6 @@
+# NOT FINISHED
+Work paused due to TinaCMS beeing annoying
+
 ## Getting Started
 
 First, run the development server:
